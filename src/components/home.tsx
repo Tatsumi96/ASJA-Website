@@ -14,7 +14,7 @@ export default function home() {
                 </button>
             </div>
           </div>
-            <img src={Image} className='fixed top-5 w-screen z-[-10]'/>
+            <img src={Image} className='fixed top-5 w-screen h-screen z-[-10]'/>
         </div>
     </div>
   )
