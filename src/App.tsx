@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import Header from './components/header';
 import Home from './components/home';
+import Home2 from './components/home2';
+import Home3 from './components/home3';
 import './index.css'
 
 
@@ -43,9 +45,8 @@ const App: React.FC = () => {
       <div className='flex-col items-center justify-center'>
         <Header />
         <Home />
-        <div className='flex justify-center items-center w-full h-screen bg-teal-800 text-white z-10'>
-          <h2 className='text-2xl font-bold'>Bienvenue sur le site de l'ASJA University</h2>
-        </div>
+        <Home2 />
+        <Home3/>
       </div>
     </>
   );
