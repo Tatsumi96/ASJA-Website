@@ -11,7 +11,7 @@ export default function header() {
             <button className='px-5 py-4 cursor-pointer font-bold hover:bg-white hover:text-teal-800'>Admission</button>
             <button className='px-5 py-4 cursor-pointer font-bold hover:bg-white hover:text-teal-800'>Filiaire</button>
             <button className='px-5 py-4 cursor-pointer font-bold hover:bg-white hover:text-teal-800'>Contact</button>
-            <div className='px-5 py-2 my-2 ml-3 text-teal-800 font-bold bg-white rounded-full cursor-pointer hover:bg-gray-300'>
+            <div className='px-5 py-2 my-2 ml-3 text-teal-800 font-bold bg-white rounded-full cursor-pointer hover:bg-gray-300 hover:scale-110 duration-300'>
               <a href="">
                 Postuler
               </a>
