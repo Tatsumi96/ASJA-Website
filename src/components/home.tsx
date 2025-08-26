@@ -3,7 +3,7 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 export default function home() {
   return (
     <div>
-      <div className='flex h-screen w-full z-0'>
+      <div className='flex h-150 w-full z-0'>
           <div className='flex absolute justify-center items-center z-10 flex-col w-full h-full'>
             <h1 className='text-4xl font-bold text-white'>Bienvenue à l'ASJA University</h1>
             <p className='text-lg mt-4 text-white text-center'>Qui propose une formation d'excellence aux
