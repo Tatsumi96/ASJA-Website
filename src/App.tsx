@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
-import Header from './components/header';
-import Home from './components/home';
-import Home2 from './components/home2';
-import Home3 from './components/home3';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import Home from './components/home.tsx';
+import LoginPage from './components/login.tsx';
 import './index.css'
 
 
@@ -19,7 +18,7 @@ const App: React.FC = () => {
           timestamp: new Date().toISOString(),
         };
 
-        const response = await fetch('https://votre-api.com/log', {
+        const response = await fetch('https://example.api/log', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -42,12 +41,12 @@ const App: React.FC = () => {
   }, []);
   return (
     <>
-      <div className='flex-col items-center justify-center'>
-        <Header />
-        <Home />
-        <Home2 />
-        <Home3/>
-      </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Login" element={<LoginPage />} />
+      </Routes>
+    </Router>
     </>
   );
 }
