@@ -8,8 +8,12 @@ export default function home2() {
     return (
       <>
           <div className='flex-col justify-center items-center w-screen h-max bg-gray-300 z-10'>
-            <div className='flex pt-20 px-20 pb-0'>
-              <h1 className='mx-5 mt-5 text-teal-800 text-bold text-2xl'>NOS FILIAIRE</h1>
+            <div className='flex-col pt-20 px-20 pb-0'>
+              <h1 className='flex mx-5 mt-5 text-teal-800 text-bold text-2xl'>NOS FILIAIRE</h1>
+              <p className="flex mx-5 text-lg pt-2  ">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
             </div>
             <div className='flex p-20 justify-center items-center '>
               <div className="flex-1/2 hover:scale-110 duration-300 bg-white m-5 z-20  ">

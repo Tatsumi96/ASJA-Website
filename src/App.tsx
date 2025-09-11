@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Header from './components/Navbar/nav';
+import Header from './components/header';
 import Home from './components/home';
 import Home2 from './components/home2';
 import Home3 from './components/home3';
@@ -19,7 +19,7 @@ const App: React.FC = () => {
           timestamp: new Date().toISOString(),
         };
 
-        const response = await fetch('https://votre-api.com/log', {
+        const response = await fetch('https://example.api/log', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -42,12 +42,12 @@ const App: React.FC = () => {
   }, []);
   return (
     <>
-      <div className='flex-col items-center justify-center'>
-        <Header />
-        <Home />
-        <Home2 />
-        <Home3/>
-      </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Login" element={<LoginPage />} />
+      </Routes>
+    </Router>
     </>
   );
 }
