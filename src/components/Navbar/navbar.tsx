@@ -1,11 +1,11 @@
 import ForestIcon from '@mui/icons-material/Forest';
 
-export default function header() {
+export default function Navbar() {
     
   return (
     <div className="flex top-0 fixed w-full shadow-md bg-teal-800 text-white z-50">
         <ForestIcon className='m-4' />
-        <h1 className='py-4'>ASJA University</h1>
+        <a className='py-4'>ASJA University</a>
         <div className='flex fixed justify-center items-center right-10 '>
             <button className='px-5 py-4 cursor-pointer font-bold hover:bg-white hover:text-teal-800'>À propos</button>
             <button className='px-5 py-4 cursor-pointer font-bold hover:bg-white hover:text-teal-800'>Admission</button>

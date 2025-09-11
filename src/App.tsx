@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import Home from './components/home.tsx';
-import LoginPage from './components/login.tsx';
+import LoginPage from './components/login';
+import Home from './components/home';
+
 import './index.css'
-
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 interface LogPayload {
   message: string;
   timestamp: string;
