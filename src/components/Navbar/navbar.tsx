@@ -1,6 +1,6 @@
 import ForestIcon from '@mui/icons-material/Forest';
 
-export default function header() {
+export default function Navbar() {
     
   return (
     <div className="flex top-0 fixed w-full shadow-md bg-teal-800 text-white z-50">

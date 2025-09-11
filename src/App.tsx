@@ -1,11 +1,9 @@
 import { useEffect } from 'react';
-import Header from './components/header';
+import LoginPage from './components/login';
 import Home from './components/home';
-import Home2 from './components/home2';
-import Home3 from './components/home3';
+
 import './index.css'
-
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 interface LogPayload {
   message: string;
   timestamp: string;
