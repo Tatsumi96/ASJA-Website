@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import Home from './components/home.tsx';
-import LoginPage from './components/login.tsx';
+import Home from './components/home.tsx'
+import LoginPage from './page/login.tsx'
 import './index.css'
 
 
