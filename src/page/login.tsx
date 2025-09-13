@@ -3,10 +3,12 @@ import ForestIcon from '@mui/icons-material/Forest';
 export default function login() {
   return (
     <div className="flex justify-center items-center w-full h-screen bg-white">
-        <div className='flex m-2 rounded-full top-3 left-10 fixed'>
+        <a onClick={() => window.location.href = '/'}>
+          <div className='flex m-2 rounded-full top-3 left-10 fixed'>
             <ForestIcon className='my-2 ml-4 mr-2' />
             <h1 className='py-2 pr-4'>ASJA University</h1>
-        </div>
+          </div>
+        </a>
       <div className="flex w-1/2 h-screen flex-col justify-center items-center">
         <div className="p-10 bg-white">
             <h1 className="text-4xl p-5 font-bold text-teal-800">Espace etudiant</h1>
