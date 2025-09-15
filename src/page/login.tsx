@@ -13,13 +13,9 @@ export const LogInSection = () => {
       </a>
       <div className="flex w-1/2 h-screen flex-col justify-center items-center">
         <div className="p-10 bg-white">
-          <h1 className="text-4xl p-5 font-bold text-teal-800">
-            Espace etudiant
-          </h1>
-          <p className="pl-5 pb-5 text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+            <h1 className="text-4xl p-5 font-bold text-teal-800">Espace etudian</h1>
+            <p className="pl-5 pb-5 text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
       <div className="flex w-1/2 h-screen justify-center items-center">

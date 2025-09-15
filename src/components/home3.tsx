@@ -7,7 +7,7 @@ import Image6 from '../assets/Eco.jpg';
 export default function home2() {
     return (
       <>
-          <div className='flex-col justify-center items-center w-screen h-max bg-gray-300 z-10'>
+          <div className='flex-col justify-center text-gray-700 items-center w-screen h-max bg-gray-300 z-10'>
             <div className='flex-col pt-20 px-20 pb-0'>
               <h1 className='flex mx-5 mt-5 text-teal-800 text-bold text-2xl'>NOS FILIAIRE</h1>
               <p className="flex mx-5 text-lg pt-2  ">
