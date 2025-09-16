@@ -1,0 +1,24 @@
+import type { AxiosInstance } from "axios";
+import type { LoginDto } from "./logInDto";
+import { ApiSource } from "@/core/constant";
+
+export abstract class AuthService {
+  abstract logIn(loginData: LoginDto): Promise<void>;
+}
+
+export class AuthServiceImpl implements AuthService {
+  constructor(private api: AxiosInstance) {}
+
+  async logIn(loginData: LoginDto): Promise<void> {
+    try {
+      const response = await this.api.post(
+        `${ApiSource.url}/auth/login`,
+        loginData
+      );
+      if (response.status != 200) throw new Error();
+    } catch (error) {
+      console.error(error);
+      throw new Error();
+    }
+  }
+}
