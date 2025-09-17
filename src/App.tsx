@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./components/home.tsx";
 import "./index.css";
-import { LogInSection } from "./page/login.tsx";
+import { LandingPage } from "./page/landing";
+import { LogInSection } from "./page/login";
 
 interface LogPayload {
   message: string;
@@ -42,7 +42,7 @@ const App: React.FC = () => {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/Login" element={<LogInSection />} />
         </Routes>
       </Router>
