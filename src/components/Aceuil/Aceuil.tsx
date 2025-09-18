@@ -1,6 +1,6 @@
-import Image from '../assets/couverture.jpg';
+import Image from '../../assets/couverture.jpg';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-export default function home() {
+export default function Aceuil() {
   return (
     <div>
       <div className='flex h-150 w-full z-0'>

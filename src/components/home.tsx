@@ -1,16 +1,16 @@
 import Navbar from './Navbar/navbar';
-import Home1 from './home1';
-import Home2 from './home2';
-import Home3 from './home3';
+import Aceuil from './Aceuil/Aceuil';
+import Apropos from './Apropos/apropos';
+import Card from './Feature_Card/Card_filiaire';
 
 export default function home() {
   return (
     <div>
     <Navbar />
     <div className='flex-col items-center justify-center'>
-        <Home1/>
-        <Home2/>
-        <Home3/>
+        <Aceuil/>
+        <Apropos/>
+        <Card/>
     </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import LoginPage from './components/login';
+import LoginPage from './components/Login/login';
 import Home from './components/home';
 
 import './index.css'
