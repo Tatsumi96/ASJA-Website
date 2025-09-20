@@ -11,8 +11,9 @@ export const MissionSection = () => {
             Notre Mission
           </h1>
           <p className="text-lg px-10 pb-10">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
           </p>
         </div>
         <div className="flex-col w-1/2">
