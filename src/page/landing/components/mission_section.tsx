@@ -4,7 +4,7 @@ import Image2 from "@/assets/Lieu_espace/Bibliotheque.jpg";
 export const MissionSection = () => {
   return (
     <>
-      <div className="flex flex-wrap justify-center items-center w-full h-max bg-gray-50 text-gray-800 z-10">
+      <div className="flex flex-wrap justify-center items-center w-full h-screen bg-gray-50 text-gray-800 z-10">
         <div className="flex-col w-1/2 p-20">
           <img src={Image} className="flex-1/2 px-10" />
           <h1 className="flex text-4xl font-bold text-green-700 px-10 py-5">
