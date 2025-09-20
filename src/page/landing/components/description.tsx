@@ -1,4 +1,4 @@
-import backgroundImage from "@/assets/Lieu_espace/vue_aerienne_asja.jpg";
+import backgroundImage from "@/assets/Lieu_espace/asja_couloir.jpg";
 
 export const Description = () => {
   return (
