@@ -20,7 +20,7 @@ export const useDocBloc = () => {
       }
     } else {
       toast.error("Error", {
-        description: "Failed to fetch products",
+        description: "Failed to load document",
       });
     }
   };
