@@ -1,8 +1,17 @@
 import Logo from "@/assets/Logo/asja-logo.png";
+
 import { useAuth } from "./hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export const LogInSection = () => {
   const { logIn, setMatricule, setPassword } = useAuth();
+
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    logIn(navigate);
+  };
+
   return (
     <div className="flex justify-center items-center w-full h-screen bg-white">
       <a onClick={() => (window.location.href = "/")}>
@@ -33,7 +42,7 @@ export const LogInSection = () => {
           <input
             className="flex w-full mb-5 border-gray-300 border-2 focus:ring-0 focus:outline-none rounded-md p-2.5"
             type="number"
-            onChange={(e) => setMatricule(e.target.value)}
+            onChange={(e) => setMatricule(parseInt(e.target.value))}
           />
           <label>Mot de passe</label>
           <input
@@ -43,7 +52,7 @@ export const LogInSection = () => {
           />
           <button
             className="flex w-full justify-center focus:bg-gray-600 hover:bg-gray-600 shadow-lg shadow-gray-400 hover:scale-101 duration-300 rounded-full cursor-pointer bg-gray-900 text-yellow-500 p-3.5"
-            onClick={logIn}
+            onClick={handleLogin}
           >
             se connecter
           </button>

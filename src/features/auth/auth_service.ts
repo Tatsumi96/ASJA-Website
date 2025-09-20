@@ -10,15 +10,10 @@ export class AuthServiceImpl implements AuthService {
   constructor(private api: AxiosInstance) {}
 
   async logIn(loginData: LoginDto): Promise<void> {
-    try {
-      const response = await this.api.post(
-        `${ApiSource.url}/auth/login`,
-        loginData
-      );
-      if (response.status != 200) throw new Error();
-    } catch (error) {
-      console.error(error);
-      throw new Error();
-    }
+    const response = await this.api.post(
+      `${ApiSource.url}/auth/login`,
+      loginData
+    );
+    if (response.status != 200) throw new Error();
   }
 }
