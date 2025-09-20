@@ -33,7 +33,7 @@ export const Description = () => {
         className="flex flex-col justify-center items-center pl-10 w-1/2 bg-gray-200 rounded-l-full"
       >
         <img
-          className="h-full w-max rounded-l-full "
+          className="h-full w-max rounded-l-full object-cover"
           src={backgroundImage}
           alt=""
         />
