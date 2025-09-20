@@ -1,7 +1,7 @@
 import backgroundImage from "@/assets/Lieu_espace/asja_couloir.jpg";
 export const Description = () => {
   return (
-    <section className="flex h-screen w-screen flex-row z-0">
+    <section className="flex h-screen w-full flex-row z-0">
       <div className="flex flex-col justify-center p-10 w-1/2 bg-white">
         <h1 className="text-6xl text-green-700 mb-10" >Athénée Saint Joseph Antsirabe</h1>
         <p className="text-2xl">Qui propose une formation d'excellence aux étudiants désireux de devenir 
