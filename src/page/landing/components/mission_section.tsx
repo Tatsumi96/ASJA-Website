@@ -1,11 +1,5 @@
 import Image from "@/assets/Asja1.jpg";
 import Image2 from "@/assets/Asja2.jpg";
-
-import FitbitIcon from "@mui/icons-material/Fitbit";
-import PinIcon from "@mui/icons-material/Pin";
-import Face2Icon from "@mui/icons-material/Face2";
-import AnchorIcon from "@mui/icons-material/Anchor";
-
 export const MissionSection = () => {
   return (
     <>
@@ -31,20 +25,6 @@ export const MissionSection = () => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <img src={Image2} alt="" className="flex-1/2 p-10" />
-        </div>
-        <div className="flex m-5 w-full pb-15 px-15 justify-center text-gray-900 font-bold items-center">
-          <p className="mx-20">
-            <FitbitIcon /> logo impsum
-          </p>
-          <p className="mx-20">
-            <PinIcon /> logo impsum
-          </p>
-          <p className="mx-20">
-            <Face2Icon /> logo impsum
-          </p>
-          <p className="mx-20">
-            <AnchorIcon /> logo impsum
-          </p>
         </div>
       </div>
     </>
