@@ -11,13 +11,7 @@ export const columns: ColumnDef<DocEntity>[] = [
     cell: ({ row }) => (
       <div className=" flex gap-2 pl-2">
         <Files className=" text-green-600" />
-        <p
-          className="font-semibold"
-          href={`http://localhost:3000/doc/stream/${row.getValue("fileName")}`}
-          download="test.pdf"
-        >
-          {row.getValue("lessonTitle")}
-        </p>
+        <p className="font-semibold">{row.getValue("lessonTitle")}</p>
       </div>
     ),
   },
