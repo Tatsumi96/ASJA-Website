@@ -1,17 +1,22 @@
-import { logUseCase } from "@/injection";
+import { authRepository } from "@/injection";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export const useAuth = () => {
-  const [matricule, setMatricule] = useState<string>("");
+  const [matricule, setMatricule] = useState<number>();
   const [password, setPassword] = useState<string>("");
 
-  const logIn = async () => {
-    const result = await logUseCase.execute({
-      identifier: matricule,
+  const logIn = async (navigate: (path: string) => void) => {
+    const result = await authRepository.logIn({
+      identifier: matricule as number,
       password,
+      role: "Student",
     });
-    if (result.status == "failure") return console.log("not logged in");
-    return console.log("logged in");
+    if (result.status == "failure")
+      return toast.error("Erreur", {
+        description: "Matricule ou Mot de passe incorrect",
+      });
+    navigate("/studentSpace");
   };
 
   return { setMatricule, setPassword, logIn };

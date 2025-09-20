@@ -1,11 +1,14 @@
 import { useStudentPortalContext } from "../bloc/useStudentSpaceContext";
 
 export const StatisSection = () => {
-  const { docList } = useStudentPortalContext();
+  const { userName } = useStudentPortalContext();
   return (
     <div className="pt-25 flex w-full justify-between px-10">
       <div className="">
-        <p className=" font-semibold text-3xl pb-2"> Bienvenue, Dera 👋</p>
+        <p className=" font-semibold text-3xl pb-2">
+          {" "}
+          Bienvenue, {userName} 👋
+        </p>
         <p className="text-gray-500 text-lg">
           {" "}
           Reste concentré, continue d'apprendre

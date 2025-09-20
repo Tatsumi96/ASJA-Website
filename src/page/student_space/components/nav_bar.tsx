@@ -23,8 +23,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useStudentPortalContext } from "../bloc/useStudentSpaceContext";
 
 export const NavBar = () => {
+  const { userName } = useStudentPortalContext();
   return (
     <div className="flex justify-between top-0 fixed w-full text-gray-800 z-50">
       <a
@@ -38,22 +40,22 @@ export const NavBar = () => {
         <NavigationMenuSection />
       </div>
       <div className="flex justify-center items-center mr-5 ">
-        <DropButton />
+        <DropButton name={userName} />
       </div>
     </div>
   );
 };
 
-const DropButton = () => {
+const DropButton = ({ name }: { name: string }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <div className=" cursor-pointer flex bg-white rounded-2xl px-5 py-2 w-full justify-between gap-2 items-center">
           {" "}
           <Avatar className=" size-11">
-            <AvatarFallback>D</AvatarFallback>
+            <AvatarFallback>{name[0]}</AvatarFallback>
           </Avatar>
-          <p> Derandrainy</p>
+          <p> {name}</p>
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">

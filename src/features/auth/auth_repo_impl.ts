@@ -8,7 +8,7 @@ export class AuthRepositoryImpl implements AuthRepository {
 
   async logIn(loginData: LoginDto): Promise<Result<void>> {
     try {
-      this.service.logIn(loginData);
+      await this.service.logIn(loginData);
       return success(undefined);
     } catch (error) {
       console.error(error);
