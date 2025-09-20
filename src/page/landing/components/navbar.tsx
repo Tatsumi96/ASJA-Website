@@ -12,7 +12,7 @@ export const Navbar = () => {
       >
         <img className="m-4 w-10 h-10" src={Logo} />
         <h1 className="py-4 mt-2 text-md text-gray-900 font-bold">
-          ASJA University
+          Université ASJA
         </h1>
       </a>
       <div className="flex fixed justify-center items-center right-10 ">
