@@ -32,7 +32,7 @@ export const NavBar = () => {
         onClick={() => (window.location.href = "/")}
       >
         <img className="m-2 w-14 h-14" src={Logo} />
-        <h1 className="py-5 mt-1 text-gray-900">ASJA University</h1>
+        <h1 className="py-5 mt-1 text-gray-900">Université ASJA</h1>
       </a>
       <div className=" flex items-center ">
         <NavigationMenuSection />
