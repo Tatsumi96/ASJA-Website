@@ -1,4 +1,4 @@
-import Logo from "@/assets/Logo/asja-logo.jpg";
+import Logo from "@/assets/Logo/asja-logo.png";
 import { useAuth } from "./hooks/useAuth";
 
 export const LogInSection = () => {
