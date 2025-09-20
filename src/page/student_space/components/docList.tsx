@@ -37,7 +37,7 @@ export const DocDataTable = () => {
           ))}
         </TableHeader>
       </Table>
-      <ScrollArea className="h-100">
+      <ScrollArea className="h-170">
         <Table>
           <TableBody>
             {table.getRowModel().rows?.length ? (
@@ -45,7 +45,7 @@ export const DocDataTable = () => {
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-                  className="hover:bg-transparent"
+                  className="hover:bg-transparent "
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -68,7 +68,7 @@ export const DocDataTable = () => {
               </TableRow>
             )}
             <TableRow>
-              <TableCell colSpan={columns.length} >
+              <TableCell colSpan={columns.length}>
                 <span ref={observerRef}></span>
               </TableCell>
             </TableRow>
