@@ -5,12 +5,14 @@ export const Description = () => {
   return (
     <section className="flex flex-col lg:flex-row lg:h-screen w-full">
       <div className=" md:flex-col lg:hidden md:pt-0 pt-18 fixed -z-10">
+
         <img
           className="h-full w-max object-cover "
           src={backgroundImage}
           alt=""
         />
       </div>
+
       <div className=" hidden lg:flex flex-col justify-center py-10 px-5 lg:w-1/2 bg-white relative top-80 lg:top-0">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
