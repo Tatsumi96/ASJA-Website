@@ -4,4 +4,5 @@ export interface DocEntity {
   lessonTitle: string;
   author: string;
   fileSize: number;
+  fileUrl : string
 }

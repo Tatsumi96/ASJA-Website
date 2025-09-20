@@ -24,7 +24,7 @@ const Item: React.FC<ItemProps> = ({ mention, description, image }) => {
 export const FiliereSection = () => {
   return (
     <>
-      <div className="flex-col justify-center text-gray-100 items-center w-screen h-max bg-gray-900 z-10">
+      <div className="flex-col justify-center text-gray-100 items-center w-full h-max bg-gray-900 z-10">
         <div className="flex-col pt-20 px-20 pb-0">
           <h1 className="flex mx-5 mt-5 text-yellow-600 font-bold text-2xl">
             NOS FILIAIRE
