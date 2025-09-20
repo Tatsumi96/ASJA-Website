@@ -45,7 +45,7 @@ export const DocDataTable = () => {
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-                  className="cursor-pointer"
+                  className="hover:bg-transparent"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
