@@ -7,7 +7,7 @@ export default function home() {
   return (
     <div>
     <Navbar />
-    <div className='flex-col items-center justify-center'>
+    <div className='flex flex-col items-center justify-center bg-white'>
         <Home1/>
         <Home2/>
         <Home3/>
