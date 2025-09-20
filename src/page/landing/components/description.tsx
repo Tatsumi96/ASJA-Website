@@ -3,7 +3,6 @@ import backgroundImage from "@/assets/Lieu_espace/asja_couloir.jpg";
 
 export const Description = () => {
   return (
-
     <section className="flex flex-col lg:flex-row lg:h-screen w-full">
       <div className=" md:flex-col lg:hidden md:pt-0 pt-18 fixed -z-10">
         <img
