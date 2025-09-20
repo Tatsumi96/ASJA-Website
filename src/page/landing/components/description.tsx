@@ -11,7 +11,6 @@ export const Description = () => {
           alt=""
         />
       </div>
-
       <div className=" hidden lg:flex flex-col justify-center py-10 px-5 lg:w-1/2 bg-white relative top-80 lg:top-0">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
