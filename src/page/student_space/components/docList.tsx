@@ -16,7 +16,7 @@ export const DocDataTable = () => {
   const { observerRef, table, columns } = useDocTable();
 
   return (
-    <div ref={observerRef} className=" border bg-white rounded-3xl p-4 w-1/2">
+    <div className=" border bg-white rounded-3xl p-4 w-1/2">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -37,7 +37,7 @@ export const DocDataTable = () => {
           ))}
         </TableHeader>
       </Table>
-      <ScrollArea className="h-150">
+      <ScrollArea className="h-100">
         <Table>
           <TableBody>
             {table.getRowModel().rows?.length ? (
@@ -55,7 +55,6 @@ export const DocDataTable = () => {
                       )}
                     </TableCell>
                   ))}
-                  <div></div>
                 </TableRow>
               ))
             ) : (
@@ -68,6 +67,11 @@ export const DocDataTable = () => {
                 </TableCell>
               </TableRow>
             )}
+            <TableRow>
+              <TableCell colSpan={columns.length} >
+                <span ref={observerRef}></span>
+              </TableCell>
+            </TableRow>
           </TableBody>
         </Table>
       </ScrollArea>
