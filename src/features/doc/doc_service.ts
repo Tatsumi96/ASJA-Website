@@ -15,7 +15,6 @@ export class DocServiceImpl implements DocService {
         `${ApiSource.url}/doc?page=${page}&limit=${limit}`
       );
       if (response.status != 200) throw new Error();
-      console.log(response.data);
       return response.data;
     } catch (error) {
       console.error(error);

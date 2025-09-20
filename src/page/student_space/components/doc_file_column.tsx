@@ -40,15 +40,15 @@ export const columns: ColumnDef<DocEntity>[] = [
     ),
   },
   {
-    accessorKey: "fileName",
+    accessorKey: "fileUrl",
     header: () => {},
     enableHiding: false,
     cell: ({ row }) => (
       <div className=" flex gap-2 pr-5">
         <a
           className="font-semibold"
-          href={`http://localhost:3000/doc/stream/${row.getValue("fileName")}`}
-          download="test.pdf"
+          href={row.getValue("fileUrl")}
+          download="doc.pdf"
         >
           <DownloadIcon className=" text-green-600 hover:scale-120 transition-all duration-200" />
         </a>
