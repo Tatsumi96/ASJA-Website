@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import backgroundImage from "@/assets/Lieu_espace/asja_couloir.jpg";
 
 export const Description = () => {
@@ -18,6 +19,9 @@ export const Description = () => {
           </a>
 =======
 import Image from "../../../assets/Lieu_espace/vue_aerienne_asja.jpg"
+=======
+import Image from "../../../assets/Lieu_espace/asja_couloir.jpg"
+>>>>>>> 08df7cf (modif: background image)
 
 export const Description = () => {
   return (
