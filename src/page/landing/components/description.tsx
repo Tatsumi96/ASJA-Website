@@ -1,27 +1,26 @@
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import backgroundImage from "@/assets/Lieu_espace/vue_aerienne_asja.jpg";
 
 export const Description = () => {
   return (
-    <div>
-      <div className="flex h-screen w-full bg-gray-800 z-0">
-        <div className="flex absolute justify-center items-center z-10 flex-col w-full h-full">
-          <h1 className="text-6xl font-bold text-white">
-            Bienvenue à l'ASJA University
-          </h1>          <p className="text-xl m-15 text-white text-center">
-            Qui propose une formation d'excellence aux étudiants désireux de
-            devenir <br />
-            les managers et décideurs de demain.
-          </p>
-          <div className="flex justify-center items-center">
-            <a className="flex items-center justify-start text-gray-900 font-bold bg-white cursor-pointer rounded-full hover:scale-110 duration-300 hover:bg-gray-300 shadow-lg shadow-gray-950">
-              <p className="pl-4 pr-2 my-2">À propos</p>
-              <div className=" flex bg-gray-900 border-2 border-gray-300 text-yellow-500 rounded-full p-2 hover:bg-gray-800">
-                <ArrowRightAltIcon className="m-1" />
-              </div>
-            </a>
-          </div>
-        </div>
+    <section className="flex h-screen w-screen flex-row z-0">
+      <div className="flex flex-col justify-center p-10 w-1/2 bg-white">
+        <h1 className="text-6xl text-green-700 mb-10">
+          Athénée Saint Joseph Antsirabe
+        </h1>
+        <p className="text-2xl">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <button className="bg-green-800 hover:bg-green-900 cursor-pointer hover:scale-105 duration-300 w-1/4 py-4 rounded-full mt-10">
+          <a href="/about" className="text-white font-bold text-lg">
+            En savoir plus →
+          </a>
+        </button>
       </div>
-    </div>
+      <div className="flex flex-col justify-center items-center pl-10 w-1/2 bg-gray-200 rounded-l-full">
+        <div></div>
+        <img className="h-full w-max rounded-l-full " src={backgroundImage} alt="" />
+      </div>
+    </section>
   );
 };
