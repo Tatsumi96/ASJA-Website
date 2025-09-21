@@ -6,7 +6,7 @@ import Image2 from "@/assets/Lieu_espace/Bibliotheque.jpg";
 export const MissionSection = () => {
   return (
     <div className=" lg:flex lg:flex-row  flex flex-col mt-100 lg:mt-0 md:pt-0 justify-center items-center w-full  bg-gray-50 text-gray-800 ">
-      <div className="  lg:hidden flex-col justify-center py-10 px-5 lg:w-1/2 bg-white ">9be0591 (feat : make landing page description and mission section responsive)
+      <div className="  lg:hidden flex-col justify-center py-10 px-5 lg:w-1/2 bg-white ">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
