@@ -4,36 +4,50 @@ import backgroundImage from "@/assets/Lieu_espace/asja_couloir.jpg";
 
 export const Description = () => {
   return (
-    <section className="flex h-screen w-full flex-row z-0">
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="flex flex-col justify-center p-10 w-1/2 bg-white"
-      >
-        <h1 className="text-6xl text-green-700 mb-10">
-          Athénée Saint Joseph Antsirabe
-        </h1>
-        <p className="text-2xl">
-          Qui propose une formation d'excellence aux étudiants désireux de
-          devenir les managers et décideurs de demain.
-        </p>
-        <button className="bg-green-800 hover:bg-green-900 cursor-pointer hover:scale-105 duration-300 w-1/4 py-4 rounded-full mt-10">
-          <a href="/about" className="text-white font-bold text-lg">
-            En savoir plus →
-          </a>
-        </button>
-      </motion.div>
+    <section className="flex flex-col lg:flex-row lg:h-screen w-full">
+      <div className=" md:flex-col lg:hidden md:pt-0 pt-18 fixed -z-10">
+        <img
+          className="h-full w-max object-cover "
+          src={backgroundImage}
+          alt=""
+        />
+      </div>
+
+      <div className=" hidden lg:flex flex-col justify-center py-10 px-5 lg:w-1/2 bg-white relative top-80 lg:top-0">
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          <h1 className="text-4xl lg:text-6xl text-green-700 mb-10 font-semibold">
+            Athénée Saint Joseph Antsirabe
+          </h1>
+          <p className="lg:text-2xl text-xl">
+            Qui propose une formation d'excellence aux étudiants désireux de
+            devenir les managers et décideurs de demain.
+          </p>
+          <div className="flex lg:justify-start justify-center items-center pt-10">
+            <button className="bg-green-800 hover:bg-green-900 cursor-pointer hover:scale-105 duration-300 rounded-full">
+              <a
+                href="/about"
+                className="text-white font-bold lg:text-lg text-sm flex gap-3 justify-center items-center md:px-6 md:py-3 py-2 px-4"
+              >
+                En savoir plus{" "}
+              </a>
+            </button>
+          </div>
+        </motion.div>
+      </div>
       <motion.div
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
-        className="flex flex-col justify-center items-center pl-10 w-1/2 bg-gray-200 rounded-l-full"
+        className="lg:flex md:flex-col justify-center hidden items-center pl-10 w-1/2 bg-gray-200 rounded-l-full"
       >
         <img
-          className="h-full w-max rounded-l-full "
+          className="h-full w-max rounded-l-full object-cover "
           src={backgroundImage}
           alt=""
         />
