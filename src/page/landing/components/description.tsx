@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import backgroundImage from "@/assets/Lieu_espace/asja_couloir.jpg";
 
 export const Description = () => {
