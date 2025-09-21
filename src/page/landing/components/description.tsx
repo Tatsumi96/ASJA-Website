@@ -47,7 +47,7 @@ export const Description = () => {
         className="lg:flex md:flex-col justify-center hidden items-center pl-10 w-1/2 bg-gray-200 rounded-l-full"
       >
         <img
-          className="h-full w-max rounded-l-full object-cover object-cover"
+          className="h-full w-max rounded-l-full object-cover "
           src={backgroundImage}
           alt=""
         />
