@@ -25,6 +25,7 @@ export const FiliereSection = () => {
   return (
     <>
       <div className=" flex-col justify-center text-gray-800 items-center w-full h-max bg-gray-200 z-10">
+
         <div className="flex-col pt-20 px-20 pb-0">
           <h1 className="flex lg:mx-5 lg:mt-5 text-center lg:text-start mx-0 mt-0 text-green-700 font-bold text-4xl">
             NOS FILIAIRE

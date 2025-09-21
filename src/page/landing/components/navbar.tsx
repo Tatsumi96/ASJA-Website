@@ -35,7 +35,6 @@ export const Navbar = () => {
           {open ? <X /> : <MenuIcon />}
         </button>
       </div>
-
       <div className="md:flex  justify-center items-center hidden ">
         <NavLink
           to="/"
@@ -57,7 +56,6 @@ export const Navbar = () => {
         >
           A propos
         </NavLink>
-
         <NavLink
           to="/programmes"
           className={({ isActive }) =>
