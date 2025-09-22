@@ -13,18 +13,18 @@ export const LogInSection = () => {
   };
 
   return (
-    <div className="flex justify-center items-center w-full h-screen bg-white">
+    <div className="flex justify-center items-center w-full text-gray-800 h-screen bg-white">
       <a onClick={() => (window.location.href = "/")}>
         <div className="flex m-2 rounded-full top-3 left-10 fixed">
           <img src={Logo} className="w-13 h-13" />
-          <h1 className="text-gray-900 font-bold ml-4 py-3 pr-4">
+          <h1 className="text-gray-800 font-bold ml-4 py-3 pr-4">
             ASJA University
           </h1>
         </div>
       </a>
       <div className="lg:flex w-1/2 h-screen hidden flex-col justify-center items-center">
         <div className="p-10 bg-white">
-          <h1 className="text-4xl p-5 font-bold text-gray-800">
+          <h1 className="text-4xl p-5 font-bold text-green-700">
             Espace etudiant
           </h1>
           <p className="pl-5 pb-5 text-lg">
@@ -35,7 +35,7 @@ export const LogInSection = () => {
       </div>
       <div className="flex lg:w-1/2 w-full h-screen justify-center items-center">
         <div className="flex-col w-100 justify-center items-center p-10">
-          <h1 className="flex justify-center mb-5 text-2xl font-bold text-gray-800">
+          <h1 className="flex justify-center mb-5 text-2xl font-bold text-green-700">
             Connexion
           </h1>
           <label>Matricule</label>
