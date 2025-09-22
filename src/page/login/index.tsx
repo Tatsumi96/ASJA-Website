@@ -22,7 +22,7 @@ export const LogInSection = () => {
           </h1>
         </div>
       </a>
-      <div className="flex w-1/2 h-screen flex-col justify-center items-center">
+      <div className="lg:flex w-1/2 h-screen hidden flex-col justify-center items-center">
         <div className="p-10 bg-white">
           <h1 className="text-4xl p-5 font-bold text-gray-800">
             Espace etudiant
@@ -33,7 +33,7 @@ export const LogInSection = () => {
           </p>
         </div>
       </div>
-      <div className="flex w-1/2 h-screen justify-center items-center">
+      <div className="flex lg:w-1/2 w-full h-screen justify-center items-center">
         <div className="flex-col w-100 justify-center items-center p-10">
           <h1 className="flex justify-center mb-5 text-2xl font-bold text-gray-800">
             Connexion
@@ -51,18 +51,18 @@ export const LogInSection = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
-            className="flex w-full justify-center focus:bg-gray-600 hover:bg-gray-600 shadow-lg shadow-gray-400 hover:scale-101 duration-300 rounded-full cursor-pointer bg-gray-900 text-yellow-500 p-3.5"
+            className="flex w-full justify-center focus:bg-green-800 hover:bg-green-800 shadow-lg shadow-gray-400 hover:scale-101 duration-300 rounded-full cursor-pointer bg-green-700 text-white p-3.5"
             onClick={handleLogin}
           >
             se connecter
           </button>
           <div className="flex justify-center">
-            <hr className="flex  w-1/2 border-yellow-800 m-5" />
+            <hr className="flex  w-1/2 border-green-700 m-5" />
           </div>
           <div className="flex justify-center text-sm">
             <span className="">Pas encore Etudiant ?</span>
           </div>
-          <a className="flex justify-center cursor-pointer mt-2  text-yellow-800 hover:underline text-md ">
+          <a className="flex justify-center cursor-pointer mt-2  text-green-700 hover:underline text-md ">
             S'inscrire
           </a>
         </div>
