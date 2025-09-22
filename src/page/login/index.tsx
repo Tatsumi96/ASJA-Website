@@ -35,7 +35,7 @@ export const LogInSection = () => {
       </div>
       <div className="flex lg:w-1/2 w-full h-screen justify-center items-center">
         <div className="flex-col w-100 justify-center items-center p-10">
-          <h1 className="flex justify-center mb-5 text-2xl font-bold text-gray-800">
+          <h1 className="flex justify-center mb-5 text-2xl font-bold text-green-700">
             Connexion
           </h1>
           <label>Matricule</label>
