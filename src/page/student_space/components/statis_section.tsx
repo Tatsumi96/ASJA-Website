@@ -5,7 +5,7 @@ export const StatisSection = () => {
   return (
     <div className="pt-25 flex w-full justify-between px-10">
       <div className="">
-        <p className=" font-semibold text-3xl pb-2">
+        <p className=" font-semibold text-3xl pb-2 text-green-700">
           {" "}
           Bienvenue, {userName} 👋
         </p>
