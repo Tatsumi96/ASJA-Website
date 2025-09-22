@@ -40,7 +40,7 @@ export const FiliereSection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="flex lg:p-20 p-5 flex-col lg:flex-row justify-center items-center "
+          className="flex lg:p-20 flex-col lg:flex-row justify-center items-center "
         >
           <Item
             mention="AGRO"
@@ -63,7 +63,7 @@ export const FiliereSection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="flex lg:p-20 p-5 pt-0 flex-col sm:flex-row justify-center items-center"
+          className="flex lg:p-20 pt-0 flex-col sm:flex-row justify-center items-center"
         >
           <Item
             mention="ST"
