@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 
 export const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
-
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 500) setOpen(false);
@@ -57,7 +56,6 @@ export const Navbar = () => {
         >
           A propos
         </NavLink>
-
         <NavLink
           to="/programmes"
           className={({ isActive }) =>
