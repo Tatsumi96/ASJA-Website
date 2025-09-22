@@ -24,7 +24,7 @@ export const LogInSection = () => {
       </a>
       <div className="lg:flex w-1/2 h-screen hidden flex-col justify-center items-center">
         <div className="p-10 bg-white">
-          <h1 className="text-4xl p-5 font-bold text-gray-800">
+          <h1 className="text-4xl p-5 font-bold text-green-700">
             Espace etudiant
           </h1>
           <p className="pl-5 pb-5 text-lg">
