@@ -14,11 +14,11 @@ interface ItemProps {
 
 const Item: React.FC<ItemProps> = ({ mention, description, image }) => {
   return (
-    <motion.div className="flex-1/2 hover:scale-105 rounded-2xl overflow-hidden duration-300  bg-white m-5 z-20 shadow-2xl">
+    <div className="flex-1/2 hover:scale-105 rounded-2xl overflow-hidden duration-300  bg-white m-5 z-20 shadow-2xl">
       <img src={image} alt="" />
       <h2 className="p-5 text-2xl font-bold text-stone-500">{mention}</h2>
       <p className="p-5 pt-0 text-gray-800">{description}</p>
-    </motion.div>
+    </div>
   );
 };
 
@@ -40,7 +40,7 @@ export const FiliereSection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="flex lg:p-20 p-5 flex-col lg:flex-row justify-center items-center "
+          className="flex  flex-col lg:flex-row justify-center items-center "
         >
           <Item
             mention="AGRO"
@@ -63,7 +63,7 @@ export const FiliereSection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="flex lg:p-20 p-5 pt-0 flex-col sm:flex-row justify-center items-center"
+          className="flex  pt-0 flex-col sm:flex-row justify-center items-center"
         >
           <Item
             mention="ST"
