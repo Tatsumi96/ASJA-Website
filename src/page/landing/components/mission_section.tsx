@@ -11,7 +11,7 @@ export const MissionSection = () => {
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
+          viewport={{ amount: 0.3, once: true }}
         >
           <h1 className="text-4xl lg:text-6xl text-green-700 mb-10 font-semibold">
             Athénée Saint Joseph Antsirabe
@@ -37,7 +37,7 @@ export const MissionSection = () => {
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
+          viewport={{ amount: 0.3, once: true }}
         >
           <div className="md:hidden px-5 py-10 flex flex-col gap-5">
             <h1 className="flex text-4xl font-bold text-green-700 dark:text-amber-100">
@@ -64,7 +64,7 @@ export const MissionSection = () => {
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
+        viewport={{ amount: 0.3, once: true }}
         className="flex-col lg:w-1/2"
       >
         <div className=" px-5 py-10 flex flex-col gap-5">

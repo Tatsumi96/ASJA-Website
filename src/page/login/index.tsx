@@ -2,11 +2,14 @@ import Logo from "@/assets/Logo/asja-logo.png";
 
 import { useAuth } from "./hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "../theme/useTheme";
 
 export const LogInSection = () => {
   const { logIn, setMatricule, setPassword } = useAuth();
 
   const navigate = useNavigate();
+  const { toggleTheme, isDark } = useTheme();
 
   const handleLogin = () => {
     logIn(navigate);
@@ -14,14 +17,23 @@ export const LogInSection = () => {
 
   return (
     <div className="flex justify-center items-center w-full text-gray-800 h-screen bg-white dark:bg-zinc-900">
-      <a onClick={() => (window.location.href = "/")}>
-        <div className="flex m-2 rounded-full top-3 left-10 fixed">
-          <img src={Logo} className="w-13 h-13" />
-          <h1 className="text-gray-800 font-bold ml-4 py-3 pr-4 dark:text-white">
-            ASJA University
-          </h1>
-        </div>
-      </a>
+      <div className="flex justify-between w-full top-3 fixed md:px-5 px-2">
+        <a onClick={() => (window.location.href = "/")}>
+          <div className="flex m-2 rounded-full ">
+            <img src={Logo} className="w-13 h-13" />
+            <h1 className="text-gray-800 font-bold ml-4 py-3 pr-4 dark:text-white">
+              ASJA University
+            </h1>
+          </div>
+        </a>
+        <button
+          className="px-5 text-green-700 cursor-pointer"
+          onClick={toggleTheme}
+        >
+          {isDark ? <Sun /> : <Moon />}
+        </button>
+      </div>
+
       <div className="lg:flex w-1/2 h-screen hidden flex-col justify-center items-center">
         <div className="p-10">
           <h1 className="text-4xl p-5 font-bold text-green-700">
@@ -68,5 +80,5 @@ export const LogInSection = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

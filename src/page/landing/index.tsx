@@ -7,7 +7,7 @@ import { Navbar } from "./components/navbar";
 
 export const LandingPage = () => {
   return (
-    <div className=" overflow-x-hidden">
+    <div className=" overflow-x-hidden ">
       <Navbar />
       <div className="flex-col items-center justify-center">
         <Description />
