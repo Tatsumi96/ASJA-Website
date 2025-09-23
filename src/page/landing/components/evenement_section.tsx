@@ -1,5 +1,3 @@
-
-
 import Card_event_section from "./card_event";
 export default function evenement_section() {
   return (
