@@ -11,7 +11,7 @@ export const useDocBloc = () => {
   const [userName, setUserName] = useState<string>("");
 
   const fetchDocList = async () => {
-    const result = await docRepo.getDocFile(page, limit);
+    const result = await docRepo.getFile(page, limit);
     if (result.status === "success") {
       if (result.data.length == 0) {
         setHasReachedMax(true);

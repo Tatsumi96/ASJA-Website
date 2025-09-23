@@ -13,21 +13,21 @@ export const LogInSection = () => {
   };
 
   return (
-    <div className="flex justify-center items-center w-full text-gray-800 h-screen bg-white">
+    <div className="flex justify-center items-center w-full text-gray-800 h-screen bg-white dark:bg-gray-900">
       <a onClick={() => (window.location.href = "/")}>
         <div className="flex m-2 rounded-full top-3 left-10 fixed">
           <img src={Logo} className="w-13 h-13" />
-          <h1 className="text-gray-800 font-bold ml-4 py-3 pr-4">
+          <h1 className="text-gray-800 font-bold ml-4 py-3 pr-4 dark:text-white">
             ASJA University
           </h1>
         </div>
       </a>
       <div className="lg:flex w-1/2 h-screen hidden flex-col justify-center items-center">
-        <div className="p-10 bg-white">
+        <div className="p-10">
           <h1 className="text-4xl p-5 font-bold text-green-700">
             Espace etudiant
           </h1>
-          <p className="pl-5 pb-5 text-lg">
+          <p className="pl-5 pb-5 text-lg dark:text-white">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
@@ -38,15 +38,15 @@ export const LogInSection = () => {
           <h1 className="flex justify-center mb-5 text-2xl font-bold text-green-700">
             Connexion
           </h1>
-          <label>Matricule</label>
+          <label className="dark:text-white">Matricule</label>
           <input
-            className="flex w-full mb-5 border-gray-300 border-2 focus:ring-0 focus:outline-none rounded-md p-2.5"
+            className="flex w-full mb-5 dark:text-white border-gray-300 border-2 focus:ring-0 focus:outline-none rounded-md p-2.5"
             type="number"
             onChange={(e) => setMatricule(parseInt(e.target.value))}
           />
-          <label>Mot de passe</label>
+          <label className="dark:text-white">Mot de passe</label>
           <input
-            className="flex w-full mb-5 border-gray-300 border-2 focus:ring-0 focus:outline-none rounded-md p-2.5"
+            className="flex w-full mb-5 dark:text-white border-gray-300 border-2 focus:ring-0 focus:outline-none rounded-md p-2.5"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -60,7 +60,7 @@ export const LogInSection = () => {
             <hr className="flex  w-1/2 border-green-700 m-5" />
           </div>
           <div className="flex justify-center text-sm">
-            <span className="">Pas encore Etudiant ?</span>
+            <span className="dark:text-white">Pas encore Etudiant ?</span>
           </div>
           <a className="flex justify-center cursor-pointer mt-2  text-green-700 hover:underline text-md ">
             S'inscrire
