@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { MenuIcon, Moon, Sun, X } from "lucide-react";
-
 import Logo from "@/assets/Logo/asja-logo.png";
 import { useEffect, useState } from "react";
 import { useTheme } from "@/page/theme/useTheme";

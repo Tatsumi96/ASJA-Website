@@ -1,6 +1,6 @@
-import image_Dehons_DAY from "../../../assets/Image-evenement/Dehons_day/event-dehons_day3.jpg";
-import image_Gennrosso from "../../../assets/Image-evenement/event-genrosso.jpg";
-import image_Suisse from "../../../assets/Image-evenement/event-partenariat_esic.jpg";
+import image_Dehons_DAY from "@/assets/Image-evenement/Dehons_day/event-dehons_day3.jpg";
+import image_Gennrosso from "@/assets/Image-evenement/event-genrosso.jpg";
+import image_Suisse from "@/assets/Image-evenement/event-partenariat_esic.jpg";
 
 export const CardEventSection = () => {
   class item {
