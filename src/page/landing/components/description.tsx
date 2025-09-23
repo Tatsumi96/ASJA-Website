@@ -3,7 +3,7 @@ import backgroundImage from "@/assets/Lieu_espace/asja_couloir.jpg";
 
 export const Description = () => {
   return (
-    <section className="flex flex-col lg:flex-row bg-white dark:bg-gray-900 lg:h-screen w-full">
+    <section className="flex flex-col lg:flex-row bg-white dark:bg-zinc-900 lg:h-screen w-full">
       <div className=" md:flex-col lg:hidden md:pt-0 pt-18 fixed -z-10">
         <img
           className="h-full w-max object-cover "
@@ -18,7 +18,7 @@ export const Description = () => {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <h1 className="text-4xl lg:text-6xl text-green-700 mb-10 font-semibold">
+          <h1 className="text-4xl dark:text-amber-100 lg:text-6xl text-green-700 mb-10 font-semibold">
             Athénée Saint Joseph Antsirabe
           </h1>
           <p className="lg:text-2xl text-xl">
@@ -31,7 +31,7 @@ export const Description = () => {
                 href="/about"
                 className="text-white font-bold lg:text-lg text-sm flex gap-3 justify-center items-center md:px-6 md:py-3 py-2 px-4"
               >
-                En savoir plus{" "}
+                En savoir plus ➞{" "}
               </a>
             </button>
           </div>
@@ -42,7 +42,7 @@ export const Description = () => {
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
-        className="lg:flex md:flex-col justify-center hidden items-center pl-10 w-1/2 bg-gray-200 dark:bg-dark-blue rounded-l-full"
+        className="lg:flex md:flex-col justify-center hidden items-center pl-10 w-1/2 bg-gray-200 dark:bg-zinc-800 rounded-l-full"
       >
         <img
           className="h-full w-max rounded-l-full object-cover "

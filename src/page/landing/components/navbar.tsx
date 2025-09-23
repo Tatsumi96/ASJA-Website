@@ -19,7 +19,7 @@ export const Navbar = () => {
   const { toggleTheme, isDark } = useTheme();
 
   return (
-    <div className="md:flex md:flex-row flex flex-col  lg:px-5 px-2 py-4 lg:py-0 justify-between top-0 fixed w-full shadow-sm bg-white dark:bg-gray-900 text-black border-b-gray-300 z-50">
+    <div className="md:flex md:flex-row flex flex-col  lg:px-5 px-2 py-4 lg:py-0 justify-between top-0 fixed w-full shadow-sm bg-white dark:bg-zinc-800 text-black border-b-gray-300 z-50">
       <div className="flex w-full md:w-auto justify-between items-center">
         <a
           className="flex items-center gap-2 cursor-pointer"
@@ -48,7 +48,7 @@ export const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-green-700 bg-green-50 px-4 py-6 rounded font-medium"
+              ? "text-green-700 dark:bg-zinc-700 bg-green-50  px-4 py-6 font-medium"
               : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-6"
           }
         >
@@ -58,7 +58,7 @@ export const Navbar = () => {
           to="/about"
           className={({ isActive }) =>
             isActive
-              ? "text-green-700 bg-green-50 px-4 py-2 rounded font-medium"
+              ? "text-green-700 dark:bg-zinc-700 bg-green-50 px-4 py-2 font-medium"
               : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded"
           }
         >
@@ -68,7 +68,7 @@ export const Navbar = () => {
           to="/programmes"
           className={({ isActive }) =>
             isActive
-              ? "text-green-700 bg-green-50 px-4 py-2 rounded font-medium"
+              ? "text-green-700 dark:bg-zinc-700 bg-green-50 px-4 py-2 font-medium"
               : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded"
           }
         >
@@ -79,7 +79,7 @@ export const Navbar = () => {
           to="/contact"
           className={({ isActive }) =>
             isActive
-              ? "text-green-700 bg-green-50 px-4 py-2 rounded font-medium"
+              ? "text-green-700 dark:bg-zinc-700 bg-green-50 px-4 py-2 font-medium"
               : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded"
           }
         >
@@ -110,7 +110,7 @@ export const Navbar = () => {
             to="/"
             className={({ isActive }) =>
               isActive
-                ? "text-green-700 bg-green-50 px-4 py-6 rounded font-medium"
+                ? "text-green-700 dark:bg-zinc-700 bg-green-50 px-4 py-6 font-medium"
                 : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-6"
             }
           >
@@ -120,7 +120,7 @@ export const Navbar = () => {
             to="/about"
             className={({ isActive }) =>
               isActive
-                ? "text-green-700 bg-green-50 px-4 py-2 rounded font-medium"
+                ? "text-green-700 dark:bg-zinc-700 bg-green-50 px-4 py-2 font-medium"
                 : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded"
             }
           >
@@ -131,7 +131,7 @@ export const Navbar = () => {
             to="/programmes"
             className={({ isActive }) =>
               isActive
-                ? "text-green-700 bg-green-50 px-4 py-2 rounded font-medium"
+                ? "text-green-700 dark:bg-zinc-700 bg-green-50 px-4 py-2 font-medium"
                 : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded"
             }
           >
@@ -142,7 +142,7 @@ export const Navbar = () => {
             to="/contact"
             className={({ isActive }) =>
               isActive
-                ? "text-green-700 bg-green-50 px-4 py-2 rounded font-medium"
+                ? "text-green-700 dark:bg-zinc-700 bg-green-50 px-4 py-2 font-medium"
                 : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded"
             }
           >

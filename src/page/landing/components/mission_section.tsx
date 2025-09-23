@@ -5,8 +5,8 @@ import Image2 from "@/assets/Lieu_espace/Bibliotheque.jpg";
 
 export const MissionSection = () => {
   return (
-    <div className=" lg:flex lg:flex-row  flex flex-col mt-100 lg:mt-0 md:pt-0 justify-center items-center w-full dark:bg-gray-950 bg-gray-50 text-gray-800 ">
-      <div className="  lg:hidden flex-col justify-center py-10 px-5 lg:w-1/2 bg-white dark:bg-gray-900 ">
+    <div className=" lg:flex lg:flex-row  flex flex-col mt-100 lg:mt-0 md:pt-0 justify-center items-center w-full dark:bg-zinc-800 bg-gray-50 text-gray-800 ">
+      <div className="  lg:hidden flex-col justify-center py-10 px-5 lg:w-1/2 bg-white dark:bg-zinc-900 ">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -40,7 +40,7 @@ export const MissionSection = () => {
           viewport={{ once: true }}
         >
           <div className="md:hidden px-5 py-10 flex flex-col gap-5">
-            <h1 className="flex text-4xl font-bold text-green-700 ">
+            <h1 className="flex text-4xl font-bold text-green-700 dark:text-amber-100">
               Notre Mission
             </h1>
             <p className="text-lg dark:text-white">
@@ -50,10 +50,10 @@ export const MissionSection = () => {
           </div>
           <img src={Image} className="" />
           <div className=" hidden lg:flex lg:flex-col">
-            <h1 className="flex text-4xl font-bold text-green-700 px-10 py-5">
+            <h1 className="flex text-4xl font-bold text-green-700 dark:text-amber-100 py-5">
               Notre Mission
             </h1>
-            <p className="text-lg dark:text-white px-10 pb-10">
+            <p className="text-lg dark:text-white pb-10">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
@@ -68,7 +68,7 @@ export const MissionSection = () => {
         className="flex-col lg:w-1/2"
       >
         <div className=" px-5 py-10 flex flex-col gap-5">
-          <h1 className="text-4xl font-bold text-green-700 ">Notre Objectif</h1>
+          <h1 className="text-4xl font-bold text-green-700 dark:text-amber-100 ">Notre Objectif</h1>
           <p className="text-lg dark:text-white">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.

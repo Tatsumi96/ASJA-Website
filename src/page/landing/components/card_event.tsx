@@ -36,14 +36,12 @@ export default function Card_event_section() {
   );
 
   return (
-    <div className="site-container space-y-20 md:space-y-24 lg:space-y-32 mt-10">
-      
-    
+    <div className="flex flex-col z-20 site-container space-y-20 text-gray-800 dark:text-gray-300 md:space-y-24 lg:space-y-32 ">
       <div className="relative flex flex-col-reverse md:flex-row md:items-center">
-        <div className="md:w-1/2 md:pr-12 bg-white p-4 rounded-lg">
-          <h3 className="h3 mb-4">{item1.title}</h3>
-          <p className="text-lg text-gray-600">{item1.description}</p>
-          <p className="mt-4 text-lg text-gray-600">{item1.description}</p>
+        <div className="md:w-1/2 md:pr-12 p-4 rounded-lg">
+          <h3 className="h3 mb-4 text-green-700 dark:text-amber-100">{item1.title}</h3>
+          <p className="text-lg">{item1.description}</p>
+          <p className="mt-4 text-lg ">{item1.description}</p>
         </div>
         <div className="md:w-1/2">
           <img
@@ -56,10 +54,10 @@ export default function Card_event_section() {
 
       
       <div className="relative flex flex-col md:flex-row md:items-center">
-        <div className="md:w-1/2 md:order-2 md:pl-12 bg-white p-4 rounded-lg">
-          <h3 className="h3 mb-4">{item2.title}</h3>
-          <p className="text-lg text-gray-600">{item2.description}</p>
-          <p className="mt-4 text-lg text-gray-600">{item2.description}</p>
+        <div className="md:w-1/2 md:order-2 md:pl-12 p-4 rounded-lg">
+          <h3 className="h3 mb-4 text-green-700 dark:text-amber-100">{item2.title}</h3>
+          <p className="text-lg">{item2.description}</p>
+          <p className="mt-4 text-lg">{item2.description}</p>
         </div>
         <div className="md:w-1/2 md:order-1">
           <img
@@ -72,10 +70,10 @@ export default function Card_event_section() {
 
     
       <div className="relative flex flex-col md:flex-row md:items-center">
-        <div className="md:w-1/2 md:pr-12 bg-white p-4 rounded-lg">
-          <h3 className="h3 mb-4">{item3.title}</h3>
-          <p className="text-lg text-gray-600">{item3.description}</p>
-          <p className="mt-4 text-lg text-gray-600">{item3.description}</p>
+        <div className="md:w-1/2 md:pr-12 p-4 rounded-lg">
+          <h3 className="h3 mb-4 text-green-700 dark:text-amber-100">{item3.title}</h3>
+          <p className="text-lg">{item3.description}</p>
+          <p className="mt-4 text-lg">{item3.description}</p>
         </div>
         <div className="md:w-1/2">
           <img
