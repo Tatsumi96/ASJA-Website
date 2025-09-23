@@ -7,7 +7,7 @@ const AsjaWebApp: React.FC = () => {
     <>
       {" "}
       <NotificationWithTimer />
-      <PageRoute />;
+      <PageRoute />
     </>
   );
 };

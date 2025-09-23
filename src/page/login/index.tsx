@@ -13,7 +13,7 @@ export const LogInSection = () => {
   };
 
   return (
-    <div className="flex justify-center items-center w-full text-gray-800 h-screen bg-white dark:bg-gray-900">
+    <div className="flex justify-center items-center w-full text-gray-800 h-screen bg-white dark:bg-zinc-900">
       <a onClick={() => (window.location.href = "/")}>
         <div className="flex m-2 rounded-full top-3 left-10 fixed">
           <img src={Logo} className="w-13 h-13" />
@@ -51,7 +51,7 @@ export const LogInSection = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
-            className="flex w-full justify-center focus:bg-green-800 hover:bg-green-800 shadow-lg shadow-gray-400 hover:scale-101 duration-300 rounded-full cursor-pointer bg-green-700 text-white p-3.5"
+            className="flex w-full justify-center focus:bg-green-800 hover:bg-green-800 shadow-lg hover:scale-101 duration-300 rounded-full cursor-pointer bg-green-700 text-white p-3.5"
             onClick={handleLogin}
           >
             se connecter
@@ -68,5 +68,5 @@ export const LogInSection = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
