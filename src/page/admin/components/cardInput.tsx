@@ -7,15 +7,25 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
 import { Button } from "@/components/ui/button";
 import { MdAdd } from "react-icons/md";
+
 import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
+
 import FilePicker from "./file_picker";
 
+import { mentions, classes } from "@/core/constant";
+
 export const CardWithForm = () => {
-  const { setLessonTitle, setMention, sendToServer, setAuthorName } =
-    useAdminDashboardContext();
+  const {
+    setLessonTitle,
+    sendToServer,
+    setAuthorName,
+    setMention,
+    setLevel,
+    setBranche,
+    mention,
+  } = useAdminDashboardContext();
 
   return (
     <div className=" flex flex-col gap-5 w-1/2">
@@ -54,21 +64,45 @@ export const CardWithForm = () => {
                 >
                   Mention
                 </Label>
-                <Select onValueChange={setMention}>
-                  <SelectTrigger className="flex w-full" id="foodCategory">
-                    <SelectValue placeholder="Select" />
-                  </SelectTrigger>
-                  <SelectContent position="popper">
-                    <SelectItem value="Informatique">Informatique</SelectItem>
-                    <SelectItem value="Droit">Droit</SelectItem>
-                    <SelectItem value="Economie">Economie</SelectItem>
-                    <SelectItem value="LEA">LEA</SelectItem>
-                    <SelectItem value="Agronomie">Agronomie</SelectItem>
-                    <SelectItem value="Science de la Terre">
-                      Science de la Terre
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
+                <div className=" flex gap-4">
+                  <Select onValueChange={setMention}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Mention" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {Object.keys(mentions).map((mainBranche) => (
+                        <SelectItem key={mainBranche} value={mainBranche}>
+                          {mainBranche.replace(/_/g, "   ")}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <Select onValueChange={setLevel}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Niveau" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {classes.map((level) => (
+                        <SelectItem key={level} value={level}>
+                          {level}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <Select onValueChange={setBranche} disabled={!mention}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Branche" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {mention &&
+                        mentions[mention].map((branche) => (
+                          <SelectItem key={branche} value={branche}>
+                            {branche}
+                          </SelectItem>
+                        ))}
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
               <div className=" flex w-full justify-center">
                 <FilePicker />

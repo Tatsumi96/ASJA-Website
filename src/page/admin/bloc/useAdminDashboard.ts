@@ -20,12 +20,13 @@ export const useAdminDashboard = () => {
   const [lessonTitle, setLessonTitle] = useState<string>("");
   const [mention, setMention] = useState<string>("");
   const [level, setLevel] = useState<string>("");
+  const [branche, setBranche] = useState<string>("");
   const [authorName, setAuthorName] = useState<string>("");
 
   const [errorMessage, setErrorMessage] = useState<string>("");
   const fileInputRef = useRef<HTMLInputElement>(null);
   const fileSize = Math.round(
-    selectedFile ? (selectedFile.size / (1024 * 1024)) : 0
+    selectedFile ? selectedFile.size / (1024 * 1024) : 0
   );
 
   const onDrop = useCallback(
@@ -72,6 +73,7 @@ export const useAdminDashboard = () => {
       fileInputRef.current.value = "";
     }
   };
+  console.log("hoookk");
 
   const fetchDocList = async () => {
     const result = await docRepo.getFile(page, limit);
@@ -93,9 +95,10 @@ export const useAdminDashboard = () => {
     const doc: DocDto = {
       fileName: selectedFile?.name as string,
       fileSize: selectedFile?.size as number,
-      lessonTitle,
-      mention,
+      branche: branche.length == 0 ? "COMMUN" : branche.replace(/_/g, " "),
+      mention: mention.replace(/_/g, " "),
       level,
+      lessonTitle,
       authorName,
     };
 
@@ -158,5 +161,7 @@ export const useAdminDashboard = () => {
     sendToServer,
     setAuthorName,
     onDrop,
+    setBranche,
+    mention,
   };
 };

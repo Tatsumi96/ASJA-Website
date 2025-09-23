@@ -5,4 +5,5 @@ export interface DocDto {
   lessonTitle: string;
   mention: string;
   level: string;
+  branche: string;
 }
