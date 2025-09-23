@@ -1,88 +1,90 @@
-import image_Dehons_DAY from "@/assets/Image-evenement/Dehons_day/event-dehons_day3.jpg";
-import image_Gennrosso from "@/assets/Image-evenement/event-genrosso.jpg";
-import image_Suisse from "@/assets/Image-evenement/event-partenariat_esic.jpg";
+import dehonsDayImage from "@/assets/Image-evenement/Dehons_day/event-dehons_day3.jpg";
+import gennrossoImage from "@/assets/Image-evenement/event-genrosso.jpg";
+import suisseImage from "@/assets/Image-evenement/event-partenariat_esic.jpg";
+
+interface Event {
+  title: string;
+  description: string;
+  imageUrl: string;
+  altText: string;
+}
+
+const dehonsEvent: Event = {
+  title: "Dehons DAY",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  imageUrl: dehonsDayImage,
+  altText: "Interior Painting",
+};
+
+const gennrossoEvent: Event = {
+  title: "Gennrosso",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  imageUrl: gennrossoImage,
+  altText: "Exterior Painting",
+};
+const suisseEvent: Event = {
+  title: "Suisse",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  imageUrl: suisseImage,
+  altText: "Cabinet Painting",
+};
 
 export const CardEventSection = () => {
-  class item {
-    title: string;
-    description: string;
-    imageUrl: string;
-    altText: string;
-    constructor(title: string, description: string, imageUrl: string, altText: string) {
-      this.title = title;
-      this.description = description;
-      this.imageUrl = imageUrl;
-      this.altText = altText;
-    }
-  }
-
-  const item1 = new item(
-    "Dehons DAY",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image_Dehons_DAY,
-    "Interior Painting"
-  );
-  const item2 = new item(
-    "Gennrosso",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image_Gennrosso,
-    "Exterior Painting"
-  );
-  const item3 = new item(
-    "Suisse",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image_Suisse,
-    "Cabinet Painting"
-  );
-
   return (
     <div className="flex flex-col z-20 site-container space-y-20 text-gray-800 dark:text-gray-300 md:space-y-24 lg:space-y-32 ">
-      <div className="relative flex flex-col-reverse md:flex-row md:items-center">
+      <div className=" flex flex-col-reverse md:flex-row md:items-center">
         <div className="md:w-1/2 md:pr-12 p-4 rounded-lg">
-          <h3 className="h3 mb-4 text-green-700 dark:text-amber-100">{item1.title}</h3>
-          <p className="text-lg">{item1.description}</p>
-          <p className="mt-4 text-lg ">{item1.description}</p>
+          <h3 className="h3 mb-4 text-green-700 dark:text-amber-100">
+            {dehonsEvent.title}
+          </h3>
+          <p className="text-lg">{dehonsEvent.description}</p>
+          <p className="mt-4 text-lg ">{dehonsEvent.description}</p>
         </div>
         <div className="md:w-1/2">
           <img
             className="rounded-lg w-full h-64 md:h-80 lg:h-96 object-cover"
-            src={item1.imageUrl}
-            alt={item1.altText}
+            src={dehonsEvent.imageUrl}
+            alt={dehonsEvent.altText}
           />
         </div>
       </div>
 
-      
       <div className="relative flex flex-col md:flex-row md:items-center">
         <div className="md:w-1/2 md:order-2 md:pl-12 p-4 rounded-lg">
-          <h3 className="h3 mb-4 text-green-700 dark:text-amber-100">{item2.title}</h3>
-          <p className="text-lg">{item2.description}</p>
-          <p className="mt-4 text-lg">{item2.description}</p>
+          <h3 className="h3 mb-4 text-green-700 dark:text-amber-100">
+            {gennrossoEvent.title}
+          </h3>
+          <p className="text-lg">{gennrossoEvent.description}</p>
+          <p className="mt-4 text-lg">{gennrossoEvent.description}</p>
         </div>
         <div className="md:w-1/2 md:order-1">
           <img
             className="rounded-lg w-full h-64 md:h-80 lg:h-96 object-cover"
-            src={item2.imageUrl}
-            alt={item2.altText}
+            src={gennrossoEvent.imageUrl}
+            alt={gennrossoEvent.altText}
           />
         </div>
       </div>
 
-    
       <div className="relative flex flex-col md:flex-row md:items-center">
         <div className="md:w-1/2 md:pr-12 p-4 rounded-lg">
-          <h3 className="h3 mb-4 text-green-700 dark:text-amber-100">{item3.title}</h3>
-          <p className="text-lg">{item3.description}</p>
-          <p className="mt-4 text-lg">{item3.description}</p>
+          <h3 className="h3 mb-4 text-green-700 dark:text-amber-100">
+            {suisseEvent.title}
+          </h3>
+          <p className="text-lg">{suisseEvent.description}</p>
+          <p className="mt-4 text-lg">{suisseEvent.description}</p>
         </div>
         <div className="md:w-1/2">
           <img
             className="rounded-lg w-full h-64 md:h-80 lg:h-96 object-cover"
-            src={item3.imageUrl}
-            alt={item3.altText}
+            src={suisseEvent.imageUrl}
+            alt={suisseEvent.altText}
           />
         </div>
       </div>
     </div>
   );
-}
+};
