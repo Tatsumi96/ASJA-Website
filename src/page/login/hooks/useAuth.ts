@@ -1,5 +1,4 @@
 import { authRepository } from "@/injection";
-import { useTheme } from "@/page/theme/useTheme";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -19,7 +18,6 @@ export const useAuth = () => {
       });
     navigate("/studentSpace");
   };
-  useTheme();
 
   return { setMatricule, setPassword, logIn };
 };
