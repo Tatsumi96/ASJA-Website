@@ -5,12 +5,13 @@ import { toast } from "sonner";
 export const useAuth = () => {
   const [matricule, setMatricule] = useState<number>();
   const [password, setPassword] = useState<string>("");
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
   const logIn = async (navigate: (path: string) => void) => {
     const result = await authRepository.logIn({
       identifier: matricule as number,
       password,
-      role: "Student",
+      role: isAdmin ? "Admin" : "User",
     });
     if (result.status == "failure")
       return toast.error("Erreur", {
@@ -19,5 +20,7 @@ export const useAuth = () => {
     navigate("/studentSpace");
   };
 
-  return { setMatricule, setPassword, logIn };
+  const toggleIsAdmin = () => setIsAdmin((value) => !value);
+
+  return { setMatricule, setPassword, logIn, toggleIsAdmin, isAdmin };
 };
