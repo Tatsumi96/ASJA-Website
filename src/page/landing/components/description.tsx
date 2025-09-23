@@ -3,7 +3,7 @@ import backgroundImage from "@/assets/Lieu_espace/asja_couloir.jpg";
 
 export const Description = () => {
   return (
-    <section className="flex flex-col lg:flex-row lg:h-screen w-full">
+    <section className="flex flex-col lg:flex-row bg-white dark:bg-gray-900 lg:h-screen w-full">
       <div className=" md:flex-col lg:hidden md:pt-0 pt-18 fixed -z-10">
         <img
           className="h-full w-max object-cover "
@@ -11,7 +11,7 @@ export const Description = () => {
           alt=""
         />
       </div>
-      <div className=" hidden lg:flex flex-col justify-center py-10 px-5 lg:w-1/2 bg-white relative top-80 lg:top-0">
+      <div className=" hidden lg:flex flex-col justify-center py-10 px-5 lg:w-1/2   relative top-80 lg:top-0">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -42,7 +42,7 @@ export const Description = () => {
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
-        className="lg:flex md:flex-col justify-center hidden items-center pl-10 w-1/2 bg-gray-200 rounded-l-full"
+        className="lg:flex md:flex-col justify-center hidden items-center pl-10 w-1/2 bg-gray-200 dark:bg-dark-blue rounded-l-full"
       >
         <img
           className="h-full w-max rounded-l-full object-cover "

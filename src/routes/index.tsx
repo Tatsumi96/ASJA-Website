@@ -1,3 +1,4 @@
+import { AdminDashboardPage } from "@/page/admin";
 import { LandingPage } from "@/page/landing";
 import { LogInSection } from "@/page/login";
 import { StudentSpacePage } from "@/page/student_space";
@@ -10,7 +11,7 @@ export const PageRoute = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/Login" element={<LogInSection />} />
-        <Route path="/studentSpace" element={<StudentSpacePage />} />
+        <Route path="/studentSpace" element={<AdminDashboardPage />} />
       </Routes>
     </BrowserRouter>
   );
