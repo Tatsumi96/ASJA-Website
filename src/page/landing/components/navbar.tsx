@@ -100,6 +100,12 @@ export const Navbar = () => {
 
       {open ? (
         <div className="md:hidden flex flex-col  justify-center items-center ">
+          <button
+            className="py-5 text-green-700 cursor-pointer"
+            onClick={toggleTheme}
+          >
+            {isDark ? <Sun /> : <Moon />}
+          </button>
           <NavLink
             to="/"
             className={({ isActive }) =>
