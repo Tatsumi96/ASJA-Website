@@ -33,7 +33,7 @@ export const LogInSection = () => {
       </div>
       <div className=" flex">
         <div className="lg:flex w-1/2 h-screen hidden flex-col justify-center items-center">
-          <div className="p-10">
+          <div className="pb-20 px-5">
             <h1 className="text-4xl p-5 font-bold text-green-700">
               Espace etudiant
             </h1>
