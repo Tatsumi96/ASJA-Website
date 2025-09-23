@@ -16,7 +16,7 @@ export const DocDataTable = () => {
   const { observerRef, table, columns } = useDocTable();
 
   return (
-    <div className=" border bg-white rounded-3xl p-4 w-full">
+    <div className=" border bg-white rounded-3xl p-4 w-1/2">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (

@@ -1,7 +1,7 @@
-import { useStudentPortalContext } from "../bloc/useStudentSpaceContext";
+import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 
 export const StatisSection = () => {
-  const { userName } = useStudentPortalContext();
+  const { userName } = useAdminDashboardContext();
   return (
     <div className="pt-25 flex w-full justify-between px-10">
       <div className="">

@@ -23,10 +23,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { useStudentPortalContext } from "../bloc/useStudentSpaceContext";
+import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 
 export const NavBar = () => {
-  const { userName } = useStudentPortalContext();
+  const { userName } = useAdminDashboardContext();
   return (
     <div className="flex justify-between top-0 fixed w-full text-gray-800 z-50">
       <a
