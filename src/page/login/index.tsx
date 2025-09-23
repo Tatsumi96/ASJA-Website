@@ -4,9 +4,11 @@ import { useAuth } from "./hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "../theme/useTheme";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export const LogInSection = () => {
-  const { logIn, setMatricule, setPassword } = useAuth();
+  const { logIn, setMatricule, setPassword, isAdmin, toggleIsAdmin } =
+    useAuth();
 
   const navigate = useNavigate();
   const { toggleTheme, isDark } = useTheme();
@@ -62,6 +64,17 @@ export const LogInSection = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
+          <div className=" flex w-full items-center gap-3 pb-3">
+            <Checkbox
+              className="cursor-pointer"
+              checked={isAdmin}
+              onCheckedChange={toggleIsAdmin}
+            />
+            <p className=" cursor-pointer mt-2  text-green-700 dark:text-white text-md ">
+              Admin
+            </p>
+          </div>
+
           <button
             className="flex w-full justify-center focus:bg-green-800 hover:bg-green-800 shadow-lg hover:scale-101 duration-300 rounded-full cursor-pointer bg-green-700 text-white p-3.5"
             onClick={handleLogin}
