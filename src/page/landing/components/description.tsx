@@ -16,7 +16,7 @@ export const Description = () => {
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
+          viewport={{ amount: 0.3, once: true }}
         >
           <h1 className="text-4xl dark:text-amber-100 lg:text-6xl text-green-700 mb-10 font-semibold">
             Athénée Saint Joseph Antsirabe
@@ -41,7 +41,7 @@ export const Description = () => {
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
+        viewport={{ amount: 0.3, once: true }}
         className="lg:flex md:flex-col justify-center hidden items-center pl-10 w-1/2 bg-gray-200 dark:bg-zinc-800 rounded-l-full"
       >
         <img

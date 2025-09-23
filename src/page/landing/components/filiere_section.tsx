@@ -16,7 +16,9 @@ const Item: React.FC<ItemProps> = ({ mention, description, image }) => {
   return (
     <div className="flex-1/2 hover:scale-100 md:w-full rounded-2xl overflow-hidden duration-300 bg-white dark:bg-zinc-800 m-5 z-20 shadow-2xl">
       <img className="w-full" src={image} alt="" />
-      <h2 className="p-5 text-2xl font-bold text-stone-500 dark:text-stone-200">{mention}</h2>
+      <h2 className="p-5 text-2xl font-bold text-stone-500 dark:text-stone-200">
+        {mention}
+      </h2>
       <p className="p-5 pt-0 text-gray-800 dark:text-gray-300">{description}</p>
     </div>
   );
@@ -39,7 +41,7 @@ export const FiliereSection = () => {
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
+          viewport={{ amount: 0.3, once: true }}
           className="flex  flex-col lg:flex-row md:flex-col justify-center items-center "
         >
           <Item
@@ -62,7 +64,7 @@ export const FiliereSection = () => {
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
+          viewport={{ amount: 0.3, once: true }}
           className="flex  pt-0 flex-col lg:flex-row md:flex-col justify-center items-center"
         >
           <Item

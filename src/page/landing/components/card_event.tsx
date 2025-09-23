@@ -1,6 +1,7 @@
 import dehonsDayImage from "@/assets/Image-evenement/Dehons_day/event-dehons_day3.jpg";
 import gennrossoImage from "@/assets/Image-evenement/event-genrosso.jpg";
 import suisseImage from "@/assets/Image-evenement/event-partenariat_esic.jpg";
+import { motion } from "framer-motion";
 
 interface Event {
   title: string;
@@ -35,26 +36,45 @@ const suisseEvent: Event = {
 export const CardEventSection = () => {
   return (
     <div className="flex flex-col z-20 site-container space-y-20 text-gray-800 dark:text-gray-300 md:space-y-24 lg:space-y-32 ">
-      <div className=" flex flex-col-reverse md:flex-row md:items-center">
-        <div className="md:w-1/2 md:pr-12 p-4 rounded-lg">
-          <h3 className="h3 mb-4 text-green-700 dark:text-amber-100">
+      <motion.div
+        initial={{ x: -100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ amount: 0.3, once: true }}
+        className=" flex flex-col-reverse md:flex-row md:items-center"
+      >
+        <div className="md:w-1/2 md:pr-12 hidden md:flex flex-col">
+          <h3 className="lg:text-5xl md:text-4xl text-3xl mb-4 text-green-700 dark:text-amber-100">
             {dehonsEvent.title}
           </h3>
           <p className="text-lg">{dehonsEvent.description}</p>
           <p className="mt-4 text-lg ">{dehonsEvent.description}</p>
         </div>
         <div className="md:w-1/2">
+          <div className="md:w-1/2 md:pr-12 p-4  md:hidden">
+            <h3 className="lg:text-5xl md:text-4xl text-3xl mb-4 text-green-700 dark:text-amber-100">
+              {dehonsEvent.title}
+            </h3>
+            <p className="text-lg">{dehonsEvent.description}</p>
+            <p className="mt-4 text-lg ">{dehonsEvent.description}</p>
+          </div>
           <img
             className="rounded-lg w-full h-64 md:h-80 lg:h-96 object-cover"
             src={dehonsEvent.imageUrl}
             alt={dehonsEvent.altText}
           />
         </div>
-      </div>
+      </motion.div>
 
-      <div className="relative flex flex-col md:flex-row md:items-center">
-        <div className="md:w-1/2 md:order-2 md:pl-12 p-4 rounded-lg">
-          <h3 className="h3 mb-4 text-green-700 dark:text-amber-100">
+      <motion.div
+        initial={{ x: 100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ amount: 0.3, once: true }}
+        className="relative flex flex-col md:flex-row md:items-center"
+      >
+        <div className="md:w-1/2 md:order-2 md:pl-12 p-4">
+          <h3 className="lg:text-5xl md:text-4xl text-3xl mb-4 text-green-700 dark:text-amber-100">
             {gennrossoEvent.title}
           </h3>
           <p className="text-lg">{gennrossoEvent.description}</p>
@@ -67,11 +87,17 @@ export const CardEventSection = () => {
             alt={gennrossoEvent.altText}
           />
         </div>
-      </div>
+      </motion.div>
 
-      <div className="relative flex flex-col md:flex-row md:items-center">
-        <div className="md:w-1/2 md:pr-12 p-4 rounded-lg">
-          <h3 className="h3 mb-4 text-green-700 dark:text-amber-100">
+      <motion.div
+        initial={{ x: 100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ amount: 0.3, once: true }}
+        className="relative flex flex-col md:flex-row md:items-center"
+      >
+        <div className="md:w-1/2 md:pr-12 p-4">
+          <h3 className="lg:text-5xl md:text-4xl text-3xl mb-4 text-green-700 dark:text-amber-100">
             {suisseEvent.title}
           </h3>
           <p className="text-lg">{suisseEvent.description}</p>
@@ -84,7 +110,7 @@ export const CardEventSection = () => {
             alt={suisseEvent.altText}
           />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
