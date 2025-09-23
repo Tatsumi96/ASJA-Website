@@ -5,8 +5,8 @@ import Image2 from "@/assets/Lieu_espace/Bibliotheque.jpg";
 
 export const MissionSection = () => {
   return (
-    <div className=" lg:flex lg:flex-row  flex flex-col mt-100 lg:mt-0 md:pt-0 justify-center items-center w-full  bg-gray-50 text-gray-800 ">
-      <div className="  lg:hidden flex-col justify-center py-10 px-5 lg:w-1/2 bg-white ">
+    <div className=" lg:flex lg:flex-row  flex flex-col mt-100 lg:mt-0 md:pt-0 justify-center items-center w-full dark:bg-gray-950 bg-gray-50 text-gray-800 ">
+      <div className="  lg:hidden flex-col justify-center py-10 px-5 lg:w-1/2 bg-white dark:bg-gray-900 ">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -16,7 +16,7 @@ export const MissionSection = () => {
           <h1 className="text-4xl lg:text-6xl text-green-700 mb-10 font-semibold">
             Athénée Saint Joseph Antsirabe
           </h1>
-          <p className="lg:text-2xl text-xl">
+          <p className="lg:text-2xl dark:text-white text-xl">
             Qui propose une formation d'excellence aux étudiants désireux de
             devenir les managers et décideurs de demain.
           </p>
@@ -43,7 +43,7 @@ export const MissionSection = () => {
             <h1 className="flex text-4xl font-bold text-green-700 ">
               Notre Mission
             </h1>
-            <p className="text-lg">
+            <p className="text-lg dark:text-white">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
@@ -53,7 +53,7 @@ export const MissionSection = () => {
             <h1 className="flex text-4xl font-bold text-green-700 px-10 py-5">
               Notre Mission
             </h1>
-            <p className="text-lg px-10 pb-10">
+            <p className="text-lg dark:text-white px-10 pb-10">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
@@ -69,7 +69,7 @@ export const MissionSection = () => {
       >
         <div className=" px-5 py-10 flex flex-col gap-5">
           <h1 className="text-4xl font-bold text-green-700 ">Notre Objectif</h1>
-          <p className="text-lg ">
+          <p className="text-lg dark:text-white">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
