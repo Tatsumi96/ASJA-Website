@@ -2,7 +2,7 @@ import image_Dehons_DAY from "../../../assets/Image-evenement/Dehons_day/event-d
 import image_Gennrosso from "../../../assets/Image-evenement/event-genrosso.jpg";
 import image_Suisse from "../../../assets/Image-evenement/event-partenariat_esic.jpg";
 
-export default function Card_event_section() {
+export const CardEventSection = () => {
   class item {
     title: string;
     description: string;
