@@ -6,7 +6,7 @@ export const Description = () => {
     <section className="flex flex-col lg:flex-row bg-white dark:bg-zinc-900 lg:h-screen w-full">
       <div className=" md:flex-col lg:hidden md:pt-0 pt-18 fixed -z-10">
         <img
-          className="h-full w-max object-cover "
+          className="h-100 md:h-full w-max object-cover "
           src={backgroundImage}
           alt=""
         />
