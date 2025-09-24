@@ -64,7 +64,10 @@
         "mdp":"Mot de passe",
         "seConnecter": "se connecter",
         "inscription":"S'inscrire",
-        "question":"Pas encore Etudiant ?"
+        "question":"Pas encore Etudiant ?",
+        "erreur" : "Erreur",
+        "erreurMessage": "Identifiant ou Mot de passe incorrect"
     }
+    
 
 }

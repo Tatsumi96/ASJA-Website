@@ -65,7 +65,9 @@
         "mdp":"Password",
         "seConnecter": "Sign In",
         "inscription":"Sign Up",
-        "question":"Not student ?"
+        "question":"Not student ?",
+        "erreur" : "Error",
+        "erreurMessage": "Identifiant or password incorrect"
     }
 
 }
