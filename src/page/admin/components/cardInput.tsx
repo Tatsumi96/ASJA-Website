@@ -29,11 +29,11 @@ export const CardWithForm = () => {
 
   return (
     <div className=" flex flex-col gap-5 w-1/2">
-      <Card>
+      <Card className="transition-all duration-500">
         <CardContent>
           <form>
             <div className="  grid w-full  items-center gap-4">
-              <div className="flex flex-col gap- space-y-1.5">
+              <div className="flex flex-col space-y-1.5">
                 <Label
                   htmlFor="name"
                   className=" text-lg font-semibold text-green-700"
@@ -43,7 +43,7 @@ export const CardWithForm = () => {
                 <input
                   onChange={(e) => setLessonTitle(e.target.value)}
                   placeholder="Ex : Chimie organique "
-                  className="   h-12  pl-4 pr-11 placeholder:text-lg   text-lg border-1 bg-gray-100 rounded-sm focus:outline-none  focus:ring-0 transition-all duration-300"
+                  className="   h-12  pl-4 pr-11 placeholder:text-lg   text-lg border-1 bg-gray-100 dark:bg-zinc-800 rounded-sm focus:outline-none  focus:ring-0 transition-all duration-300"
                 />
                 <Label
                   htmlFor="name"
@@ -54,16 +54,10 @@ export const CardWithForm = () => {
                 <input
                   onChange={(e) => setAuthorName(e.target.value)}
                   placeholder="Ex : Rakoto"
-                  className="   h-12  pl-4 pr-11 placeholder:text-lg   text-lg border-1 bg-gray-100 rounded-sm focus:outline-none  focus:ring-0 transition-all duration-300"
+                  className="   h-12  pl-4 pr-11 placeholder:text-lg   text-lg border-1 bg-gray-100 dark:bg-zinc-800 rounded-sm focus:outline-none  focus:ring-0 transition-all duration-300"
                 />
               </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label
-                  htmlFor="name"
-                  className=" text-lg text-green-700 font-semibold"
-                >
-                  Mention
-                </Label>
+              <div className="flex flex-col py-2.5 space-y-1.5">
                 <div className=" flex gap-4">
                   <Select onValueChange={setMention}>
                     <SelectTrigger>

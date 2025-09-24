@@ -24,9 +24,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "@/page/theme/useTheme";
+import { useLangue } from "@/page/lang/useLang";
 
 export const NavBar = () => {
   const { userName } = useAdminDashboardContext();
+  const { toggleTheme, isDark } = useTheme();
+  const { toggleLang, isEn } = useLangue();
   return (
     <div className="flex justify-between top-0 fixed w-full text-gray-800 z-50">
       <a
@@ -34,12 +39,28 @@ export const NavBar = () => {
         onClick={() => (window.location.href = "/")}
       >
         <img className="m-2 w-14 h-14" src={Logo} />
-        <h1 className="py-5 mt-1 text-gray-900">Université ASJA</h1>
+        <h1 className="py-5 mt-1 text-gray-900 dark:text-white font-semibold">
+          Université ASJA
+        </h1>
       </a>
       <div className=" flex items-center ">
         <NavigationMenuSection />
       </div>
       <div className="flex justify-center items-center mr-5 ">
+        <div className="flex">
+          <button
+            className="md:px-5 text-green-700 cursor-pointer"
+            onClick={toggleLang}
+          >
+            {isEn ? "FR" : "EN"}
+          </button>
+          <button
+            className="px-5 text-green-700 cursor-pointer"
+            onClick={toggleTheme}
+          >
+            {isDark ? <Sun /> : <Moon />}
+          </button>
+        </div>
         <DropButton name={userName} />
       </div>
     </div>
@@ -49,13 +70,15 @@ export const NavBar = () => {
 const DropButton = ({ name }: { name: string }) => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
-        <div className=" cursor-pointer flex bg-white rounded-2xl px-5 py-2 w-full justify-between gap-2 items-center">
+      <DropdownMenuTrigger className="transition-all duration-500 ">
+        <div className=" cursor-pointer flex bg-white dark:bg-zinc-800 rounded-2xl px-5 py-2 w-full justify-between gap-2 items-center">
           {" "}
-          <Avatar className=" size-11">
-            <AvatarFallback>{name[0]}</AvatarFallback>
+          <Avatar className=" size-11 ">
+            <AvatarFallback className="dark:text-white  dark:bg-zinc-600">
+              {name[0]}
+            </AvatarFallback>
           </Avatar>
-          <p> {name}</p>
+          <p className="dark:text-white">{name}</p>
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
@@ -114,7 +137,7 @@ const DropButton = ({ name }: { name: string }) => {
 
 const NavigationMenuSection = () => {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="transition-all duration-500">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink className={navigationMenuTriggerStyle()}>

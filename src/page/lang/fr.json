@@ -1,0 +1,73 @@
+{
+    "universite" : " Université ASJA",
+    "navBar":{
+        "accueil": "Accueil",
+        "apropos": "A propos",
+        "programmes":"Programmes",
+        "contact":"Contact",
+         "postuler":"Postuler"      
+    },
+    "descriptionSection":{
+        "description":  "  Qui propose une formation d'excellence aux étudiants désireux de devenir les managers et décideurs de demain.",
+        "ensavoirplus": "En savoir plus"
+    
+    },
+    "filiereSection":{
+        "title":" NOS FILIERE", 
+        "description":" Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
+         "INFO" : {
+            "name":"INFORMATIQUE",
+            "description": " Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+         },
+          "DROIT" : {
+            "name":"DROIT",
+            "description": " Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+         },
+          "AGRO" : {
+            "name":"AGRONOMIE",
+            "description": " Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+         },
+          "ST" : {
+            "name":"SCIENCE DE LA TERRE",
+            "description": " Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+         },
+          "LEA" : {
+            "name":"LANGUE ETRANGERE APPLIQUE",
+            "description": " Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+         },
+          "ECO" : {
+            "name":"ECONOMIE",
+            "description": " Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+         }
+
+    } ,
+    "missionSection":{
+        "missiontitle": "Notre Mission",
+        "mission": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "objectifTitle": "Notre objectif",
+        "objectif": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do  eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    "evenementSection":{
+        "dehon":{
+            "description":" Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        "gennrosso":{
+            "description":" Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+         "suisse":{
+            "description":" Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        }
+    },
+    "loginPage":{
+        "espaceTitle":"Espace etudiant",
+        "description":" Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "mdp":"Mot de passe",
+        "seConnecter": "se connecter",
+        "inscription":"S'inscrire",
+        "question":"Pas encore Etudiant ?",
+        "erreur" : "Erreur",
+        "erreurMessage": "Identifiant ou Mot de passe incorrect"
+    }
+    
+
+}
