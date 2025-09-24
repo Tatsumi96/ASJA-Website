@@ -20,20 +20,20 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div className="md:flex md:flex-row flex flex-col  lg:px-5 px-2 py-4 lg:py-0 justify-between top-0 fixed w-full shadow-sm bg-white dark:bg-zinc-800 text-black border-b-gray-300 z-50">
+    <div className="md:flex md:flex-row flex flex-col transition-all duration-500  lg:px-5 px-2 py-4 lg:py-0 justify-between top-0 fixed w-full shadow-sm bg-white dark:bg-zinc-800 text-black border-b-gray-300 z-50">
       <div className="flex w-full md:w-auto justify-between items-center">
         <a
           className="flex items-center gap-2 cursor-pointer"
           onClick={() => (window.location.href = "/")}
         >
           <img className=" w-10 h-10" src={Logo} />
-          <h1 className=" flex items-center justify-center text-md text-gray-900 dark:text-white font-bold">
+          <h1 className=" flex items-center justify-center transition-all duration-500 text-md text-gray-900 dark:text-white font-bold">
             {translate("universite")}
           </h1>
         </a>
         <button
           onClick={() => setOpen((value) => !value)}
-          className=" flex md:hidden justify-center items-center text-green-700 dark:text-white pr-5 cursor-pointer hover:scale-110 hover:text-green-700/50 transition-all duration-500"
+          className=" flex md:hidden justify-center items-center text-green-700  dark:text-white pr-5 cursor-pointer hover:scale-110 hover:text-green-700/50 transition-all duration-500"
         >
           {open ? <X /> : <MenuIcon />}
         </button>
@@ -55,8 +55,8 @@ export const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-green-700 dark:bg-zinc-700 bg-green-50  px-4 py-6 font-medium"
-              : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-6"
+              ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50  px-4 py-6 font-medium"
+              : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-6"
           }
         >
           {translate("navBar.accueil")}
@@ -65,8 +65,8 @@ export const Navbar = () => {
           to="/about"
           className={({ isActive }) =>
             isActive
-              ? "text-green-700 dark:bg-zinc-700 bg-green-50 px-4 py-2 font-medium"
-              : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded"
+              ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 font-medium"
+              : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
           }
         >
           {translate("navBar.apropos")}
@@ -75,8 +75,8 @@ export const Navbar = () => {
           to="/programmes"
           className={({ isActive }) =>
             isActive
-              ? "text-green-700 dark:bg-zinc-700 bg-green-50 px-4 py-2 font-medium"
-              : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded"
+              ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 font-medium"
+              : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
           }
         >
           {translate("navBar.programmes")}
@@ -86,8 +86,8 @@ export const Navbar = () => {
           to="/contact"
           className={({ isActive }) =>
             isActive
-              ? "text-green-700 dark:bg-zinc-700 bg-green-50 px-4 py-2 font-medium"
-              : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded"
+              ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 font-medium"
+              : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
           }
         >
           {translate("contact")}
@@ -106,7 +106,7 @@ export const Navbar = () => {
       </div>
 
       {open ? (
-        <div className="md:hidden flex flex-col  justify-center items-center ">
+        <div className="md:hidden flex flex-col transition-all duration-500  justify-center items-center ">
           <button
             className="px-5 text-green-700 cursor-pointer"
             onClick={toggleLang}
@@ -123,8 +123,8 @@ export const Navbar = () => {
             to="/"
             className={({ isActive }) =>
               isActive
-                ? "text-green-700 dark:bg-zinc-700 bg-green-50 px-4 py-6 font-medium"
-                : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-6"
+                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-6 font-medium"
+                : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-6"
             }
           >
             {translate("navBar.accueil")}
@@ -133,8 +133,8 @@ export const Navbar = () => {
             to="/about"
             className={({ isActive }) =>
               isActive
-                ? "text-green-700 dark:bg-zinc-700 bg-green-50 px-4 py-2 font-medium"
-                : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded"
+                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 font-medium"
+                : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
             }
           >
             {translate("navBar.apropos")}
@@ -144,8 +144,8 @@ export const Navbar = () => {
             to="/programmes"
             className={({ isActive }) =>
               isActive
-                ? "text-green-700 dark:bg-zinc-700 bg-green-50 px-4 py-2 font-medium"
-                : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded"
+                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 font-medium"
+                : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
             }
           >
             {translate("navBar.programmes")}
@@ -155,8 +155,8 @@ export const Navbar = () => {
             to="/contact"
             className={({ isActive }) =>
               isActive
-                ? "text-green-700 dark:bg-zinc-700 bg-green-50 px-4 py-2 font-medium"
-                : "text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded"
+                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 font-medium"
+                : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
             }
           >
             {translate("contact")}

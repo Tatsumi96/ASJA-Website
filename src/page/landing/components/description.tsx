@@ -6,7 +6,7 @@ export const Description = () => {
   const { translate } = useLangue();
 
   return (
-    <section className="flex flex-col lg:flex-row bg-white dark:bg-zinc-900 lg:h-screen w-full">
+    <section className="flex flex-col lg:flex-row bg-white dark:bg-zinc-900 transition-all duration-500 lg:h-screen w-full">
       <div className=" md:flex-col lg:hidden md:pt-0 pt-18 fixed -z-10">
         <img
           className="h-100 md:h-full w-max object-cover "
@@ -21,10 +21,10 @@ export const Description = () => {
           transition={{ duration: 0.7 }}
           viewport={{ amount: 0.2, once: true }}
         >
-          <h1 className="text-4xl dark:text-amber-100 lg:text-6xl text-green-700 mb-10 font-semibold">
+          <h1 className="text-4xl dark:text-amber-100 lg:text-6xl transition-all duration-500 text-green-700 mb-10 font-semibold">
             Athénée Saint Joseph Antsirabe
           </h1>
-          <p className="lg:text-2xl text-xl">
+          <p className="lg:text-2xl transition-all duration-500 text-xl">
             {translate("descriptionSection.description")}
           </p>
           <div className="flex lg:justify-start justify-center items-center pt-10">
