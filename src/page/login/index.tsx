@@ -22,7 +22,7 @@ export const LogInSection = () => {
   return (
     <div className="flex justify-center items-center w-full text-gray-800 h-screen transition-all duration-500 bg-white dark:bg-zinc-900">
       <div className="flex justify-between w-full top-3 fixed md:px-5 px-2">
-        <a onClick={() => (window.location.href = "/")}>
+        <a className=" cursor-pointer" onClick={() => (window.location.href = "/")}>
           <div className="flex m-2 rounded-full ">
             <img src={Logo} className="w-13 h-13" />
             <h1 className="text-gray-800 font-bold ml-4 py-3 pr-4 transition-all duration-500 dark:text-white">

@@ -23,23 +23,47 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "@/page/theme/useTheme";
+import { useLangue } from "@/page/lang/useLang";
 import { useStudentPortalContext } from "../bloc/useStudentSpaceContext";
 
 export const NavBar = () => {
   const { userName } = useStudentPortalContext();
+  const { toggleTheme, isDark } = useTheme();
+  const { toggleLang, isEn } = useLangue();
   return (
-    <div className="flex justify-between top-0 fixed w-full text-gray-800 z-50">
+    <div className="flex justify-between top-0 py-3 px-4 fixed w-full text-gray-800 z-50">
       <a
-        className="flex ml-5 cursor-pointer"
+        className=" cursor-pointer"
         onClick={() => (window.location.href = "/")}
       >
-        <img className="m-2 w-14 h-14" src={Logo} />
-        <h1 className="py-5 mt-1 text-gray-900">Université ASJA</h1>
+        <div className="flex m-2 rounded-full ">
+          <img src={Logo} className="md:size-13 size-10 " />
+          <h1 className="text-gray-800 font-bold hidden md:flex ml-4 py-3 pr-4 transition-all duration-500 dark:text-white">
+            Universté ASJA
+          </h1>
+        </div>
       </a>
-      <div className=" flex items-center ">
+
+      <div className=" md:flex items-center hidden ">
         <NavigationMenuSection />
       </div>
-      <div className="flex justify-center items-center mr-5 ">
+      <div className="flex justify-center items-center">
+        <div className="flex">
+          <button
+            className="md:px-5 text-green-700 cursor-pointer"
+            onClick={toggleLang}
+          >
+            {isEn ? "EN" : "FR"}
+          </button>
+          <button
+            className="px-5 text-green-700 cursor-pointer"
+            onClick={toggleTheme}
+          >
+            {isDark ? <Sun /> : <Moon />}
+          </button>
+        </div>
         <DropButton name={userName} />
       </div>
     </div>
@@ -49,13 +73,15 @@ export const NavBar = () => {
 const DropButton = ({ name }: { name: string }) => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
-        <div className=" cursor-pointer flex bg-white rounded-2xl px-5 py-2 w-full justify-between gap-2 items-center">
+      <DropdownMenuTrigger className="transition-all duration-500 ">
+        <div className=" cursor-pointer flex bg-white dark:bg-zinc-800 rounded-2xl px-4 py-2  md:px-5 md:py-2 w-full justify-between gap-2 items-center">
           {" "}
-          <Avatar className=" size-11">
-            <AvatarFallback>{name[0]}</AvatarFallback>
+          <Avatar className=" md:size-11 ">
+            <AvatarFallback className="dark:text-white dark:bg-zinc-600">
+              {name[0]}
+            </AvatarFallback>
           </Avatar>
-          <p> {name}</p>
+          <p className="dark:text-white">{name}</p>
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
@@ -114,7 +140,7 @@ const DropButton = ({ name }: { name: string }) => {
 
 const NavigationMenuSection = () => {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="transition-all duration-500">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink className={navigationMenuTriggerStyle()}>

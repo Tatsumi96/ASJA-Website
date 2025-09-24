@@ -16,11 +16,11 @@ export const DocDataTable = () => {
   const { observerRef, table, columns } = useDocTable();
 
   return (
-    <div className=" border bg-white rounded-3xl p-4 w-full">
+    <div className=" border transition-all duration-500 rounded-3xl p-4 w-full">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id} className="hover:bg-transparent">
+            <TableRow key={headerGroup.id} className="hover:bg-transparent ">
               {headerGroup.headers.map((header) => {
                 return (
                   <TableHead key={header.id}>

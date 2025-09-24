@@ -6,7 +6,7 @@ import { StatisSection } from "./components/statis_section";
 export const StudentSpacePage = () => {
   return (
     <StudentPortalProvider>
-      <div className=" bg-zinc-100 flex flex-col">
+      <div className=" bg-zinc-100 overflow-x-hidden dark:bg-zinc-900 transition-all duration-500 flex flex-col">
         <NavBar />
         <StatisSection />
         <FileAndNewsSection />

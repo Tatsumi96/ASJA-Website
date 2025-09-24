@@ -36,7 +36,7 @@ const FilePicker: React.FC = () => {
         </p>
       )}
       <div {...getRootProps()} className="flex flex-col w-full">
-        <div className=" flex justify-center rounded-2xl bg-gray-100 border-green-700 border-2 border-dashed transition-all duration-300 transform  ">
+        <div className=" flex justify-center rounded-2xl bg-gray-100 dark:bg-zinc-800 border-green-700 border-2 border-dashed transition-all duration-300 transform  ">
           <label
             htmlFor="file-upload"
             className="cursor-pointer mx-10 my-5 w-full flex flex-col justify-center items-center  border-0 p-2 "

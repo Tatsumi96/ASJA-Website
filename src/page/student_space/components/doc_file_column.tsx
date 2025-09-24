@@ -6,31 +6,43 @@ export const columns: ColumnDef<DocEntity>[] = [
   {
     accessorKey: "lessonTitle",
     header: () => {
-      return <p className="text-gray-500 pl-10">Nom du fichier</p>;
+      return (
+        <p className="text-gray-500 pl-10 dark:text-white">Nom du fichier</p>
+      );
     },
     cell: ({ row }) => (
       <div className=" flex gap-2 pl-2">
         <Files className=" text-green-600" />
-        <p className="font-semibold">{row.getValue("lessonTitle")}</p>
+        <p className="font-semibold dark:text-white">
+          {row.getValue("lessonTitle")}
+        </p>
       </div>
     ),
   },
   {
     accessorKey: "author",
     header: () => {
-      return <p className="text-gray-500">Nom de l'auteur</p>;
+      return (
+        <p className="text-gray-500 hidden md:flex dark:text-white">
+          Nom de l'auteur
+        </p>
+      );
     },
     cell: ({ row }) => (
-      <p className="pr-15 py-2 text-gray-500">{row.getValue("author")}</p>
+      <p className="pr-15 py-2 text-gray-500 hidden md:flex dark:text-white">
+        {row.getValue("author")}
+      </p>
     ),
   },
   {
     accessorKey: "fileSize",
     header: () => {
-      return <p className="text-gray-500">Taille du fichier</p>;
+      return <p className="text-gray-500 dark:text-white">Taille du fichier</p>;
     },
     cell: ({ row }) => (
-      <p className="pr-20 py-2 text-gray-500">{row.getValue("fileSize")} MB</p>
+      <p className="pr-20 py-2 text-gray-500 dark:text-white">
+        {row.getValue("fileSize")} MB
+      </p>
     ),
   },
   {
