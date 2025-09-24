@@ -61,7 +61,6 @@
     "loginPage":{
         "espaceTitle":"Espace etudiant",
         "description":" Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "connexion":"Connexion",
         "mdp":"Mot de passe",
         "seConnecter": "se connecter",
         "inscription":"S'inscrire",

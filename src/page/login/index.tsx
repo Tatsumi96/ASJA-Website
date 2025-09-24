@@ -22,7 +22,10 @@ export const LogInSection = () => {
   return (
     <div className="flex justify-center items-center w-full text-gray-800 h-screen transition-all duration-500 bg-white dark:bg-zinc-900">
       <div className="flex justify-between w-full top-3 fixed md:px-5 px-2">
-        <a className=" cursor-pointer" onClick={() => (window.location.href = "/")}>
+        <a
+          className=" cursor-pointer"
+          onClick={() => (window.location.href = "/")}
+        >
           <div className="flex m-2 rounded-full ">
             <img src={Logo} className="w-13 h-13" />
             <h1 className="text-gray-800 font-bold ml-4 py-3 pr-4 transition-all duration-500 dark:text-white">
@@ -47,7 +50,7 @@ export const LogInSection = () => {
       </div>
 
       <div className="lg:flex w-1/2 h-screen hidden flex-col justify-center items-center">
-        <div className="p-10">
+        <div className="p-10 md:pb-50">
           <h1 className="text-4xl p-5 font-bold text-green-700">
             {translate("loginPage.espaceTitle")}
           </h1>
@@ -58,10 +61,9 @@ export const LogInSection = () => {
       </div>
       <div className="flex lg:w-1/2 w-full h-screen justify-center items-center">
         <div className="flex-col w-100 justify-center items-center p-10">
-          <h1 className="flex justify-center mb-5 text-2xl font-bold text-green-700">
-            {translate("loginPage.connexion")}
-          </h1>
-          <label className="dark:text-white transition-all duration-500">Matricule</label>
+          <label className="dark:text-white transition-all duration-500">
+            Matricule
+          </label>
           <input
             className="flex w-full transition-all duration-500 mb-5 dark:text-white border-gray-300 border-2 focus:ring-0 focus:outline-none rounded-md p-2.5"
             type="number"

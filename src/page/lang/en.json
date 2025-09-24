@@ -62,10 +62,9 @@
     "loginPage":{
         "espaceTitle":"Student portal",
         "description":" Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "connexion":"Log",
         "mdp":"Password",
-        "seConnecter": "log in",
-        "inscription":"sign in",
+        "seConnecter": "Sign In",
+        "inscription":"Sign Up",
         "question":"Not student ?"
     }
 
