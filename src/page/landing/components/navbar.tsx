@@ -20,7 +20,7 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div className="md:flex md:flex-row flex flex-col transition-all duration-500  lg:px-5 px-2 py-4 lg:py-0 justify-between top-0 fixed w-full shadow-sm bg-white dark:bg-zinc-800 text-black border-b-gray-300 z-50">
+    <div className="md:flex md:flex-row flex flex-col transition-all duration-500  md:px-5 px-2 py-4 md:py-0 justify-between top-0 fixed w-full shadow-sm bg-white dark:bg-zinc-800 text-black border-b-gray-300 z-50">
       <div className="flex w-full md:w-auto justify-between items-center">
         <a
           className="flex items-center gap-2 cursor-pointer"
@@ -55,7 +55,7 @@ export const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50  px-4 py-6 font-medium"
+              ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50  px-4  h-full flex flex-col justify-center font-medium"
               : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-6"
           }
         >
@@ -93,16 +93,15 @@ export const Navbar = () => {
           {translate("contact")}
         </NavLink>
 
-        <a onClick={() => (window.location.href = "/Login")}>
+        <a className="py-2" onClick={() => (window.location.href = "/Login")}>
           <div
-            className="px-6 py-3 my-1 ml-3 text-white font-bold bg-green-700
+            className="px-4 py-2 my-1 ml-3 text-white font-bold bg-green-700
                            rounded-full cursor-pointer hover:bg-green-800 
                            hover:scale-105 duration-300"
           >
             {translate("navBar.postuler")}
           </div>
         </a>
-        <a onClick={() => (window.location.href = "/Login")}></a>
       </div>
 
       {open ? (
@@ -123,7 +122,7 @@ export const Navbar = () => {
             to="/"
             className={({ isActive }) =>
               isActive
-                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-6 font-medium"
+                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 rounded-3xl font-medium"
                 : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-6"
             }
           >
@@ -133,7 +132,7 @@ export const Navbar = () => {
             to="/about"
             className={({ isActive }) =>
               isActive
-                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 font-medium"
+                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 rounded-3xl font-medium"
                 : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
             }
           >
@@ -144,7 +143,7 @@ export const Navbar = () => {
             to="/programmes"
             className={({ isActive }) =>
               isActive
-                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 font-medium"
+                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 rounded-3xl font-medium"
                 : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
             }
           >
@@ -155,7 +154,7 @@ export const Navbar = () => {
             to="/contact"
             className={({ isActive }) =>
               isActive
-                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 font-medium"
+                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 rounded-3xl font-medium"
                 : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
             }
           >
@@ -164,7 +163,7 @@ export const Navbar = () => {
 
           <a onClick={() => (window.location.href = "/Login")}>
             <div
-              className="px-6 py-3 my-1 ml-3 text-white font-bold bg-green-700
+              className="px-4 py-2 my-1 ml-3 text-white font-bold bg-green-700
                            rounded-full cursor-pointer hover:bg-green-800 
                            hover:scale-105 duration-300"
             >
