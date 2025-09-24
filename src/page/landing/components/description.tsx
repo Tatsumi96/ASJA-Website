@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import backgroundImage from "@/assets/Lieu_espace/asja_couloir.jpg";
+import { useLangue } from "@/page/lang/useLang";
 
 export const Description = () => {
+  const { translate } = useLangue();
+
   return (
     <section className="flex flex-col lg:flex-row bg-white dark:bg-zinc-900 lg:h-screen w-full">
       <div className=" md:flex-col lg:hidden md:pt-0 pt-18 fixed -z-10">
@@ -16,14 +19,13 @@ export const Description = () => {
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
-          viewport={{ amount: 0.3, once: true }}
+          viewport={{ amount: 0.2, once: true }}
         >
           <h1 className="text-4xl dark:text-amber-100 lg:text-6xl text-green-700 mb-10 font-semibold">
             Athénée Saint Joseph Antsirabe
           </h1>
           <p className="lg:text-2xl text-xl">
-            Qui propose une formation d'excellence aux étudiants désireux de
-            devenir les managers et décideurs de demain.
+            {translate("descriptionSection.description")}
           </p>
           <div className="flex lg:justify-start justify-center items-center pt-10">
             <button className="bg-green-800 hover:bg-green-900 cursor-pointer hover:scale-105 duration-300 rounded-full">
@@ -31,7 +33,7 @@ export const Description = () => {
                 href="/about"
                 className="text-white font-bold lg:text-lg text-sm flex gap-3 justify-center items-center md:px-6 md:py-3 py-2 px-4"
               >
-                En savoir plus ➞{" "}
+                {translate("descriptionSection.ensavoirplus")} ➞{" "}
               </a>
             </button>
           </div>
@@ -41,7 +43,7 @@ export const Description = () => {
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
-        viewport={{ amount: 0.3, once: true }}
+        viewport={{ amount: 0.2, once: true }}
         className="lg:flex md:flex-col justify-center hidden items-center pl-10 w-1/2 bg-gray-200 dark:bg-zinc-800 rounded-l-full"
       >
         <img

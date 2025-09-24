@@ -2,8 +2,11 @@ import { motion } from "framer-motion";
 
 import Image from "@/assets/Image-evenement/event-diplome_master.jpg";
 import Image2 from "@/assets/Lieu_espace/Bibliotheque.jpg";
+import { useLangue } from "@/page/lang/useLang";
 
 export const MissionSection = () => {
+  const { translate } = useLangue();
+
   return (
     <div className=" lg:flex lg:flex-row  flex flex-col mt-100 lg:mt-0 md:pt-0 justify-center items-center w-full dark:bg-zinc-800 bg-gray-50 text-gray-800 ">
       <div className="  lg:hidden flex-col justify-center py-10 px-5 lg:w-1/2 bg-white dark:bg-zinc-900 ">
@@ -11,14 +14,13 @@ export const MissionSection = () => {
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
-          viewport={{ amount: 0.3, once: true }}
+          viewport={{ amount: 0.2, once: true }}
         >
           <h1 className="text-4xl lg:text-6xl text-green-700 mb-10 font-semibold">
             Athénée Saint Joseph Antsirabe
           </h1>
           <p className="lg:text-2xl dark:text-white text-xl">
-            Qui propose une formation d'excellence aux étudiants désireux de
-            devenir les managers et décideurs de demain.
+            {translate("descriptionSection.description")}
           </p>
           <div className="flex lg:justify-start justify-center items-center pt-10">
             <button className="bg-green-800 hover:bg-green-900 cursor-pointer hover:scale-105 duration-300 rounded-full">
@@ -26,7 +28,7 @@ export const MissionSection = () => {
                 href="/about"
                 className="text-white font-bold lg:text-lg text-sm flex gap-3 justify-center items-center md:px-6 md:py-3 py-2 px-4"
               >
-                En savoir plus{" "}
+                {translate("descriptionSection.ensavoirplus")}
               </a>
             </button>
           </div>
@@ -37,25 +39,23 @@ export const MissionSection = () => {
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
-          viewport={{ amount: 0.3, once: true }}
+          viewport={{ amount: 0.2, once: true }}
         >
           <div className="md:hidden px-5 py-10 flex flex-col gap-5">
             <h1 className="flex text-4xl font-bold text-green-700 dark:text-amber-100">
-              Notre Mission
+              {translate("missionSection.missiontitle")}
             </h1>
             <p className="text-lg dark:text-white">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {translate("missionSection.mission")}
             </p>
           </div>
           <img src={Image} className="" />
           <div className=" hidden lg:flex lg:flex-col">
             <h1 className="flex text-4xl font-bold text-green-700 dark:text-amber-100 py-5">
-              Notre Mission
+              {translate("missionSection.missiontitle")}
             </h1>
             <p className="text-lg dark:text-white pb-10">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {translate("missionSection.mission")}
             </p>
           </div>
         </motion.div>
@@ -64,14 +64,15 @@ export const MissionSection = () => {
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
-        viewport={{ amount: 0.3, once: true }}
+        viewport={{ amount: 0.2, once: true }}
         className="flex-col lg:w-1/2"
       >
         <div className=" px-5 py-10 flex flex-col gap-5">
-          <h1 className="text-4xl font-bold text-green-700 dark:text-amber-100 ">Notre Objectif</h1>
+          <h1 className="text-4xl font-bold text-green-700 dark:text-amber-100 ">
+            {translate("missionSection.objectifTitle")}
+          </h1>
           <p className="text-lg dark:text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            {translate("missionSection.objectif")}
           </p>
         </div>
 

@@ -1,6 +1,7 @@
 import dehonsDayImage from "@/assets/Image-evenement/Dehons_day/event-dehons_day3.jpg";
 import gennrossoImage from "@/assets/Image-evenement/event-genrosso.jpg";
 import suisseImage from "@/assets/Image-evenement/event-partenariat_esic.jpg";
+import { useLangue } from "@/page/lang/useLang";
 import { motion } from "framer-motion";
 
 interface Event {
@@ -34,21 +35,28 @@ const suisseEvent: Event = {
 };
 
 export const CardEventSection = () => {
+  const { translate } = useLangue();
+
   return (
     <div className="flex flex-col z-20 site-container space-y-20 text-gray-800 dark:text-gray-300 md:space-y-24 lg:space-y-32 ">
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
-        viewport={{ amount: 0.3, once: true }}
+        viewport={{ amount: 0.2, once: true }}
         className=" flex flex-col-reverse md:flex-row md:items-center"
       >
         <div className="md:w-1/2 md:pr-12 hidden md:flex flex-col">
           <h3 className="lg:text-5xl md:text-4xl text-3xl mb-4 text-green-700 dark:text-amber-100">
             {dehonsEvent.title}
           </h3>
-          <p className="text-lg">{dehonsEvent.description}</p>
-          <p className="mt-4 text-lg ">{dehonsEvent.description}</p>
+          <p className="text-lg">
+            {translate("evenementSection.dehon.description")}
+          </p>
+          <p className="mt-4 text-lg ">
+            {" "}
+            {translate("evenementSection.dehon.description")}
+          </p>
         </div>
         <div className="md:w-1/2">
           <div className="md:w-1/2 md:pr-12 p-4  md:hidden">
@@ -70,7 +78,7 @@ export const CardEventSection = () => {
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
-        viewport={{ amount: 0.3, once: true }}
+        viewport={{ amount: 0.2, once: true }}
         className="relative flex flex-col md:flex-row md:items-center"
       >
         <div className="md:w-1/2 md:order-2 md:pl-12 p-4">
@@ -93,7 +101,7 @@ export const CardEventSection = () => {
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
-        viewport={{ amount: 0.3, once: true }}
+        viewport={{ amount: 0.2, once: true }}
         className="relative flex flex-col md:flex-row md:items-center"
       >
         <div className="md:w-1/2 md:pr-12 p-4">

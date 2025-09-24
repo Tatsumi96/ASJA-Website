@@ -3,6 +3,7 @@ import { LandingPage } from "@/page/landing";
 import { LogInSection } from "@/page/login";
 import { StudentSpacePage } from "@/page/student_space";
 import { useTheme } from "@/page/theme/useTheme";
+import "@/i18n";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
