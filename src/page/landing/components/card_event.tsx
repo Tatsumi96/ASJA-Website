@@ -44,7 +44,7 @@ export const CardEventSection = () => {
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className=" flex flex-col-reverse md:flex-row md:items-center"
+        className=" flex flex-col-reverse md:flex-row md:items-center px-4"
       >
         <div className="md:w-1/2 md:pr-12 hidden md:flex flex-col">
           <h3 className="lg:text-5xl md:text-4xl text-3xl mb-4 text-green-700 transition-all duration-500 dark:text-amber-100">
@@ -79,9 +79,9 @@ export const CardEventSection = () => {
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className="relative flex flex-col md:flex-row md:items-center"
+        className="relative flex flex-col md:flex-row md:items-center px-4"
       >
-        <div className="md:w-1/2 md:order-2 md:pl-12 p-4">
+        <div className="md:w-1/2 md:order-2 md:pl-12 ">
           <h3 className="lg:text-5xl md:text-4xl text-3xl mb-4 text-green-700 transition-all duration-500 dark:text-amber-100">
             {gennrossoEvent.title}
           </h3>
@@ -98,13 +98,13 @@ export const CardEventSection = () => {
       </motion.div>
 
       <motion.div
-        initial={{ x: 100, opacity: 0 }}
+        initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className="relative flex flex-col md:flex-row md:items-center"
+        className="relative flex flex-col md:flex-row md:items-center px-4"
       >
-        <div className="md:w-1/2 md:pr-12 p-4">
+        <div className="md:w-1/2 md:pr-12">
           <h3 className="lg:text-5xl md:text-4xl text-3xl mb-4 text-green-700 transition-all duration-500 dark:text-amber-100">
             {suisseEvent.title}
           </h3>

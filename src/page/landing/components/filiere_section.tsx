@@ -31,14 +31,20 @@ export const FiliereSection = () => {
   return (
     <>
       <div className=" flex-col justify-center text-gray-800 items-center transition-all duration-500 w-full h-max dark:bg-zinc-900 bg-gray-200 z-10">
-        <div className="flex-col pt-20 px-5 pb-0">
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ amount: 0.2, once: true }}
+          className="flex-col pt-20 px-5 pb-0"
+        >
           <h1 className="flex  lg:mt-5 text-center lg:text-start mx-0 mt-0 text-green-700 font-bold text-4xl">
             {translate("filiereSection.title")}
           </h1>
           <p className="flex lg:text-start text-lg pt-2 transition-all duration-500 dark:text-white  ">
             {translate("filiereSection.description")}
           </p>
-        </div>
+        </motion.div>
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}

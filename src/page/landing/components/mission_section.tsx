@@ -40,8 +40,9 @@ export const MissionSection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ amount: 0.2, once: true }}
+          className="px-5"
         >
-          <div className="md:hidden px-5 py-10 flex flex-col gap-5">
+          <div className="md:hidden py-10 flex flex-col gap-5">
             <h1 className="flex text-4xl font-bold text-green-700 transition-all duration-500 dark:text-amber-100">
               {translate("missionSection.missiontitle")}
             </h1>
@@ -49,7 +50,7 @@ export const MissionSection = () => {
               {translate("missionSection.mission")}
             </p>
           </div>
-          <img src={Image} className="" />
+          <img src={Image} className="rounded-2xl" />
           <div className=" hidden lg:flex lg:flex-col">
             <h1 className="flex text-4xl font-bold text-green-700 dark:text-amber-100 py-5">
               {translate("missionSection.missiontitle")}
@@ -65,9 +66,9 @@ export const MissionSection = () => {
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className="flex-col lg:w-1/2"
+        className="flex-col lg:w-1/2 px-5  py-10"
       >
-        <div className=" px-5 py-10 flex flex-col gap-5">
+        <div className="pb-5 flex flex-col gap-5">
           <h1 className="text-4xl font-bold text-green-700 transition-all duration-500 dark:text-amber-100 ">
             {translate("missionSection.objectifTitle")}
           </h1>
@@ -76,7 +77,11 @@ export const MissionSection = () => {
           </p>
         </div>
 
-        <img src={Image2} alt="" className="lg:p-5" />
+        <img
+          src={Image2}
+          alt=""
+          className="lg:p-5 rounded-2xl lg:rounded-4xl overflow-hidden"
+        />
       </motion.div>
     </div>
   );
