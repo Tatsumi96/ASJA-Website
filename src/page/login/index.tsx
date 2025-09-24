@@ -35,7 +35,7 @@ export const LogInSection = () => {
             className="md:px-5 text-green-700 cursor-pointer"
             onClick={toggleLang}
           >
-            {isEn ? "EN" : "FR"}
+            {isEn ? "FR" : "EN"}
           </button>
           <button
             className="px-5 text-green-700 cursor-pointer"
