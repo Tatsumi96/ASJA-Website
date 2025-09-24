@@ -67,7 +67,7 @@
         "inscription":"Sign Up",
         "question":"Not student ?",
         "erreur" : "Error",
-        "erreurMessage": "Wrong dentifiant or password"
+        "erreurMessage": "Wrong identifiant or password"
     }
 
 }
