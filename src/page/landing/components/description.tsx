@@ -44,13 +44,15 @@ export const Description = () => {
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className="lg:flex md:flex-col justify-center hidden items-center pl-10 w-1/2 bg-gray-200 transition-all duration-500 dark:bg-zinc-800 rounded-l-full"
+        className="flex w-1/2 justify-end"
       >
-        <img
-          className="h-full w-max rounded-l-full object-cover "
-          src={backgroundImage}
-          alt=""
-        />
+        <div className="lg:flex md:flex-col justify-center hidden items-center pl-10 w-full bg-gray-200 transition-all duration-500 dark:bg-zinc-800 rounded-l-full">
+          <img
+            className="h-full w-max rounded-l-full object-cover "
+            src={backgroundImage}
+            alt=""
+          />
+        </div>
       </motion.div>
     </section>
   );
