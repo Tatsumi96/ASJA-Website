@@ -69,7 +69,7 @@ export const LogInSection = () => {
             type="number"
             onChange={(e) => setMatricule(parseInt(e.target.value))}
           />
-          <label className="dark:text-white">
+          <label className="dark:text-white transition-all duration-500">
             {" "}
             {translate("loginPage.mdp")}
           </label>
