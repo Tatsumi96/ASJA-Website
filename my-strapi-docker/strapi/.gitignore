@@ -1,0 +1,12 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Strapi
+build/
+.cache/
+dist/
+
+# Docker
+docker-data/
