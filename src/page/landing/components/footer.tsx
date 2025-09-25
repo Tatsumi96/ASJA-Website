@@ -4,37 +4,34 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 type Contact = {
-  id: number;
   name: string;
   link?: string;
 };
 type SiteMap = {
-  id: number;
   name: string;
   link: string;
 };
 type SocialMedia = {
-  id: number;
   name: string;
   link: string;
   icon: ReactNode;
 };
 export const Footer = () => {
   const contact: Contact[] = [
-    { id: 1, name: "tel", link: "034 12 345 67" },
-    { id: 2, name: "email", link: "example@gmail.com" },
-    { id: 3, name: "address" },
+    { name: "tel", link: "034 12 345 67" },
+    { name: "email", link: "example@gmail.com" },
+    { name: "address" },
   ];
 
   const siteMap: SiteMap[] = [
-    { id: 1, name: "Accueil", link: "/" },
-    { id: 2, name: "A propos", link: "/about" },
-    { id: 3, name: "Evennement", link: "/events" },
-    { id: 5, name: "Login", link: "/login" },
+    { name: "Accueil", link: "/" },
+    { name: "A propos", link: "/about" },
+    { name: "Evennement", link: "/events" },
+    { name: "Login", link: "/login" },
   ];
   const socialMedia: SocialMedia[] = [
-    { id: 1, name: "Facebook", link: "", icon: <FacebookIcon /> },
-    { id: 2, name: "Instagram", link: "", icon: <InstagramIcon /> },
+    { name: "Facebook", link: "", icon: <FacebookIcon /> },
+    { name: "Instagram", link: "", icon: <InstagramIcon /> },
   ];
   return (
     <div className="flex flex-col lg:flex-row justify-center h-max gap-50 items-center w-full text-gray-800 p-10 shadow-2xl transition-all duration-500 bg-white dark:bg-zinc-900 dark:text-white ">
@@ -48,8 +45,8 @@ export const Footer = () => {
         <div>
           <ul className="flex flex-col gap-5">
             <h1 className="text-2xl font-bold">Contact</h1>
-            {contact.map((contact) => (
-              <li key={contact.id}>
+            {contact.map((contact,key) => (
+              <li key={key}>
                 {contact.name}:{" "}
                 {contact.link ? contact.link : "Antsaha, Antsirabe, Madagascar"}
               </li>
@@ -60,8 +57,8 @@ export const Footer = () => {
         <div>
           <ul className="flex flex-col gap-5">
             <h1 className="text-2xl font-bold">Map</h1>
-            {siteMap.map((siteMap) => (
-              <a key={siteMap.id} href={siteMap.link}>
+            {siteMap.map((siteMap,key) => (
+              <a key={key} href={siteMap.link}>
                 {siteMap.name}
               </a>
             ))}
@@ -70,8 +67,8 @@ export const Footer = () => {
         <div>
           <ul className="flex flex-col gap-5">
             <h1 className="text-2xl font-bold gap-5">Reseaux Sociaux</h1>
-            {socialMedia.map((socialMedia) => (
-              <a className="flex cursor-pointer" key={socialMedia.id}>
+            {socialMedia.map((socialMedia,key) => (
+              <a className="flex cursor-pointer" key={key}>
                 {" "}
                 {socialMedia.icon}
                 {socialMedia.name}
