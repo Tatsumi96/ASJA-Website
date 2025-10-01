@@ -1,10 +1,10 @@
 import { CardWithForm } from "./cardInput";
-import { DocDataTable } from "./docList";
+import { CardInputUser } from "./cardInputUser";
 
 export const FileAndNewsSection = () => {
   return (
     <div className=" flex w-full gap-3 p-4">
-      <DocDataTable />
+      <CardInputUser />
       <CardWithForm />
     </div>
   );

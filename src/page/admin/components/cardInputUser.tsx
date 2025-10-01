@@ -12,11 +12,9 @@ import { MdAdd } from "react-icons/md";
 
 import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 
-import FilePicker from "./file_picker";
-
 import { mentions, classes } from "@/core/types";
 
-export const CardWithForm = () => {
+export const CardInputUser = () => {
   const {
     setLessonTitle,
     sendToServer,
@@ -38,22 +36,20 @@ export const CardWithForm = () => {
                   htmlFor="name"
                   className=" text-lg font-semibold text-green-700"
                 >
-                  Lesson Title
+                  Nom
                 </Label>
                 <input
                   onChange={(e) => setLessonTitle(e.target.value)}
-                  placeholder="Ex : Chimie organique "
                   className="   h-12  pl-4 pr-11 placeholder:text-lg   text-lg border-1 bg-gray-100 dark:bg-zinc-800 rounded-sm focus:outline-none  focus:ring-0 transition-all duration-500"
                 />
                 <Label
                   htmlFor="name"
                   className=" text-lg font-semibold text-green-700"
                 >
-                  Author Name
+                  Prénom
                 </Label>
                 <input
                   onChange={(e) => setAuthorName(e.target.value)}
-                  placeholder="Ex : Rakoto"
                   className="   h-12  pl-4 pr-11 placeholder:text-lg   text-lg border-1 bg-gray-100 dark:bg-zinc-800 rounded-sm focus:outline-none  focus:ring-0 transition-all duration-500"
                 />
               </div>
@@ -97,9 +93,6 @@ export const CardWithForm = () => {
                     </SelectContent>
                   </Select>
                 </div>
-              </div>
-              <div className=" flex w-full justify-center">
-                <FilePicker />
               </div>
             </div>
           </form>
