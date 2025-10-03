@@ -137,19 +137,19 @@ const DropButton = ({ name }: { name: string }) => {
 
 const NavigationMenuSection = () => {
   return (
-    <NavigationMenu className="transition-all duration-500">
+    <NavigationMenu>
       <NavigationMenuList>
-        <NavigationMenuItem>
+        <NavigationMenuItem className="transition-all duration-500">
           <NavigationMenuLink className={navigationMenuTriggerStyle()}>
             Dashboard
           </NavigationMenuLink>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem className="transition-all duration-500">
           <NavigationMenuLink className={navigationMenuTriggerStyle()}>
             Evenement
           </NavigationMenuLink>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem className="transition-all duration-500">
           <NavigationMenuLink className={navigationMenuTriggerStyle()}>
             Documentation
           </NavigationMenuLink>
