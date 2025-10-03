@@ -70,7 +70,7 @@ export const MissionSection = () => {
         className="flex-col lg:w-1/2 px-5  py-10"
       >
         <div className="pb-5 flex flex-col gap-5">
-          <h1 className="text-4xl font-bold text-green-700 transition-all duration-500 dark:text-amber-100 ">
+          <h1 className="flex text-4xl font-bold text-green-700 transition-all duration-500 dark:text-amber-100">
             {translate("missionSection.objectifTitle")}
           </h1>
           <p className="text-lg transition-all duration-500 dark:text-white">
@@ -81,7 +81,7 @@ export const MissionSection = () => {
         <img
           src={Image2}
           alt=""
-          className="lg:p-5 rounded-2xl lg:rounded-4xl overflow-hidden"
+          className="rounded-2xl"
         />
       </motion.div>
     </div>
