@@ -4,14 +4,10 @@ export const StatisSection = () => {
   const { userName } = useAdminDashboardContext();
   return (
     <div className="pt-25 flex w-full justify-between px-10">
-      <div className="">
+      <div className="flex justify-center items-center">
         <p className=" font-semibold text-3xl pb-2 text-green-700">
           {" "}
           Bienvenue, {userName} 👋
-        </p>
-        <p className="text-gray-500 text-lg">
-          {" "}
-          Reste concentré, continue d'apprendre
         </p>
       </div>
       <div className="flex gap-10">
