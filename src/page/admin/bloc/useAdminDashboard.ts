@@ -1,6 +1,8 @@
+import type { Branche, Level, Mention } from "@/core/types";
 import type { DocDto } from "@/features/doc/doc.dto";
 import type { DocEntity } from "@/features/doc/doc.entity";
-import { docRepo, userRepository } from "@/injection";
+import type { UserEntity } from "@/features/mention/user.entity";
+import { docRepo, mentionRepository, userRepository } from "@/injection";
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { toast } from "sonner";
@@ -28,6 +30,35 @@ export const useAdminDashboard = () => {
   const fileSize = Math.round(
     selectedFile ? selectedFile.size / (1024 * 1024) : 0
   );
+
+  const [name, setName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [contact, setContact] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const register = async () => {
+    const student: UserEntity = {
+      name,
+      lastName,
+      contact,
+      password,
+      branche: branche as Branche,
+      level: level as Level,
+      mention: mention as Mention,
+      role: "User",
+    };
+    const result = await mentionRepository.register(student);
+    if (result.status === "success") {
+      toast.success("Succes", {
+        description: "Product added",
+        className: "animate-fade animate-once animate-ease-out",
+      });
+    } else {
+      toast.error("Error", {
+        description: "Failed to add product",
+      });
+    }
+  };
 
   const onDrop = useCallback(
     (acceptedFile: File[]) => setSelectedFile(acceptedFile[0]),
@@ -73,7 +104,6 @@ export const useAdminDashboard = () => {
       fileInputRef.current.value = "";
     }
   };
-  console.log("hoookk");
 
   const fetchDocList = async () => {
     const result = await docRepo.getFile(page, limit);
@@ -163,5 +193,10 @@ export const useAdminDashboard = () => {
     onDrop,
     setBranche,
     mention,
+    register,
+    setName,
+    setLastName,
+    setPassword,
+    setContact,
   };
 };

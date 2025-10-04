@@ -6,11 +6,17 @@ import { DocServiceImpl } from "./features/doc/doc_service";
 import { DocRepositoryImpl } from "./features/doc/doc.repositoryImpl";
 import { UserServiceImpl } from "./features/user/user_service";
 import { UserRepositoryImpl } from "./features/user/user.repositoryImpl";
+import { MentionServiceImpl } from "./features/mention/mention.service";
+import { MentionRepositoryImpl } from "./features/mention/mention.repositoryImpl";
 
 const api = axios.create({
   timeout: 5000,
   withCredentials: true,
 });
+
+const mentionService = new MentionServiceImpl(api);
+
+export const mentionRepository = new MentionRepositoryImpl(mentionService);
 
 const authService = new AuthServiceImpl(api);
 

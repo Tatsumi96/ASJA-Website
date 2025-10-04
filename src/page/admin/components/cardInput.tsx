@@ -43,7 +43,7 @@ export const CardWithForm = () => {
                 <input
                   onChange={(e) => setLessonTitle(e.target.value)}
                   placeholder="Ex : Chimie organique "
-                  className="   h-12  pl-4 pr-11 placeholder:text-lg   text-lg border-1 bg-gray-100 dark:bg-zinc-800 rounded-sm focus:outline-none  focus:ring-0 transition-all duration-500"
+                  className="   h-12  pl-4 pr-11 placeholder:text-lg   text-lg border-1 bg-gray-200 dark:bg-zinc-800 rounded-sm focus:outline-none  focus:ring-0 transition-all duration-500"
                 />
                 <Label
                   htmlFor="name"
@@ -54,7 +54,7 @@ export const CardWithForm = () => {
                 <input
                   onChange={(e) => setAuthorName(e.target.value)}
                   placeholder="Ex : Rakoto"
-                  className="   h-12  pl-4 pr-11 placeholder:text-lg   text-lg border-1 bg-gray-100 dark:bg-zinc-800 rounded-sm focus:outline-none  focus:ring-0 transition-all duration-500"
+                  className="   h-12  pl-4 pr-11 placeholder:text-lg   text-lg border-1 bg-gray-200 dark:bg-zinc-800 rounded-sm focus:outline-none  focus:ring-0 transition-all duration-500"
                 />
               </div>
               <div className="flex flex-col py-2.5 space-y-1.5">

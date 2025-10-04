@@ -1,9 +1,8 @@
 import type { Branche, Level, Mention, Role } from "@/core/types";
 
 export interface UserEntity {
-  matricule: number;
   name: string;
-  afterName: string;
+  lastName: string;
   password: string;
   contact: string;
   role: Role;

@@ -33,7 +33,7 @@ export const NavBar = () => {
   const { toggleTheme, isDark } = useTheme();
   const { toggleLang, isEn } = useLangue();
   return (
-    <div className="flex justify-between top-0 fixed w-full text-gray-800 z-50">
+    <div className="flex justify-between top-0 fixed w-full text-gray-800 z-50 ">
       <a
         className="flex ml-5 cursor-pointer"
         onClick={() => (window.location.href = "/")}

@@ -1,15 +1,17 @@
 import { AdminDashBoardProvider } from "./bloc/useAdminDasboardPortalProvider";
-import { FileAndNewsSection } from "./components/files_news_section";
+import { AddUserAndDocument } from "./components/AddUserAndDocument";
+import { MentionCardList } from "./components/MentionListCard";
 import { NavBar } from "./components/nav_bar";
-import { StatisSection } from "./components/statis_section";
+import { ChartPie } from "./components/PieChart";
 
 export const AdminDashboardPage = () => {
   return (
     <AdminDashBoardProvider>
-      <div className=" bg-zinc-100 dark:bg-zinc-900 transition-all h-screen duration-500 flex flex-col">
+      <div className="flex flex-col w-full gap-3 p-4 pt-15 bg-zinc-100  dark:bg-zinc-900 transition-all h-full duration-500 ">
         <NavBar />
-        <StatisSection />
-        <FileAndNewsSection />
+        <MentionCardList />
+        <ChartPie />
+        <AddUserAndDocument />
       </div>
     </AdminDashBoardProvider>
   );
