@@ -13,6 +13,7 @@ import { MdAdd } from "react-icons/md";
 import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 
 import { mentions, classes } from "@/core/types";
+import { Input } from "@/components/ui/input";
 
 export const CardInputUser = () => {
   const {
@@ -40,30 +41,23 @@ export const CardInputUser = () => {
                 >
                   Nom
                 </Label>
-                <input
-                  onChange={(e) => setName(e.target.value)}
-                  className="   h-12  pl-4 pr-11 placeholder:text-lg   text-lg border-1 bg-gray-200 dark:bg-zinc-800 rounded-sm focus:outline-none  focus:ring-0 transition-all duration-500"
-                />
+                <Input onChange={(e) => setName(e.target.value)} />
                 <Label
                   htmlFor="name"
                   className=" text-lg font-semibold text-green-700"
                 >
                   Prénom
                 </Label>
-                <input
-                  onChange={(e) => setLastName(e.target.value)}
-                  className="   h-12  pl-4 pr-11 placeholder:text-lg   text-lg border-1 bg-gray-200 dark:bg-zinc-800 rounded-sm focus:outline-none  focus:ring-0 transition-all duration-500"
-                />
+                <Input onChange={(e) => setLastName(e.target.value)} />
                 <Label
                   htmlFor="name"
                   className=" text-lg font-semibold text-green-700"
                 >
                   Contact
                 </Label>
-                <input
+                <Input
                   type="number"
                   onChange={(e) => setContact(e.target.value)}
-                  className="   h-12  pl-4 pr-11 placeholder:text-lg   text-lg border-1 bg-gray-200 dark:bg-zinc-800 rounded-sm focus:outline-none  focus:ring-0 transition-all duration-500"
                 />
                 <Label
                   htmlFor="name"
@@ -71,10 +65,7 @@ export const CardInputUser = () => {
                 >
                   Mot de passe
                 </Label>
-                <input
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="   h-12  pl-4 pr-11 placeholder:text-lg   text-lg border-1 bg-gray-200 dark:bg-zinc-800 rounded-sm focus:outline-none  focus:ring-0 transition-all duration-500"
-                />
+                <Input onChange={(e) => setPassword(e.target.value)} />
               </div>
               <div className="flex flex-col py-2.5 space-y-1.5">
                 <div className=" flex gap-4">
@@ -123,7 +114,7 @@ export const CardInputUser = () => {
         <CardFooter className="flex justify-end"></CardFooter>
         <div className=" flex w-full justify-end px-6">
           <Button
-            className=" bg-green-700 hover:bg-green-900 flex w-1/5"
+            className=" bg-green-700 hover:bg-green-900 flex w-1/5 cursor-pointer"
             onClick={register}
           >
             <div className=" flex  py-2 px-4 justify-center items-center gap-1">
