@@ -22,7 +22,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export const BarChartGraph = () => {
+export const BarChartGraph = ({ color }: { color: string }) => {
   return (
     <ChartContainer config={chartConfig}>
       <BarChart accessibilityLayer data={chartData}>
@@ -40,7 +40,7 @@ export const BarChartGraph = () => {
         />
         <Bar
           dataKey="Etudiant"
-          fill="var(--color-Etudiant)"
+          fill={color}
           radius={4}
           className="cursor-pointer"
         />
