@@ -7,7 +7,7 @@ import type { MentionService } from "./mention.service";
 export class MentionRepositoryImpl implements MentionRepository {
   constructor(private service: MentionService) {}
 
-  async getData(): Promise<Result<MentionDto[]>> {
+  async getData(): Promise<Result<MentionDto>> {
     try {
       const result = await this.service.get();
       return success(result);

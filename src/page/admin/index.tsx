@@ -7,7 +7,7 @@ import { ChartPie } from "./components/PieChart";
 export const AdminDashboardPage = () => {
   return (
     <AdminDashBoardProvider>
-      <div className="flex flex-col w-full gap-3 p-4 pt-15 bg-zinc-100  dark:bg-zinc-900 transition-all h-full duration-500 ">
+      <div className="flex flex-col w-full p-4 pt-20 bg-zinc-100  dark:bg-zinc-900 transition-all h-full duration-500 ">
         <NavBar />
         <MentionCardList />
         <ChartPie />

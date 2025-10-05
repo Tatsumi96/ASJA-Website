@@ -45,8 +45,8 @@ const FilePicker: React.FC = () => {
             <p className=" text-center text-lg py-5">
               {" "}
               {isDragActive
-                ? "Drop your file"
-                : "Drag and drop your file or click here"}{" "}
+                ? "Deposer votre fichier"
+                : "Glisser et deposer votre fichier ou cliquer ici"}{" "}
             </p>
           </label>
         </div>
