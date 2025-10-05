@@ -13,8 +13,9 @@ export const PageRoute = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/Login" element={<LogInSection />} />
-        <Route path="/studentSpace" element={<AdminDashboardPage />} />
+        <Route path="/login" element={<LogInSection />} />
+        <Route path="/admin" element={<AdminDashboardPage />} />
+        <Route path="/student-space" element={<StudentSpacePage />} />
       </Routes>
     </BrowserRouter>
   );
