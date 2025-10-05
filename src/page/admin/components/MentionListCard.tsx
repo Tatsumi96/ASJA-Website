@@ -1,14 +1,22 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { BarChartGraph } from "./BarChart";
+import { MdPerson2 } from "react-icons/md";
+import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
+import type { MentionDto } from "@/features/mention/mention.dto";
+import type { Mention } from "@/core/types";
 
 const MentionCart = ({
   className,
   mention,
   color,
+  item,
+  totalStudent,
 }: {
   className: string;
-  mention: string;
+  mention: Mention;
   color: string;
+  item: MentionDto;
+  totalStudent: number;
 }) => {
   return (
     <div className="w-full flex p-5 justify-around">
@@ -17,8 +25,12 @@ const MentionCart = ({
       >
         <CardContent>
           <p className=" text-3xl">{mention}</p>
-          <p className=" text-lg py-7">3500 etudiants</p>
-          <BarChartGraph color={color} />
+          <p className="flex text-lg py-7 gap-2 items-center">
+            {" "}
+            <MdPerson2 className=" text-gray-400 text-2xl" />
+            {totalStudent} etudiants
+          </p>
+          <BarChartGraph color={color} item={item} mention={mention} />
         </CardContent>
       </Card>
     </div>
@@ -26,37 +38,50 @@ const MentionCart = ({
 };
 
 export const MentionCardList = () => {
+  const { mentionData } = useAdminDashboardContext();
   return (
-    <div className="flex">
-      <Card className=" flex flex-row">
+    <div className="flex flex-wrap">
+      <Card className=" flex flex-row transition-all duration-500">
         {" "}
         <MentionCart
-          mention="Droit"
+          item={mentionData as MentionDto}
+          totalStudent={mentionData?.DROIT.totalStudent as number}
+          mention="DROIT"
           className="border-red-600 border-4"
           color="#dc2626"
         />
         <MentionCart
-          mention="Informatique"
+          item={mentionData as MentionDto}
+          totalStudent={mentionData?.INFORMATIQUE.totalStudent as number}
+          mention="INFORMATIQUE"
           className="border-violet-600 border-4"
           color="#7c3aed"
         />
         <MentionCart
-          mention="Economie"
+          item={mentionData as MentionDto}
+          totalStudent={mentionData?.ECONOMIE.totalStudent as number}
+          mention="ECONOMIE"
           className="border-yellow-600 border-4"
           color="#d97706"
         />
         <MentionCart
-          mention="Agronomie"
+          item={mentionData as MentionDto}
+          totalStudent={mentionData?.AGRONOMIE.totalStudent as number}
+          mention="AGRONOMIE"
           className="border-green-600 border-4"
           color="#059669"
         />
         <MentionCart
-          mention="Langue Etrangere Applique"
+          item={mentionData as MentionDto}
+          totalStudent={mentionData?.LANGUE_ET_CULTURE.totalStudent as number}
+          mention="LANGUE ET CULTURE"
           className="border-blue-600 border-4"
           color="#2563eb"
         />
         <MentionCart
-          mention="Science de la Terre"
+          item={mentionData as MentionDto}
+          totalStudent={mentionData?.SCIENCE_DE_LA_TERRE.totalStudent as number}
+          mention="SCIENCE DE LA TERRE"
           className="border-gray-600 border-4"
           color="#4b5563"
         />
