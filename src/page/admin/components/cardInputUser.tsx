@@ -19,6 +19,7 @@ export const CardInputUser = () => {
   const {
     setMention,
     setLevel,
+    level,
     setBranche,
     mention,
     setName,
@@ -129,7 +130,10 @@ export const CardInputUser = () => {
                       ))}
                     </SelectContent>
                   </Select>
-                  <Select onValueChange={setBranche} disabled={!mention}>
+                  <Select
+                    onValueChange={setBranche}
+                    disabled={!mention || level == "L1" || level == "L2"}
+                  >
                     <SelectTrigger className=" w-full bg-gray-100">
                       <SelectValue placeholder="Branche" />
                     </SelectTrigger>
