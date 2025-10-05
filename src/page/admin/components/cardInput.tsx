@@ -8,7 +8,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { MdAdd } from "react-icons/md";
 
 import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 
@@ -32,6 +31,9 @@ export const CardWithForm = () => {
     <div className=" flex flex-col gap-5 w-1/2">
       <Card className="transition-all duration-500">
         <CardContent>
+          <p className=" flex w-full justify-center font-semibold text-3xl text-gray-500 pb-10">
+            Ajouter un document
+          </p>
           <form>
             <div className="  grid w-full  items-center gap-4">
               <div className="flex flex-col space-y-1.5">
@@ -39,21 +41,27 @@ export const CardWithForm = () => {
                   htmlFor="name"
                   className=" text-lg font-semibold text-green-700"
                 >
-                  Lesson Title
+                  Titre
                 </Label>
-                <Input onChange={(e) => setLessonTitle(e.target.value)} />
+                <Input
+                  className="bg-gray-200"
+                  onChange={(e) => setLessonTitle(e.target.value)}
+                />
                 <Label
                   htmlFor="name"
                   className=" text-lg font-semibold text-green-700"
                 >
-                  Author Name
+                  Autheur
                 </Label>
-                <Input onChange={(e) => setAuthorName(e.target.value)} />
+                <Input
+                  className="bg-gray-200"
+                  onChange={(e) => setAuthorName(e.target.value)}
+                />
               </div>
               <div className="flex flex-col py-2.5 space-y-1.5">
                 <div className=" flex gap-4">
                   <Select onValueChange={setMention}>
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full bg-gray-200">
                       <SelectValue placeholder="Mention" />
                     </SelectTrigger>
                     <SelectContent>
@@ -65,7 +73,7 @@ export const CardWithForm = () => {
                     </SelectContent>
                   </Select>
                   <Select onValueChange={setLevel}>
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full bg-gray-200">
                       <SelectValue placeholder="Niveau" />
                     </SelectTrigger>
                     <SelectContent>
@@ -77,7 +85,7 @@ export const CardWithForm = () => {
                     </SelectContent>
                   </Select>
                   <Select onValueChange={setBranche} disabled={!mention}>
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full bg-gray-200">
                       <SelectValue placeholder="Branche" />
                     </SelectTrigger>
                     <SelectContent>
@@ -97,17 +105,14 @@ export const CardWithForm = () => {
             </div>
           </form>
         </CardContent>
-        <CardFooter className="flex justify-end"></CardFooter>
-        <div className=" flex w-full justify-end px-6">
+        <CardFooter>
           <Button
-            className=" bg-green-700 hover:bg-green-900 flex cursor-pointer w-1/5"
+            className=" bg-green-700 hover:bg-green-900 flex w-full cursor-pointer py-6"
             onClick={sendToServer}
           >
-            <div className=" flex  py-2 px-4 justify-center items-center gap-1">
-              <MdAdd className=" text-3xl" /> <p className=" text-xl">Add</p>
-            </div>
+            <p className=" text-xl">Ajouter le document</p>
           </Button>
-        </div>
+        </CardFooter>
       </Card>
     </div>
   );

@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { MdAdd } from "react-icons/md";
+import { MdLock, MdPerson2, MdPhone } from "react-icons/md";
 
 import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 
@@ -32,45 +32,81 @@ export const CardInputUser = () => {
     <div className=" flex flex-col gap-5 w-1/2">
       <Card className="transition-all duration-500">
         <CardContent>
+          <p className=" flex w-full justify-center font-semibold text-3xl text-gray-500 pb-10">
+            Ajouter un etudiant
+          </p>
           <form>
             <div className="  grid w-full  items-center gap-4">
               <div className="flex flex-col space-y-1.5">
-                <Label
-                  htmlFor="name"
-                  className=" text-lg font-semibold text-green-700"
-                >
-                  Nom
-                </Label>
-                <Input onChange={(e) => setName(e.target.value)} />
-                <Label
-                  htmlFor="name"
-                  className=" text-lg font-semibold text-green-700"
-                >
-                  Prénom
-                </Label>
-                <Input onChange={(e) => setLastName(e.target.value)} />
+                <div className="flex gap-3">
+                  <div className="flex flex-col w-1/2">
+                    <Label
+                      htmlFor="name"
+                      className=" text-lg font-semibold text-green-700"
+                    >
+                      Nom
+                    </Label>
+                    <div className="relative w-full">
+                      <MdPerson2 className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
+                      <Input
+                        placeholder="Nom"
+                        className="pl-10 pr-3 bg-gray-200"
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </div>
+                  </div>{" "}
+                  <div className="flex flex-col w-1/2">
+                    {" "}
+                    <Label
+                      htmlFor="name"
+                      className=" text-lg font-semibold text-green-700"
+                    >
+                      Prénom
+                    </Label>
+                    <div className="relative w-full">
+                      <MdPerson2 className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
+                      <Input
+                        className="pl-10 pr-3 bg-gray-200"
+                        onChange={(e) => setLastName(e.target.value)}
+                        placeholder="Prénom"
+                      />
+                    </div>
+                  </div>
+                </div>
+
                 <Label
                   htmlFor="name"
                   className=" text-lg font-semibold text-green-700"
                 >
                   Contact
                 </Label>
-                <Input
-                  type="number"
-                  onChange={(e) => setContact(e.target.value)}
-                />
+                <div className="relative w-full">
+                  <MdPhone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
+                  <Input
+                    className="pl-10 pr-3 bg-gray-200"
+                    type="number"
+                    onChange={(e) => setContact(e.target.value)}
+                  />
+                </div>
+
                 <Label
                   htmlFor="name"
                   className=" text-lg font-semibold text-green-700"
                 >
                   Mot de passe
                 </Label>
-                <Input onChange={(e) => setPassword(e.target.value)} />
+                <div className=" relative w-full">
+                  <MdLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
+                  <Input
+                    className="pl-10 pr-3 bg-gray-200"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
               </div>
-              <div className="flex flex-col py-2.5 space-y-1.5">
+              <div className="flex flex-col py-2.5">
                 <div className=" flex gap-4">
                   <Select onValueChange={setMention}>
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full bg-gray-200">
                       <SelectValue placeholder="Mention" />
                     </SelectTrigger>
                     <SelectContent>
@@ -82,7 +118,7 @@ export const CardInputUser = () => {
                     </SelectContent>
                   </Select>
                   <Select onValueChange={setLevel}>
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full bg-gray-200">
                       <SelectValue placeholder="Niveau" />
                     </SelectTrigger>
                     <SelectContent>
@@ -94,7 +130,7 @@ export const CardInputUser = () => {
                     </SelectContent>
                   </Select>
                   <Select onValueChange={setBranche} disabled={!mention}>
-                    <SelectTrigger>
+                    <SelectTrigger className=" w-full bg-gray-100">
                       <SelectValue placeholder="Branche" />
                     </SelectTrigger>
                     <SelectContent>
@@ -111,17 +147,14 @@ export const CardInputUser = () => {
             </div>
           </form>
         </CardContent>
-        <CardFooter className="flex justify-end"></CardFooter>
-        <div className=" flex w-full justify-end px-6">
+        <CardFooter>
           <Button
-            className=" bg-green-700 hover:bg-green-900 flex w-1/5 cursor-pointer"
+            className=" bg-green-700 hover:bg-green-900 flex w-full cursor-pointer p-6"
             onClick={register}
           >
-            <div className=" flex  py-2 px-4 justify-center items-center gap-1">
-              <MdAdd className=" text-3xl" /> <p className=" text-xl">Add</p>
-            </div>
+            <p className=" text-xl">Ajouter l'etudiant</p>
           </Button>
-        </div>
+        </CardFooter>
       </Card>
     </div>
   );
