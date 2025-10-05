@@ -14,7 +14,7 @@ export interface MentionDto {
       }[];
     }[];
   };
-  INFOMATIQUE: {
+  INFORMATIQUE: {
     totalStudent: number;
     data: {
       level: Level;
