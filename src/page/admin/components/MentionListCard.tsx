@@ -20,7 +20,7 @@ const MentionCart = ({
 }) => {
   return (
       <Card
-        className={` ${className} flex w-2/7 items-center justify-center text-black h-85 dark:bg-transparent dark:text-white text-2xl cursor-pointer font-semibold`}
+        className={` ${className} flex w-2/7 transition-all duration-500 items-center justify-center text-black h-85 dark:bg-transparent dark:text-white text-2xl cursor-pointer font-semibold`}
       >
         <CardContent className="flex wrap-anywhere justify-center w-full h-full flex-col ">
           <p className=" text-start text-3xl">{mention}</p>
@@ -37,7 +37,7 @@ const MentionCart = ({
 export const MentionCardList = () => {
   const { mentionData } = useAdminDashboardContext();
   return (
-      <Card className="flex m-5 items-center justify-center flex-wrap w-full flex-row">
+      <Card className="flex m-5 items-center justify-center flex-wrap w-full flex-row transition-all duration-500">
         {" "}
         <MentionCart
           item={mentionData as MentionDto}
