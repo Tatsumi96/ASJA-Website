@@ -83,15 +83,16 @@ export const ChartPie = () => {
   } satisfies ChartConfig;
 
   return (
-    <ChartContainer config={chartConfig} className=" max-h-[480px]">
+    <ChartContainer config={chartConfig} className="flex justify-center border-2 items-center bg-white dark:bg-zinc-900 w-1/2 rounded-xl m-5 p-4">
       <PieChart>
         <ChartTooltip content={<ChartTooltipContent hideLabel />} />
-        <Pie
-          data={chartData}
-          dataKey="Etudiant"
-          className="cursor-pointer"
-          nameKey="Mention"
-        ></Pie>
+          <Pie
+            data={chartData}
+            dataKey="Etudiant"
+            className="cursor-pointer"
+            nameKey="Mention"
+          >
+        </Pie>
       </PieChart>
     </ChartContainer>
   );
