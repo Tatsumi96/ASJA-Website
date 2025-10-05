@@ -1,12 +1,10 @@
-import Logo from "@/assets/Logo/asja-logo.png";
+import { Separator } from "@/components/ui/separator";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+import { Moon, Sun } from "lucide-react";
+import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
+import { useTheme } from "@/page/theme/useTheme";
+import { useLangue } from "@/page/lang/useLang";
 
 import {
   DropdownMenu,
@@ -23,55 +21,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "@/page/theme/useTheme";
-import { useLangue } from "@/page/lang/useLang";
-
-export const NavBar = () => {
-  const { userName } = useAdminDashboardContext();
-  const { toggleTheme, isDark } = useTheme();
-  const { toggleLang, isEn } = useLangue();
-  return (
-    <div className="flex backdrop-blur-sm justify-between top-0 fixed w-full text-gray-800 z-50 ">
-      <a
-        className="flex ml-5 cursor-pointer"
-        onClick={() => (window.location.href = "/")}
-      >
-        <img className="m-2 w-14 h-14" src={Logo} />
-        <h1 className="py-5 mt-1 text-gray-900 dark:text-white font-semibold">
-          Université ASJA
-        </h1>
-      </a>
-      <div className=" flex items-center ">
-        <NavigationMenuSection />
-      </div>
-      <div className="flex justify-center items-center mr-5 ">
-        <div className="flex">
-          <button
-            className="md:px-5 text-green-700 cursor-pointer"
-            onClick={toggleLang}
-          >
-            {isEn ? "FR" : "EN"}
-          </button>
-          <button
-            className="px-5 text-green-700 cursor-pointer"
-            onClick={toggleTheme}
-          >
-            {isDark ? <Sun /> : <Moon />}
-          </button>
-        </div>
-        <DropButton name={userName} />
-      </div>
-    </div>
-  );
-};
 
 const DropButton = ({ name }: { name: string }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="transition-all duration-500 ">
-        <div className=" cursor-pointer flex bg-white dark:bg-zinc-800 rounded-2xl px-5 py-2 w-full justify-between gap-2 items-center">
+        <div className=" cursor-pointer flex rounded-2xl  py-2 w-full justify-between gap-2 items-center">
           {" "}
           <Avatar className=" size-11 ">
             <AvatarFallback className="dark:text-white  dark:bg-zinc-600">
@@ -135,26 +90,36 @@ const DropButton = ({ name }: { name: string }) => {
   );
 };
 
-const NavigationMenuSection = () => {
+export const NavBar = () => {
+  const { userName } = useAdminDashboardContext();
+  const { toggleTheme, isDark } = useTheme();
+  const { toggleLang, isEn } = useLangue();
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem className="transition-all duration-500">
-          <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-            Dashboard
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem className="transition-all duration-500">
-          <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-            Evenement
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem className="transition-all duration-500">
-          <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-            Documentation
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+    <header className=" group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 flex h-15 shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear">
+      <div className="flex w-full justify-between items-center gap-1 px-4 lg:gap-2 lg:px-6">
+        <SidebarTrigger className="-ml-1 text-green-700 hover:text-green-700" />
+        <Separator
+          orientation="vertical"
+          className="mx-2 data-[orientation=vertical]:h-4"
+        />
+        <div className="flex justify-end  items-center mr-5 ">
+          <div className="flex">
+            <button
+              className="md:px-5 text-green-700 cursor-pointer"
+              onClick={toggleLang}
+            >
+              {isEn ? "FR" : "EN"}
+            </button>
+            <button
+              className="px-5 text-green-700 cursor-pointer"
+              onClick={toggleTheme}
+            >
+              {isDark ? <Sun /> : <Moon />}
+            </button>
+          </div>
+          <DropButton name={userName} />
+        </div>
+      </div>
+    </header>
   );
 };

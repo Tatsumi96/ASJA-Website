@@ -9,15 +9,14 @@ import {
   FileCodeIcon,
   FileIcon,
   FileTextIcon,
-  FolderIcon,
   HelpCircleIcon,
-  LayoutDashboardIcon,
-  ListIcon,
   SearchIcon,
   SettingsIcon,
-  UsersIcon,
 } from "lucide-react";
 
+import { NavMain } from "../../shad/components/nav-main";
+import { NavSecondary } from "../../shad/components/nav-secondary";
+import { NavUser } from "../../shad/components/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -28,12 +27,6 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
-import { NavMain } from "./nav-main";
-import { NavSecondary } from "./nav-secondary";
-import { NavUser } from "./nav-user";
-
-import Logo from "@/assets/Logo/asja-logo.png";
-
 const data = {
   user: {
     name: "shadcn",
@@ -42,29 +35,9 @@ const data = {
   },
   navMain: [
     {
-      title: "Dashboard",
-      url: "#",
-      icon: LayoutDashboardIcon,
-    },
-    {
-      title: "Lifecycle",
-      url: "#",
-      icon: ListIcon,
-    },
-    {
       title: "Analytics",
       url: "#",
       icon: BarChartIcon,
-    },
-    {
-      title: "Projects",
-      url: "#",
-      icon: FolderIcon,
-    },
-    {
-      title: "Team",
-      url: "#",
-      icon: UsersIcon,
     },
   ],
   navClouds: [
@@ -161,14 +134,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <a
-                className="flex  cursor-pointer"
-                onClick={() => (window.location.href = "/")}
-              >
-                <img className="m-2 w-14 h-14" src={Logo} />
-                <h1 className="py-5 mt-1 text-gray-900 dark:text-white font-semibold">
-                  Université ASJA
-                </h1>
+              <a href="#">
+                <div className=" flex flex-row justify-between gap-2">
+                  <div className="flex font-semibold text-green-700 text-xl justify-center items-center">
+                    <p className=" text-yellow-500 font-semibold"> Sabotsy</p>{" "}
+                    Market
+                  </div>
+                </div>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -176,7 +148,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        {/* <NavDocuments items={data.documents} /> */}
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>

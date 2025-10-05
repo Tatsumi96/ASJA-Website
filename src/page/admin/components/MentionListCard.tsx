@@ -37,7 +37,7 @@ const MentionCart = ({
 export const MentionCardList = () => {
   const { mentionData } = useAdminDashboardContext();
   return (
-      <Card className="flex m-5 items-center justify-center flex-wrap w-1/2 flex-row">
+      <Card className="flex m-5 items-center justify-center flex-wrap w-full flex-row">
         {" "}
         <MentionCart
           item={mentionData as MentionDto}
