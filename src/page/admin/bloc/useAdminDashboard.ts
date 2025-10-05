@@ -1,6 +1,7 @@
 import type { Branche, Level, Mention } from "@/core/types";
 import type { DocDto } from "@/features/doc/doc.dto";
 import type { DocEntity } from "@/features/doc/doc.entity";
+import type { MentionDto } from "@/features/mention/mention.dto";
 import type { UserEntity } from "@/features/mention/user.entity";
 import { docRepo, mentionRepository, userRepository } from "@/injection";
 
@@ -36,26 +37,32 @@ export const useAdminDashboard = () => {
   const [contact, setContact] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  const [mentionData, setMentionData] = useState<MentionDto>();
+
   const register = async () => {
     const student: UserEntity = {
       name,
       lastName,
       contact,
       password,
-      branche: branche as Branche,
+      branche:
+        !branche || level == "L1" || level == "L2"
+          ? "COMMUN"
+          : (branche as Branche),
       level: level as Level,
-      mention: mention as Mention,
+      mention: mention.replace(/_/g, " ") as Mention,
       role: "User",
     };
     const result = await mentionRepository.register(student);
     if (result.status === "success") {
       toast.success("Succes", {
-        description: "Product added",
+        description: "Student added",
         className: "animate-fade animate-once animate-ease-out",
       });
+      await fetchDashboardData();
     } else {
       toast.error("Error", {
-        description: "Failed to add product",
+        description: "Failed to add student",
       });
     }
   };
@@ -155,17 +162,28 @@ export const useAdminDashboard = () => {
     setUserName(result.data.userName);
   };
 
+  const fetchDashboardData = async () => {
+    const result = await mentionRepository.getData();
+    if (result.status == "failure")
+      return toast.error("Error", {
+        description: "Failed to load dashboard data",
+      });
+
+    setMentionData(result.data);
+  };
+
   const sendToServer = async () => {
     await addDocMetaData();
     if (selectedFile) await handleUpload();
   };
 
   useEffect(() => {
-    const callFetchUserData = async () => {
+    const callFetchUserAndDashboardData = async () => {
       await fetchUserData();
+      await fetchDashboardData();
     };
 
-    callFetchUserData();
+    callFetchUserAndDashboardData();
   }, []);
 
   return {
@@ -198,5 +216,7 @@ export const useAdminDashboard = () => {
     setLastName,
     setPassword,
     setContact,
+    mentionData,
+    level,
   };
 };
