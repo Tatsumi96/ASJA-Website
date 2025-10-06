@@ -66,9 +66,10 @@ export const columns: ColumnDef<UserDto>[] = [
   },
   {
     accessorKey: "name",
+    enableSorting: true,
     header: () => {
       return (
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full items-center justify-between cursor-pointer">
           <p className="font-semibold dark:text-white">Nom</p>
           <Separator
             orientation="vertical"
@@ -119,9 +120,10 @@ export const columns: ColumnDef<UserDto>[] = [
   },
   {
     accessorKey: "level",
+    enableSorting: true,
     header: () => {
       return (
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full items-center justify-between cursor-pointer">
           <p className="font-semibold dark:text-white">Niveau</p>
           <Separator
             orientation="vertical"
