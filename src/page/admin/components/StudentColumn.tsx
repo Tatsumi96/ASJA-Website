@@ -1,8 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import type { UserDto } from "@/features/mention/user.dto";
 import type { ColumnDef } from "@tanstack/react-table";
+import { TrancheBadge } from "./TrancheBadge";
 
 export const columns: ColumnDef<UserDto>[] = [
   {
@@ -126,12 +126,9 @@ export const columns: ColumnDef<UserDto>[] = [
         </div>
       );
     },
-    cell: ({ row }) =>
-      row.getValue("trancheOne") ? (
-        <Badge className="bg-green-600 text-white">Payé</Badge>
-      ) : (
-        <Badge variant="destructive">Non payé</Badge>
-      ),
+    cell: ({ row }) => (
+      <TrancheBadge studentData={row.original} tranche={"trancheOne"} />
+    ),
   },
 
   {
@@ -147,12 +144,9 @@ export const columns: ColumnDef<UserDto>[] = [
         </div>
       );
     },
-    cell: ({ row }) =>
-      row.getValue("trancheTwo") ? (
-        <Badge>Payé</Badge>
-      ) : (
-        <Badge variant="destructive">Non payé</Badge>
-      ),
+    cell: ({ row }) => (
+      <TrancheBadge studentData={row.original} tranche={"trancheTwo"} />
+    ),
   },
   {
     accessorKey: "trancheThree",
@@ -167,11 +161,8 @@ export const columns: ColumnDef<UserDto>[] = [
         </div>
       );
     },
-    cell: ({ row }) =>
-      row.getValue("trancheThree") ? (
-        <Badge>Payé</Badge>
-      ) : (
-        <Badge variant="destructive">Non payé</Badge>
-      ),
+    cell: ({ row }) => (
+      <TrancheBadge studentData={row.original} tranche={"trancheThree"} />
+    ),
   },
 ];
