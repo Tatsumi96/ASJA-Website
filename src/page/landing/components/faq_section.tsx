@@ -37,7 +37,7 @@ export const FaqSection = () => {
   const filteredFaqs = frequentlyAskedQuestions.filter((faq) => faq.categoriesQuestion === activeCategory);
 
   return (
-    <div className="flex flex-col w-screen px-10 md:px-20 py-20 bg-white dark:bg-zinc-800 text-gray-800 dark:text-gray-200">
+    <div className="flex flex-col w-screen px-10 md:px-20 py-20 bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200">
     
       <h1 className="text-5xl text-green-700 font-extrabold text-center mb-16">
         Foire Aux Questions
@@ -59,7 +59,7 @@ export const FaqSection = () => {
                 ${
                   activeCategory === cat
                     ? "text-green-600 bg-green-100 dark:bg-green-950 shadow-md"
-                    : "text-gray-500 hover:text-zinc-900 hover:bg-gray-100 dark:hover:text-zinc-400 dark:hover:bg-zinc-900"
+                    : "text-gray-500 hover:text-zinc-900 hover:bg-gray-100 dark:hover:text-zinc-400 dark:hover:bg-zinc-950"
                 }`}
             >
               {cat}
@@ -68,7 +68,7 @@ export const FaqSection = () => {
         </div>
 
       
-        <div className="flex border flex-col flex-1 p-10 h-104 lg:w-180 bg-gray-100 dark:bg-zinc-800 rounded-xl gap-6 min-h-[300px] overflow-y-scroll">
+        <div className="flex border flex-col flex-1 p-10 h-104 lg:w-180 bg-gray-100 dark:bg-zinc-900 rounded-xl gap-6 min-h-[300px] overflow-y-scroll">
           {filteredFaqs.length > 0 ? (
             filteredFaqs.map((faq) => (
               <div
