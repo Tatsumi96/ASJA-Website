@@ -18,11 +18,9 @@ export const useAdminDashboard = () => {
   const [page, setPage] = useState<number>(1);
   const [hasReachedMax, setHasReachedMax] = useState<boolean>(false);
   const [userName, setUserName] = useState<string>("");
+
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadProgress, setUploadProgress] = useState<number>(0);
-  const [uploadStatus, setUploadStatus] = useState<
-    "idle" | "uploading" | "success" | "error"
-  >("idle");
 
   const [lessonTitle, setLessonTitle] = useState<string>("");
   const [mention, setMention] = useState<string>("");
@@ -65,6 +63,13 @@ export const useAdminDashboard = () => {
       });
       await fetchDashboardData();
       await fetchDashboardData();
+      setName("");
+      setLastName("");
+      setContact("");
+      setPassword("");
+      setBranche("");
+      setLevel("");
+      setMention("");
     } else {
       toast.error("Error", {
         description: "Failed to add student",
@@ -81,7 +86,6 @@ export const useAdminDashboard = () => {
     const files = event.target.files;
     if (files && files.length > 0) {
       setSelectedFile(files[0]);
-      setUploadStatus("idle");
       setErrorMessage("");
     }
   };
@@ -109,7 +113,6 @@ export const useAdminDashboard = () => {
 
   const handleCancel = () => {
     setSelectedFile(null);
-    setUploadStatus("idle");
     setUploadProgress(0);
     setErrorMessage("");
     if (fileInputRef.current) {
@@ -221,7 +224,6 @@ export const useAdminDashboard = () => {
     handleCancel,
     handleUpload,
     handleFileChange,
-    uploadStatus,
     errorMessage,
     uploadProgress,
     fileInputRef,
