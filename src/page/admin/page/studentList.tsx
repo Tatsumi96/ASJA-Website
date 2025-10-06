@@ -2,8 +2,14 @@ import { Button } from "@/components/ui/button";
 import { StudentTable } from "../components/studentTable";
 import { MdPerson, MdSearch } from "react-icons/md";
 import { Input } from "@/components/ui/input";
+import { useScrollLock } from "../hooks/useScrollLock";
+import { useModalContext } from "../bloc/useModalContext";
+import { Modal } from "@/components/ui/modal";
+import { CardInputUser } from "../components/cardInputUser";
 
 export const Studentlist = () => {
+  const { isAddStudentCardVisible, open } = useModalContext();
+  useScrollLock(isAddStudentCardVisible);
   return (
     <section className=" flex flex-col h-full dark:bg-zinc-900">
       <div className="flex justify-between items-center w-full py-6 px-4">
@@ -18,11 +24,19 @@ export const Studentlist = () => {
           <Input className="pl-10 pr-3 bg-gray-100" placeholder="Recherche" />
         </div>
 
-        <Button className=" text-lg text-white bg-green-700 hover:bg-green-900 flex  cursor-pointer p-6">
+        <Button
+          onClick={open}
+          className=" text-lg text-white bg-green-700 hover:bg-green-900 flex  cursor-pointer p-6"
+        >
           <MdPerson /> <p>Ajouter</p>
         </Button>
       </div>
       <StudentTable />
+      {isAddStudentCardVisible && (
+        <Modal>
+          <CardInputUser />
+        </Modal>
+      )}
     </section>
   );
 };
