@@ -9,7 +9,12 @@ import { useState, type JSX } from "react";
 
 export const AdminDashboardPage = () => {
   const [index, setIndex] = useState<number>(0);
-  const page: JSX.Element[] = [<Dashboard />, <Studentlist />];
+  const page: JSX.Element[] = [
+    <Dashboard />,
+    <p>Tranche Page</p>,
+    <Studentlist />,
+    <p>Document Page</p>,
+  ];
   return (
     <AdminDashBoardProvider>
       <SidebarProvider>
