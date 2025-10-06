@@ -12,10 +12,10 @@ import { toast } from "sonner";
 export const useAdminDashboard = () => {
   const [studentList, setStudentlist] = useState<UserDto[]>([]);
   const [studentPage, setStudentPage] = useState<number>(1);
+  const [hasReachedMaxPage, setHasReachedMaxPage] = useState<boolean>(false);
 
   const [docList, setDoclist] = useState<DocEntity[]>([]);
   const [page, setPage] = useState<number>(1);
-  const [limit, setLimit] = useState<number>(4);
   const [hasReachedMax, setHasReachedMax] = useState<boolean>(false);
   const [userName, setUserName] = useState<string>("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -63,6 +63,7 @@ export const useAdminDashboard = () => {
         description: "Student added",
         className: "animate-fade animate-once animate-ease-out",
       });
+      await fetchDashboardData();
       await fetchDashboardData();
     } else {
       toast.error("Error", {
@@ -117,11 +118,13 @@ export const useAdminDashboard = () => {
   };
 
   const fetchMentionStudentData = async () => {
-    const limit = 10;
+    const limit = 3;
     const result = await mentionRepository.getStudentData(studentPage, limit);
     if (result.status === "success") {
+      console.log(result.data);
+
       if (result.data.length == 0) {
-        setHasReachedMax(true);
+        setHasReachedMaxPage(true);
       } else {
         setStudentlist((item) => [...item, ...result.data]);
         setStudentPage((prev) => prev + 1);
@@ -134,6 +137,7 @@ export const useAdminDashboard = () => {
   };
 
   const fetchDocList = async () => {
+    const limit = 10;
     const result = await docRepo.getFile(page, limit);
     if (result.status === "success") {
       if (result.data.length == 0) {
@@ -211,7 +215,6 @@ export const useAdminDashboard = () => {
     addDocFile: addDocMetaData,
     docList,
     setPage,
-    setLimit,
     fetchDocList,
     hasReachedMax,
     userName,
@@ -241,5 +244,6 @@ export const useAdminDashboard = () => {
     level,
     studentList,
     fetchMentionStudentData,
+    hasReachedMaxPage,
   };
 };
