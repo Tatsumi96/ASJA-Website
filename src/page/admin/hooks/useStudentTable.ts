@@ -93,13 +93,13 @@ export const useStudentTable = () => {
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
 
-  const { fetchMentionStudentData, studentList, hasReachedMax } =
+  const { fetchMentionStudentData, studentList, hasReachedMaxPage } =
     useAdminDashboardContext();
 
   const observerRef = useIntersectionObserver(fetchMentionStudentData, {
     threshold: 0.1,
     rootMargin: "100px",
-    enabled: !hasReachedMax,
+    enabled: !hasReachedMaxPage,
   });
 
   const table = useReactTable({
@@ -108,7 +108,6 @@ export const useStudentTable = () => {
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
