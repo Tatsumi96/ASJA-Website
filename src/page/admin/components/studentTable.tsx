@@ -16,7 +16,7 @@ export const StudentTable = () => {
   const { observerRef, table, columns } = useStudentTable();
 
   return (
-    <div className=" border transition-all duration-500 rounded-2xl dark:bg-zinc-900 p-4 h-full w-full">
+    <div className=" border transition-all duration-500 dark:bg-zinc-900 p-4 h-full w-full">
       <ScrollArea className="h-170">
         <Table>
           <TableHeader className="sticky top-0 z-10 bg-transparent dark:bg-zinc-900 transition-all duration-500">

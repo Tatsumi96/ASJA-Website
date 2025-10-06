@@ -18,7 +18,7 @@ import type { UserDto } from "@/features/mention/user.dto";
 
 const fakeStudentList: UserDto[] = [
   {
-    imagUrl: "",
+    imageUrl: "",
     identifier: 123,
     name: "Derasdsdsdsdsdsdsd",
     lastName: "Le grandsdsdsdsdsdsdsd",
@@ -31,7 +31,7 @@ const fakeStudentList: UserDto[] = [
     trancheThree: false,
   },
   {
-    imagUrl: "",
+    imageUrl: "",
     identifier: 123,
     name: "Deraasdbaiudbai",
     lastName: "Le grand",
@@ -44,7 +44,7 @@ const fakeStudentList: UserDto[] = [
     trancheThree: false,
   },
   {
-    imagUrl: "",
+    imageUrl: "",
     identifier: 123,
     name: "Dera",
     lastName: "Le grand",
@@ -57,7 +57,7 @@ const fakeStudentList: UserDto[] = [
     trancheThree: false,
   },
   {
-    imagUrl: "",
+    imageUrl: "",
     identifier: 123,
     name: "Dera",
     lastName: "Le grand",
@@ -70,7 +70,7 @@ const fakeStudentList: UserDto[] = [
     trancheThree: false,
   },
   {
-    imagUrl: "",
+    imageUrl: "",
     identifier: 123,
     name: "Dera",
     lastName: "Le grand",
@@ -93,16 +93,17 @@ export const useStudentTable = () => {
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
 
-  const { fetchDocList, hasReachedMax } = useAdminDashboardContext();
+  const { fetchMentionStudentData, studentList, hasReachedMax } =
+    useAdminDashboardContext();
 
-  const observerRef = useIntersectionObserver(fetchDocList, {
+  const observerRef = useIntersectionObserver(fetchMentionStudentData, {
     threshold: 0.1,
     rootMargin: "100px",
     enabled: !hasReachedMax,
   });
 
   const table = useReactTable({
-    data: fakeStudentList,
+    data: studentList,
     columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,

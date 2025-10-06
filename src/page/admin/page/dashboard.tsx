@@ -1,4 +1,3 @@
-import { AddUserAndDocument } from "../components/AddUserAndDocument";
 import { MentionCardList } from "../components/MentionListCard";
 import { ChartPie } from "../components/PieChart";
 
@@ -9,7 +8,6 @@ export const Dashboard = () => {
         <MentionCardList />
         <ChartPie />
       </div>
-      <AddUserAndDocument />
     </div>
   );
 };

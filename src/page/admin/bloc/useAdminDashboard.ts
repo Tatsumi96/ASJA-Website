@@ -11,6 +11,7 @@ import { toast } from "sonner";
 
 export const useAdminDashboard = () => {
   const [studentList, setStudentlist] = useState<UserDto[]>([]);
+  const [studentPage, setStudentPage] = useState<number>(1);
 
   const [docList, setDoclist] = useState<DocEntity[]>([]);
   const [page, setPage] = useState<number>(1);
@@ -112,6 +113,23 @@ export const useAdminDashboard = () => {
     setErrorMessage("");
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
+    }
+  };
+
+  const fetchMentionStudentData = async () => {
+    const limit = 10;
+    const result = await mentionRepository.getStudentData(studentPage, limit);
+    if (result.status === "success") {
+      if (result.data.length == 0) {
+        setHasReachedMax(true);
+      } else {
+        setStudentlist((item) => [...item, ...result.data]);
+        setStudentPage((prev) => prev + 1);
+      }
+    } else {
+      toast.error("Error", {
+        description: "Failed to load student list",
+      });
     }
   };
 
@@ -222,5 +240,6 @@ export const useAdminDashboard = () => {
     mentionData,
     level,
     studentList,
+    fetchMentionStudentData,
   };
 };

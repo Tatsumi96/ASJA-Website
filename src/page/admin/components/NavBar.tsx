@@ -19,7 +19,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const DropButton = ({ name }: { name: string }) => {
   return (
@@ -29,10 +29,9 @@ const DropButton = ({ name }: { name: string }) => {
           {" "}
           <Avatar className=" size-11 ">
             <AvatarFallback className="dark:text-white  dark:bg-zinc-600">
-              {name[0]}
+              <AvatarImage src={name} />
             </AvatarFallback>
           </Avatar>
-          <p className="dark:text-white">{name}</p>
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
@@ -96,8 +95,14 @@ export const NavBar = () => {
   return (
     <header className=" group-has-data-[collapsible=icon]/sidebar-wrapper:h-12  duration-500 flex dark:bg-zinc-800 h-15 shrink-0 items-center gap-2 border-b transition-all ease-linear">
       <div className="flex w-full  justify-between items-center gap-1 px-4 lg:gap-2 lg:px-6">
-        <SidebarTrigger className="-ml-1 text-green-700 hover:text-green-700 md:hidden flex" />
-        <p className="font-semibold md:flex hidden">BIENVENUE</p>
+        <section className="flex items-center gap-5">
+          {" "}
+          <SidebarTrigger className="-ml-1 text-green-700 hover:text-green-700" />
+          <p className="font-semibold md:flex hidden">
+            {userName}DERANDRAINY Marie Martinot De Salles
+          </p>
+        </section>
+
         <div className="flex justify-end  items-center mr-5 ">
           <div className="flex">
             <button
