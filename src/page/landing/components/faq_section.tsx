@@ -12,6 +12,7 @@ const frequentlyAskedQuestions: FaqItem[] = [
   { question: "En cas de perte de Bordereau, que dois-je faire ?", answer: "Veuillez signaler au service des Etudiants.", categoriesQuestion: "Générale" },
   { question: "Il y a-t-il une politique de remboursement ?", answer: "oui", categoriesQuestion: "Générale" },  
   { question: "Ou est situé le service des Etudiants ?", answer: "Le service des Etudiants se trouve au 1er Etage.", categoriesQuestion: "Générale" },
+  { question: "Quels sont les horaires d’ouverture du service des Étudiants ?", answer: "Le service des Étudiants est ouvert de 8h à 12h et de 13:30h à 15h.", categoriesQuestion: "Générale" },
 
  
   { question: "A quel heure commence le cours ?", answer: "Le cours commence à 8h.", categoriesQuestion: "Enseignement" },
@@ -36,17 +37,17 @@ export const FaqSection = () => {
   const filteredFaqs = frequentlyAskedQuestions.filter((faq) => faq.categoriesQuestion === activeCategory);
 
   return (
-    <div className="flex flex-col w-full px-10 md:px-20 py-20 bg-white dark:bg-zinc-800 text-gray-800 dark:text-gray-200">
+    <div className="flex flex-col w-screen px-10 md:px-20 py-20 bg-white dark:bg-zinc-800 text-gray-800 dark:text-gray-200">
     
-      <h1 className="text-5xl font-extrabold text-center mb-16">
+      <h1 className="text-5xl text-green-700 font-extrabold text-center mb-16">
         Foire Aux Questions
       </h1>
 
-      <div className="flex flex-col md:flex-row items-start justify-center gap-16 max-w-6xl mx-auto">
+      <div className="flex flex-col md:flex-row items-start justify-center gap-16 lg:gap-30 max-w-6xl mx-auto">
         
        
-        <div className="flex flex-col gap-5 w-full md:w-[250px] flex-shrink-0">
-          <h2 className="text-2xl font-bold mb-2">Catégories</h2>
+        <div className="flex flex-col gap-5 w-full md:w-[250px] border-2 p-10 rounded-xl flex-shrink-0">
+          <h2 className="text-2xl text-center font-bold mb-2">Catégories</h2>
           {categoriesQuestion.map((cat) => (
             <button
               key={cat}
@@ -57,8 +58,8 @@ export const FaqSection = () => {
               className={`text-left font-semibold text-lg px-5 py-3 rounded-lg transition-all duration-200 
                 ${
                   activeCategory === cat
-                    ? "text-blue-600 bg-blue-100 dark:bg-blue-950 shadow-md"
-                    : "text-gray-500 hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-zinc-800"
+                    ? "text-green-600 bg-green-100 dark:bg-green-950 shadow-md"
+                    : "text-gray-500 hover:text-zinc-900 hover:bg-gray-100 dark:hover:text-zinc-400 dark:hover:bg-zinc-900"
                 }`}
             >
               {cat}
@@ -67,12 +68,12 @@ export const FaqSection = () => {
         </div>
 
       
-        <div className="flex flex-col flex-1 gap-6 min-h-[300px]">
+        <div className="flex border flex-col flex-1 p-10 h-104 lg:w-180 bg-gray-100 dark:bg-zinc-800 rounded-xl gap-6 min-h-[300px] overflow-y-scroll">
           {filteredFaqs.length > 0 ? (
             filteredFaqs.map((faq) => (
               <div
                 key={faq.question}
-                className="border border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-sm hover:shadow-md transition"
+                className=" bg-white dark:bg-zinc-700 dark:border-gray-700 rounded-xl p-6 shadow-sm hover:shadow-md transition"
               >
                 <button
                   className="flex justify-between items-center w-full text-left font-semibold text-lg text-gray-800 dark:text-gray-100"
@@ -84,7 +85,7 @@ export const FaqSection = () => {
                   <ChevronDown
                     size={22}
                     className={`transition-transform duration-300 ${
-                      openQuestion === faq.question ? "rotate-180 text-blue-600" : "text-gray-500"
+                      openQuestion === faq.question ? "rotate-180 text-green-600" : "text-zinc-500"
                     }`}
                   />
                 </button>

@@ -10,7 +10,7 @@ export const SystemePedagogiqueSection = () => {
         viewport={{ amount: 0.2, once: true }}
         className="w-full  py-16 px-10"
       >
-        <h1 className="text-5xl font-bold text-gray-700 transition-all duration-500 dark:text-green-700 text-center mb-20">
+        <h1 className="text-5xl font-bold text-green-700 transition-all duration-500 dark:text-green-700 text-center mb-20">
           SYSTEME PEDAGOGIQUE
         </h1>
 
