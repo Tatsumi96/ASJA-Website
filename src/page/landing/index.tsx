@@ -5,6 +5,7 @@ import { EvenementSection } from "./components/evenement_section";
 import { Footer } from "./components/footer";
 import { Navbar } from "./components/navbar";
 import { SystemePedagogiqueSection } from "./components/systeme-pegdagogique_section";
+import { FaqSection } from "./components/faq_section";
 import { Map } from "./components/map";
 export const LandingPage = () => {
   return (
@@ -16,6 +17,7 @@ export const LandingPage = () => {
         <FiliereSection />
         <EvenementSection />
         <SystemePedagogiqueSection />
+        < FaqSection />
         <Map />
         <Footer />
       </div>
