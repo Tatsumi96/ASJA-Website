@@ -1,25 +1,27 @@
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AdminDashBoardProvider } from "./bloc/useAdminDasboardPortalProvider";
-import { AddUserAndDocument } from "./components/AddUserAndDocument";
-import { MentionCardList } from "./components/MentionListCard";
-import { ChartPie } from "./components/PieChart";
-import { AppSidebar } from "@/components/app-sidebar";
+
+import { AppSidebar } from "@/page/admin/components/app-sidebar";
+import { Dashboard } from "./page/dashboard";
+import { Studentlist } from "./page/studentList";
 import { NavBar } from "./components/NavBar";
+import { useState, type JSX } from "react";
 
 export const AdminDashboardPage = () => {
+  const [index, setIndex] = useState<number>(0);
+  const page: JSX.Element[] = [
+    <Dashboard />,
+    <p>Tranche Page</p>,
+    <Studentlist />,
+    <p>Document Page</p>,
+  ];
   return (
     <AdminDashBoardProvider>
       <SidebarProvider>
-        <AppSidebar variant="inset" />
+        <AppSidebar changePage={setIndex} />
         <SidebarInset className=" overflow-hidden transition-all duration-500">
           <NavBar />
-          <div className="flex flex-col w-full p-4  bg-zinc-100  dark:bg-zinc-900 transition-all h-full duration-500 ">
-            <div className="flex  justify-around">
-              <MentionCardList />
-              <ChartPie />
-            </div>
-            <AddUserAndDocument />
-          </div>
+          {page[index]}
         </SidebarInset>
       </SidebarProvider>
     </AdminDashBoardProvider>

@@ -2,6 +2,7 @@ import type { Branche, Level, Mention } from "@/core/types";
 import type { DocDto } from "@/features/doc/doc.dto";
 import type { DocEntity } from "@/features/doc/doc.entity";
 import type { MentionDto } from "@/features/mention/mention.dto";
+import type { UserDto } from "@/features/mention/user.dto";
 import type { UserEntity } from "@/features/mention/user.entity";
 import { docRepo, mentionRepository, userRepository } from "@/injection";
 
@@ -9,6 +10,8 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { toast } from "sonner";
 
 export const useAdminDashboard = () => {
+  const [studentList, setStudentlist] = useState<UserDto[]>([]);
+
   const [docList, setDoclist] = useState<DocEntity[]>([]);
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(4);
@@ -218,5 +221,6 @@ export const useAdminDashboard = () => {
     setContact,
     mentionData,
     level,
+    studentList,
   };
 };
