@@ -96,9 +96,7 @@ export const NavBar = () => {
         <section className="flex items-center gap-5">
           {" "}
           <SidebarTrigger className="-ml-1 text-green-700 hover:text-green-700" />
-          <p className="font-semibold md:flex hidden">
-            {userName}DERANDRAINY Marie Martinot De Salles
-          </p>
+          <p className="font-semibold md:flex hidden">Administrateur : {userName}</p>
         </section>
 
         <div className="flex justify-end  items-center mr-5 ">
