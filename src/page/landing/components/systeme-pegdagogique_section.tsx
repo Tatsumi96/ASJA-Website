@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const SystemePedagogiqueSection = () => {
   return (
-    <div className="bg-white dark:bg-zinc-800  dark:text-white transition-all duration-500">
+    <div id="systeme" className="bg-white dark:bg-zinc-800  dark:text-white transition-all duration-500">
       <motion.div
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}

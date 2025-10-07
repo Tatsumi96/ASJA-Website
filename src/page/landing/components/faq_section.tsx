@@ -37,7 +37,7 @@ export const FaqSection = () => {
   const filteredFaqs = frequentlyAskedQuestions.filter((faq) => faq.categoriesQuestion === activeCategory);
 
   return (
-    <div className="flex flex-col w-screen px-10 md:px-20 py-20 bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200">
+    <div id="FAQ" className="flex flex-col w-screen px-10 md:px-20 py-20 bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200">
     
       <h1 className="text-5xl text-green-700 font-extrabold text-center mb-16">
         Foire Aux Questions

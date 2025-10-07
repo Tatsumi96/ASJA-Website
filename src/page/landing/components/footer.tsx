@@ -34,7 +34,7 @@ export const Footer = () => {
     { name: "Instagram", link: "", icon: <InstagramIcon /> },
   ];
   return (
-    <div className="flex flex-col lg:flex-row justify-center h-max gap-50 items-center w-full text-gray-800 p-10 shadow-2xl transition-all duration-500 bg-white dark:bg-zinc-900 dark:text-white ">
+    <div id="contact" className="flex flex-col lg:flex-row justify-center h-max gap-50 items-center w-full text-gray-800 p-10 shadow-2xl transition-all duration-500 bg-white dark:bg-zinc-900 dark:text-white ">
       <div className="flex flex-col justify-center items-center gap-5">
         <img className="h-30 w-30" src={Logo} />
         <h1 className=" flex text-center items-center justify-center text-xl text-gray-900 transition-all duration-500 dark:text-white font-bold">
