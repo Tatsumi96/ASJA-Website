@@ -8,6 +8,7 @@ export abstract class MentionService {
   abstract get(): Promise<MentionDto>;
   abstract register(user: UserEntity): Promise<void>;
   abstract getStudentData(page: number, limit: number): Promise<UserDto[]>;
+  abstract sendFiles(file: FormData): Promise<void>;
 }
 
 export class MentionServiceImpl implements MentionService {
@@ -33,5 +34,18 @@ export class MentionServiceImpl implements MentionService {
     );
     if (response.status != 200) throw new Error();
     return response.data;
+  }
+
+  async sendFiles(file: FormData): Promise<void> {
+    const response = await this.api.post(
+      `${ApiSource.url}/mention/payload`,
+      file,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    if (response.status != 200) throw new Error();
   }
 }

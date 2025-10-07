@@ -10,4 +10,5 @@ export abstract class MentionRepository {
     page: number,
     limit: number
   ): Promise<Result<UserDto[]>>;
+  abstract sendFiles(file: FormData): Promise<Result<void>>;
 }

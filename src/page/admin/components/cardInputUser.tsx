@@ -15,6 +15,8 @@ import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 import { mentions, classes } from "@/core/types";
 import { Input } from "@/components/ui/input";
 import { useModalContext } from "../bloc/useModalContext";
+import { AvatarUploader } from "./AvatarUplaoder";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export const CardInputUser = () => {
   const {
@@ -27,7 +29,15 @@ export const CardInputUser = () => {
     setLastName,
     setPassword,
     setContact,
-    register,
+    sendStudentInformation,
+    handleImageChange,
+    image,
+    isPremierPaid,
+    isDeuxiemePaid,
+    isTroisiemePaid,
+    setIsPremierPaid,
+    setIsDeuxiemePaid,
+    setIsTroisiemePaid,
   } = useAdminDashboardContext();
 
   const { close } = useModalContext();
@@ -38,11 +48,15 @@ export const CardInputUser = () => {
         <CardContent>
           <MdCancel
             onClick={close}
-            className=" text-white text-4xl cursor-pointer absolute  hover:scale-125 transition-all duration-300"
+            className=" text-green-600 dark:text-white text-4xl cursor-pointer absolute  hover:scale-125 transition-all duration-300"
           />
           <p className=" flex w-full justify-center font-semibold text-3xl text-gray-500 pb-10">
             Ajouter un etudiant
           </p>
+          <AvatarUploader
+            image={image as string}
+            onCallBack={handleImageChange}
+          />
           <form>
             <div className="  grid w-full  items-center gap-4">
               <div className="flex flex-col space-y-1.5">
@@ -157,11 +171,37 @@ export const CardInputUser = () => {
               </div>
             </div>
           </form>
+          <div className=" flex w-full gap-2 items-center justify-center pt-5">
+            <Checkbox
+              checked={isPremierPaid}
+              onCheckedChange={() => setIsPremierPaid((value) => !value)}
+              className="cursor-pointer w-5 h-5 "
+            />
+            <p className=" text-green-700 font-semibold dark:text-white">
+              Tranche 1
+            </p>
+            <Checkbox
+              checked={isDeuxiemePaid}
+              onCheckedChange={() => setIsDeuxiemePaid((value) => !value)}
+              className="cursor-pointer w-5 h-5"
+            />
+            <p className=" text-green-700 font-semibold dark:text-white">
+              Tranche 2
+            </p>
+            <Checkbox
+              checked={isTroisiemePaid}
+              onCheckedChange={() => setIsTroisiemePaid((value) => !value)}
+              className="cursor-pointer w-5 h-5"
+            />
+            <p className=" text-green-700 font-semibold dark:text-white">
+              Tranche 3
+            </p>
+          </div>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="p-0">
           <Button
             className=" bg-green-700 hover:bg-green-900 flex w-full cursor-pointer p-6"
-            onClick={register}
+            onClick={sendStudentInformation}
           >
             <p className=" text-xl">Ajouter l'etudiant</p>
           </Button>
