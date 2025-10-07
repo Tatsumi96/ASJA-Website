@@ -170,10 +170,10 @@
     "@babel/helper-string-parser" "^7.27.1"
     "@babel/helper-validator-identifier" "^7.27.1"
 
-"@date-fns/tz@^1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@date-fns/tz/-/tz-1.4.1.tgz#2d905f282304630e07bef6d02d2e7dbf3f0cc4e4"
-  integrity sha512-P5LUNhtbj6YfI3iJjw5EL9eUAG6OitD0W3fWQcpQjDRc/QIsL0tRNuO1PcDvPccWL1fSTXXdE1ds+l95DV/OFA==
+"@date-fns/tz@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@date-fns/tz/-/tz-1.2.0.tgz#81cb3211693830babaf3b96aff51607e143030a6"
+  integrity sha512-LBrd7MiJZ9McsOgxqWX7AaxrDjcFVjWH/tIKJd7pnR7McaslGYOP1QmmiBXdJH/H/yLCT+rcQ7FaPBUxRGUtrg==
 
 "@emnapi/core@^1.4.3", "@emnapi/core@^1.4.5", "@emnapi/core@^1.5.0":
   version "1.5.0"
@@ -2648,12 +2648,12 @@ d3-timer@^3.0.1:
   resolved "https://registry.npmjs.org/d3-timer/-/d3-timer-3.0.1.tgz"
   integrity sha512-ndfJ/JxxMd3nw31uyKoY2naivF+r29V+Lc0svZxe1JvvIRmi8hUsrMvdOwgS1o6uBHmiz91geQ0ylPP0aj1VUA==
 
-date-fns-jalali@^4.1.0-0:
+date-fns-jalali@4.1.0-0:
   version "4.1.0-0"
   resolved "https://registry.yarnpkg.com/date-fns-jalali/-/date-fns-jalali-4.1.0-0.tgz#9c7fb286004fab267a300d3e9f1ada9f10b4b6b0"
   integrity sha512-hTIP/z+t+qKwBDcmmsnmjWTduxCg+5KfdqWQvb2X/8C9+knYY6epN/pfxdDuyVlSVeFz0sM5eEfwIUQ70U4ckg==
 
-date-fns@^4.1.0:
+date-fns@4.1.0, date-fns@^4.1.0:
   version "4.1.0"
   resolved "https://registry.npmjs.org/date-fns/-/date-fns-4.1.0.tgz"
   integrity sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==
