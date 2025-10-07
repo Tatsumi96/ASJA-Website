@@ -6,7 +6,10 @@ export const Description = () => {
   const { translate } = useLangue();
 
   return (
-    <section id="description" className="flex flex-col lg:flex-row bg-white dark:bg-zinc-900 transition-all duration-500 lg:h-screen w-full">
+    <section
+      id="description"
+      className="flex flex-col lg:flex-row bg-white dark:bg-zinc-900 transition-all duration-500 lg:h-screen w-full"
+    >
       <div className=" md:flex-col lg:hidden md:pt-0 pt-18 fixed -z-10">
         <img
           className="h-100 md:h-full w-max object-cover "

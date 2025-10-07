@@ -15,7 +15,10 @@ interface ItemProps {
 
 const Item: React.FC<ItemProps> = ({ mention, description, image }) => {
   return (
-    <div id="filiere" className="flex-1/2 hover:scale-100 md:w-full rounded-2xl overflow-hidden duration-300 bg-white dark:bg-zinc-800  z-20 shadow-2xl">
+    <div
+      id="filiere"
+      className="flex-1/2 hover:scale-100 md:w-full rounded-2xl overflow-hidden duration-300 bg-white dark:bg-zinc-800  z-20 shadow-2xl"
+    >
       <img className="w-full" src={image} alt="" />
       <h2 className="p-5 text-2xl font-bold text-stone-500 dark:text-stone-200">
         {mention}
