@@ -16,15 +16,19 @@ export const StudentTable = () => {
   const { observerRef, table, columns } = useStudentTable();
 
   return (
-    <div className=" border transition-all duration-500 rounded-2xl dark:bg-zinc-900 p-4 h-full w-full">
-      <ScrollArea className="h-170">
-        <Table>
-          <TableHeader className="sticky top-0 z-10 bg-transparent dark:bg-zinc-900 transition-all duration-500">
+    <div className=" border transition-all duration-500 dark:bg-zinc-900 p-4  w-full">
+      <ScrollArea className="h-[640px]">
+        <Table className="w-full">
+          <TableHeader className=" z-10 bg-transparent  dark:bg-zinc-900 transition-all duration-500">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id} className="hover:bg-transparent">
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead
+                      key={header.id}
+                      onClick={header.column.getToggleSortingHandler()}
+                      className="sticky top-0"
+                    >
                       {header.isPlaceholder
                         ? null
                         : flexRender(
