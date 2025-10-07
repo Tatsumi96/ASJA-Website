@@ -7,7 +7,7 @@ export const Map = () => {
   const asjaPosition: [number, number] = [-19.814068, 47.070135];
 
   return (
-    <div className=" flex h-scren justify-center py-10 bg-gray-50 dark:bg-zinc-800 transition-all duration-500">
+    <div id="map" className=" flex h-scren justify-center py-10 bg-gray-50 dark:bg-zinc-800 transition-all duration-500">
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
