@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import type { UserDto } from "@/features/mention/user.dto";
 import type { ColumnDef } from "@tanstack/react-table";
@@ -21,7 +21,7 @@ export const columns: ColumnDef<UserDto>[] = [
     cell: ({ row }) => (
       <Avatar className=" size-11 ">
         <AvatarFallback className="dark:text-white  dark:bg-zinc-600">
-          <AvatarImage src={row.getValue("imageUrl")} />
+          <img src={row.getValue("imageUrl")} />
         </AvatarFallback>
       </Avatar>
     ),

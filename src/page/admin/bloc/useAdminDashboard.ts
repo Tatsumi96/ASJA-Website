@@ -59,6 +59,7 @@ export const useAdminDashboard = () => {
       lastName,
       contact,
       password,
+      fileName: selectedFile?.name as string,
       branche:
         !branche || level == "L1" || level == "L2"
           ? "COMMUN"

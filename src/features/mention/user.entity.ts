@@ -13,4 +13,5 @@ export interface UserEntity {
   Premier: boolean;
   Deuxieme: boolean;
   Troisieme: boolean;
+  fileName: string;
 }

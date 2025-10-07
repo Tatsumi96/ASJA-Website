@@ -36,7 +36,7 @@ export class MentionRepositoryImpl implements MentionRepository {
     try {
       const result = await this.service.getStudentData(page, limit);
       const data: UserDto[] = result.map((item) => ({
-        imageUrl: `${ApiSource}/meniton/stream/${item.imageUrl}`,
+        imageUrl: `${ApiSource.url}/mention/stream/${item.imageUrl}`,
         identifier: item.identifier,
         name: item.name,
         lastName: item.lastName,
