@@ -22,7 +22,7 @@ export const TestimonySection = () => {
         { name: "Jean Michel Ravelomanana", description: "Grâce à l’accompagnement des enseignants d’ASJA, j’ai pu créer ma première application mobile dès la deuxième année. L’université m’a donné confiance et les bases solides pour me lancer dans le développement." },
       ];
         return (
-            <div className="flex flex-col h-screen items-center justify-center bg-zinc-100 dark:bg-zinc-800">
+            <div id="temoignages" className="flex flex-col h-screen items-center justify-center bg-zinc-100 dark:bg-zinc-800">
                 <h1 className="text-6xl font-bold text-green-700 p-20">Témoignage</h1>
                 <Carousel
                 opts={{

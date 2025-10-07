@@ -3,13 +3,19 @@
     "navBar":{
         "accueil": "Accueil",
         "apropos": "A propos",
-        "programmes":"Programmes",
+        "filieres":"Filières",
         "contact":"Contact",
          "postuler":"Postuler"      
     },
     "sectionAccueilNavbar":{
         "description":"description",
-        "mission":"mission"
+        "mission":"mission",
+        "filieres":"filieres",
+        "events":"evenements",
+        "systeme":"systeme pedagogique",
+        "temoignages":"temoignages",
+        "FAQ":"FAQ",
+        "map":"Localisation"
     },
     "descriptionSection":{
         "description":  "  Qui propose une formation d'excellence aux étudiants désireux de devenir les managers et décideurs de demain.",

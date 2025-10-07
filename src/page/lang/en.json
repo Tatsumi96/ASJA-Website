@@ -3,13 +3,20 @@
     "navBar":{
         "accueil": "Home",
         "apropos": "About",
-        "programmes":"Program",
+        "filieres":"Fields",
         "contact":"Contact",
-         "postuler":"Register"      
+        "postuler":"Register"      
     },
     "sectionAccueilNavbar":{
         "description":"description",
-        "mission":"mission"
+        "mission":"mission",
+        "filieres":"fields",
+        "events":"events",
+        "systeme":"pedagogical system",
+        "temoignages":"testimonials",
+        "FAQ":"FAQ",
+        "map":"Location"
+
     },
         
     "descriptionSection":{

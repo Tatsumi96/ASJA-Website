@@ -82,40 +82,135 @@ export const Navbar = () => {
                   smooth={true}
                   offset={-50}
                   duration={300}
-                  activeClass="text-green-700 bg-green-50 font-medium px-4 py-2 rounded"
+                  activeClass="text-green-700 m-1 bg-green-50 font-medium px-4 py-2 rounded"
                   className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500">
                   {translate("sectionAccueilNavbar.mission")}
                 </Link>
-              </NavigationMenuLink>
-            </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-            <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink>
-                
-              </NavigationMenuLink>
-            </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-            <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink>
-                <Link to="description" smooth={true} duration={500} offset={-70} className="cursor-pointer">
+                <Link 
+                  to="filiere"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={300}
+                  activeClass="text-green-700 m-1 bg-green-50 font-medium px-4 py-2 rounded"
+                  className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500">
+                  {translate("sectionAccueilNavbar.filieres")}
+                </Link>
+                <Link 
+                  to="events"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={300}
+                  activeClass="text-green-700 m-1 bg-green-50 font-medium px-4 py-2 rounded"
+                  className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500">
+                  {translate("sectionAccueilNavbar.events")}
+                </Link>
+                <Link 
+                  to="systeme"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={300}
+                  activeClass="text-green-700 m-1 bg-green-50 font-medium px-4 py-2 rounded"
+                  className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500">
+                  {translate("sectionAccueilNavbar.systeme")}
+                </Link>
+                <Link 
+                  to="temoignages"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={300}
+                  activeClass="text-green-700 m-1 bg-green-50 font-medium px-4 py-2 rounded"
+                  className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500">
+                  {translate("sectionAccueilNavbar.temoignages")}
+                </Link>
+                <Link 
+                  to="FAQ"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={300}
+                  activeClass="text-green-700 m-1 bg-green-50 font-medium px-4 py-2 rounded"
+                  className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500">
+                  {translate("sectionAccueilNavbar.FAQ")}
+                </Link>
+                <Link 
+                  to="map"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={300}
+                  activeClass="text-green-700 m-1 bg-green-50 font-medium px-4 py-2 rounded"
+                  className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500">
+                  {translate("sectionAccueilNavbar.map")}
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+            <NavigationMenuTrigger>{translate("navBar.filieres")}</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <NavigationMenuLink>
+                <Link
+                  to="AGRO"
+                  className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                >
+                    {translate("filiereSection.AGRO.name")}
+                </Link>
+                <Link
+                  to="INFO"
+                  className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                >
+                    {translate("filiereSection.INFO.name")}
+                </Link>
+                <Link
+                  to="DROIT"
+                  className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                >
+                    {translate("filiereSection.DROIT.name")}
+                </Link>
+                <Link
+                  to="ECO"
+                  className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                >
+                    {translate("filiereSection.ECO.name")}
+                </Link>
+                <Link
+                  to="LEA"
+                  className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                >
+                    {translate("filiereSection.LEA.name")}
+                </Link>
+                <Link
+                  to="ST"
+                  className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                >
+                    {translate("filiereSection.ST.name")}
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+        <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>{translate("navBar.contact")}</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <NavigationMenuLink className="flex flex-col">
+                <p className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500">034 12 345 67</p>
+                <a className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500" href=""> example@gmail.com </a>
+              </NavigationMenuLink>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
         <a className="py-2" onClick={() => (window.location.href = "/Login")}>
           <div
             className="px-4 py-2 my-1 ml-3 text-white font-bold bg-green-700
