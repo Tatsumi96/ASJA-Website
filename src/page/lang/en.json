@@ -7,6 +7,11 @@
         "contact":"Contact",
          "postuler":"Register"      
     },
+    "sectionAccueilNavbar":{
+        "description":"description",
+        "mission":"mission"
+    },
+        
     "descriptionSection":{
         "description":  "Give good lesson",
         "ensavoirplus": "More about"
