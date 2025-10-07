@@ -9,7 +9,8 @@ export interface UserDto {
   mention?: Mention;
   level?: Level;
   branche: Branche;
-  trancheOne: boolean;
-  trancheTwo: boolean;
-  trancheThree: boolean;
+  trancheId: string;
+  Premier: boolean;
+  Deuxieme: boolean;
+  Troisieme: boolean;
 }

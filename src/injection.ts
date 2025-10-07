@@ -9,6 +9,8 @@ import { UserRepositoryImpl } from "./features/user/user.repositoryImpl";
 import { MentionServiceImpl } from "./features/mention/mention.service";
 import { MentionRepositoryImpl } from "./features/mention/mention.repositoryImpl";
 import { ApiSource } from "./core/constant";
+import { TrancheServiceImpl } from "./features/tranche/tranche.service.prisma";
+import { TrancheRepositoryImpl } from "./features/tranche/tranche.repositoryImpl";
 
 const api = axios.create({
   timeout: 5000,
@@ -32,6 +34,10 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+const trancheService = new TrancheServiceImpl(api);
+
+export const trancheRepo = new TrancheRepositoryImpl(trancheService);
 
 const mentionService = new MentionServiceImpl(api);
 
