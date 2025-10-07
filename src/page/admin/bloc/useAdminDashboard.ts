@@ -1,10 +1,16 @@
-import type { Branche, Level, Mention } from "@/core/types";
+import type { Branche, Level, Mention, Tranche } from "@/core/types";
 import type { DocDto } from "@/features/doc/doc.dto";
 import type { DocEntity } from "@/features/doc/doc.entity";
 import type { MentionDto } from "@/features/mention/mention.dto";
 import type { UserDto } from "@/features/mention/user.dto";
 import type { UserEntity } from "@/features/mention/user.entity";
-import { docRepo, mentionRepository, userRepository } from "@/injection";
+import type { TrancheDto } from "@/features/tranche/tranche.dto";
+import {
+  docRepo,
+  mentionRepository,
+  trancheRepo,
+  userRepository,
+} from "@/injection";
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { toast } from "sonner";
@@ -117,6 +123,24 @@ export const useAdminDashboard = () => {
     setErrorMessage("");
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
+    }
+  };
+
+  const updateTranche = async (dto: TrancheDto) => {
+    const result = await trancheRepo.update({
+      id: dto.id,
+      tranche: dto.tranche as Tranche,
+      value: dto.value as boolean,
+    });
+    if (result.status === "success") {
+      toast.success("Succes", {
+        description: "Tranche updated",
+        className: "animate-fade animate-once animate-ease-out",
+      });
+    } else {
+      toast.error("Error", {
+        description: "Failed to load document",
+      });
     }
   };
 
@@ -247,5 +271,6 @@ export const useAdminDashboard = () => {
     studentList,
     fetchMentionStudentData,
     hasReachedMaxPage,
+    updateTranche,
   };
 };

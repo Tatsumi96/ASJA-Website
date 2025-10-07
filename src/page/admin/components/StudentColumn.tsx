@@ -154,7 +154,7 @@ export const columns: ColumnDef<UserDto>[] = [
     ),
   },
   {
-    accessorKey: "trancheOne",
+    accessorKey: "Premier",
     header: () => {
       return (
         <div className=" flex w-full items-center justify-between">
@@ -167,12 +167,16 @@ export const columns: ColumnDef<UserDto>[] = [
       );
     },
     cell: ({ row }) => (
-      <TrancheBadge studentData={row.original} tranche={"trancheOne"} />
+      <TrancheBadge
+        studentData={row.original}
+        tranche={"Premier"}
+        trancheId={row.original.trancheId}
+      />
     ),
   },
 
   {
-    accessorKey: "trancheTwo",
+    accessorKey: "Deuxieme",
     header: () => {
       return (
         <div className=" flex w-full items-center justify-between">
@@ -185,11 +189,15 @@ export const columns: ColumnDef<UserDto>[] = [
       );
     },
     cell: ({ row }) => (
-      <TrancheBadge studentData={row.original} tranche={"trancheTwo"} />
+      <TrancheBadge
+        studentData={row.original}
+        tranche={"Deuxieme"}
+        trancheId={row.original.trancheId}
+      />
     ),
   },
   {
-    accessorKey: "trancheThree",
+    accessorKey: "Troisieme",
     header: () => {
       return (
         <div className=" flex w-full items-center justify-between">
@@ -198,7 +206,11 @@ export const columns: ColumnDef<UserDto>[] = [
       );
     },
     cell: ({ row }) => (
-      <TrancheBadge studentData={row.original} tranche={"trancheThree"} />
+      <TrancheBadge
+        studentData={row.original}
+        tranche={"Troisieme"}
+        trancheId={row.original.trancheId}
+      />
     ),
   },
 ];
