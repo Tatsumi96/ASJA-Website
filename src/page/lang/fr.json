@@ -7,6 +7,10 @@
         "contact":"Contact",
          "postuler":"Postuler"      
     },
+    "sectionAccueilNavbar":{
+        "description":"description",
+        "mission":"mission"
+    },
     "descriptionSection":{
         "description":  "  Qui propose une formation d'excellence aux étudiants désireux de devenir les managers et décideurs de demain.",
         "ensavoirplus": "En savoir plus"

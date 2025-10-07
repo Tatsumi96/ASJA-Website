@@ -1,4 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-scroll";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu"
 import { MenuIcon, Moon, Sun, X } from "lucide-react";
 import Logo from "@/assets/Logo/asja-logo.png";
 import { useEffect, useState } from "react";
@@ -51,48 +59,63 @@ export const Navbar = () => {
         >
           {isDark ? <Sun /> : <Moon />}
         </button>
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive
-              ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50  px-4  h-full flex flex-col justify-center font-medium"
-              : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-6"
-          }
-        >
-          {translate("navBar.accueil")}
-        </NavLink>
-        <NavLink
-          to="/about"
-          className={({ isActive }) =>
-            isActive
-              ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 font-medium"
-              : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
-          }
-        >
-          {translate("navBar.apropos")}
-        </NavLink>
-        <NavLink
-          to="/programmes"
-          className={({ isActive }) =>
-            isActive
-              ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 font-medium"
-              : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
-          }
-        >
-          {translate("navBar.programmes")}
-        </NavLink>
-
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            isActive
-              ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 font-medium"
-              : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
-          }
-        >
-          {translate("contact")}
-        </NavLink>
-
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+            <NavigationMenuTrigger>{translate("navBar.accueil")}</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <NavigationMenuLink>
+              <Link
+                to="description"
+                spy={true}
+                smooth={true}
+                offset={-50}
+                duration={500}
+                activeClass="text-green-700 bg-green-50 font-medium px-4 py-2 rounded"
+                className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+              >
+                  {translate("sectionAccueilNavbar.description")}
+                </Link>
+                <Link 
+                  to="mission"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={300}
+                  activeClass="text-green-700 bg-green-50 font-medium px-4 py-2 rounded"
+                  className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500">
+                  {translate("sectionAccueilNavbar.mission")}
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+            <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <NavigationMenuLink>
+                
+              </NavigationMenuLink>
+            </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+            <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <NavigationMenuLink>
+                <Link to="description" smooth={true} duration={500} offset={-70} className="cursor-pointer">
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
         <a className="py-2" onClick={() => (window.location.href = "/Login")}>
           <div
             className="px-4 py-2 my-1 ml-3 text-white font-bold bg-green-700
@@ -118,49 +141,6 @@ export const Navbar = () => {
           >
             {isDark ? <Sun /> : <Moon />}
           </button>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive
-                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 rounded-3xl font-medium"
-                : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-6"
-            }
-          >
-            {translate("navBar.accueil")}
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive
-                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 rounded-3xl font-medium"
-                : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
-            }
-          >
-            {translate("navBar.apropos")}
-          </NavLink>
-
-          <NavLink
-            to="/programmes"
-            className={({ isActive }) =>
-              isActive
-                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 rounded-3xl font-medium"
-                : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
-            }
-          >
-            {translate("navBar.programmes")}
-          </NavLink>
-
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              isActive
-                ? "text-green-700 dark:bg-zinc-700 transition-all duration-500 bg-green-50 px-4 py-2 rounded-3xl font-medium"
-                : "text-gray-800 dark:text-white transition-all duration-500 hover:text-stone-500 px-4 py-2 rounded"
-            }
-          >
-            {translate("contact")}
-          </NavLink>
-
           <a onClick={() => (window.location.href = "/Login")}>
             <div
               className="px-4 py-2 my-1 ml-3 text-white font-bold bg-green-700
