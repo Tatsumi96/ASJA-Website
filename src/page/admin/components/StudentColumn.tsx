@@ -1,8 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import type { UserDto } from "@/features/mention/user.dto";
 import type { ColumnDef } from "@tanstack/react-table";
+import { TrancheBadge } from "./TrancheBadge";
 
 export const columns: ColumnDef<UserDto>[] = [
   {
@@ -46,10 +46,30 @@ export const columns: ColumnDef<UserDto>[] = [
     ),
   },
   {
-    accessorKey: "name",
+    accessorKey: "contact",
     header: () => {
       return (
-        <div className="flex w-full items-center justify-between">
+        <div className="hidden w-full items-center justify-between md:flex">
+          <p className="font-semibold dark:text-white">Contact</p>
+          <Separator
+            orientation="vertical"
+            className="data-[orientation=vertical]:h-10"
+          />
+        </div>
+      );
+    },
+    cell: ({ row }) => (
+      <p className=" hidden py-2 dark:text-white md:flex">
+        {row.getValue("contact")}
+      </p>
+    ),
+  },
+  {
+    accessorKey: "name",
+    enableSorting: true,
+    header: () => {
+      return (
+        <div className="flex w-full items-center justify-between cursor-pointer">
           <p className="font-semibold dark:text-white">Nom</p>
           <Separator
             orientation="vertical"
@@ -59,7 +79,9 @@ export const columns: ColumnDef<UserDto>[] = [
       );
     },
     cell: ({ row }) => (
-      <p className=" py-2 dark:text-white">{row.getValue("name")}</p>
+      <p className=" py-2 dark:text-white font-semibold">
+        {row.getValue("name")}
+      </p>
     ),
   },
   {
@@ -98,9 +120,10 @@ export const columns: ColumnDef<UserDto>[] = [
   },
   {
     accessorKey: "level",
+    enableSorting: true,
     header: () => {
       return (
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full items-center justify-between cursor-pointer">
           <p className="font-semibold dark:text-white">Niveau</p>
           <Separator
             orientation="vertical"
@@ -111,6 +134,23 @@ export const columns: ColumnDef<UserDto>[] = [
     },
     cell: ({ row }) => (
       <p className=" py-2 dark:text-white">{row.getValue("level")}</p>
+    ),
+  },
+  {
+    accessorKey: "branche",
+    header: () => {
+      return (
+        <div className="flex w-full items-center justify-between">
+          <p className="font-semibold dark:text-white">Branche</p>
+          <Separator
+            orientation="vertical"
+            className="data-[orientation=vertical]:h-10"
+          />
+        </div>
+      );
+    },
+    cell: ({ row }) => (
+      <p className=" py-2 dark:text-white">{row.getValue("branche")}</p>
     ),
   },
   {
@@ -126,12 +166,9 @@ export const columns: ColumnDef<UserDto>[] = [
         </div>
       );
     },
-    cell: ({ row }) =>
-      row.getValue("trancheOne") ? (
-        <Badge className="bg-green-600 text-white">Payé</Badge>
-      ) : (
-        <Badge variant="destructive">Non payé</Badge>
-      ),
+    cell: ({ row }) => (
+      <TrancheBadge studentData={row.original} tranche={"trancheOne"} />
+    ),
   },
 
   {
@@ -147,12 +184,9 @@ export const columns: ColumnDef<UserDto>[] = [
         </div>
       );
     },
-    cell: ({ row }) =>
-      row.getValue("trancheTwo") ? (
-        <Badge>Payé</Badge>
-      ) : (
-        <Badge variant="destructive">Non payé</Badge>
-      ),
+    cell: ({ row }) => (
+      <TrancheBadge studentData={row.original} tranche={"trancheTwo"} />
+    ),
   },
   {
     accessorKey: "trancheThree",
@@ -160,18 +194,11 @@ export const columns: ColumnDef<UserDto>[] = [
       return (
         <div className=" flex w-full items-center justify-between">
           <p className="font-semibold dark:text-white">3ème Tranche</p>
-          <Separator
-            orientation="vertical"
-            className="data-[orientation=vertical]:h-10"
-          />
         </div>
       );
     },
-    cell: ({ row }) =>
-      row.getValue("trancheThree") ? (
-        <Badge>Payé</Badge>
-      ) : (
-        <Badge variant="destructive">Non payé</Badge>
-      ),
+    cell: ({ row }) => (
+      <TrancheBadge studentData={row.original} tranche={"trancheThree"} />
+    ),
   },
 ];

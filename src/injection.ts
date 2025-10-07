@@ -8,11 +8,30 @@ import { UserServiceImpl } from "./features/user/user_service";
 import { UserRepositoryImpl } from "./features/user/user.repositoryImpl";
 import { MentionServiceImpl } from "./features/mention/mention.service";
 import { MentionRepositoryImpl } from "./features/mention/mention.repositoryImpl";
+import { ApiSource } from "./core/constant";
 
 const api = axios.create({
   timeout: 5000,
   withCredentials: true,
 });
+
+api.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const originalRequest = error.config;
+    if (error.response.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+      try {
+        await api.post(`${ApiSource.url}/auth/refresh`);
+        return api(originalRequest);
+      } catch (error) {
+        window.location.href = "/login";
+        return Promise.reject(error);
+      }
+    }
+    return Promise.reject(error);
+  }
+);
 
 const mentionService = new MentionServiceImpl(api);
 

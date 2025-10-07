@@ -6,6 +6,7 @@ import { Dashboard } from "./page/dashboard";
 import { Studentlist } from "./page/studentList";
 import { NavBar } from "./components/NavBar";
 import { useState, type JSX } from "react";
+import { Modalprovider } from "./bloc/useModalProvider";
 
 export const AdminDashboardPage = () => {
   const [index, setIndex] = useState<number>(0);
@@ -17,13 +18,16 @@ export const AdminDashboardPage = () => {
   ];
   return (
     <AdminDashBoardProvider>
-      <SidebarProvider>
-        <AppSidebar changePage={setIndex} />
-        <SidebarInset className=" overflow-hidden transition-all duration-500">
-          <NavBar />
-          {page[index]}
-        </SidebarInset>
-      </SidebarProvider>
+      <Modalprovider>
+        {" "}
+        <SidebarProvider>
+          <AppSidebar changePage={setIndex} />
+          <SidebarInset className=" overflow-hidden transition-all duration-500">
+            <NavBar />
+            {page[index]}
+          </SidebarInset>
+        </SidebarProvider>
+      </Modalprovider>
     </AdminDashBoardProvider>
   );
 };

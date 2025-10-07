@@ -11,17 +11,16 @@ import { toast } from "sonner";
 
 export const useAdminDashboard = () => {
   const [studentList, setStudentlist] = useState<UserDto[]>([]);
+  const [studentPage, setStudentPage] = useState<number>(1);
+  const [hasReachedMaxPage, setHasReachedMaxPage] = useState<boolean>(false);
 
   const [docList, setDoclist] = useState<DocEntity[]>([]);
   const [page, setPage] = useState<number>(1);
-  const [limit, setLimit] = useState<number>(4);
   const [hasReachedMax, setHasReachedMax] = useState<boolean>(false);
   const [userName, setUserName] = useState<string>("");
+
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadProgress, setUploadProgress] = useState<number>(0);
-  const [uploadStatus, setUploadStatus] = useState<
-    "idle" | "uploading" | "success" | "error"
-  >("idle");
 
   const [lessonTitle, setLessonTitle] = useState<string>("");
   const [mention, setMention] = useState<string>("");
@@ -63,6 +62,14 @@ export const useAdminDashboard = () => {
         className: "animate-fade animate-once animate-ease-out",
       });
       await fetchDashboardData();
+      await fetchDashboardData();
+      setName("");
+      setLastName("");
+      setContact("");
+      setPassword("");
+      setBranche("");
+      setLevel("");
+      setMention("");
     } else {
       toast.error("Error", {
         description: "Failed to add student",
@@ -79,7 +86,6 @@ export const useAdminDashboard = () => {
     const files = event.target.files;
     if (files && files.length > 0) {
       setSelectedFile(files[0]);
-      setUploadStatus("idle");
       setErrorMessage("");
     }
   };
@@ -107,7 +113,6 @@ export const useAdminDashboard = () => {
 
   const handleCancel = () => {
     setSelectedFile(null);
-    setUploadStatus("idle");
     setUploadProgress(0);
     setErrorMessage("");
     if (fileInputRef.current) {
@@ -115,7 +120,27 @@ export const useAdminDashboard = () => {
     }
   };
 
+  const fetchMentionStudentData = async () => {
+    const limit = 3;
+    const result = await mentionRepository.getStudentData(studentPage, limit);
+    if (result.status === "success") {
+      console.log(result.data);
+
+      if (result.data.length == 0) {
+        setHasReachedMaxPage(true);
+      } else {
+        setStudentlist((item) => [...item, ...result.data]);
+        setStudentPage((prev) => prev + 1);
+      }
+    } else {
+      toast.error("Error", {
+        description: "Failed to load student list",
+      });
+    }
+  };
+
   const fetchDocList = async () => {
+    const limit = 10;
     const result = await docRepo.getFile(page, limit);
     if (result.status === "success") {
       if (result.data.length == 0) {
@@ -193,14 +218,12 @@ export const useAdminDashboard = () => {
     addDocFile: addDocMetaData,
     docList,
     setPage,
-    setLimit,
     fetchDocList,
     hasReachedMax,
     userName,
     handleCancel,
     handleUpload,
     handleFileChange,
-    uploadStatus,
     errorMessage,
     uploadProgress,
     fileInputRef,
@@ -222,5 +245,7 @@ export const useAdminDashboard = () => {
     mentionData,
     level,
     studentList,
+    fetchMentionStudentData,
+    hasReachedMaxPage,
   };
 };
