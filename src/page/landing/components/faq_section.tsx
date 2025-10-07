@@ -81,7 +81,7 @@ export const FaqSection = () => {
   );
 
   return (
-    <section className=" bg-white dark:bg-zinc-900 transition-all duration-500">
+    <section id="FAQ" className=" bg-white dark:bg-zinc-900 transition-all duration-500">
       <motion.div
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
