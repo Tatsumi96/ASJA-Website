@@ -34,7 +34,7 @@ export const CardInputUser = () => {
 
   return (
     <div className=" flex flex-col gap-5 w-1/2">
-      <Card className="transition-all duration-500">
+      <Card className="transition-all duration-500 p-5">
         <CardContent>
           <MdCancel
             onClick={close}
