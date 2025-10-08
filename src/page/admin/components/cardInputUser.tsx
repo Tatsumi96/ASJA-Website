@@ -15,6 +15,8 @@ import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 import { mentions, classes } from "@/core/types";
 import { Input } from "@/components/ui/input";
 import { useModalContext } from "../bloc/useModalContext";
+import { AvatarUploader } from "./AvatarUplaoder";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export const CardInputUser = () => {
   const {
@@ -24,10 +26,24 @@ export const CardInputUser = () => {
     setBranche,
     mention,
     setName,
+    branche,
     setLastName,
     setPassword,
     setContact,
-    register,
+    sendStudentInformation,
+    handleImageChange,
+    image,
+    isPremierPaid,
+    isDeuxiemePaid,
+    isTroisiemePaid,
+    setIsPremierPaid,
+    setIsDeuxiemePaid,
+    setIsTroisiemePaid,
+    cleanAddUserCard,
+    name,
+    lastName,
+    contact,
+    password,
   } = useAdminDashboardContext();
 
   const { close } = useModalContext();
@@ -37,12 +53,19 @@ export const CardInputUser = () => {
       <Card className="transition-all duration-500 p-5">
         <CardContent>
           <MdCancel
-            onClick={close}
-            className=" text-white text-4xl cursor-pointer absolute  hover:scale-125 transition-all duration-300"
+            onClick={() => {
+              close();
+              cleanAddUserCard();
+            }}
+            className=" text-green-600 dark:text-white text-4xl cursor-pointer absolute  hover:scale-125 transition-all duration-300"
           />
           <p className=" flex w-full justify-center font-semibold text-3xl text-gray-500 pb-10">
             Ajouter un etudiant
           </p>
+          <AvatarUploader
+            image={image as string}
+            onCallBack={handleImageChange}
+          />
           <form>
             <div className="  grid w-full  items-center gap-4">
               <div className="flex flex-col space-y-1.5">
@@ -60,6 +83,7 @@ export const CardInputUser = () => {
                         placeholder="Nom"
                         className="pl-10 pr-3 bg-gray-200"
                         onChange={(e) => setName(e.target.value)}
+                        value={name}
                       />
                     </div>
                   </div>{" "}
@@ -77,6 +101,7 @@ export const CardInputUser = () => {
                         className="pl-10 pr-3 bg-gray-200"
                         onChange={(e) => setLastName(e.target.value)}
                         placeholder="Prénom"
+                        value={lastName}
                       />
                     </div>
                   </div>
@@ -94,6 +119,7 @@ export const CardInputUser = () => {
                     className="pl-10 pr-3 bg-gray-200"
                     type="number"
                     onChange={(e) => setContact(e.target.value)}
+                    value={contact}
                   />
                 </div>
 
@@ -106,6 +132,7 @@ export const CardInputUser = () => {
                 <div className=" relative w-full">
                   <MdLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
                   <Input
+                    value={password}
                     className="pl-10 pr-3 bg-gray-200"
                     onChange={(e) => setPassword(e.target.value)}
                   />
@@ -113,7 +140,7 @@ export const CardInputUser = () => {
               </div>
               <div className="flex flex-col py-2.5">
                 <div className=" flex gap-4">
-                  <Select onValueChange={setMention}>
+                  <Select value={mention} onValueChange={setMention}>
                     <SelectTrigger className="w-full bg-gray-200">
                       <SelectValue placeholder="Mention" />
                     </SelectTrigger>
@@ -125,7 +152,7 @@ export const CardInputUser = () => {
                       ))}
                     </SelectContent>
                   </Select>
-                  <Select onValueChange={setLevel}>
+                  <Select onValueChange={setLevel} value={level}>
                     <SelectTrigger className="w-full bg-gray-200">
                       <SelectValue placeholder="Niveau" />
                     </SelectTrigger>
@@ -139,6 +166,7 @@ export const CardInputUser = () => {
                   </Select>
                   <Select
                     onValueChange={setBranche}
+                    value={branche}
                     disabled={!mention || level == "L1" || level == "L2"}
                   >
                     <SelectTrigger className=" w-full bg-gray-100">
@@ -157,11 +185,37 @@ export const CardInputUser = () => {
               </div>
             </div>
           </form>
+          <div className=" flex w-full gap-2 items-center justify-center pt-5">
+            <Checkbox
+              checked={isPremierPaid}
+              onCheckedChange={() => setIsPremierPaid((value) => !value)}
+              className="cursor-pointer w-5 h-5 "
+            />
+            <p className=" text-green-700 font-semibold dark:text-white">
+              Tranche 1
+            </p>
+            <Checkbox
+              checked={isDeuxiemePaid}
+              onCheckedChange={() => setIsDeuxiemePaid((value) => !value)}
+              className="cursor-pointer w-5 h-5"
+            />
+            <p className=" text-green-700 font-semibold dark:text-white">
+              Tranche 2
+            </p>
+            <Checkbox
+              checked={isTroisiemePaid}
+              onCheckedChange={() => setIsTroisiemePaid((value) => !value)}
+              className="cursor-pointer w-5 h-5"
+            />
+            <p className=" text-green-700 font-semibold dark:text-white">
+              Tranche 3
+            </p>
+          </div>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="p-0">
           <Button
             className=" bg-green-700 hover:bg-green-900 flex w-full cursor-pointer p-6"
-            onClick={register}
+            onClick={sendStudentInformation}
           >
             <p className=" text-xl">Ajouter l'etudiant</p>
           </Button>

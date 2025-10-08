@@ -43,7 +43,10 @@ export const TestimonySection = () => {
     },
   ];
   return (
-    <section id="temoignages" className="bg-zinc-100 dark:bg-zinc-800 transition-all duration-500">
+    <section
+      id="temoignages"
+      className="bg-zinc-100 dark:bg-zinc-800 transition-all duration-500"
+    >
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}

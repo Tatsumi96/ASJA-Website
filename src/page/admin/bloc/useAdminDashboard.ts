@@ -16,6 +16,10 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { toast } from "sonner";
 
 export const useAdminDashboard = () => {
+  const [isPremierPaid, setIsPremierPaid] = useState<boolean>(false);
+  const [isDeuxiemePaid, setIsDeuxiemePaid] = useState<boolean>(false);
+  const [isTroisiemePaid, setIsTroisiemePaid] = useState<boolean>(false);
+
   const [studentList, setStudentlist] = useState<UserDto[]>([]);
   const [studentPage, setStudentPage] = useState<number>(1);
   const [hasReachedMaxPage, setHasReachedMaxPage] = useState<boolean>(false);
@@ -26,6 +30,8 @@ export const useAdminDashboard = () => {
   const [userName, setUserName] = useState<string>("");
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [image, setImage] = useState<string | null>();
+
   const [uploadProgress, setUploadProgress] = useState<number>(0);
 
   const [lessonTitle, setLessonTitle] = useState<string>("");
@@ -47,12 +53,30 @@ export const useAdminDashboard = () => {
 
   const [mentionData, setMentionData] = useState<MentionDto>();
 
-  const register = async () => {
+  const deleteStudent = async (id: string) => {
+    const result = await mentionRepository.deleteStudent(id);
+
+    if (result.status === "success") {
+      toast.success("Succes", {
+        description: "Student deleted",
+      });
+      await fetchDashboardData();
+      const newStudentList = studentList.filter((item) => item.mentionId != id);
+      setStudentlist(newStudentList);
+    } else {
+      toast.error("Error", {
+        description: "Failed to delete student",
+      });
+    }
+  };
+
+  const sendStudentInformation = async () => {
     const student: UserEntity = {
       name,
       lastName,
       contact,
       password,
+      fileName: selectedFile?.name as string,
       branche:
         !branche || level == "L1" || level == "L2"
           ? "COMMUN"
@@ -60,22 +84,28 @@ export const useAdminDashboard = () => {
       level: level as Level,
       mention: mention.replace(/_/g, " ") as Mention,
       role: "User",
+      Premier: isPremierPaid,
+      Deuxieme: isDeuxiemePaid,
+      Troisieme: isTroisiemePaid,
     };
     const result = await mentionRepository.register(student);
     if (result.status === "success") {
+      if (!selectedFile) {
+        setErrorMessage("Veuillez sélectionner un fichier");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("file", selectedFile);
+      await mentionRepository.sendFiles(formData);
+
       toast.success("Succes", {
         description: "Student added",
         className: "animate-fade animate-once animate-ease-out",
       });
       await fetchDashboardData();
-      await fetchDashboardData();
-      setName("");
-      setLastName("");
-      setContact("");
-      setPassword("");
-      setBranche("");
-      setLevel("");
-      setMention("");
+      await fetchMentionStudentData();
+      cleanAddUserCard();
     } else {
       toast.error("Error", {
         description: "Failed to add student",
@@ -83,10 +113,42 @@ export const useAdminDashboard = () => {
     }
   };
 
+  const cleanAddUserCard = () => {
+    setName("");
+    setLastName("");
+    setContact("");
+    setPassword("");
+    setBranche("");
+    setLevel("");
+    setMention("");
+    setImage("");
+    setIsPremierPaid(false);
+    setIsDeuxiemePaid(false);
+    setIsTroisiemePaid(false);
+  };
+
   const onDrop = useCallback(
     (acceptedFile: File[]) => setSelectedFile(acceptedFile[0]),
     []
   );
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files;
+
+    const isValid =
+      file && file?.[0].type.startsWith("image/") && file && file.length > 0;
+
+    if (isValid) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result as string);
+      };
+      reader.readAsDataURL(file?.[0]);
+      setSelectedFile(file[0]);
+    } else {
+      setImage(null);
+    }
+  };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -261,7 +323,7 @@ export const useAdminDashboard = () => {
     onDrop,
     setBranche,
     mention,
-    register,
+    sendStudentInformation,
     setName,
     setLastName,
     setPassword,
@@ -272,5 +334,20 @@ export const useAdminDashboard = () => {
     fetchMentionStudentData,
     hasReachedMaxPage,
     updateTranche,
+    handleImageChange,
+    image,
+    isPremierPaid,
+    isDeuxiemePaid,
+    isTroisiemePaid,
+    setIsPremierPaid,
+    setIsDeuxiemePaid,
+    setIsTroisiemePaid,
+    deleteStudent,
+    cleanAddUserCard,
+    name,
+    lastName,
+    contact,
+    branche,
+    password,
   };
 };

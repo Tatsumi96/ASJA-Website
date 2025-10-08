@@ -10,4 +10,8 @@ export interface UserEntity {
   level?: Level;
   branche: Branche;
   grade?: string;
+  Premier: boolean;
+  Deuxieme: boolean;
+  Troisieme: boolean;
+  fileName: string;
 }

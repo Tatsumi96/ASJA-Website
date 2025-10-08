@@ -4,6 +4,7 @@ import type { MentionDto } from "./mention.dto";
 import type { UserEntity } from "./user.entity";
 import type { MentionService } from "./mention.service";
 import type { UserDto } from "./user.dto";
+import { ApiSource } from "@/core/constant";
 
 export class MentionRepositoryImpl implements MentionRepository {
   constructor(private service: MentionService) {}
@@ -34,7 +35,42 @@ export class MentionRepositoryImpl implements MentionRepository {
   ): Promise<Result<UserDto[]>> {
     try {
       const result = await this.service.getStudentData(page, limit);
-      return success(result);
+      const data: UserDto[] = result.map((item) => ({
+        imageUrl: `${ApiSource.url}/mention/stream/${item.imageUrl}`,
+        identifier: item.identifier,
+        name: item.name,
+        lastName: item.lastName,
+        contact: item.contact,
+        mention: item.mention,
+        level: item.level,
+        branche: item.branche,
+        trancheId: item.trancheId,
+        Premier: item.Premier,
+        Deuxieme: item.Deuxieme,
+        Troisieme: item.Troisieme,
+        mentionId: item.mentionId,
+      }));
+      return success(data);
+    } catch (error) {
+      console.error(error);
+      return failure(new Error());
+    }
+  }
+
+  async sendFiles(file: FormData): Promise<Result<void>> {
+    try {
+      await this.service.sendFiles(file);
+      return success(undefined);
+    } catch (error) {
+      console.error(error);
+      return failure(Error());
+    }
+  }
+
+  async deleteStudent(id: string): Promise<Result<void>> {
+    try {
+      await this.service.deleteStudent(id);
+      return success(undefined);
     } catch (error) {
       console.error(error);
       return failure(new Error());

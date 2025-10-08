@@ -1,12 +1,9 @@
 import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 import * as React from "react";
 import {
-  type ColumnFiltersState,
   type SortingState,
-  type VisibilityState,
   getCoreRowModel,
   getFilteredRowModel,
-  getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
@@ -14,83 +11,11 @@ import {
 import { columns } from "../components/StudentColumn";
 
 import { useIntersectionObserver } from "./useIntersectionObserver";
-import type { UserDto } from "@/features/mention/user.dto";
-
-const fakeStudentList: UserDto[] = [
-  {
-    imageUrl: "",
-    identifier: 123,
-    name: "Derasdsdsdsdsdsdsd",
-    lastName: "Le grandsdsdsdsdsdsdsd",
-    contact: "1234",
-    mention: "INFORMATIQUE",
-    level: "L2",
-    branche: "GL",
-    Premier: true,
-    Deuxieme: false,
-    Troisieme: false,
-  },
-  {
-    imageUrl: "",
-    identifier: 123,
-    name: "Deraasdbaiudbai",
-    lastName: "Le grand",
-    contact: "1234",
-    mention: "INFORMATIQUE",
-    level: "L2",
-    branche: "GL",
-    Premier: true,
-    Deuxieme: false,
-    Troisieme: false,
-  },
-  {
-    imageUrl: "",
-    identifier: 123,
-    name: "Dera",
-    lastName: "Le grand",
-    contact: "1234",
-    mention: "INFORMATIQUE",
-    level: "L2",
-    branche: "GL",
-    Premier: true,
-    Deuxieme: false,
-    Troisieme: false,
-  },
-  {
-    imageUrl: "",
-    identifier: 123,
-    name: "Dera",
-    lastName: "Le grand",
-    contact: "1234",
-    mention: "INFORMATIQUE",
-    level: "L2",
-    branche: "GL",
-    Premier: true,
-    Deuxieme: false,
-    Troisieme: false,
-  },
-  {
-    imageUrl: "",
-    identifier: 123,
-    name: "Dera",
-    lastName: "Le grand",
-    contact: "1234",
-    mention: "INFORMATIQUE",
-    level: "L2",
-    branche: "GL",
-    Premier: true,
-    Deuxieme: false,
-    Troisieme: false,
-  },
-];
 
 export const useStudentTable = () => {
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  );
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({});
+  const [globalFilter, setGlobalFilter] = React.useState("");
+
   const [rowSelection, setRowSelection] = React.useState({});
 
   const { fetchMentionStudentData, studentList, hasReachedMaxPage } =
@@ -106,18 +31,17 @@ export const useStudentTable = () => {
     data: studentList,
     columns,
     onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
+    getFilteredRowModel: getFilteredRowModel(),
     onRowSelectionChange: setRowSelection,
+    onGlobalFilterChange: setGlobalFilter,
     state: {
       sorting,
-      columnFilters,
-      columnVisibility,
       rowSelection,
+      globalFilter,
     },
   });
 
-  return { table, observerRef, columns };
+  return { table, observerRef, columns, globalFilter, setGlobalFilter };
 };

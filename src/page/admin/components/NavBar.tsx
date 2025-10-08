@@ -3,7 +3,6 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Moon, Sun } from "lucide-react";
 import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 import { useTheme } from "@/page/theme/useTheme";
-import { useLangue } from "@/page/lang/useLang";
 
 import {
   DropdownMenu,
@@ -91,26 +90,17 @@ const DropButton = ({ name }: { name: string }) => {
 export const NavBar = () => {
   const { userName } = useAdminDashboardContext();
   const { toggleTheme, isDark } = useTheme();
-  const { toggleLang, isEn } = useLangue();
   return (
     <header className=" group-has-data-[collapsible=icon]/sidebar-wrapper:h-12  duration-500 flex dark:bg-zinc-800 h-15 shrink-0 items-center gap-2 border-b transition-all ease-linear">
       <div className="flex w-full  justify-between items-center gap-1 px-4 lg:gap-2 lg:px-6">
         <section className="flex items-center gap-5">
           {" "}
           <SidebarTrigger className="-ml-1 text-green-700 hover:text-green-700" />
-          <p className="font-semibold md:flex hidden">
-            {userName}DERANDRAINY Marie Martinot De Salles
-          </p>
+          <p className="font-semibold md:flex hidden">Administrateur : {userName}</p>
         </section>
 
         <div className="flex justify-end  items-center mr-5 ">
           <div className="flex">
-            <button
-              className="md:px-5 text-green-700 cursor-pointer"
-              onClick={toggleLang}
-            >
-              {isEn ? "FR" : "EN"}
-            </button>
             <button
               className="px-5 text-green-700 cursor-pointer"
               onClick={toggleTheme}

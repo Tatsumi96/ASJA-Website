@@ -6,7 +6,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
 import { MenuIcon, Moon, Sun, X } from "lucide-react";
 import Logo from "@/assets/Logo/asja-logo.png";
 import { useEffect, useState } from "react";
