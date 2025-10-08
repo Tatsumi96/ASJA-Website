@@ -4,6 +4,7 @@ import type { UserDto } from "@/features/mention/user.dto";
 import type { ColumnDef } from "@tanstack/react-table";
 import { TrancheBadge } from "./TrancheBadge";
 import { DeleteButton } from "./deleteButton";
+import { MdPerson } from "react-icons/md";
 
 export const columns: ColumnDef<UserDto>[] = [
   {
@@ -22,7 +23,11 @@ export const columns: ColumnDef<UserDto>[] = [
     cell: ({ row }) => (
       <Avatar className=" size-11 ">
         <AvatarFallback className="dark:text-white  dark:bg-zinc-600">
-          <img src={row.getValue("imageUrl")} />
+          {row.getValue("imageUrl") ? (
+            <img src={row.getValue("imageUrl")} />
+          ) : (
+            <MdPerson size={30} />
+          )}
         </AvatarFallback>
       </Avatar>
     ),
