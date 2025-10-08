@@ -15,7 +15,7 @@ interface ItemProps {
 
 const Item: React.FC<ItemProps> = ({ mention, description, image }) => {
   return (
-    <div className="flex-1/2 hover:scale-105 md:w-full rounded-2xl overflow-hidden duration-500 bg-white dark:bg-zinc-800 border z-20">
+    <div className="flex-1/2 hover:scale-105 md:w-full rounded-2xl overflow-hidden duration-500 bg-white dark:bg-zinc-800 cursor-pointer border z-20">
       <img className="w-full p-4 rounded-3xl" src={image} alt="" />
       <h2 className="px-5 pt-5 text-2xl font-bold text-stone-500 dark:text-stone-200">
         {mention}
@@ -36,12 +36,12 @@ export const FiliereSection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ amount: 0.2, once: true }}
-          className="flex items-center justify-center flex-col my-10"
+          className="flex items-center justify-center pt-10 flex-col"
         >
-          <h1 className="flex lg:mt-5 text-center lg:text-start mx-0 mt-0 text-green-700 font-bold text-4xl">
+          <h1 className="flex text-center lg:text-start text-green-700 font-bold text-4xl">
             {translate("filiereSection.title")}
           </h1>
-          <p className="flex text-center lg:text-start text-lg pt-2 transition-all duration-500 dark:text-white  ">
+          <p className="flex text-center lg:text-start text-lg transition-all duration-500 dark:text-white ">
             {translate("filiereSection.description")}
           </p>
         </motion.div>
