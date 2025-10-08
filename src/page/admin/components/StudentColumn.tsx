@@ -125,15 +125,20 @@ export const columns: ColumnDef<UserDto>[] = [
       return (
         <div className="flex w-full items-center justify-between">
           <Select
-            value={column.getFilterValue() as string}
+            value={
+              (column.getFilterValue() as string)?.replace(/ /g, "_") ?? ""
+            }
             onValueChange={(value) =>
-              column.setFilterValue(value.replace(/_/g, " "))
+              column.setFilterValue(
+                value === "Tous" ? undefined : value.replace(/_/g, " ")
+              )
             }
           >
             <SelectTrigger className="w-full bg-gray-200">
               <SelectValue placeholder="Mention" />
             </SelectTrigger>
             <SelectContent className="z-[900]">
+              <SelectItem value="Tous">Tous</SelectItem>
               {Object.keys(mentions).map((mainBranche) => (
                 <SelectItem key={mainBranche} value={mainBranche}>
                   {mainBranche.replace(/_/g, "   ")}
@@ -155,10 +160,32 @@ export const columns: ColumnDef<UserDto>[] = [
   {
     accessorKey: "level",
     enableSorting: true,
-    header: () => {
+    enableColumnFilter: true,
+    header: ({ column }) => {
       return (
         <div className="flex w-full items-center justify-between cursor-pointer">
-          <p className="font-semibold dark:text-white">Niveau</p>
+          <Select
+            value={
+              (column.getFilterValue() as string)?.replace(/ /g, "_") ?? ""
+            }
+            onValueChange={(value) =>
+              column.setFilterValue(
+                value === "Tous" ? undefined : value.replace(/_/g, " ")
+              )
+            }
+          >
+            <SelectTrigger className="w-full bg-gray-200">
+              <SelectValue placeholder="Niveau" />
+            </SelectTrigger>
+            <SelectContent className="z-[900]">
+              <SelectItem value="Tous">Tous</SelectItem>
+              {classes.map((level) => (
+                <SelectItem key={level} value={level}>
+                  {level}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
           <Separator
             orientation="vertical"
             className="data-[orientation=vertical]:h-10"
@@ -175,7 +202,18 @@ export const columns: ColumnDef<UserDto>[] = [
     header: () => {
       return (
         <div className="flex w-full items-center justify-between">
-          <p className="font-semibold dark:text-white">Branche</p>
+          <Select onValueChange={setBranche}>
+            <SelectTrigger className="w-full bg-gray-200">
+              <SelectValue placeholder="Branche" />
+            </SelectTrigger>
+            <SelectContent>
+              {mentions[mention].map((branche) => (
+                <SelectItem key={branche} value={branche}>
+                  {branche}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
           <Separator
             orientation="vertical"
             className="data-[orientation=vertical]:h-10"
