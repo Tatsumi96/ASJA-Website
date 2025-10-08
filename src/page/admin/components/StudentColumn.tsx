@@ -5,6 +5,14 @@ import type { ColumnDef } from "@tanstack/react-table";
 import { TrancheBadge } from "./TrancheBadge";
 import { DeleteButton } from "./deleteButton";
 import { MdPerson } from "react-icons/md";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { classes, mentions } from "@/core/types";
 
 export const columns: ColumnDef<UserDto>[] = [
   {
@@ -112,10 +120,27 @@ export const columns: ColumnDef<UserDto>[] = [
   },
   {
     accessorKey: "mention",
-    header: () => {
+    enableColumnFilter: true,
+    header: ({ column }) => {
       return (
         <div className="flex w-full items-center justify-between">
-          <p className="font-semibold dark:text-white">Mention</p>
+          <Select
+            value={column.getFilterValue() as string}
+            onValueChange={(value) =>
+              column.setFilterValue(value.replace(/_/g, " "))
+            }
+          >
+            <SelectTrigger className="w-full bg-gray-200">
+              <SelectValue placeholder="Mention" />
+            </SelectTrigger>
+            <SelectContent className="z-[900]">
+              {Object.keys(mentions).map((mainBranche) => (
+                <SelectItem key={mainBranche} value={mainBranche}>
+                  {mainBranche.replace(/_/g, "   ")}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
           <Separator
             orientation="vertical"
             className="data-[orientation=vertical]:h-10"

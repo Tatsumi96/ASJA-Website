@@ -72,8 +72,8 @@ export const useAdminDashboard = () => {
 
   const sendStudentInformation = async () => {
     const student: UserEntity = {
-      name,
-      lastName,
+      name: name.replace(/\s+/g, ""),
+      lastName: lastName.replace(/\s+/g, ""),
       contact,
       password,
       fileName: selectedFile?.name as string,
@@ -99,13 +99,14 @@ export const useAdminDashboard = () => {
       formData.append("file", selectedFile);
       await mentionRepository.sendFiles(formData);
 
+      await fetchDashboardData();
+      await fetchMentionStudentData();
+      cleanAddUserCard();
+
       toast.success("Succes", {
         description: "Student added",
         className: "animate-fade animate-once animate-ease-out",
       });
-      await fetchDashboardData();
-      await fetchMentionStudentData();
-      cleanAddUserCard();
     } else {
       toast.error("Error", {
         description: "Failed to add student",
