@@ -11,6 +11,7 @@ dist/
 # Docker
 docker-data/
 # Data
+
 node_modules/
 .env
 my-strapi-docker/data/
