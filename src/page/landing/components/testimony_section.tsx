@@ -45,16 +45,16 @@ export const TestimonySection = () => {
   return (
     <section
       id="temoignages"
-      className="bg-zinc-100 dark:bg-zinc-800 transition-all duration-500"
+      className="bg-zinc-100 dark:bg-zinc-900 h-full transition-all duration-500 p-10"
     >
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className="flex flex-col h-screen items-center justify-center "
+        className="flex flex-col items-center justify-center"
       >
-        <h1 className="text-6xl font-bold text-green-700 p-20">Témoignage</h1>
+        <h1 className="text-6xl font-bold text-green-700 p-10">Témoignage</h1>
         <Carousel
           opts={{
             align: "start",
@@ -65,16 +65,16 @@ export const TestimonySection = () => {
             {temoin.map((temoin, key) => (
               <CarouselItem key={key} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
-                  <Card className="transition-all duration-500">
-                    <CardContent className="flex h-120  flex-col aspect-square items-center justify-center">
-                      <div className="rounded-[50%] h-40 w-40 overflow-hidden border-4 border-gray-300">
-                        <img className="" src={Image} alt="" />
+                  <Card className="dark:bg-zinc-800 transition-all m-10duration-500 h-120">
+                    <CardContent className="flex h-full flex-col aspect-square items-center justify-center ">
+                      <div className="flex h-40 w-40 justify-center items-center overflow-hidden">
+                        <img className="rounded-[50%] w-full h-full border-2" src={Image} alt="" />
                       </div>
-                      <div className="text-center p-7">
-                        <h3 className="text-lg font-semibold pb-5">
+                      <div className="text-center">
+                        <h3 className="text-lg font-semibold p-5">
                           {temoin.name}
                         </h3>
-                        <p className="text-md ">{temoin.description}</p>
+                        <p className="px-2">{temoin.description}</p>
                       </div>
                     </CardContent>
                   </Card>

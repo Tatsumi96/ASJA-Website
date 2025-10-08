@@ -15,7 +15,7 @@ export const MissionSection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ amount: 0.2, once: true }}
-          className="w-screen px-5 bg-white dark:bg-zinc-900 transition-all duration-500"
+          className="w-screen px-5 bg-white dark:bg-zinc-900"
         >
           <h1 className="text-4xl lg:text-6xl text-green-700 mb-10 font-semibold">
             Athénée Saint Joseph Antsirabe
@@ -41,7 +41,7 @@ export const MissionSection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ amount: 0.2, once: true }}
-          className="border h-max rounded-xl px-7 py-7 bg-white dark:bg-zinc-900 transition-all duration-500"
+          className="border h-max rounded-xl px-7 py-7 bg-white dark:bg-zinc-900"
       >
           <div className="md:hidden py-10 flex flex-col gap-5">
             <h1 className="flex text-4xl font-bold text-green-700 transition-all duration-500 dark:text-amber-100">
@@ -68,7 +68,7 @@ export const MissionSection = () => {
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className="border h-max rounded-xl px-7 py-7 bg-white dark:bg-zinc-900 transition-all duration-500"
+        className="border h-max rounded-xl px-7 py-7 bg-white dark:bg-zinc-900"
       >
         <div className="flex pb-5 flex-col gap-5">
           <h1 className="flex text-4xl font-bold text-green-700 transition-all duration-500 dark:text-amber-100">
