@@ -1,7 +1,4 @@
-import { Button } from "@/components/ui/button";
 import { StudentTable } from "../components/studentTable";
-import { MdPerson, MdSearch } from "react-icons/md";
-import { Input } from "@/components/ui/input";
 import { useScrollLock } from "../hooks/useScrollLock";
 import { useModalContext } from "../bloc/useModalContext";
 import { Modal } from "@/components/ui/modal";
