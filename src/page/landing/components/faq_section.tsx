@@ -123,7 +123,7 @@ export const FaqSection = () => {
               filteredFaqs.map((faq) => (
                 <div
                   key={faq.question}
-                  className=" bg-white dark:bg-zinc-700  dark:border-gray-700 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-500"
+                  className=" bg-white dark:bg-zinc-800  dark:border-gray-700 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-500"
                 >
                   <button
                     className="flex justify-between items-center w-full text-left transition-all duration-500 font-semibold text-lg text-gray-800 dark:text-gray-100"
