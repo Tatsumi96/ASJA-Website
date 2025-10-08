@@ -130,7 +130,7 @@ export const columns: ColumnDef<UserDto>[] = [
             }
             onValueChange={(value) =>
               column.setFilterValue(
-                value === "Tous" ? undefined : value.replace(/_/g, " ")
+                value === "Tout" ? undefined : value.replace(/_/g, " ")
               )
             }
           >
@@ -138,7 +138,7 @@ export const columns: ColumnDef<UserDto>[] = [
               <SelectValue placeholder="Mention" />
             </SelectTrigger>
             <SelectContent className="z-[900]">
-              <SelectItem value="Tous">Tous</SelectItem>
+              <SelectItem value="Tout">Tout</SelectItem>
               {Object.keys(mentions).map((mainBranche) => (
                 <SelectItem key={mainBranche} value={mainBranche}>
                   {mainBranche.replace(/_/g, "   ")}
@@ -166,14 +166,14 @@ export const columns: ColumnDef<UserDto>[] = [
           <Select
             value={column.getFilterValue() as string}
             onValueChange={(value) =>
-              column.setFilterValue(value === "Tous" ? undefined : value)
+              column.setFilterValue(value === "Tout" ? undefined : value)
             }
           >
             <SelectTrigger className="w-full bg-gray-200">
               <SelectValue placeholder="Niveau" />
             </SelectTrigger>
             <SelectContent className="z-[900]">
-              <SelectItem value="Tous">Tous</SelectItem>
+              <SelectItem value="Tout">Tout</SelectItem>
               {classes.map((level) => (
                 <SelectItem key={level} value={level}>
                   {level}
@@ -204,14 +204,14 @@ export const columns: ColumnDef<UserDto>[] = [
             disabled={!mention}
             value={column.getFilterValue() as string}
             onValueChange={(value) =>
-              column.setFilterValue(value === "Tous" ? undefined : value)
+              column.setFilterValue(value === "Tout" ? undefined : value)
             }
           >
             <SelectTrigger className="w-full bg-gray-200">
               <SelectValue placeholder="Branche" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="Tous">Tous</SelectItem>
+              <SelectItem value="Tout">Tout</SelectItem>
               {mention &&
                 mentions[mention.replace(/ /g, "_")].map((branche) => (
                   <SelectItem key={branche} value={branche}>
