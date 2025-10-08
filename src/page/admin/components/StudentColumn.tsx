@@ -123,7 +123,7 @@ export const columns: ColumnDef<UserDto>[] = [
     enableColumnFilter: true,
     header: ({ column }) => {
       return (
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full items-center gap-5 justify-between m-1">
           <Select
             value={
               (column.getFilterValue() as string)?.replace(/ /g, "_") ?? ""
@@ -134,7 +134,7 @@ export const columns: ColumnDef<UserDto>[] = [
               )
             }
           >
-            <SelectTrigger className="w-full bg-gray-200">
+            <SelectTrigger className="w-full bg-gray-200 ">
               <SelectValue placeholder="Mention" />
             </SelectTrigger>
             <SelectContent className="z-[900]">
@@ -160,18 +160,13 @@ export const columns: ColumnDef<UserDto>[] = [
   {
     accessorKey: "level",
     enableSorting: true,
-    enableColumnFilter: true,
     header: ({ column }) => {
       return (
-        <div className="flex w-full items-center justify-between cursor-pointer">
+        <div className="flex w-full items-center justify-between gap-5 cursor-pointer">
           <Select
-            value={
-              (column.getFilterValue() as string)?.replace(/ /g, "_") ?? ""
-            }
+            value={column.getFilterValue() as string}
             onValueChange={(value) =>
-              column.setFilterValue(
-                value === "Tous" ? undefined : value.replace(/_/g, " ")
-              )
+              column.setFilterValue(value === "Tous" ? undefined : value)
             }
           >
             <SelectTrigger className="w-full bg-gray-200">
@@ -199,19 +194,30 @@ export const columns: ColumnDef<UserDto>[] = [
   },
   {
     accessorKey: "branche",
-    header: () => {
+    header: ({ column, table }) => {
+      const mention = table.getColumn("mention")?.getFilterValue() as
+        | string
+        | undefined;
       return (
-        <div className="flex w-full items-center justify-between">
-          <Select onValueChange={setBranche}>
+        <div className="flex w-full items-center justify-between gap-5">
+          <Select
+            disabled={!mention}
+            value={column.getFilterValue() as string}
+            onValueChange={(value) =>
+              column.setFilterValue(value === "Tous" ? undefined : value)
+            }
+          >
             <SelectTrigger className="w-full bg-gray-200">
               <SelectValue placeholder="Branche" />
             </SelectTrigger>
             <SelectContent>
-              {mentions[mention].map((branche) => (
-                <SelectItem key={branche} value={branche}>
-                  {branche}
-                </SelectItem>
-              ))}
+              <SelectItem value="Tous">Tous</SelectItem>
+              {mention &&
+                mentions[mention.replace(/ /g, "_")].map((branche) => (
+                  <SelectItem key={branche} value={branche}>
+                    {branche}
+                  </SelectItem>
+                ))}
             </SelectContent>
           </Select>
           <Separator
