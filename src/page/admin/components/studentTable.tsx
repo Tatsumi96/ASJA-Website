@@ -17,7 +17,8 @@ import { useModalContext } from "../bloc/useModalContext";
 import { Input } from "@/components/ui/input";
 
 export const StudentTable = () => {
-  const { observerRef, table, columns } = useStudentTable();
+  const { observerRef, table, columns, globalFilter, setGlobalFilter } =
+    useStudentTable();
   const { open } = useModalContext();
 
   return (
@@ -32,12 +33,10 @@ export const StudentTable = () => {
         <div className="relative">
           <MdSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
           <Input
-            value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
-            onChange={(event) =>
-              table.getColumn("name")?.setFilterValue(event.target.value)
-            }
+            value={globalFilter ?? ""}
+            onChange={(event) => setGlobalFilter(event.target.value)}
             className="pl-10 pr-3 bg-gray-100"
-            placeholder="Recherche"
+            placeholder="Recherche par nom ou prénom..."
           />
         </div>
 

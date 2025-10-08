@@ -1,7 +1,6 @@
 import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 import * as React from "react";
 import {
-  type ColumnFiltersState,
   type SortingState,
   getCoreRowModel,
   getFilteredRowModel,
@@ -15,6 +14,7 @@ import { useIntersectionObserver } from "./useIntersectionObserver";
 
 export const useStudentTable = () => {
   const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [globalFilter, setGlobalFilter] = React.useState("");
 
   const [rowSelection, setRowSelection] = React.useState({});
 
@@ -35,11 +35,13 @@ export const useStudentTable = () => {
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     onRowSelectionChange: setRowSelection,
+    onGlobalFilterChange: setGlobalFilter,
     state: {
       sorting,
       rowSelection,
+      globalFilter,
     },
   });
 
-  return { table, observerRef, columns };
+  return { table, observerRef, columns, globalFilter, setGlobalFilter };
 };
