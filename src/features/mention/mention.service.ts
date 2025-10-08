@@ -9,6 +9,7 @@ export abstract class MentionService {
   abstract register(user: UserEntity): Promise<void>;
   abstract getStudentData(page: number, limit: number): Promise<UserDto[]>;
   abstract sendFiles(file: FormData): Promise<void>;
+  abstract deleteStudent(id: string): Promise<void>;
 }
 
 export class MentionServiceImpl implements MentionService {
@@ -45,6 +46,13 @@ export class MentionServiceImpl implements MentionService {
           "Content-Type": "multipart/form-data",
         },
       }
+    );
+    if (response.status != 200) throw new Error();
+  }
+
+  async deleteStudent(id: string): Promise<void> {
+    const response = await this.api.delete(
+      `${ApiSource.url}/mention/?id=${id}`
     );
     if (response.status != 200) throw new Error();
   }

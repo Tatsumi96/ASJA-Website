@@ -48,6 +48,7 @@ export class MentionRepositoryImpl implements MentionRepository {
         Premier: item.Premier,
         Deuxieme: item.Deuxieme,
         Troisieme: item.Troisieme,
+        mentionId: item.mentionId,
       }));
       return success(data);
     } catch (error) {
@@ -63,6 +64,16 @@ export class MentionRepositoryImpl implements MentionRepository {
     } catch (error) {
       console.error(error);
       return failure(Error());
+    }
+  }
+
+  async deleteStudent(id: string): Promise<Result<void>> {
+    try {
+      await this.service.deleteStudent(id);
+      return success(undefined);
+    } catch (error) {
+      console.error(error);
+      return failure(new Error());
     }
   }
 }

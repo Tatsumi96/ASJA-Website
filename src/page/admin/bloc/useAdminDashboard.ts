@@ -53,6 +53,23 @@ export const useAdminDashboard = () => {
 
   const [mentionData, setMentionData] = useState<MentionDto>();
 
+  const deleteStudent = async (id: string) => {
+    const result = await mentionRepository.deleteStudent(id);
+
+    if (result.status === "success") {
+      toast.success("Succes", {
+        description: "Student deleted",
+      });
+      await fetchDashboardData();
+      const newStudentList = studentList.filter((item) => item.mentionId != id);
+      setStudentlist(newStudentList);
+    } else {
+      toast.error("Error", {
+        description: "Failed to delete student",
+      });
+    }
+  };
+
   const sendStudentInformation = async () => {
     const student: UserEntity = {
       name,
@@ -86,7 +103,6 @@ export const useAdminDashboard = () => {
         description: "Student added",
         className: "animate-fade animate-once animate-ease-out",
       });
-      await fetchDashboardData();
       await fetchDashboardData();
       setName("");
       setLastName("");
@@ -317,5 +333,6 @@ export const useAdminDashboard = () => {
     setIsPremierPaid,
     setIsDeuxiemePaid,
     setIsTroisiemePaid,
+    deleteStudent,
   };
 };

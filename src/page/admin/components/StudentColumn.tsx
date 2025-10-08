@@ -3,6 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import type { UserDto } from "@/features/mention/user.dto";
 import type { ColumnDef } from "@tanstack/react-table";
 import { TrancheBadge } from "./TrancheBadge";
+import { DeleteButton } from "./deleteButton";
 
 export const columns: ColumnDef<UserDto>[] = [
   {
@@ -212,5 +213,13 @@ export const columns: ColumnDef<UserDto>[] = [
         trancheId={row.original.trancheId}
       />
     ),
+  },
+  {
+    accessorKey: "mentionId",
+    header: () => {},
+    enableHiding: false,
+    cell: ({ row }) => {
+      return <DeleteButton id={row.getValue("mentionId")} />;
+    },
   },
 ];

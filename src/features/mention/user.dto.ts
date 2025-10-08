@@ -10,6 +10,7 @@ export interface UserDto {
   level?: Level;
   branche: Branche;
   trancheId: string;
+  mentionId: string;
   Premier: boolean;
   Deuxieme: boolean;
   Troisieme: boolean;
