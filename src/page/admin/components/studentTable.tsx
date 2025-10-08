@@ -15,11 +15,43 @@ import { MdPerson, MdSearch } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 import { useModalContext } from "../bloc/useModalContext";
 import { Input } from "@/components/ui/input";
+import { useEffect, useMemo, useRef } from "react";
+import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
+import { debounce } from "lodash";
 
 export const StudentTable = () => {
   const { observerRef, table, columns, globalFilter, setGlobalFilter } =
     useStudentTable();
   const { open } = useModalContext();
+  const isMounted = useRef(false);
+
+  const { searchMentionStudent, setQuery } = useAdminDashboardContext();
+
+  useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true;
+      return;
+    }
+
+    if (table.getRowModel().rows.length == 0) {
+      searchDebounce();
+    }
+
+    return () => searchDebounce.cancel();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [globalFilter]);
+
+  const searchDebounce = useMemo(
+    () =>
+      debounce(() => {
+        setQuery(globalFilter);
+        const callSearch = async () => {
+          await searchMentionStudent();
+        };
+        callSearch();
+      }, 400),
+    [globalFilter, searchMentionStudent, setQuery]
+  );
 
   return (
     <div className=" border transition-all duration-500 dark:bg-zinc-900 p-4  w-full">
@@ -34,7 +66,10 @@ export const StudentTable = () => {
           <MdSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
           <Input
             value={globalFilter ?? ""}
-            onChange={(event) => setGlobalFilter(event.target.value)}
+            onChange={(event) => {
+              setGlobalFilter(event.target.value);
+              setQuery(event.target.value);
+            }}
             className="pl-10 pr-3 bg-gray-100"
             placeholder="Recherche par nom ou prénom..."
           />

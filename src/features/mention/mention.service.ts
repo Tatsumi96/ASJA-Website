@@ -10,6 +10,7 @@ export abstract class MentionService {
   abstract getStudentData(page: number, limit: number): Promise<UserDto[]>;
   abstract sendFiles(file: FormData): Promise<void>;
   abstract deleteStudent(id: string): Promise<void>;
+  abstract searchStudent(query: string): Promise<UserDto[]>;
 }
 
 export class MentionServiceImpl implements MentionService {
@@ -32,6 +33,14 @@ export class MentionServiceImpl implements MentionService {
   async getStudentData(page: number, limit: number): Promise<UserDto[]> {
     const response = await this.api.get(
       `${ApiSource.url}/mention/student?page=${page}&limit=${limit}`
+    );
+    if (response.status != 200) throw new Error();
+    return response.data;
+  }
+
+  async searchStudent(query: string): Promise<UserDto[]> {
+    const response = await this.api.get(
+      `${ApiSource.url}/mention/student/?name=${query}`
     );
     if (response.status != 200) throw new Error();
     return response.data;

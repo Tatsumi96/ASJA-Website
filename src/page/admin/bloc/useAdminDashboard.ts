@@ -16,11 +16,15 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { toast } from "sonner";
 
 export const useAdminDashboard = () => {
+  const [query, setQuery] = useState<string>("");
+
   const [isPremierPaid, setIsPremierPaid] = useState<boolean>(false);
   const [isDeuxiemePaid, setIsDeuxiemePaid] = useState<boolean>(false);
   const [isTroisiemePaid, setIsTroisiemePaid] = useState<boolean>(false);
 
   const [studentList, setStudentlist] = useState<UserDto[]>([]);
+  const [initialStudentList, setInitialStudentlist] = useState<UserDto[]>([]);
+
   const [studentPage, setStudentPage] = useState<number>(1);
   const [hasReachedMaxPage, setHasReachedMaxPage] = useState<boolean>(false);
 
@@ -207,16 +211,30 @@ export const useAdminDashboard = () => {
     }
   };
 
+  const searchMentionStudent = async () => {
+    if (query.length == 0) {
+      console.log(initialStudentList);
+      setStudentlist(initialStudentList);
+    } else {
+      const result = await mentionRepository.searchStudent(query);
+      if (result.status === "success") {
+        console.log("lasaaabe");
+        console.log(result.data);
+        setStudentlist(result.data);
+      }
+    }
+  };
+
   const fetchMentionStudentData = async () => {
     const limit = 3;
     const result = await mentionRepository.getStudentData(studentPage, limit);
     if (result.status === "success") {
-      console.log(result.data);
-
       if (result.data.length == 0) {
         setHasReachedMaxPage(true);
       } else {
+        setInitialStudentlist((item) => [...item, ...result.data]);
         setStudentlist((item) => [...item, ...result.data]);
+
         setStudentPage((prev) => prev + 1);
       }
     } else {
@@ -350,5 +368,7 @@ export const useAdminDashboard = () => {
     contact,
     branche,
     password,
+    searchMentionStudent,
+    setQuery,
   };
 };

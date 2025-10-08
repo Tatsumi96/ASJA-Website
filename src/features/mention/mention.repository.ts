@@ -13,4 +13,5 @@ export abstract class MentionRepository {
   abstract sendFiles(file: FormData): Promise<Result<void>>;
   abstract deleteStudent(id: string): Promise<Result<void>>;
 
+  abstract searchStudent(query: string): Promise<Result<UserDto[]>>;
 }

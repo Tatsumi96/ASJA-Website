@@ -59,6 +59,32 @@ export class MentionRepositoryImpl implements MentionRepository {
     }
   }
 
+  async searchStudent(query: string): Promise<Result<UserDto[]>> {
+    const result = await this.service.searchStudent(query);
+    const data: UserDto[] = result.map((item) => ({
+      imageUrl: item.imageUrl
+        ? `${ApiSource.url}/mention/stream/${item.imageUrl}`
+        : undefined,
+      identifier: item.identifier,
+      name: item.name,
+      lastName: item.lastName,
+      contact: item.contact,
+      mention: item.mention,
+      level: item.level,
+      branche: item.branche,
+      trancheId: item.trancheId,
+      Premier: item.Premier,
+      Deuxieme: item.Deuxieme,
+      Troisieme: item.Troisieme,
+      mentionId: item.mentionId,
+    }));
+    return success(data);
+  }
+  catch(error: unknown) {
+    console.error(error);
+    return failure(new Error());
+  }
+
   async sendFiles(file: FormData): Promise<Result<void>> {
     try {
       await this.service.sendFiles(file);
