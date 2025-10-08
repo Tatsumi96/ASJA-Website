@@ -15,15 +15,12 @@ interface ItemProps {
 
 const Item: React.FC<ItemProps> = ({ mention, description, image }) => {
   return (
-    <div
-      id="filiere"
-      className="flex-1/2 hover:scale-100 md:w-full rounded-2xl overflow-hidden duration-300 bg-white dark:bg-zinc-800  z-20 shadow-2xl"
-    >
-      <img className="w-full" src={image} alt="" />
-      <h2 className="p-5 text-2xl font-bold text-stone-500 dark:text-stone-200">
+    <div className="flex-1/2 hover:scale-105 md:w-full rounded-2xl overflow-hidden duration-500 bg-white dark:bg-zinc-800 border z-20">
+      <img className="w-full p-4 rounded-3xl" src={image} alt="" />
+      <h2 className="px-5 pt-5 text-2xl font-bold text-stone-500 dark:text-stone-200">
         {mention}
       </h2>
-      <p className="p-5 pt-0 text-gray-800 dark:text-gray-300">{description}</p>
+      <p className="p-5 pb-10 pt-0 text-gray-800 dark:text-gray-300">{description}</p>
     </div>
   );
 };
@@ -33,18 +30,18 @@ export const FiliereSection = () => {
 
   return (
     <>
-      <div className=" flex-col justify-center text-gray-800 items-center transition-all duration-500 w-full h-max dark:bg-zinc-900 bg-gray-200 z-10">
+      <div  id="filiere" className="flex flex-col justify-center text-gray-800 items-center transition-all duration-500 w-full h-max dark:bg-zinc-900 bg-gray-100 pb-10 z-10">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ amount: 0.2, once: true }}
-          className="flex-col pt-20 px-5 pb-0"
+          className="flex items-center justify-center flex-col my-10"
         >
-          <h1 className="flex  lg:mt-5 text-center lg:text-start mx-0 mt-0 text-green-700 font-bold text-4xl">
+          <h1 className="flex lg:mt-5 text-center lg:text-start mx-0 mt-0 text-green-700 font-bold text-4xl">
             {translate("filiereSection.title")}
           </h1>
-          <p className="flex lg:text-start text-lg pt-2 transition-all duration-500 dark:text-white  ">
+          <p className="flex text-center lg:text-start text-lg pt-2 transition-all duration-500 dark:text-white  ">
             {translate("filiereSection.description")}
           </p>
         </motion.div>
@@ -53,7 +50,7 @@ export const FiliereSection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ amount: 0.2, once: true }}
-          className="flex p-3 gap-4 flex-col lg:flex-row md:flex-col justify-center items-center "
+          className="flex justify-center items-center w-9/10 p-3 gap-20 my-10 flex-col lg:flex-row md:flex-col "
         >
           <Item
             mention={translate("filiereSection.AGRO.name")}
@@ -76,7 +73,7 @@ export const FiliereSection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ amount: 0.2, once: true }}
-          className="flex  p-3 gap-4 flex-col lg:flex-row md:flex-col justify-center items-center"
+          className="flex justify-center items-center w-9/10 p-3 gap-20 flex-col lg:flex-row md:flex-col "
         >
           <Item
             mention={translate("filiereSection.ST.name")}
