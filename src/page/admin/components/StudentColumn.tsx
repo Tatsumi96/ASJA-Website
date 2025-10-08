@@ -68,6 +68,7 @@ export const columns: ColumnDef<UserDto>[] = [
   {
     accessorKey: "name",
     enableSorting: true,
+    enableColumnFilter: true,
     header: () => {
       return (
         <div className="flex w-full items-center justify-between cursor-pointer">
