@@ -26,6 +26,7 @@ export const CardInputUser = () => {
     setBranche,
     mention,
     setName,
+    branche,
     setLastName,
     setPassword,
     setContact,
@@ -39,6 +40,10 @@ export const CardInputUser = () => {
     setIsDeuxiemePaid,
     setIsTroisiemePaid,
     cleanAddUserCard,
+    name,
+    lastName,
+    contact,
+    password,
   } = useAdminDashboardContext();
 
   const { close } = useModalContext();
@@ -78,6 +83,7 @@ export const CardInputUser = () => {
                         placeholder="Nom"
                         className="pl-10 pr-3 bg-gray-200"
                         onChange={(e) => setName(e.target.value)}
+                        value={name}
                       />
                     </div>
                   </div>{" "}
@@ -95,6 +101,7 @@ export const CardInputUser = () => {
                         className="pl-10 pr-3 bg-gray-200"
                         onChange={(e) => setLastName(e.target.value)}
                         placeholder="Prénom"
+                        value={lastName}
                       />
                     </div>
                   </div>
@@ -112,6 +119,7 @@ export const CardInputUser = () => {
                     className="pl-10 pr-3 bg-gray-200"
                     type="number"
                     onChange={(e) => setContact(e.target.value)}
+                    value={contact}
                   />
                 </div>
 
@@ -124,6 +132,7 @@ export const CardInputUser = () => {
                 <div className=" relative w-full">
                   <MdLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
                   <Input
+                    value={password}
                     className="pl-10 pr-3 bg-gray-200"
                     onChange={(e) => setPassword(e.target.value)}
                   />
@@ -131,7 +140,7 @@ export const CardInputUser = () => {
               </div>
               <div className="flex flex-col py-2.5">
                 <div className=" flex gap-4">
-                  <Select onValueChange={setMention}>
+                  <Select value={mention} onValueChange={setMention}>
                     <SelectTrigger className="w-full bg-gray-200">
                       <SelectValue placeholder="Mention" />
                     </SelectTrigger>
@@ -143,7 +152,7 @@ export const CardInputUser = () => {
                       ))}
                     </SelectContent>
                   </Select>
-                  <Select onValueChange={setLevel}>
+                  <Select onValueChange={setLevel} value={level}>
                     <SelectTrigger className="w-full bg-gray-200">
                       <SelectValue placeholder="Niveau" />
                     </SelectTrigger>
@@ -157,6 +166,7 @@ export const CardInputUser = () => {
                   </Select>
                   <Select
                     onValueChange={setBranche}
+                    value={branche}
                     disabled={!mention || level == "L1" || level == "L2"}
                   >
                     <SelectTrigger className=" w-full bg-gray-100">

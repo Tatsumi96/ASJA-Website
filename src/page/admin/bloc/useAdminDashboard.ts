@@ -104,6 +104,7 @@ export const useAdminDashboard = () => {
         className: "animate-fade animate-once animate-ease-out",
       });
       await fetchDashboardData();
+      await fetchMentionStudentData();
       cleanAddUserCard();
     } else {
       toast.error("Error", {
@@ -121,6 +122,9 @@ export const useAdminDashboard = () => {
     setLevel("");
     setMention("");
     setImage("");
+    setIsPremierPaid(false);
+    setIsDeuxiemePaid(false);
+    setIsTroisiemePaid(false);
   };
 
   const onDrop = useCallback(
@@ -340,5 +344,10 @@ export const useAdminDashboard = () => {
     setIsTroisiemePaid,
     deleteStudent,
     cleanAddUserCard,
+    name,
+    lastName,
+    contact,
+    branche,
+    password,
   };
 };
