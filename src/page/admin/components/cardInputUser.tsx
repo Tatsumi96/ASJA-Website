@@ -38,6 +38,7 @@ export const CardInputUser = () => {
     setIsPremierPaid,
     setIsDeuxiemePaid,
     setIsTroisiemePaid,
+    cleanAddUserCard,
   } = useAdminDashboardContext();
 
   const { close } = useModalContext();
@@ -47,7 +48,10 @@ export const CardInputUser = () => {
       <Card className="transition-all duration-500 p-5">
         <CardContent>
           <MdCancel
-            onClick={close}
+            onClick={() => {
+              close();
+              cleanAddUserCard();
+            }}
             className=" text-green-600 dark:text-white text-4xl cursor-pointer absolute  hover:scale-125 transition-all duration-300"
           />
           <p className=" flex w-full justify-center font-semibold text-3xl text-gray-500 pb-10">

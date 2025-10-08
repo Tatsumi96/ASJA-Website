@@ -104,18 +104,23 @@ export const useAdminDashboard = () => {
         className: "animate-fade animate-once animate-ease-out",
       });
       await fetchDashboardData();
-      setName("");
-      setLastName("");
-      setContact("");
-      setPassword("");
-      setBranche("");
-      setLevel("");
-      setMention("");
+      cleanAddUserCard();
     } else {
       toast.error("Error", {
         description: "Failed to add student",
       });
     }
+  };
+
+  const cleanAddUserCard = () => {
+    setName("");
+    setLastName("");
+    setContact("");
+    setPassword("");
+    setBranche("");
+    setLevel("");
+    setMention("");
+    setImage("");
   };
 
   const onDrop = useCallback(
@@ -334,5 +339,6 @@ export const useAdminDashboard = () => {
     setIsDeuxiemePaid,
     setIsTroisiemePaid,
     deleteStudent,
+    cleanAddUserCard,
   };
 };
