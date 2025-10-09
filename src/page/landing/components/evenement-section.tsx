@@ -1,4 +1,4 @@
-import { CardEventSection } from "./card_event";
+import { CardEventSection } from "./card-event";
 export const EvenementSection = () => {
   return (
     <div

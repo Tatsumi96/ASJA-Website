@@ -5,6 +5,7 @@ import type { UserEntity } from "./user.entity";
 import type { MentionService } from "./mention.service";
 import type { UserDto } from "./user.dto";
 import { ApiSource } from "@/core/constant";
+import type { Level, Mention } from "@/core/types";
 
 export class MentionRepositoryImpl implements MentionRepository {
   constructor(private service: MentionService) {}
@@ -19,10 +20,27 @@ export class MentionRepositoryImpl implements MentionRepository {
     }
   }
 
-  async register(user: UserEntity): Promise<Result<void>> {
+  async register(user: UserEntity): Promise<Result<UserDto>> {
     try {
-      await this.service.register(user);
-      return success(undefined);
+      const result = await this.service.register(user);
+      const userRegistred: UserDto = {
+        identifier: result.identifier,
+        imageUrl: user.fileName
+          ? `${ApiSource.url}/mention/stream/${user.fileName}`
+          : undefined,
+        name: user.name,
+        lastName: user.lastName,
+        mentionId: result.mentionId,
+        trancheId: result.trancheId,
+        branche: user.branche,
+        level: user.level as Level,
+        Premier: user.Premier,
+        Deuxieme: user.Deuxieme,
+        Troisieme: user.Troisieme,
+        contact: user.contact,
+        mention: user.mention as Mention,
+      };
+      return success(userRegistred);
     } catch (error) {
       console.error(error);
       return failure(new Error());
@@ -57,6 +75,32 @@ export class MentionRepositoryImpl implements MentionRepository {
       console.error(error);
       return failure(new Error());
     }
+  }
+
+  async searchStudent(query: string): Promise<Result<UserDto[]>> {
+    const result = await this.service.searchStudent(query);
+    const data: UserDto[] = result.map((item) => ({
+      imageUrl: item.imageUrl
+        ? `${ApiSource.url}/mention/stream/${item.imageUrl}`
+        : undefined,
+      identifier: item.identifier,
+      name: item.name,
+      lastName: item.lastName,
+      contact: item.contact,
+      mention: item.mention,
+      level: item.level,
+      branche: item.branche,
+      trancheId: item.trancheId,
+      Premier: item.Premier,
+      Deuxieme: item.Deuxieme,
+      Troisieme: item.Troisieme,
+      mentionId: item.mentionId,
+    }));
+    return success(data);
+  }
+  catch(error: unknown) {
+    console.error(error);
+    return failure(new Error());
   }
 
   async sendFiles(file: FormData): Promise<Result<void>> {

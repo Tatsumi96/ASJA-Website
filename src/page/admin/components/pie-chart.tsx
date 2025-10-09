@@ -85,7 +85,7 @@ export const ChartPie = () => {
   return (
     <ChartContainer
       config={chartConfig}
-      className="w-1/4 transition-all duration-500 flex justify-center border-2 items-center bg-white dark:bg-zinc-900  rounded-xl "
+      className="w-1/4 transition-all duration-500 flex justify-center  items-center  rounded-xl "
     >
       <PieChart>
         <ChartTooltip content={<ChartTooltipContent hideLabel />} />

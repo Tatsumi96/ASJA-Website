@@ -3,8 +3,8 @@ import { AdminDashBoardProvider } from "./bloc/useAdminDasboardPortalProvider";
 
 import { AppSidebar } from "@/page/admin/components/app-sidebar";
 import { Dashboard } from "./page/dashboard";
-import { Studentlist } from "./page/studentList";
-import { NavBar } from "./components/NavBar";
+import { Studentlist } from "./page/student-list";
+import { NavBar } from "./components/nav-bar";
 import { useState, type JSX } from "react";
 import { Modalprovider } from "./bloc/useModalProvider";
 

@@ -16,11 +16,15 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { toast } from "sonner";
 
 export const useAdminDashboard = () => {
+  const [query, setQuery] = useState<string>("");
+
   const [isPremierPaid, setIsPremierPaid] = useState<boolean>(false);
   const [isDeuxiemePaid, setIsDeuxiemePaid] = useState<boolean>(false);
   const [isTroisiemePaid, setIsTroisiemePaid] = useState<boolean>(false);
 
   const [studentList, setStudentlist] = useState<UserDto[]>([]);
+  const [initialStudentList, setInitialStudentlist] = useState<UserDto[]>([]);
+
   const [studentPage, setStudentPage] = useState<number>(1);
   const [hasReachedMaxPage, setHasReachedMaxPage] = useState<boolean>(false);
 
@@ -62,6 +66,7 @@ export const useAdminDashboard = () => {
       });
       await fetchDashboardData();
       const newStudentList = studentList.filter((item) => item.mentionId != id);
+      setInitialStudentlist(newStudentList);
       setStudentlist(newStudentList);
     } else {
       toast.error("Error", {
@@ -80,7 +85,7 @@ export const useAdminDashboard = () => {
       branche:
         !branche || level == "L1" || level == "L2"
           ? "COMMUN"
-          : (branche as Branche),
+          : (branche.replace(/_/g, " ") as Branche),
       level: level as Level,
       mention: mention.replace(/_/g, " ") as Mention,
       role: "User",
@@ -90,6 +95,9 @@ export const useAdminDashboard = () => {
     };
     const result = await mentionRepository.register(student);
     if (result.status === "success") {
+      setInitialStudentlist((item) => [...item, ...[result.data]]);
+      setStudentlist((item) => [...item, ...[result.data]]);
+
       if (!selectedFile) {
         setErrorMessage("Veuillez sélectionner un fichier");
         return;
@@ -207,16 +215,27 @@ export const useAdminDashboard = () => {
     }
   };
 
+  const searchMentionStudent = async (rowLength: number) => {
+    if (query.length == 0) {
+      setStudentlist(initialStudentList);
+    } else if (rowLength == 0) {
+      const result = await mentionRepository.searchStudent(query);
+      if (result.status === "success") {
+        setStudentlist(result.data);
+      }
+    }
+  };
+
   const fetchMentionStudentData = async () => {
     const limit = 3;
     const result = await mentionRepository.getStudentData(studentPage, limit);
     if (result.status === "success") {
-      console.log(result.data);
-
       if (result.data.length == 0) {
         setHasReachedMaxPage(true);
       } else {
+        setInitialStudentlist((item) => [...item, ...result.data]);
         setStudentlist((item) => [...item, ...result.data]);
+
         setStudentPage((prev) => prev + 1);
       }
     } else {
@@ -350,5 +369,7 @@ export const useAdminDashboard = () => {
     contact,
     branche,
     password,
+    searchMentionStudent,
+    setQuery,
   };
 };

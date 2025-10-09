@@ -1,7 +1,7 @@
 import { StudentPortalProvider } from "./bloc/useStudentPortalProvider";
-import { FileAndNewsSection } from "./components/files_news_section";
-import { NavBar } from "./components/nav_bar";
-import { StatisSection } from "./components/statis_section";
+import { FileAndNewsSection } from "./components/files-news-section";
+import { NavBar } from "./components/nav-bar";
+import { StatisSection } from "./components/statis-section";
 
 export const StudentSpacePage = () => {
   return (

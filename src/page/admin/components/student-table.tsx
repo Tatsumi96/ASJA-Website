@@ -15,11 +15,43 @@ import { MdPerson, MdSearch } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 import { useModalContext } from "../bloc/useModalContext";
 import { Input } from "@/components/ui/input";
+import { useEffect, useMemo, useRef } from "react";
+import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
+import { debounce } from "lodash";
 
 export const StudentTable = () => {
   const { observerRef, table, columns, globalFilter, setGlobalFilter } =
     useStudentTable();
-  const { open } = useModalContext();
+  const { openAddUser, openStudentInfo, setStudent } = useModalContext();
+  const isMounted = useRef(false);
+
+  const { searchMentionStudent, setQuery } = useAdminDashboardContext();
+
+  useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true;
+      return;
+    }
+
+    if (table.getRowModel().rows.length == 0 || globalFilter.length == 0) {
+      searchDebounce();
+    }
+
+    return () => searchDebounce.cancel();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [globalFilter]);
+
+  const searchDebounce = useMemo(
+    () =>
+      debounce(() => {
+        setQuery(globalFilter);
+        const callSearch = async () => {
+          await searchMentionStudent(table.getRowModel().rows.length);
+        };
+        callSearch();
+      }, 400),
+    [globalFilter, searchMentionStudent, setQuery, table]
+  );
 
   return (
     <div className=" border transition-all duration-500 dark:bg-zinc-900 p-4  w-full">
@@ -34,14 +66,17 @@ export const StudentTable = () => {
           <MdSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
           <Input
             value={globalFilter ?? ""}
-            onChange={(event) => setGlobalFilter(event.target.value)}
+            onChange={(event) => {
+              setGlobalFilter(event.target.value);
+              setQuery(event.target.value);
+            }}
             className="pl-10 pr-3 bg-gray-100"
             placeholder="Recherche par nom ou prénom..."
           />
         </div>
 
         <Button
-          onClick={open}
+          onClick={openAddUser}
           className=" text-lg text-white bg-green-700 hover:bg-green-900 flex  cursor-pointer p-6"
         >
           <MdPerson /> <p>Ajouter</p>
@@ -77,10 +112,18 @@ export const StudentTable = () => {
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-                  className="hover:bg-transparent"
+                  className=" cursor-pointer"
                 >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                  {row.getVisibleCells().map((cell, index) => (
+                    <TableCell
+                      onClick={() => {
+                        if (index < 8) {
+                          setStudent(row.original);
+                          openStudentInfo();
+                        }
+                      }}
+                      key={cell.id}
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
