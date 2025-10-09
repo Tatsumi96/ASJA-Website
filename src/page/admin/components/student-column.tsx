@@ -2,8 +2,8 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import type { UserDto } from "@/features/mention/user.dto";
 import type { ColumnDef } from "@tanstack/react-table";
-import { TrancheBadge } from "./TrancheBadge";
-import { DeleteButton } from "./deleteButton";
+import { TrancheBadge } from "./Tranche-status-badge";
+import { DeleteButton } from "./delete-button";
 import { MdPerson } from "react-icons/md";
 import {
   Select,

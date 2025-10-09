@@ -1,8 +1,8 @@
-import { StudentTable } from "../components/studentTable";
+import { StudentTable } from "../components/student-table";
 import { useScrollLock } from "../hooks/useScrollLock";
 import { useModalContext } from "../bloc/useModalContext";
 import { Modal } from "@/components/ui/modal";
-import { CardInputUser } from "../components/cardInputUser";
+import { CardInputUser } from "../components/card-user-input";
 import { StudentInformation } from "../components/student-information";
 import type { UserDto } from "@/features/mention/user.dto";
 import { DeleteModalConfirmation } from "../components/delete-modal-confirmantion";

@@ -1,12 +1,12 @@
 import { Description } from "./components/description";
-import { FiliereSection } from "./components/filiere_section";
-import { MissionSection } from "./components/mission_section";
-import { EvenementSection } from "./components/evenement_section";
+import { FiliereSection } from "./components/filiere-section";
+import { MissionSection } from "./components/mission-section";
+import { EvenementSection } from "./components/evenement-section";
 import { Footer } from "./components/footer";
-import { Navbar } from "./components/navbar";
-import { SystemePedagogiqueSection } from "./components/systeme-pegdagogique_section";
-import { TestimonySection } from "./components/testimony_section";
-import { FaqSection } from "./components/faq_section";
+import { Navbar } from "./components/nav-bar";
+import { SystemePedagogiqueSection } from "./components/systeme-pegdagogique-section";
+import { TestimonySection } from "./components/testimony-section";
+import { FaqSection } from "./components/faq-section";
 import { Map } from "./components/map";
 export const LandingPage = () => {
   return (

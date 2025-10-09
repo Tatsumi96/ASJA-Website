@@ -15,7 +15,7 @@ import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 import { mentions, classes } from "@/core/types";
 import { Input } from "@/components/ui/input";
 import { useModalContext } from "../bloc/useModalContext";
-import { AvatarUploader } from "./AvatarUplaoder";
+import { AvatarUploader } from "./avatar-uploader";
 import { Checkbox } from "@/components/ui/checkbox";
 
 export const CardInputUser = () => {

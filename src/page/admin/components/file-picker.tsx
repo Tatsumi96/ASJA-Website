@@ -9,7 +9,6 @@ const FilePicker: React.FC = () => {
     handleCancel,
     onDrop,
     handleFileChange,
-    uploadStatus,
     errorMessage,
     uploadProgress,
     fileInputRef,

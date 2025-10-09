@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { BarChartGraph } from "./BarChart";
+import { BarChartGraph } from "./bar-chart";
 import { MdPerson2 } from "react-icons/md";
 import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 import type { MentionDto } from "@/features/mention/mention.dto";

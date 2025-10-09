@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 
 import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 
-import FilePicker from "./file_picker";
+import FilePicker from "./file-picker";
 
 import { mentions, classes } from "@/core/types";
 import { Input } from "@/components/ui/input";
