@@ -110,16 +110,20 @@ export const StudentTable = () => {
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
-                  onClick={() => {
-                    setStudent(row.original);
-                    openStudentInfo();
-                  }}
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                   className="hover:bg-transparent cursor-pointer"
                 >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                  {row.getVisibleCells().map((cell, index) => (
+                    <TableCell
+                      onClick={() => {
+                        if (index < 8) {
+                          setStudent(row.original);
+                          openStudentInfo();
+                        }
+                      }}
+                      key={cell.id}
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
