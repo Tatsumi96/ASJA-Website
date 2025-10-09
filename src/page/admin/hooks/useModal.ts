@@ -2,9 +2,13 @@ import type { UserDto } from "@/features/mention/user.dto";
 import { useState } from "react";
 
 export const useModal = () => {
+  const [deleteId, setDeleteId] = useState<string>("");
   const [student, setStudent] = useState<UserDto>();
 
   const [isAddStudentCardVisible, setIsAddStudentCardVisible] =
+    useState<boolean>(false);
+
+  const [isDeleteConfirmationVisible, setIsDeleteConfirmationVisible] =
     useState<boolean>(false);
 
   const [isStudentInfoVisible, setIsStudentInfoVisible] =
@@ -16,6 +20,14 @@ export const useModal = () => {
 
   const openStudentInfo = () => {
     setIsStudentInfoVisible(true);
+  };
+
+  const openDeleteConfirmation = () => {
+    setIsDeleteConfirmationVisible(true);
+  };
+
+  const closeDeleteConfirmation = () => {
+    setIsDeleteConfirmationVisible(false);
   };
 
   const closeStudentInfo = () => {
@@ -33,6 +45,11 @@ export const useModal = () => {
     openStudentInfo,
     isStudentInfoVisible,
     student,
-    setStudent
+    setStudent,
+    isDeleteConfirmationVisible,
+    openDeleteConfirmation,
+    closeDeleteConfirmation,
+    deleteId,
+    setDeleteId,
   };
 };

@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { MdDelete } from "react-icons/md";
-import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
+import { useModalContext } from "../bloc/useModalContext";
 
 export const DeleteButton = ({ id }: { id: string }) => {
-  const { deleteStudent } = useAdminDashboardContext();
+  const { openDeleteConfirmation, setDeleteId } = useModalContext();
 
   const callDeleteStudent = async () => {
-    await deleteStudent(id);
+    setDeleteId(id);
+    openDeleteConfirmation();
   };
 
   return (

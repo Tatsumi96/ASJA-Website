@@ -66,6 +66,7 @@ export const useAdminDashboard = () => {
       });
       await fetchDashboardData();
       const newStudentList = studentList.filter((item) => item.mentionId != id);
+      setInitialStudentlist(newStudentList);
       setStudentlist(newStudentList);
     } else {
       toast.error("Error", {

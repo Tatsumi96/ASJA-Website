@@ -5,11 +5,21 @@ import { Modal } from "@/components/ui/modal";
 import { CardInputUser } from "../components/cardInputUser";
 import { StudentInformation } from "../components/student-information";
 import type { UserDto } from "@/features/mention/user.dto";
+import { DeleteModalConfirmation } from "../components/delete-modal-confirmantion";
 
 export const Studentlist = () => {
-  const { isAddStudentCardVisible, isStudentInfoVisible, student } =
-    useModalContext();
-  useScrollLock(isAddStudentCardVisible || isStudentInfoVisible);
+  const {
+    isAddStudentCardVisible,
+    isStudentInfoVisible,
+    student,
+    isDeleteConfirmationVisible,
+  } = useModalContext();
+
+  useScrollLock(
+    isAddStudentCardVisible ||
+      isStudentInfoVisible ||
+      isDeleteConfirmationVisible
+  );
   return (
     <section className=" flex flex-col h-full dark:bg-zinc-900">
       <StudentTable />
@@ -21,6 +31,12 @@ export const Studentlist = () => {
       {isStudentInfoVisible && (
         <Modal>
           <StudentInformation student={student as UserDto} />
+        </Modal>
+      )}
+
+      {isDeleteConfirmationVisible && (
+        <Modal>
+          <DeleteModalConfirmation />
         </Modal>
       )}
     </section>
