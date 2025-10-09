@@ -1,13 +1,13 @@
 import axios from "axios";
 
-import { AuthServiceImpl } from "./features/auth/auth_service";
-import { AuthRepositoryImpl } from "./features/auth/auth_repo_impl";
-import { DocServiceImpl } from "./features/doc/doc_service";
-import { DocRepositoryImpl } from "./features/doc/doc.repositoryImpl";
-import { UserServiceImpl } from "./features/user/user_service";
-import { UserRepositoryImpl } from "./features/user/user.repositoryImpl";
+import { AuthServiceImpl } from "./features/auth/auth.service";
+import { AuthRepositoryImpl } from "./features/auth/auth.repository.impl";
+import { DocServiceImpl } from "./features/doc/doc.service";
+import { DocRepositoryImpl } from "./features/doc/doc.repository.impl";
+import { UserServiceImpl } from "./features/user/user.service";
+import { UserRepositoryImpl } from "./features/user/user.repository.impl";
 import { MentionServiceImpl } from "./features/mention/mention.service";
-import { MentionRepositoryImpl } from "./features/mention/mention.repositoryImpl";
+import { MentionRepositoryImpl } from "./features/mention/mention.repository.impl";
 import { ApiSource } from "./core/constant";
 import { TrancheServiceImpl } from "./features/tranche/tranche.service";
 import { TrancheRepositoryImpl } from "./features/tranche/tranche.repositoryImpl";

@@ -3,7 +3,7 @@ import { ApiSource } from "@/core/constant";
 import type { UserEntity } from "../mention/user.entity";
 import type { MentionDto } from "./mention.dto";
 import type { UserDto } from "./user.dto";
-import type { RegisterReturnType } from "./registerReturnType";
+import type { RegisterReturnType } from "./register.return.type";
 
 export abstract class MentionService {
   abstract get(): Promise<MentionDto>;

@@ -1,7 +1,7 @@
 import { failure, success, type Result } from "@/core/result";
 import type { DocEntity } from "./doc.entity";
 import type { DocFileRepository } from "./doc.repository";
-import type { DocService } from "./doc_service";
+import type { DocService } from "./doc.service";
 import { ApiSource } from "@/core/constant";
 import type { DocDto } from "./doc.dto";
 
