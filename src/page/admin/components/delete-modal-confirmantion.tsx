@@ -26,7 +26,10 @@ export const DeleteModalConfirmation = () => {
           Voulez-vous vraiment supprimer l'etudiant de la liste ?
         </p>
         <section className="flex justify-end gap-3">
-          <Button onClick={cancel} className="cursor-pointer bg-gray-400 dark:bg-gray-300 dark:hover:bg-gray-200">
+          <Button
+            onClick={cancel}
+            className="cursor-pointer bg-gray-400 dark:bg-gray-300 dark:hover:bg-gray-200"
+          >
             Annuler
           </Button>
           <Button
