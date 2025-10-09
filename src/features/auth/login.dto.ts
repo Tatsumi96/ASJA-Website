@@ -1,4 +1,4 @@
-import type { Role } from "@/core/constant";
+import type { Role } from "@/core/types";
 
 export interface LoginDto {
   identifier: number;
