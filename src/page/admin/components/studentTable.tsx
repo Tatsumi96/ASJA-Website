@@ -112,7 +112,7 @@ export const StudentTable = () => {
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-                  className="hover:bg-transparent cursor-pointer"
+                  className=" cursor-pointer"
                 >
                   {row.getVisibleCells().map((cell, index) => (
                     <TableCell
