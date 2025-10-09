@@ -1,0 +1,4 @@
+node_modules/
+.env
+#data doc
+my-strapi-docker/data/
