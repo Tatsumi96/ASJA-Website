@@ -1,7 +1,7 @@
 import { failure, success, type Result } from "@/core/result";
 import type { UserDto } from "./user.dto";
 import type { UserRepository } from "./user.repository";
-import type { UserService } from "./user_service";
+import type { UserService } from "./user.service";
 
 export class UserRepositoryImpl implements UserRepository {
   constructor(private service: UserService) {}

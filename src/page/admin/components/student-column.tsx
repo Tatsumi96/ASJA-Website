@@ -2,8 +2,8 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import type { UserDto } from "@/features/mention/user.dto";
 import type { ColumnDef } from "@tanstack/react-table";
-import { TrancheBadge } from "./TrancheBadge";
-import { DeleteButton } from "./deleteButton";
+import { TrancheBadge } from "./tranche-status-badge";
+import { DeleteButton } from "./delete-button";
 import { MdPerson } from "react-icons/md";
 import {
   Select,
@@ -30,7 +30,7 @@ export const columns: ColumnDef<UserDto>[] = [
     },
     cell: ({ row }) => (
       <Avatar className=" size-11 ">
-        <AvatarFallback className="dark:text-white  dark:bg-zinc-600">
+        <AvatarFallback className="dark:text-white  bg-gradient-to-br from-zinc-400 to-zinc-500 text-white">
           {row.getValue("imageUrl") ? (
             <img src={row.getValue("imageUrl")} />
           ) : (
@@ -202,9 +202,11 @@ export const columns: ColumnDef<UserDto>[] = [
         <div className="flex w-full items-center justify-between gap-5">
           <Select
             disabled={!mention}
-            value={column.getFilterValue() as string}
+            value={(column.getFilterValue() as string as string) ?? ""}
             onValueChange={(value) =>
-              column.setFilterValue(value === "Tout" ? undefined : value)
+              column.setFilterValue(
+                value === "Tout" ? undefined : value.replace(/_/g, " ")
+              )
             }
           >
             <SelectTrigger className="w-full bg-gray-200">

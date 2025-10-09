@@ -1,5 +1,5 @@
 import type { AxiosInstance } from "axios";
-import type { LoginDto } from "./logInDto";
+import type { LoginDto } from "./login.dto";
 import { ApiSource } from "@/core/constant";
 
 export abstract class AuthService {

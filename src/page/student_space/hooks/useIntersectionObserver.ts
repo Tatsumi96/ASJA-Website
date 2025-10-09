@@ -20,7 +20,6 @@ export const useIntersectionObserver = (
       (entries) => {
         if (entries[0].isIntersecting) {
           callback();
-          console.log('appel')
         }
       },
       { threshold, rootMargin }

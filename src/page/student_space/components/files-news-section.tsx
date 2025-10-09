@@ -1,4 +1,4 @@
-import { DocDataTable } from "./docList";
+import { DocDataTable } from "./doc-list";
 
 export const FileAndNewsSection = () => {
   return (

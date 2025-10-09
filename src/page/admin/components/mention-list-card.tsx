@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { BarChartGraph } from "./BarChart";
+import { BarChartGraph } from "./bar-chart";
 import { MdPerson2 } from "react-icons/md";
 import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 import type { MentionDto } from "@/features/mention/mention.dto";
@@ -38,7 +38,7 @@ const MentionCart = ({
 export const MentionCardList = () => {
   const { mentionData } = useAdminDashboardContext();
   return (
-    <Card className="flex py-10 items-center justify-center flex-wrap w-full flex-row transition-all duration-500">
+    <div className="flex py-10 items-center gap-5  bg-transparent justify-center flex-wrap w-full flex-row transition-all duration-500">
       {" "}
       <MentionCart
         item={mentionData as MentionDto}
@@ -82,6 +82,6 @@ export const MentionCardList = () => {
         className="border-gray-600 border-4"
         color="#4b5563"
       />
-    </Card>
+    </div>
   );
 };

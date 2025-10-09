@@ -15,7 +15,7 @@ import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
 import { mentions, classes } from "@/core/types";
 import { Input } from "@/components/ui/input";
 import { useModalContext } from "../bloc/useModalContext";
-import { AvatarUploader } from "./AvatarUplaoder";
+import { AvatarUploader } from "./avatar-uploader";
 import { Checkbox } from "@/components/ui/checkbox";
 
 export const CardInputUser = () => {
@@ -46,7 +46,7 @@ export const CardInputUser = () => {
     password,
   } = useAdminDashboardContext();
 
-  const { close } = useModalContext();
+  const { closeAddUser } = useModalContext();
 
   return (
     <div className=" flex flex-col gap-5 w-1/2">
@@ -54,7 +54,7 @@ export const CardInputUser = () => {
         <CardContent>
           <MdCancel
             onClick={() => {
-              close();
+              closeAddUser();
               cleanAddUserCard();
             }}
             className=" text-green-600 dark:text-white text-4xl cursor-pointer absolute  hover:scale-125 transition-all duration-300"

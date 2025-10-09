@@ -1,7 +1,7 @@
 import { failure, success, type Result } from "@/core/result";
-import type { AuthRepository } from "./auth_repo";
-import type { AuthService } from "./auth_service";
-import type { LoginDto } from "./logInDto";
+import type { AuthRepository } from "./auth.repository";
+import type { AuthService } from "./auth.service";
+import type { LoginDto } from "./login.dto";
 
 export class AuthRepositoryImpl implements AuthRepository {
   constructor(private service: AuthService) {}
