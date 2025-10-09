@@ -211,15 +211,12 @@ export const useAdminDashboard = () => {
     }
   };
 
-  const searchMentionStudent = async () => {
+  const searchMentionStudent = async (rowLength: number) => {
     if (query.length == 0) {
-      console.log(initialStudentList);
       setStudentlist(initialStudentList);
-    } else {
+    } else if (rowLength == 0) {
       const result = await mentionRepository.searchStudent(query);
       if (result.status === "success") {
-        console.log("lasaaabe");
-        console.log(result.data);
         setStudentlist(result.data);
       }
     }

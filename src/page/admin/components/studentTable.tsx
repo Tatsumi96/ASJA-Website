@@ -33,7 +33,7 @@ export const StudentTable = () => {
       return;
     }
 
-    if (table.getRowModel().rows.length == 0) {
+    if (table.getRowModel().rows.length == 0 || globalFilter.length == 0) {
       searchDebounce();
     }
 
@@ -46,11 +46,11 @@ export const StudentTable = () => {
       debounce(() => {
         setQuery(globalFilter);
         const callSearch = async () => {
-          await searchMentionStudent();
+          await searchMentionStudent(table.getRowModel().rows.length);
         };
         callSearch();
       }, 400),
-    [globalFilter, searchMentionStudent, setQuery]
+    [globalFilter, searchMentionStudent, setQuery, table]
   );
 
   return (
