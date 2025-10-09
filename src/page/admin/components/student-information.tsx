@@ -2,7 +2,13 @@ import { Card } from "@/components/ui/card";
 
 import { useModalContext } from "../bloc/useModalContext";
 import type { UserDto } from "@/features/mention/user.dto";
-import { MdCancel, MdPerson } from "react-icons/md";
+import {
+  MdAttachMoney,
+  MdCalendarMonth,
+  MdCalendarToday,
+  MdCancel,
+  MdPerson,
+} from "react-icons/md";
 
 export const StudentInformation = ({ student }: { student: UserDto }) => {
   const { closeStudentInfo } = useModalContext();
