@@ -15,3 +15,5 @@ docker-data/
 node_modules/
 .env
 my-strapi-docker/data/
+.strapi-updater.json
+.tmp
