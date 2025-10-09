@@ -94,6 +94,9 @@ export const useAdminDashboard = () => {
     };
     const result = await mentionRepository.register(student);
     if (result.status === "success") {
+      setInitialStudentlist((item) => [...item, ...[result.data]]);
+      setStudentlist((item) => [...item, ...[result.data]]);
+
       if (!selectedFile) {
         setErrorMessage("Veuillez sélectionner un fichier");
         return;

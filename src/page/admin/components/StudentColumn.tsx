@@ -30,7 +30,7 @@ export const columns: ColumnDef<UserDto>[] = [
     },
     cell: ({ row }) => (
       <Avatar className=" size-11 ">
-        <AvatarFallback className="dark:text-white  dark:bg-zinc-600">
+        <AvatarFallback className="dark:text-white  bg-gradient-to-br from-zinc-400 to-zinc-500 text-white">
           {row.getValue("imageUrl") ? (
             <img src={row.getValue("imageUrl")} />
           ) : (

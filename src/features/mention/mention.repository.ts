@@ -5,7 +5,7 @@ import type { UserDto } from "./user.dto";
 
 export abstract class MentionRepository {
   abstract getData(): Promise<Result<MentionDto>>;
-  abstract register(user: UserEntity): Promise<Result<void>>;
+  abstract register(user: UserEntity): Promise<Result<UserDto>>;
   abstract getStudentData(
     page: number,
     limit: number
