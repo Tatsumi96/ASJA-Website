@@ -22,7 +22,7 @@ import { debounce } from "lodash";
 export const StudentTable = () => {
   const { observerRef, table, columns, globalFilter, setGlobalFilter } =
     useStudentTable();
-  const { open } = useModalContext();
+  const { openAddUser, openStudentInfo, setStudent } = useModalContext();
   const isMounted = useRef(false);
 
   const { searchMentionStudent, setQuery } = useAdminDashboardContext();
@@ -76,7 +76,7 @@ export const StudentTable = () => {
         </div>
 
         <Button
-          onClick={open}
+          onClick={openAddUser}
           className=" text-lg text-white bg-green-700 hover:bg-green-900 flex  cursor-pointer p-6"
         >
           <MdPerson /> <p>Ajouter</p>
@@ -110,9 +110,13 @@ export const StudentTable = () => {
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
+                  onClick={() => {
+                    setStudent(row.original);
+                    openStudentInfo();
+                  }}
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-                  className="hover:bg-transparent"
+                  className="hover:bg-transparent cursor-pointer"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>

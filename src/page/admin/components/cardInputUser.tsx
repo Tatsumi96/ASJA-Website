@@ -46,7 +46,7 @@ export const CardInputUser = () => {
     password,
   } = useAdminDashboardContext();
 
-  const { close } = useModalContext();
+  const { closeAddUser } = useModalContext();
 
   return (
     <div className=" flex flex-col gap-5 w-1/2">
@@ -54,7 +54,7 @@ export const CardInputUser = () => {
         <CardContent>
           <MdCancel
             onClick={() => {
-              close();
+              closeAddUser();
               cleanAddUserCard();
             }}
             className=" text-green-600 dark:text-white text-4xl cursor-pointer absolute  hover:scale-125 transition-all duration-300"

@@ -9,7 +9,7 @@ import { UserRepositoryImpl } from "./features/user/user.repositoryImpl";
 import { MentionServiceImpl } from "./features/mention/mention.service";
 import { MentionRepositoryImpl } from "./features/mention/mention.repositoryImpl";
 import { ApiSource } from "./core/constant";
-import { TrancheServiceImpl } from "./features/tranche/tranche.service.prisma";
+import { TrancheServiceImpl } from "./features/tranche/tranche.service";
 import { TrancheRepositoryImpl } from "./features/tranche/tranche.repositoryImpl";
 
 const api = axios.create({
