@@ -22,11 +22,11 @@ export const DeleteModalConfirmation = () => {
     <div className=" flex flex-col gap-5 w-1/3">
       <Card className="transition-all duration-500 p-5 items-center">
         <MdWarning className=" text-7xl dark:text-white text-red-600" />
-        <p className="dark:text-white text-red-600 font-semibold">
+        <p className="font-semibold">
           Voulez-vous vraiment supprimer l'etudiant de la liste ?
         </p>
         <section className="flex justify-end gap-3">
-          <Button onClick={cancel} className="cursor-pointer">
+          <Button onClick={cancel} className="cursor-pointer bg-gray-400 dark:bg-gray-300 dark:hover:bg-gray-200">
             Annuler
           </Button>
           <Button
