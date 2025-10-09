@@ -202,9 +202,11 @@ export const columns: ColumnDef<UserDto>[] = [
         <div className="flex w-full items-center justify-between gap-5">
           <Select
             disabled={!mention}
-            value={column.getFilterValue() as string}
+            value={(column.getFilterValue() as string as string) ?? ""}
             onValueChange={(value) =>
-              column.setFilterValue(value === "Tout" ? undefined : value)
+              column.setFilterValue(
+                value === "Tout" ? undefined : value.replace(/_/g, " ")
+              )
             }
           >
             <SelectTrigger className="w-full bg-gray-200">

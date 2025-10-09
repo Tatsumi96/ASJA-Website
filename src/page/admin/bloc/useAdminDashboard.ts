@@ -84,7 +84,7 @@ export const useAdminDashboard = () => {
       branche:
         !branche || level == "L1" || level == "L2"
           ? "COMMUN"
-          : (branche as Branche),
+          : (branche.replace(/_/g, " ") as Branche),
       level: level as Level,
       mention: mention.replace(/_/g, " ") as Mention,
       role: "User",
