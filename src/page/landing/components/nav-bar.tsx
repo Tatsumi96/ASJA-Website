@@ -217,7 +217,7 @@ export const Navbar = () => {
                            rounded-full cursor-pointer hover:bg-green-800 
                            hover:scale-105 duration-300"
           >
-            {translate("navBar.postuler")}
+            {translate("navBar.intranet")}
           </div>
         </a>
       </div>
@@ -394,7 +394,7 @@ export const Navbar = () => {
                            rounded-full cursor-pointer hover:bg-green-800 
                            hover:scale-105 duration-300"
             >
-              {translate("navBar.postuler")}
+              {translate("navBar.intranet")}
             </div>
           </a>
           <a onClick={() => (window.location.href = "/Login")}></a>
