@@ -20,7 +20,9 @@ const Item: React.FC<ItemProps> = ({ mention, description, image }) => {
       <h2 className="px-5 pt-5 text-2xl font-bold text-stone-500 dark:text-stone-200">
         {mention}
       </h2>
-      <p className="p-5 pb-10 pt-0 text-gray-800 dark:text-gray-300">{description}</p>
+      <p className="p-5 pb-10 pt-0 text-gray-800 dark:text-gray-300">
+        {description}
+      </p>
     </div>
   );
 };
@@ -30,7 +32,10 @@ export const FiliereSection = () => {
 
   return (
     <>
-      <div  id="filiere" className="flex flex-col justify-center text-gray-800 items-center transition-all duration-500 w-full h-max dark:bg-zinc-900 bg-gray-100 pb-10 z-10">
+      <div
+        id="filiere"
+        className="flex flex-col justify-center text-gray-800 items-center transition-all duration-500 w-full h-max dark:bg-zinc-900 bg-gray-100 pb-10 z-10"
+      >
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}

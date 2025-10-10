@@ -106,7 +106,7 @@ export const FaqSection = () => {
                   setActiveCategory(cat);
                   setOpenQuestion(null);
                 }}
-                className={`text-left font-semibold text-lg px-5 py-3 rounded-lg transition-all duration-200 
+                className={`text-left font-semibold text-lg px-5 py-3 rounded-lg transition-all duration-200
                 ${
                   activeCategory === cat
                     ? "text-green-600 bg-green-100 transition-all duration-500 dark:bg-green-950 shadow-md"

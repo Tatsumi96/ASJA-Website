@@ -8,7 +8,10 @@ export const MissionSection = () => {
   const { translate } = useLangue();
 
   return (
-    <div id="mission" className="min-h-screen lg:flex lg:flex-row  flex flex-col mt-100 lg:py-20 lg:gap-40 lg:mt-0 md:pt-0 justify-center items-center w-full transition-all duration-500 dark:bg-zinc-800 bg-gray-50 text-gray-800 ">
+    <div
+      id="mission"
+      className="min-h-screen lg:flex lg:flex-row  flex flex-col mt-100 lg:py-20 lg:gap-40 lg:mt-0 md:pt-0 justify-center items-center w-full transition-all duration-500 dark:bg-zinc-800 bg-gray-50 text-gray-800 "
+    >
       <div className=" lg:hidden flex-col justify-center py-10 px-5 lg:w-1/2 transition-all duration-500 bg-white dark:bg-zinc-900 ">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
@@ -36,13 +39,13 @@ export const MissionSection = () => {
         </motion.div>
       </div>
       <div className="flex-col">
-      <motion.div
+        <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ amount: 0.2, once: true }}
           className="border h-max rounded-xl px-7 py-7 bg-white dark:bg-zinc-900"
-      >
+        >
           <div className="md:hidden py-10 flex flex-col gap-5">
             <h1 className="flex text-4xl font-bold text-green-700 transition-all duration-500 dark:text-amber-100">
               {translate("missionSection.missiontitle")}
@@ -60,8 +63,7 @@ export const MissionSection = () => {
               {translate("missionSection.mission")}
             </p>
           </div>
-      </motion.div>
-
+        </motion.div>
       </div>
       <motion.div
         initial={{ x: 100, opacity: 0 }}
@@ -79,11 +81,7 @@ export const MissionSection = () => {
           </p>
         </div>
 
-        <img
-          src={Image2}
-          alt=""
-          className="rounded-lg lg:w-150 lg:h-100"
-        />
+        <img src={Image2} alt="" className="rounded-lg lg:w-150 lg:h-100" />
       </motion.div>
     </div>
   );
