@@ -37,3 +37,5 @@ export const mentions: Record<string, string[]> = {
 export const classes = ["L1", "L2", "L3", "M1", "M2"];
 
 export type Tranche = "Premier" | "Deuxieme" | "Troisieme";
+
+export type Action = "Creation" | "Suppression" | "Modification";

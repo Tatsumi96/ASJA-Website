@@ -7,6 +7,7 @@ import { Studentlist } from "./page/student-list";
 import { NavBar } from "./components/nav-bar";
 import { useState, type JSX } from "react";
 import { Modalprovider } from "./bloc/useModalProvider";
+import { Loglist } from "./page/log-list";
 
 export const AdminDashboardPage = () => {
   const [index, setIndex] = useState<number>(0);
@@ -15,6 +16,7 @@ export const AdminDashboardPage = () => {
     <p>Tranche Page</p>,
     <Studentlist />,
     <p>Document Page</p>,
+    <Loglist />,
   ];
   return (
     <AdminDashBoardProvider>
