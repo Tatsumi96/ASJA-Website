@@ -11,6 +11,8 @@ import { MentionRepositoryImpl } from "./features/mention/mention.repository.imp
 import { ApiSource } from "./core/constant";
 import { TrancheServiceImpl } from "./features/tranche/tranche.service";
 import { TrancheRepositoryImpl } from "./features/tranche/tranche.repositoryImpl";
+import { LogServiceImpl } from "./features/log/log.service";
+import { LogRepositoryImpl } from "./features/log/log.repository.impl";
 
 const api = axios.create({
   timeout: 5000,
@@ -34,6 +36,10 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+const logService = new LogServiceImpl(api);
+
+export const logRepo = new LogRepositoryImpl(logService);
 
 const trancheService = new TrancheServiceImpl(api);
 

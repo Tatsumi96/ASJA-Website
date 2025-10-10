@@ -1,12 +1,14 @@
 import type { Branche, Level, Mention, Tranche } from "@/core/types";
 import type { DocDto } from "@/features/doc/doc.dto";
 import type { DocEntity } from "@/features/doc/doc.entity";
+import type { LogEntity } from "@/features/log/log.entity";
 import type { MentionDto } from "@/features/mention/mention.dto";
 import type { UserDto } from "@/features/mention/user.dto";
 import type { UserEntity } from "@/features/mention/user.entity";
 import type { TrancheDto } from "@/features/tranche/tranche.dto";
 import {
   docRepo,
+  logRepo,
   mentionRepository,
   trancheRepo,
   userRepository,
@@ -16,6 +18,8 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { toast } from "sonner";
 
 export const useAdminDashboard = () => {
+  const [log, setLog] = useState<LogEntity[]>([]);
+
   const [query, setQuery] = useState<string>("");
 
   const [isPremierPaid, setIsPremierPaid] = useState<boolean>(false);
@@ -71,6 +75,18 @@ export const useAdminDashboard = () => {
     } else {
       toast.error("Error", {
         description: "Failed to delete student",
+      });
+    }
+  };
+
+  const fetchLogs = async () => {
+    const result = await logRepo.get();
+
+    if (result.status === "success") {
+      setLog((item) => [...item, ...result.data]);
+    } else {
+      toast.error("Error", {
+        description: "Failed to load logs",
       });
     }
   };
@@ -371,5 +387,7 @@ export const useAdminDashboard = () => {
     password,
     searchMentionStudent,
     setQuery,
+    fetchLogs,
+    log,
   };
 };

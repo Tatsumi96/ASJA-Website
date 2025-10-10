@@ -1,6 +1,12 @@
 "use client";
 
-import { BarChartIcon, FileIcon, TrendingUp, UsersIcon } from "lucide-react";
+import {
+  BarChartIcon,
+  Clock,
+  FileIcon,
+  TrendingUp,
+  UsersIcon,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -47,6 +53,12 @@ export const AppSidebar = ({
         icon: FileIcon,
         click: changePage,
       },
+      {
+        title: "Historique",
+        url: "#",
+        icon: Clock,
+        click: changePage,
+      },
     ],
   };
 
@@ -78,7 +90,7 @@ export const AppSidebar = ({
                   <SidebarMenuButton
                     className="cursor-pointer"
                     tooltip={item.title}
-                    onClick={()=>item.click(index)}
+                    onClick={() => item.click(index)}
                   >
                     {item.icon && <item.icon />}
                     <span>{item.title}</span>
