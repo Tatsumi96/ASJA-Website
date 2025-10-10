@@ -1,2 +1,5 @@
 node_modules/
 .env
+my-strapi-docker/data/
+my-strapi-docker/data_postgres/
+my-strapi-docker/node_modules/
