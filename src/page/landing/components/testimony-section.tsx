@@ -45,7 +45,7 @@ export const TestimonySection = () => {
   return (
     <section
       id="temoignages"
-      className="bg-zinc-100 dark:bg-zinc-900 h-full transition-all duration-500 p-10"
+      className="bg-zinc-100 dark:bg-zinc-900 h-full transition-all duration-500 p-0 lg:p-10 md:p-5"
     >
       <motion.div
         initial={{ x: -100, opacity: 0 }}
@@ -59,7 +59,7 @@ export const TestimonySection = () => {
           opts={{
             align: "start",
           }}
-          className="w-full max-w-2/3 "
+          className="max-w-3/4 lg:max-w-2/3 md:max-w-2/3 "
         >
           <CarouselContent>
             {temoin.map((temoin, key) => (
