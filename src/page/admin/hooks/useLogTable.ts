@@ -18,11 +18,12 @@ export const useLogTable = () => {
 
   const [rowSelection, setRowSelection] = React.useState({});
 
-  const { fetchLogs, log } = useAdminDashboardContext();
+  const { fetchLogs, log, hasReachedMaxLogPage } = useAdminDashboardContext();
 
   const observerRef = useIntersectionObserver(fetchLogs, {
     threshold: 0.1,
     rootMargin: "100px",
+    enabled: !hasReachedMaxLogPage,
   });
 
   const table = useReactTable({

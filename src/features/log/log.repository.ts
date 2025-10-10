@@ -2,5 +2,5 @@ import type { Result } from "@/core/result";
 import type { LogEntity } from "./log.entity";
 
 export abstract class LogRepository {
-  abstract get(): Promise<Result<LogEntity[]>>;
+  abstract get(page: number, limit: number): Promise<Result<LogEntity[]>>;
 }

@@ -6,9 +6,9 @@ import type { LogService } from "./log.service";
 export class LogRepositoryImpl implements LogRepository {
   constructor(private service: LogService) {}
 
-  async get(): Promise<Result<LogEntity[]>> {
+  async get(page: number, limit: number): Promise<Result<LogEntity[]>> {
     try {
-      const logs = await this.service.get();
+      const logs = await this.service.get(page, limit);
       return success(logs);
     } catch (error) {
       console.error(error);

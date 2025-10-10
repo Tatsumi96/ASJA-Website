@@ -19,6 +19,9 @@ import { toast } from "sonner";
 
 export const useAdminDashboard = () => {
   const [log, setLog] = useState<LogEntity[]>([]);
+  const [logPage, setLogPage] = useState<number>(1);
+  const [hasReachedMaxLogPage, setHasReachedMaxLogPage] =
+    useState<boolean>(false);
 
   const [query, setQuery] = useState<string>("");
 
@@ -80,10 +83,15 @@ export const useAdminDashboard = () => {
   };
 
   const fetchLogs = async () => {
-    const result = await logRepo.get();
+    const result = await logRepo.get(logPage, 3);
 
     if (result.status === "success") {
-      setLog((item) => [...item, ...result.data]);
+      if (result.data.length == 0) {
+        setHasReachedMaxLogPage(true);
+      } else {
+        setLog((item) => [...item, ...result.data]);
+        setLogPage((prev) => prev + 1);
+      }
     } else {
       toast.error("Error", {
         description: "Failed to load logs",
@@ -389,5 +397,6 @@ export const useAdminDashboard = () => {
     setQuery,
     fetchLogs,
     log,
+    hasReachedMaxLogPage,
   };
 };
