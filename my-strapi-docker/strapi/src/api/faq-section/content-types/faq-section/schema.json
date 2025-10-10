@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faq_sections",
+  "info": {
+    "singularName": "faq-section",
+    "pluralName": "faq-sections",
+    "displayName": "FaqSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "blocks"
+    },
+    "categorieQuestion": {
+      "type": "enumeration",
+      "enum": [
+        "Générale",
+        "Enseignement",
+        "Inscription",
+        "Autres"
+      ]
+    }
+  }
+}
