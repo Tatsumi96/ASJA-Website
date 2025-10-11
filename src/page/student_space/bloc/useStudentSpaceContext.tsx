@@ -1,12 +1,12 @@
-import { createContext, useContext } from "react";
-import { useDocBloc } from "./useDocBloc";
+import { createContext, useContext } from 'react';
+import { useStudentSpace } from './useStudentSpace';
 
 export const StudentPortalContext = createContext<ReturnType<
-  typeof useDocBloc
+  typeof useStudentSpace
 > | null>(null);
 
 export const useStudentPortalContext = () => {
   const context = useContext(StudentPortalContext);
-  if (!context) throw new Error("useStudentPortalContext must be initialized");
+  if (!context) throw new Error('useStudentPortalContext must be initialized');
   return context;
 };
