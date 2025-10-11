@@ -1,4 +1,4 @@
-import Logo from "@/assets/Logo/asja-logo.png";
+import Logo from '@/assets/Logo/asja-logo.png';
 
 import {
   NavigationMenu,
@@ -6,7 +6,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from '@/components/ui/navigation-menu';
 
 import {
   DropdownMenu,
@@ -21,12 +21,12 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "@/page/theme/useTheme";
-import { useLangue } from "@/page/lang/useLang";
-import { useStudentPortalContext } from "../bloc/useStudentSpaceContext";
+} from '@/components/ui/dropdown-menu';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from '@/page/theme/useTheme';
+import { useLangue } from '@/page/lang/useLang';
+import { useStudentPortalContext } from '../bloc/useStudentSpaceContext';
 
 export const NavBar = () => {
   const { userName } = useStudentPortalContext();
@@ -36,7 +36,7 @@ export const NavBar = () => {
     <div className="flex justify-between top-0 py-3 px-4 fixed w-full text-gray-800 z-50">
       <a
         className=" cursor-pointer"
-        onClick={() => (window.location.href = "/")}
+        onClick={() => (window.location.href = '/')}
       >
         <div className="flex m-2 rounded-full ">
           <img src={Logo} className="md:size-13 size-10 " />
@@ -55,7 +55,7 @@ export const NavBar = () => {
             className="md:px-5 text-green-700 cursor-pointer"
             onClick={toggleLang}
           >
-            {isEn ? "FR" : "EN"}
+            {isEn ? 'FR' : 'EN'}
           </button>
           <button
             className="px-5 text-green-700 cursor-pointer"
@@ -75,7 +75,7 @@ const DropButton = ({ name }: { name: string }) => {
     <DropdownMenu>
       <DropdownMenuTrigger className="transition-all duration-500 ">
         <div className=" cursor-pointer flex bg-white dark:bg-zinc-800 rounded-2xl px-4 py-2  md:px-5 md:py-2 w-full justify-between gap-2 items-center">
-          {" "}
+          {' '}
           <Avatar className=" md:size-11 ">
             <AvatarFallback className="dark:text-white dark:bg-zinc-600">
               {name[0]}
