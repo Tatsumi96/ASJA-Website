@@ -11,12 +11,21 @@ interface ItemProps {
   mention: string;
   description: string;
   image: string;
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-const Item: React.FC<ItemProps> = ({ mention, description, image }) => {
+const Item: React.FC<ItemProps> = ({
+  mention,
+  description,
+  image,
+  onClick,
+}) => {
   return (
-    <div className="flex-1/2 hover:scale-105 md:w-full rounded-2xl overflow-hidden duration-500 bg-white dark:bg-zinc-800 cursor-pointer border z-20">
-      <img className="w-full p-4 rounded-3xl" src={image} alt="" />
+    <div
+      onClick={onClick}
+      className="flex-1/2 hover:scale-105 md:w-full rounded-2xl overflow-hidden duration-500 bg-white dark:bg-zinc-800 cursor-pointer border z-20"
+    >
+      <img className="w-full p-4 rounded-3xl" src={image} alt={mention} />
       <h2 className="px-5 pt-5 text-2xl font-bold text-stone-500 dark:text-stone-200">
         {mention}
       </h2>
@@ -61,16 +70,19 @@ export const FiliereSection = () => {
             mention={translate("filiereSection.AGRO.name")}
             image={Image2}
             description={translate("filiereSection.AGRO.description")}
+            onClick={() => (window.location.href = "/agroPage")}
           />
           <Item
             mention={translate("filiereSection.INFO.name")}
             image={Image}
             description={translate("filiereSection.INFO.description")}
+            onClick={() => (window.location.href = "/infoPage")}
           />
           <Item
             mention={translate("filiereSection.DROIT.name")}
             image={Image3}
             description={translate("filiereSection.DROIT.description")}
+            onClick={() => (window.location.href = "/droitPage")}
           />
         </motion.div>
         <motion.div
@@ -84,16 +96,19 @@ export const FiliereSection = () => {
             mention={translate("filiereSection.ST.name")}
             image={Image4}
             description={translate("filiereSection.ST.description")}
+            onClick={() => (window.location.href = "/stPage")}
           />
           <Item
             mention={translate("filiereSection.LEA.name")}
             image={Image5}
             description={translate("filiereSection.LEA.description")}
+            onClick={() => (window.location.href = "/leaPage")}
           />
           <Item
             mention={translate("filiereSection.ECO.name")}
             image={Image6}
             description={translate("filiereSection.ECO.description")}
+            onClick={() => (window.location.href = "/ecoPage")}
           />
         </motion.div>
       </div>
