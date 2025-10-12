@@ -16,6 +16,7 @@ import type { Dispatch, SetStateAction } from 'react';
 import {
   MdBarChart,
   MdFileOpen,
+  MdNewspaper,
   MdPeople,
   MdSyncLock,
   MdTrendingUp,
@@ -56,6 +57,12 @@ export const AppSidebar = ({
         title: 'Historique',
         url: '#',
         icon: MdSyncLock,
+        click: changePage,
+      },
+      {
+        title: 'Annonce',
+        url: '#',
+        icon: MdNewspaper,
         click: changePage,
       },
     ],

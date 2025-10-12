@@ -28,6 +28,9 @@ export class PostRepositoryImpl implements PostRepository {
         description: item.description,
         date: item.date,
         id: item.id,
+        level: item.level,
+        branche: item.branche,
+        mention: item.mention,
       }));
       return success(post);
     } catch (error) {
