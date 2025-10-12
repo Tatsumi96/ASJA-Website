@@ -38,4 +38,14 @@ export class PostRepositoryImpl implements PostRepository {
       return failure(new Error());
     }
   }
+
+  async sendFiles(file: FormData): Promise<Result<void>> {
+    try {
+      await this.service.sendFiles(file);
+      return success(undefined);
+    } catch (error) {
+      console.error(error);
+      return failure(Error());
+    }
+  }
 }

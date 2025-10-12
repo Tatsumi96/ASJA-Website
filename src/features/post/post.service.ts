@@ -6,6 +6,7 @@ import { ApiSource } from '@/core/constant';
 export abstract class PostService {
   abstract create(post: PostEntity): Promise<void>;
   abstract get(params: GetPostInputType): Promise<PostDto[]>;
+  abstract sendFiles(file: FormData): Promise<void>;
 }
 
 export class PostServiceImpl implements PostService {
@@ -22,5 +23,18 @@ export class PostServiceImpl implements PostService {
     });
     if (response.status != 200) throw new Error();
     return response.data;
+  }
+
+  async sendFiles(file: FormData): Promise<void> {
+    const response = await this.api.post(
+      `${ApiSource.url}/post/payload`,
+      file,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+    );
+    if (response.status != 200) throw new Error();
   }
 }
