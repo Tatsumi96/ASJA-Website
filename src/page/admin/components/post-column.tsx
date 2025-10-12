@@ -18,7 +18,7 @@ export const columns: ColumnDef<PostDto>[] = [
       );
     },
     cell: ({ row }) => (
-      <p className=" hidden py-2 dark:text-white md:flex">
+      <p className=" hidden py-2 dark:text-white md:flex font-bold">
         {row.getValue('title')}
       </p>
     ),
@@ -36,11 +36,17 @@ export const columns: ColumnDef<PostDto>[] = [
         </div>
       );
     },
-    cell: ({ row }) => (
-      <p className=" hidden py-2 dark:text-white md:flex">
-        {row.getValue('description')}
-      </p>
-    ),
+    cell: ({ row }) => {
+      const description: string = row.getValue('description');
+      const limitWord = 100;
+      return (
+        <p className=" hidden py-2 dark:text-white md:flex">
+          {description.length > 30
+            ? description.slice(0, limitWord) + ' ...'
+            : description}
+        </p>
+      );
+    },
   },
   {
     accessorKey: 'nothing',
@@ -59,7 +65,9 @@ export const columns: ColumnDef<PostDto>[] = [
       const post: PostDto = row.original;
       return (
         <p className=" hidden py-2 dark:text-white md:flex">
-          {post.branche + post.mention + post.level}
+          {post.level == 'L3' || post.level == 'M1' || post.level == 'M2'
+            ? post.mention + ' ' + post.level + ' ' + post.branche
+            : post.mention + ' ' + post.level}
         </p>
       );
     },

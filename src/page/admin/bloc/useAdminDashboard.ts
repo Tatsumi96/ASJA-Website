@@ -6,7 +6,6 @@ import type { MentionDto } from '@/features/mention/mention.dto';
 import type { UserDto } from '@/features/mention/user.dto';
 import type { UserEntity } from '@/features/mention/user.entity';
 import type { PostDto } from '@/features/post/post.dto';
-import type { PostEntity } from '@/features/post/post.entity';
 import type { TrancheDto } from '@/features/tranche/tranche.dto';
 
 import {
@@ -22,6 +21,9 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { toast } from 'sonner';
 
 export const useAdminDashboard = () => {
+  const [postTitle, setPostTitle] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
+
   const [log, setLog] = useState<LogEntity[]>([]);
   const [logPage, setLogPage] = useState<number>(1);
   const [hasReachedMaxLogPage, setHasReachedMaxLogPage] =
@@ -91,11 +93,43 @@ export const useAdminDashboard = () => {
     }
   };
 
+  const sendPost = async () => {
+    const result = await postRepo.create({
+      title: postTitle,
+      description: description,
+      branche: branche as Branche,
+      level: level as Level,
+      mention: mention == '' ? 'ASJA' : (mention as Mention),
+      imageUrl: selectedFile?.name,
+    });
+    if (result.status === 'success') {
+      // setPostList((item) => [...item, ...[result.data]]);
+
+      if (selectedFile) {
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+        await docRepo.sendFiles(formData);
+      }
+      setPostPage((prev) => prev + 1);
+      await fetchPostList();
+      cleanAddUserCard();
+
+      toast.success('Succes', {
+        description: 'Student added',
+        className: 'animate-fade animate-once animate-ease-out',
+      });
+    } else {
+      toast.error('Error', {
+        description: 'Failed to add student',
+      });
+    }
+  };
+
   const fetchPostList = async () => {
     const result = await postRepo.get({ limit: 5, page: postPage });
     if (result.status === 'success') {
       if (result.data.length == 0) {
-        setHasReachedMax(true);
+        setHasReachedMaxPostPage(true);
       } else {
         setPostList((doc) => [...doc, ...result.data]);
         setPostPage((prev) => prev + 1);
@@ -426,5 +460,10 @@ export const useAdminDashboard = () => {
     post,
     hasReachedMaxPostPage,
     fetchPostList,
+    sendPost,
+    setDescription,
+    setPostTitle,
+    description,
+    postTitle,
   };
 };

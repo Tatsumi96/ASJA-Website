@@ -17,7 +17,7 @@ import { useModalContext } from '../bloc/useModalContext';
 
 export const PostTable = () => {
   const { observerRef, table, columns } = usePostTable();
-  const { openPostInformation, setPost } = useModalContext();
+  const { openPostInformation, setPost, openAddPost } = useModalContext();
 
   return (
     <div className=" border transition-all duration-500 dark:bg-zinc-900 p-4  w-full">
@@ -28,7 +28,10 @@ export const PostTable = () => {
             Gardez vos etudiants informer
           </p>
         </section>
-        <Button className=" text-lg text-white bg-green-700 hover:bg-green-900 flex  cursor-pointer p-6">
+        <Button
+          onClick={openAddPost}
+          className=" text-lg text-white bg-green-700 hover:bg-green-900 flex  cursor-pointer p-6"
+        >
           <MdNewspaper /> <p>Ajouter</p>
         </Button>
       </div>

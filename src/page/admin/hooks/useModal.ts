@@ -11,6 +11,8 @@ export const useModal = () => {
   const [isAddStudentCardVisible, setIsAddStudentCardVisible] =
     useState<boolean>(false);
 
+  const [isAddPost, setAddPostVisible] = useState<boolean>(false);
+
   const [isPostInformationVisible, setPostInformationVisible] =
     useState<boolean>(false);
 
@@ -19,6 +21,14 @@ export const useModal = () => {
 
   const [isStudentInfoVisible, setIsStudentInfoVisible] =
     useState<boolean>(false);
+
+  const openAddPost = () => {
+    setAddPostVisible(true);
+  };
+
+  const closeAddPost = () => {
+    setAddPostVisible(false);
+  };
 
   const openPostInformation = () => {
     setPostInformationVisible(true);
@@ -69,6 +79,9 @@ export const useModal = () => {
     setPost,
     openPostInformation,
     closePostInformation,
-    isPostInformationVisible
+    isPostInformationVisible,
+    isAddPost,
+    openAddPost,
+    closeAddPost,
   };
 };
