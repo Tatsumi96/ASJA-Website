@@ -95,7 +95,7 @@ export const useAdminDashboard = () => {
 
   const sendPost = async () => {
     const result = await postRepo.create({
-      title: postTitle,
+      title: postTitle.toLocaleUpperCase(),
       description: description,
       branche: branche as Branche,
       level: level as Level,
@@ -103,24 +103,22 @@ export const useAdminDashboard = () => {
       imageUrl: selectedFile?.name,
     });
     if (result.status === 'success') {
-      // setPostList((item) => [...item, ...[result.data]]);
-
+      setPostList((item) => [...item, result.data]);
       if (selectedFile) {
         const formData = new FormData();
         formData.append('file', selectedFile);
-        await docRepo.sendFiles(formData);
+        await postRepo.sendFiles(formData);
       }
-      setPostPage((prev) => prev + 1);
       await fetchPostList();
-      cleanAddUserCard();
+      clean();
 
-      toast.success('Succes', {
-        description: 'Student added',
+      toast.success('Success', {
+        description: 'Post addee',
         className: 'animate-fade animate-once animate-ease-out',
       });
     } else {
       toast.error('Error', {
-        description: 'Failed to add student',
+        description: 'Failed to post',
       });
     }
   };
@@ -191,8 +189,7 @@ export const useAdminDashboard = () => {
       await mentionRepository.sendFiles(formData);
 
       await fetchDashboardData();
-      await fetchMentionStudentData();
-      cleanAddUserCard();
+      clean();
 
       toast.success('Succes', {
         description: 'Student added',
@@ -205,7 +202,7 @@ export const useAdminDashboard = () => {
     }
   };
 
-  const cleanAddUserCard = () => {
+  const clean = () => {
     setName('');
     setLastName('');
     setContact('');
@@ -217,6 +214,9 @@ export const useAdminDashboard = () => {
     setIsPremierPaid(false);
     setIsDeuxiemePaid(false);
     setIsTroisiemePaid(false);
+    setPostTitle('');
+    setDescription('');
+    setSelectedFile(null);
   };
 
   const onDrop = useCallback(
@@ -446,7 +446,7 @@ export const useAdminDashboard = () => {
     setIsDeuxiemePaid,
     setIsTroisiemePaid,
     deleteStudent,
-    cleanAddUserCard,
+    clean,
     name,
     lastName,
     contact,

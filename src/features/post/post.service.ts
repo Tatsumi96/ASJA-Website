@@ -4,7 +4,7 @@ import type { GetPostInputType, PostEntity } from './post.entity';
 import { ApiSource } from '@/core/constant';
 
 export abstract class PostService {
-  abstract create(post: PostEntity): Promise<void>;
+  abstract create(post: PostEntity): Promise<{ id: string; date: string }>;
   abstract get(params: GetPostInputType): Promise<PostDto[]>;
   abstract sendFiles(file: FormData): Promise<void>;
 }
@@ -12,9 +12,10 @@ export abstract class PostService {
 export class PostServiceImpl implements PostService {
   constructor(private api: AxiosInstance) {}
 
-  async create(post: PostEntity): Promise<void> {
+  async create(post: PostEntity): Promise<{ id: string; date: string }> {
     const response = await this.api.post(`${ApiSource.url}/post`, post);
     if (response.status != 201) throw new Error();
+    return response.data;
   }
 
   async get(params: GetPostInputType): Promise<PostDto[]> {

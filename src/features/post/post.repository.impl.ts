@@ -8,10 +8,23 @@ import { ApiSource } from '@/core/constant';
 export class PostRepositoryImpl implements PostRepository {
   constructor(private service: PostService) {}
 
-  async create(post: PostEntity): Promise<Result<void>> {
+  async create(post: PostEntity): Promise<Result<PostDto>> {
     try {
-      await this.service.create(post);
-      return success(undefined);
+      const result = await this.service.create(post);
+      const postDto: PostDto = {
+        title: post.title,
+        imageUrl: post.imageUrl
+          ? `${ApiSource.url}/post/stream/${post.imageUrl}`
+          : undefined,
+        description: post.description,
+        date: result.date,
+        id: result.id,
+        level: post.level,
+        branche: post.branche,
+        mention: post.mention,
+      };
+
+      return success(postDto);
     } catch (error) {
       console.error(error);
       return failure(new Error());
