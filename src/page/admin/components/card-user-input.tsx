@@ -1,22 +1,22 @@
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
-import { MdCancel, MdLock, MdPerson2, MdPhone } from "react-icons/md";
+} from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
+import { MdCancel, MdLock, MdPerson2, MdPhone } from 'react-icons/md';
 
-import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
+import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
 
-import { mentions, classes } from "@/core/types";
-import { Input } from "@/components/ui/input";
-import { useModalContext } from "../bloc/useModalContext";
-import { AvatarUploader } from "./avatar-uploader";
-import { Checkbox } from "@/components/ui/checkbox";
+import { mentions, classes } from '@/core/types';
+import { Input } from '@/components/ui/input';
+import { useModalContext } from '../bloc/useModalContext';
+import { AvatarUploader } from './avatar-uploader';
+import { Checkbox } from '@/components/ui/checkbox';
 
 export const CardInputUser = () => {
   const {
@@ -39,7 +39,6 @@ export const CardInputUser = () => {
     setIsPremierPaid,
     setIsDeuxiemePaid,
     setIsTroisiemePaid,
-    cleanAddUserCard,
     name,
     lastName,
     contact,
@@ -55,7 +54,6 @@ export const CardInputUser = () => {
           <MdCancel
             onClick={() => {
               closeAddUser();
-              cleanAddUserCard();
             }}
             className=" text-green-600 dark:text-white text-4xl cursor-pointer absolute  hover:scale-125 transition-all duration-300"
           />
@@ -86,9 +84,9 @@ export const CardInputUser = () => {
                         value={name}
                       />
                     </div>
-                  </div>{" "}
+                  </div>{' '}
                   <div className="flex flex-col w-1/2">
-                    {" "}
+                    {' '}
                     <Label
                       htmlFor="name"
                       className=" text-lg font-semibold text-green-700"
@@ -147,7 +145,7 @@ export const CardInputUser = () => {
                     <SelectContent className="z-[900]">
                       {Object.keys(mentions).map((mainBranche) => (
                         <SelectItem key={mainBranche} value={mainBranche}>
-                          {mainBranche.replace(/_/g, "   ")}
+                          {mainBranche.replace(/_/g, '   ')}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -167,7 +165,7 @@ export const CardInputUser = () => {
                   <Select
                     onValueChange={setBranche}
                     value={branche}
-                    disabled={!mention || level == "L1" || level == "L2"}
+                    disabled={!mention || level == 'L1' || level == 'L2'}
                   >
                     <SelectTrigger className=" w-full bg-gray-100">
                       <SelectValue placeholder="Branche" />

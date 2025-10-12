@@ -33,7 +33,6 @@ export const CardAddPost = () => {
     postTitle,
     handleImageChange,
     image,
-    cleanAddUserCard,
   } = useAdminDashboardContext();
 
   const { closeAddPost } = useModalContext();
@@ -45,7 +44,6 @@ export const CardAddPost = () => {
           <MdCancel
             onClick={() => {
               closeAddPost();
-              cleanAddUserCard();
             }}
             className=" text-green-600 dark:text-white text-4xl cursor-pointer absolute  hover:scale-125 transition-all duration-300"
           />
@@ -66,7 +64,7 @@ export const CardAddPost = () => {
                 <Input
                   className="pl-10 pr-3 bg-gray-200"
                   onChange={(e) => setPostTitle(e.target.value)}
-                  value={postTitle}
+                  value={postTitle.toLocaleUpperCase()}
                 />
               </div>
 
