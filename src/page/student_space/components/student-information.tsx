@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 
-import { MdPerson } from 'react-icons/md';
+import { MdExitToApp, MdPerson } from 'react-icons/md';
 import { useStudentPortalContext } from '../bloc/useStudentSpaceContext';
 import { Button } from '@/components/ui/button';
 import Badge from '@mui/material/Badge';
@@ -8,8 +8,8 @@ import Badge from '@mui/material/Badge';
 export const StudentInformation = () => {
   const { userData } = useStudentPortalContext();
   return (
-    <div className=" flex flex-col gap-5">
-      <Card className="transition-all duration-500 h-full bg-transparent p-5 pt-8 justify-between">
+    <div className="hidden lg:flex flex-col gap-5">
+      <Card className="transition-all duration-500 border-0 shadow-none h-full bg-transparent p-5 pt-8 justify-between">
         <div className=" flex flex-col gap-10">
           <section className=" flex flex-col items-center justify-center">
             {userData?.imageUrl ? (
@@ -68,8 +68,8 @@ export const StudentInformation = () => {
             </div>
           </section>
         </div>
-        <Button className=" bg-red-700 hover:bg-red-900 flex w-full cursor-pointer p-6">
-          <p className=" text-xl dark:text-white">Se deconnecter</p>
+        <Button className=" bg-transparent hover:bg-transparent flex w-full cursor-pointer p-6">
+          <p className=" text-xl text-red-600 flex items-center gap-1"> <MdExitToApp/> Se deconnecter</p>
         </Button>
       </Card>
     </div>
