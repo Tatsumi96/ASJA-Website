@@ -38,10 +38,7 @@ export const StudentInformation = () => {
             </p>
             <p>
               Matricule:
-              <span className="font-normal">
-                {' '}
-                {userData?.identifier}7964
-              </span>{' '}
+              <span className="font-normal"> {userData?.identifier}</span>{' '}
             </p>
             <div className="flex w-full justify-center gap-3 p-10">
               <Badge
