@@ -1,22 +1,22 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
-import type { UserDto } from "@/features/mention/user.dto";
-import type { ColumnDef } from "@tanstack/react-table";
-import { TrancheBadge } from "./tranche-status-badge";
-import { DeleteButton } from "./delete-button";
-import { MdPerson } from "react-icons/md";
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Separator } from '@/components/ui/separator';
+import type { UserDto } from '@/features/mention/user.dto';
+import type { ColumnDef } from '@tanstack/react-table';
+import { TrancheBadge } from './tranche-status-badge';
+import { DeleteButton } from './delete-button';
+import { MdPerson } from 'react-icons/md';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { classes, mentions } from "@/core/types";
+} from '@/components/ui/select';
+import { classes, mentions } from '@/core/types';
 
 export const columns: ColumnDef<UserDto>[] = [
   {
-    accessorKey: "imageUrl",
+    accessorKey: 'imageUrl',
     header: () => {
       return (
         <div className="flex w-full items-center justify-between">
@@ -31,8 +31,8 @@ export const columns: ColumnDef<UserDto>[] = [
     cell: ({ row }) => (
       <Avatar className=" size-11 ">
         <AvatarFallback className="dark:text-white  bg-gradient-to-br from-zinc-400 to-zinc-500 text-white">
-          {row.getValue("imageUrl") ? (
-            <img src={row.getValue("imageUrl")} />
+          {row.getValue('imageUrl') ? (
+            <img src={row.getValue('imageUrl')} />
           ) : (
             <MdPerson size={30} />
           )}
@@ -41,7 +41,7 @@ export const columns: ColumnDef<UserDto>[] = [
     ),
   },
   {
-    accessorKey: "identifier",
+    accessorKey: 'identifier',
     header: () => {
       return (
         <div className="hidden w-full items-center justify-between md:flex">
@@ -55,12 +55,12 @@ export const columns: ColumnDef<UserDto>[] = [
     },
     cell: ({ row }) => (
       <p className=" hidden py-2 dark:text-white md:flex">
-        {row.getValue("identifier")}
+        {row.getValue('identifier')}
       </p>
     ),
   },
   {
-    accessorKey: "contact",
+    accessorKey: 'contact',
     header: () => {
       return (
         <div className="hidden w-full items-center justify-between md:flex">
@@ -74,12 +74,12 @@ export const columns: ColumnDef<UserDto>[] = [
     },
     cell: ({ row }) => (
       <p className=" hidden py-2 dark:text-white md:flex">
-        {row.getValue("contact")}
+        {row.getValue('contact')}
       </p>
     ),
   },
   {
-    accessorKey: "name",
+    accessorKey: 'name',
     enableSorting: true,
     enableColumnFilter: true,
     header: () => {
@@ -95,12 +95,12 @@ export const columns: ColumnDef<UserDto>[] = [
     },
     cell: ({ row }) => (
       <p className=" py-2 dark:text-white font-semibold">
-        {row.getValue("name")}
+        {row.getValue('name')}
       </p>
     ),
   },
   {
-    accessorKey: "lastName",
+    accessorKey: 'lastName',
     enableColumnFilter: true,
 
     header: () => {
@@ -115,22 +115,22 @@ export const columns: ColumnDef<UserDto>[] = [
       );
     },
     cell: ({ row }) => (
-      <p className=" py-2 dark:text-white">{row.getValue("lastName")}</p>
+      <p className=" py-2 dark:text-white">{row.getValue('lastName')}</p>
     ),
   },
   {
-    accessorKey: "mention",
+    accessorKey: 'mention',
     enableColumnFilter: true,
     header: ({ column }) => {
       return (
         <div className="flex w-full items-center gap-5 justify-between m-1">
           <Select
             value={
-              (column.getFilterValue() as string)?.replace(/ /g, "_") ?? ""
+              (column.getFilterValue() as string)?.replace(/ /g, '_') ?? ''
             }
             onValueChange={(value) =>
               column.setFilterValue(
-                value === "Tout" ? undefined : value.replace(/_/g, " ")
+                value === 'Tout' ? undefined : value.replace(/_/g, ' ')
               )
             }
           >
@@ -141,7 +141,7 @@ export const columns: ColumnDef<UserDto>[] = [
               <SelectItem value="Tout">Tout</SelectItem>
               {Object.keys(mentions).map((mainBranche) => (
                 <SelectItem key={mainBranche} value={mainBranche}>
-                  {mainBranche.replace(/_/g, "   ")}
+                  {mainBranche.replace(/_/g, '   ')}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -154,11 +154,11 @@ export const columns: ColumnDef<UserDto>[] = [
       );
     },
     cell: ({ row }) => (
-      <p className="py-2 dark:text-white">{row.getValue("mention")}</p>
+      <p className="py-2 dark:text-white">{row.getValue('mention')}</p>
     ),
   },
   {
-    accessorKey: "level",
+    accessorKey: 'level',
     enableSorting: true,
     header: ({ column }) => {
       return (
@@ -166,7 +166,7 @@ export const columns: ColumnDef<UserDto>[] = [
           <Select
             value={column.getFilterValue() as string}
             onValueChange={(value) =>
-              column.setFilterValue(value === "Tout" ? undefined : value)
+              column.setFilterValue(value === 'Tout' ? undefined : value)
             }
           >
             <SelectTrigger className="w-full bg-gray-200">
@@ -189,23 +189,23 @@ export const columns: ColumnDef<UserDto>[] = [
       );
     },
     cell: ({ row }) => (
-      <p className=" py-2 dark:text-white">{row.getValue("level")}</p>
+      <p className=" py-2 dark:text-white">{row.getValue('level')}</p>
     ),
   },
   {
-    accessorKey: "branche",
+    accessorKey: 'branche',
     header: ({ column, table }) => {
-      const mention = table.getColumn("mention")?.getFilterValue() as
+      const mention = table.getColumn('mention')?.getFilterValue() as
         | string
         | undefined;
       return (
         <div className="flex w-full items-center justify-between gap-5">
           <Select
             disabled={!mention}
-            value={(column.getFilterValue() as string as string) ?? ""}
+            value={(column.getFilterValue() as string as string) ?? ''}
             onValueChange={(value) =>
               column.setFilterValue(
-                value === "Tout" ? undefined : value.replace(/_/g, " ")
+                value === 'Tout' ? undefined : value.replace(/_/g, ' ')
               )
             }
           >
@@ -215,7 +215,7 @@ export const columns: ColumnDef<UserDto>[] = [
             <SelectContent>
               <SelectItem value="Tout">Tout</SelectItem>
               {mention &&
-                mentions[mention.replace(/ /g, "_")].map((branche) => (
+                mentions[mention.replace(/ /g, '_')].map((branche) => (
                   <SelectItem key={branche} value={branche}>
                     {branche}
                   </SelectItem>
@@ -230,11 +230,11 @@ export const columns: ColumnDef<UserDto>[] = [
       );
     },
     cell: ({ row }) => (
-      <p className=" py-2 dark:text-white">{row.getValue("branche")}</p>
+      <p className=" py-2 dark:text-white">{row.getValue('branche')}</p>
     ),
   },
   {
-    accessorKey: "Premier",
+    accessorKey: 'Premier',
     header: () => {
       return (
         <div className=" flex w-full items-center justify-between">
@@ -249,14 +249,14 @@ export const columns: ColumnDef<UserDto>[] = [
     cell: ({ row }) => (
       <TrancheBadge
         studentData={row.original}
-        tranche={"Premier"}
+        tranche={'Premier'}
         trancheId={row.original.trancheId}
       />
     ),
   },
 
   {
-    accessorKey: "Deuxieme",
+    accessorKey: 'Deuxieme',
     header: () => {
       return (
         <div className=" flex w-full items-center justify-between">
@@ -271,13 +271,13 @@ export const columns: ColumnDef<UserDto>[] = [
     cell: ({ row }) => (
       <TrancheBadge
         studentData={row.original}
-        tranche={"Deuxieme"}
+        tranche={'Deuxieme'}
         trancheId={row.original.trancheId}
       />
     ),
   },
   {
-    accessorKey: "Troisieme",
+    accessorKey: 'Troisieme',
     header: () => {
       return (
         <div className=" flex w-full items-center justify-between">
@@ -288,17 +288,22 @@ export const columns: ColumnDef<UserDto>[] = [
     cell: ({ row }) => (
       <TrancheBadge
         studentData={row.original}
-        tranche={"Troisieme"}
+        tranche={'Troisieme'}
         trancheId={row.original.trancheId}
       />
     ),
   },
   {
-    accessorKey: "mentionId",
+    accessorKey: 'mentionId',
     header: () => {},
     enableHiding: false,
     cell: ({ row }) => {
-      return <DeleteButton id={row.getValue("mentionId")} />;
+      return (
+        <DeleteButton
+          id={row.getValue('mentionId')}
+          fileName={row.original.fileName as string}
+        />
+      );
     },
   },
 ];

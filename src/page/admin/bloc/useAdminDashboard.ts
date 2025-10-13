@@ -75,8 +75,8 @@ export const useAdminDashboard = () => {
 
   const [mentionData, setMentionData] = useState<MentionDto>();
 
-  const deleteStudent = async (id: string) => {
-    const result = await mentionRepository.deleteStudent(id);
+  const deleteStudent = async (id: string, fileName: string) => {
+    const result = await mentionRepository.deleteStudent(id, fileName);
 
     if (result.status === 'success') {
       toast.success('Succes', {

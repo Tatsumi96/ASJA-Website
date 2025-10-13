@@ -1,7 +1,8 @@
-import type { Branche, Level, Mention } from "@/core/types";
+import type { Branche, Level, Mention } from '@/core/types';
 
 export interface UserDto {
   imageUrl: string | undefined;
+  fileName: string | undefined;
   identifier: number;
   name: string;
   lastName: string;
