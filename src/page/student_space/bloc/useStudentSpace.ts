@@ -1,5 +1,6 @@
 import type { DocEntity } from '@/features/doc/doc.entity';
 import type { PostDto } from '@/features/post/post.dto';
+import type { UserDto } from '@/features/user/user.dto';
 import { docRepo, postRepo, userRepository } from '@/injection';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
@@ -9,7 +10,7 @@ export const useStudentSpace = () => {
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(4);
   const [hasReachedMax, setHasReachedMax] = useState<boolean>(false);
-  const [userName, setUserName] = useState<string>('');
+  const [userData, setUserData] = useState<UserDto>();
 
   const [postPage, setPostPage] = useState<number>(1);
   const [post, setPostList] = useState<PostDto[]>([]);
@@ -53,7 +54,7 @@ export const useStudentSpace = () => {
         description: 'Failed to load user data',
       });
 
-    setUserName(result.data.userName);
+    setUserData(result.data);
   };
 
   useEffect(() => {
@@ -71,7 +72,7 @@ export const useStudentSpace = () => {
     setLimit,
     fetchDocList,
     hasReachedMax,
-    userName,
+    userData,
     post,
     fetchPostList,
   };
