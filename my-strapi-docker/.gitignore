@@ -1,0 +1,7 @@
+my-strapi-docker/.env
+my-strapi-docker/.env.local
+my-strapi-docker/node_modules
+my-strapi-docker/strapi/.tmp
+my-strapi-docker/strapi/.cache
+my-strapi-docker/strapi/.local
+my-strapi-docker/strapi/data
