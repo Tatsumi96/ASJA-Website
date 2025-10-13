@@ -11,9 +11,9 @@ export const NavBar = () => {
         className=" cursor-pointer"
         onClick={() => (window.location.href = '/')}
       >
-        <div className="flex m-2 rounded-full ">
+        <div className="flex m-1 rounded-full ">
           <img src={Logo} className="md:size-13 size-10 " />
-          <h1 className="text-gray-800 font-bold hidden md:flex ml-4 py-3 pr-4 transition-all duration-500 dark:text-white">
+          <h1 className="text-gray-800 font-bold  md:flex ml-4 py-3 pr-4 transition-all duration-500 dark:text-white">
             Universté ASJA
           </h1>
         </div>

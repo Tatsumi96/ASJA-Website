@@ -16,7 +16,7 @@ export const DocDataTable = () => {
   const { observerRef, table, columns } = useDocTable();
 
   return (
-    <div className=" border transition-all md:hidden lg:flex flex-col duration-500 rounded-3xl p-4 w-1/2">
+    <div className=" border transition-all hidden lg:flex flex-col duration-500 rounded-3xl p-4 w-1/2">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
