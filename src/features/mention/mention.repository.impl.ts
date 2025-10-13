@@ -1,11 +1,11 @@
-import { failure, success, type Result } from "@/core/result";
-import { MentionRepository } from "./mention.repository";
-import type { MentionDto } from "./mention.dto";
-import type { UserEntity } from "./user.entity";
-import type { MentionService } from "./mention.service";
-import type { UserDto } from "./user.dto";
-import { ApiSource } from "@/core/constant";
-import type { Level, Mention } from "@/core/types";
+import { failure, success, type Result } from '@/core/result';
+import { MentionRepository } from './mention.repository';
+import type { MentionDto } from './mention.dto';
+import type { UserEntity } from './user.entity';
+import type { MentionService } from './mention.service';
+import type { UserDto } from './user.dto';
+import { ApiSource } from '@/core/constant';
+import type { Level, Mention } from '@/core/types';
 
 export class MentionRepositoryImpl implements MentionRepository {
   constructor(private service: MentionService) {}
@@ -39,6 +39,7 @@ export class MentionRepositoryImpl implements MentionRepository {
         Troisieme: user.Troisieme,
         contact: user.contact,
         mention: user.mention as Mention,
+        fileName: user.fileName,
       };
       return success(userRegistred);
     } catch (error) {
@@ -54,8 +55,8 @@ export class MentionRepositoryImpl implements MentionRepository {
     try {
       const result = await this.service.getStudentData(page, limit);
       const data: UserDto[] = result.map((item) => ({
-        imageUrl: item.imageUrl
-          ? `${ApiSource.url}/mention/stream/${item.imageUrl}`
+        imageUrl: item.fileName
+          ? `${ApiSource.url}/mention/stream/${item.fileName}`
           : undefined,
         identifier: item.identifier,
         name: item.name,
@@ -69,7 +70,9 @@ export class MentionRepositoryImpl implements MentionRepository {
         Deuxieme: item.Deuxieme,
         Troisieme: item.Troisieme,
         mentionId: item.mentionId,
+        fileName: item.fileName,
       }));
+      console.log(data)
       return success(data);
     } catch (error) {
       console.error(error);
@@ -80,8 +83,8 @@ export class MentionRepositoryImpl implements MentionRepository {
   async searchStudent(query: string): Promise<Result<UserDto[]>> {
     const result = await this.service.searchStudent(query);
     const data: UserDto[] = result.map((item) => ({
-      imageUrl: item.imageUrl
-        ? `${ApiSource.url}/mention/stream/${item.imageUrl}`
+      imageUrl: item.fileName
+        ? `${ApiSource.url}/mention/stream/${item.fileName}`
         : undefined,
       identifier: item.identifier,
       name: item.name,
@@ -95,6 +98,7 @@ export class MentionRepositoryImpl implements MentionRepository {
       Deuxieme: item.Deuxieme,
       Troisieme: item.Troisieme,
       mentionId: item.mentionId,
+      fileName: item.fileName,
     }));
     return success(data);
   }
@@ -113,9 +117,9 @@ export class MentionRepositoryImpl implements MentionRepository {
     }
   }
 
-  async deleteStudent(id: string): Promise<Result<void>> {
+  async deleteStudent(id: string, fileName: string): Promise<Result<void>> {
     try {
-      await this.service.deleteStudent(id);
+      await this.service.deleteStudent(id, fileName);
       return success(undefined);
     } catch (error) {
       console.error(error);
