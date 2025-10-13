@@ -1,7 +1,0 @@
-data
-data_postgres
-#data doc
-node_modules
-
-.strapi-updater.json
-.tmp
