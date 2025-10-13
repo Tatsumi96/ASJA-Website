@@ -410,32 +410,28 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiFaqSectionFaqSection extends Struct.CollectionTypeSchema {
-  collectionName: 'faq_sections';
+export interface ApiNavbarNavbar extends Struct.CollectionTypeSchema {
+  collectionName: 'navbars';
   info: {
-    displayName: 'FaqSection';
-    pluralName: 'faq-sections';
-    singularName: 'faq-section';
+    displayName: 'navbar';
+    pluralName: 'navbars';
+    singularName: 'navbar';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    answer: Schema.Attribute.Blocks;
-    categorieQuestion: Schema.Attribute.Enumeration<
-      ['G\u00E9n\u00E9rale', 'Enseignement', 'Inscription', 'Autres']
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    home: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::faq-section.faq-section'
+      'api::navbar.navbar'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    question: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -952,7 +948,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::faq-section.faq-section': ApiFaqSectionFaqSection;
+      'api::navbar.navbar': ApiNavbarNavbar;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

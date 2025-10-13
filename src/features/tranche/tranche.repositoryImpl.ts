@@ -1,5 +1,5 @@
 import { TrancheRepository } from "./tranche.repository";
-import { TrancheService } from "./tranche.service.prisma";
+import { TrancheService } from "./tranche.service";
 import type { TrancheDto } from "./tranche.dto";
 import { failure, success, type Result } from "@/core/result";
 

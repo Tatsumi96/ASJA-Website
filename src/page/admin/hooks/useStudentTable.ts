@@ -8,7 +8,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-import { columns } from "../components/StudentColumn";
+import { columns } from "../components/student-column";
 
 import { useIntersectionObserver } from "./useIntersectionObserver";
 

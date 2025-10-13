@@ -19,13 +19,13 @@ export interface MentionDto {
     data: {
       level: Level;
       studentNumber: number;
-      TCO?: {
+      TELECOMMUNICATION?: {
         studentNumber: number;
       }[];
-      GL?: {
+      GENIE_LOGICIEL?: {
         studentNumber: number;
       }[];
-      GI?: {
+      GENIE_INDUSTRIEL?: {
         studentNumber: number;
       }[];
     }[];
