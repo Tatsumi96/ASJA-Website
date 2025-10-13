@@ -1,5 +1,0 @@
-node_modules
-strapi/.tmp
-strapi/.cache
-strapi/.local
-strapi/data
