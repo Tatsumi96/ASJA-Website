@@ -16,7 +16,7 @@ export const StudentInformation = () => {
               <img
                 src={userData?.imageUrl}
                 alt="Photo de profil"
-                className="rounded-full size-50  object-cover border-2 border-gray-200 group-hover:border-green-400 transition-all duration-200"
+                className="rounded-full size-50  object-cover "
               />
             ) : (
               <div className="rounded-full bg-gradient-to-br from-zinc-400 to-zinc-500 flex items-center justify-center text-white font-semibold">
@@ -25,13 +25,16 @@ export const StudentInformation = () => {
             )}
           </section>
           <section className="flex flex-col justify-center items-center gap-1 font-semibold  ">
-            <p className="text-lg">{userData?.name}</p>
+            <p className="text-lg">
+              {userData?.name + ' ' + userData?.lastName}
+            </p>
             <p>
               Mention :{' '}
               <span className="font-normal"> {userData?.mention}</span>{' '}
             </p>
             <p>
-              Branche: <span className="font-normal"> {userData?.branche}</span>{' '}
+              Branche:{' '}
+              <span className="font-normal"> {userData?.branche}</span>{' '}
             </p>
             <p>
               Niveau: <span className="font-normal"> {userData?.level}</span>

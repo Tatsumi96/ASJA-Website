@@ -22,7 +22,9 @@ export const PostList = () => {
                 {item.title}
               </p>
             </section>
-            <p className=" text-black dark:text-white">{item.description}</p>
+            <p className=" text-black dark:text-white text-lg">
+              {item.description}
+            </p>
             {item.imageUrl && (
               <img src={item.imageUrl} className="rounded-2xl size-200" />
             )}
