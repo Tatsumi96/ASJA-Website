@@ -1,18 +1,29 @@
-import { logUseCase } from "@/injection";
+import { authRepository } from "@/injection";
+import { useLangue } from "@/page/lang/useLang";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export const useAuth = () => {
-  const [matricule, setMatricule] = useState<string>("");
+  const [matricule, setMatricule] = useState<number>();
   const [password, setPassword] = useState<string>("");
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
-  const logIn = async () => {
-    const result = await logUseCase.execute({
-      identifier: matricule,
+  const { translate } = useLangue();
+
+  const logIn = async (navigate: (path: string) => void) => {
+    const result = await authRepository.logIn({
+      identifier: matricule as number,
       password,
+      role: isAdmin ? "Admin" : "User",
     });
-    if (result.status == "failure") return console.log("not logged in");
-    return console.log("logged in");
+    if (result.status == "failure")
+      return toast.error(translate("loginPage.erreur"), {
+        description: translate("loginPage.erreurMessage"),
+      });
+    navigate("/student-space");
   };
 
-  return { setMatricule, setPassword, logIn };
+  const toggleIsAdmin = () => setIsAdmin((value) => !value);
+
+  return { setMatricule, setPassword, logIn, toggleIsAdmin, isAdmin };
 };

@@ -1,9 +1,9 @@
-import { MentionCardList } from "../components/MentionListCard";
-import { ChartPie } from "../components/PieChart";
+import { MentionCardList } from "../components/mention-list-card";
+import { ChartPie } from "../components/pie-chart";
 
 export const Dashboard = () => {
   return (
-    <div className="flex flex-col w-full p-4  bg-zinc-100  dark:bg-zinc-900 transition-all h-full duration-500 ">
+    <div className="flex flex-col w-full p-4  bg-white  dark:bg-zinc-800 transition-all h-full duration-500 ">
       <div className="flex  justify-around gap-5">
         <MentionCardList />
         <ChartPie />

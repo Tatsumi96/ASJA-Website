@@ -11,7 +11,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-import { columns } from "../components/doc_file_column";
+import { columns } from "../components/doc-file-column";
 
 import { useIntersectionObserver } from "./useIntersectionObserver";
 

@@ -1,27 +1,62 @@
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import { motion } from "framer-motion";
+import backgroundImage from "@/assets/Lieu_espace/asja_couloir.jpg";
+import { useLangue } from "@/page/lang/useLang";
 
 export const Description = () => {
+  const { translate } = useLangue();
+
   return (
-    <div>
-      <div className="flex h-screen w-full bg-gray-800 z-0">
-        <div className="flex absolute justify-center items-center z-10 flex-col w-full h-full">
-          <h1 className="text-6xl font-bold text-white">
-            Bienvenue à l'ASJA University
-          </h1>          <p className="text-xl m-15 text-white text-center">
-            Qui propose une formation d'excellence aux étudiants désireux de
-            devenir <br />
-            les managers et décideurs de demain.
-          </p>
-          <div className="flex justify-center items-center">
-            <a className="flex items-center justify-start text-gray-900 font-bold bg-white cursor-pointer rounded-full hover:scale-110 duration-300 hover:bg-gray-300 shadow-lg shadow-gray-950">
-              <p className="pl-4 pr-2 my-2">À propos</p>
-              <div className=" flex bg-gray-900 border-2 border-gray-300 text-yellow-500 rounded-full p-2 hover:bg-gray-800">
-                <ArrowRightAltIcon className="m-1" />
-              </div>
-            </a>
-          </div>
-        </div>
+    <section
+      id="description"
+      className="flex flex-col lg:flex-row bg-white dark:bg-zinc-900 transition-all duration-500 lg:h-screen w-full"
+    >
+      <div className=" md:flex-col lg:hidden md:pt-0 pt-18 fixed -z-10">
+        <img
+          className="h-100 md:h-full w-max object-cover "
+          src={backgroundImage}
+          alt=""
+        />
       </div>
-    </div>
+      <div className=" hidden lg:flex flex-col justify-center py-10 px-5 lg:w-1/2   relative top-80 lg:top-0">
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ amount: 0.2, once: true }}
+        >
+          <h1 className="text-4xl dark:text-amber-100 lg:text-6xl transition-all duration-500 text-green-700 mb-10 font-semibold">
+            Athénée Saint Joseph Antsirabe
+          </h1>
+          <p className="lg:text-2xl transition-all duration-500 text-xl">
+            {translate("descriptionSection.description")}
+          </p>
+          <div className="flex lg:justify-start justify-center items-center pt-10">
+            <button className="bg-green-800 hover:bg-green-900 cursor-pointer hover:scale-105 duration-300 rounded-full">
+              <a
+                href="/about"
+                className="text-white font-bold lg:text-lg text-sm flex gap-3 justify-center items-center md:px-6 md:py-3 py-2 px-4"
+              >
+                {translate("descriptionSection.ensavoirplus")} ➞{" "}
+              </a>
+            </button>
+          </div>
+        </motion.div>
+      </div>
+      <motion.div
+        initial={{ x: 100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ amount: 0.2, once: true }}
+        className="flex w-1/2 justify-end"
+      >
+        <div className="lg:flex md:flex-col justify-center hidden items-center pl-10 w-full bg-gray-200 transition-all duration-500 dark:bg-zinc-800 rounded-l-full">
+          <img
+            className="h-full w-max rounded-l-full object-cover "
+            src={backgroundImage}
+            alt=""
+          />
+        </div>
+      </motion.div>
+    </section>
   );
 };
