@@ -1,7 +1,7 @@
-import type { Result } from "@/core/result";
-import type { MentionDto } from "./mention.dto";
-import type { UserEntity } from "./user.entity";
-import type { UserDto } from "./user.dto";
+import type { Result } from '@/core/result';
+import type { MentionDto } from './mention.dto';
+import type { UserEntity } from './user.entity';
+import type { UserDto } from './user.dto';
 
 export abstract class MentionRepository {
   abstract getData(): Promise<Result<MentionDto>>;
@@ -11,7 +11,7 @@ export abstract class MentionRepository {
     limit: number
   ): Promise<Result<UserDto[]>>;
   abstract sendFiles(file: FormData): Promise<Result<void>>;
-  abstract deleteStudent(id: string): Promise<Result<void>>;
+  abstract deleteStudent(id: string, fileName: string): Promise<Result<void>>;
 
   abstract searchStudent(query: string): Promise<Result<UserDto[]>>;
 }

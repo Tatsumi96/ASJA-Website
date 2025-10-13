@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 export const useModal = () => {
   const [deleteId, setDeleteId] = useState<string>('');
+  const [fileNameToDelete, setFileNameToDelete] = useState<string>('');
   const [student, setStudent] = useState<UserDto>();
 
   const [post, setPost] = useState<PostDto>();
@@ -83,5 +84,7 @@ export const useModal = () => {
     isAddPost,
     openAddPost,
     closeAddPost,
+    fileNameToDelete,
+    setFileNameToDelete,
   };
 };

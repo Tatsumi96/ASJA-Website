@@ -1,20 +1,27 @@
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { MdWarning } from "react-icons/md";
-import { useModalContext } from "../bloc/useModalContext";
-import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { MdWarning } from 'react-icons/md';
+import { useModalContext } from '../bloc/useModalContext';
+import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
 
 export const DeleteModalConfirmation = () => {
-  const { closeDeleteConfirmation, deleteId, setDeleteId } = useModalContext();
+  const {
+    closeDeleteConfirmation,
+    deleteId,
+    setDeleteId,
+    setFileNameToDelete,
+    fileNameToDelete,
+  } = useModalContext();
   const { deleteStudent } = useAdminDashboardContext();
 
   const callDelete = async () => {
-    await deleteStudent(deleteId);
+    await deleteStudent(deleteId, fileNameToDelete);
     closeDeleteConfirmation();
   };
 
   const cancel = () => {
-    setDeleteId("");
+    setDeleteId('');
+    setFileNameToDelete('');
     closeDeleteConfirmation();
   };
 

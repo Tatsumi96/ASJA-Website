@@ -1,12 +1,20 @@
-import { Button } from "@/components/ui/button";
-import { MdDelete } from "react-icons/md";
-import { useModalContext } from "../bloc/useModalContext";
+import { Button } from '@/components/ui/button';
+import { MdDelete } from 'react-icons/md';
+import { useModalContext } from '../bloc/useModalContext';
 
-export const DeleteButton = ({ id }: { id: string }) => {
-  const { openDeleteConfirmation, setDeleteId } = useModalContext();
+export const DeleteButton = ({
+  id,
+  fileName,
+}: {
+  id: string;
+  fileName: string;
+}) => {
+  const { openDeleteConfirmation, setDeleteId, setFileNameToDelete } =
+    useModalContext();
 
   const callDeleteStudent = async () => {
     setDeleteId(id);
+    setFileNameToDelete(fileName);
     openDeleteConfirmation();
   };
 
