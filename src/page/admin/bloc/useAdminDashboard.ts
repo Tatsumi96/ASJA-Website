@@ -9,6 +9,7 @@ import type { PostDto } from '@/features/post/post.dto';
 import type { TrancheDto } from '@/features/tranche/tranche.dto';
 
 import {
+  authRepository,
   docRepo,
   logRepo,
   mentionRepository,
@@ -410,6 +411,19 @@ export const useAdminDashboard = () => {
     if (selectedFile) await handleUpload();
   };
 
+  const logOut = async (navigate: (path: string) => void) => {
+    const result = await authRepository.logOut();
+    if (result.status == 'failure')
+      return toast.error('Error', {
+        description: 'something went wrong',
+      });
+    toast.success('Success', {
+      description: 'Deconnecter',
+      className: 'animate-fade animate-once animate-ease-out',
+    });
+    navigate('/login');
+  };
+
   useEffect(() => {
     const callFetchUserAndDashboardData = async () => {
       await fetchUserData();
@@ -482,5 +496,6 @@ export const useAdminDashboard = () => {
     description,
     postTitle,
     deletePost,
+    logOut,
   };
 };
