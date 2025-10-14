@@ -16,17 +16,20 @@ export const UploadAndViewImage: React.FC<AvatarProps> = ({
   };
 
   return (
-    <div className="flex flex-col items-start gap-2 pb-13">
+    <div className="flex flex-col items-start gap-2 ">
       <div
         className="relative group cursor-pointer w-full"
         onClick={handleAvatarClick}
       >
         {image ? (
-          <img
-            src={image}
-            alt={image}
-            className=" w-full h-70 border-2 border-gray-200 rounded-2xl transition-all duration-200"
-          />
+          <div className="aspect-[16/9]">
+            {' '}
+            <img
+              src={image}
+              alt={image}
+              className="h-100 w-full border-2 border-gray-200 rounded-2xl transition-all duration-200"
+            />{' '}
+          </div>
         ) : (
           <label
             htmlFor="file-upload"
