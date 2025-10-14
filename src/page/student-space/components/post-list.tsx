@@ -5,7 +5,6 @@ import logo from '@/assets/Logo/asja-logo.png';
 import { Separator } from '@/components/ui/separator';
 import { Card } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { MdVisibility } from 'react-icons/md';
 
 export const PostList = () => {
   const { post } = useStudentPortalContext();
