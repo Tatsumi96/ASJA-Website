@@ -1,10 +1,10 @@
-import type { DocEntity } from "@/features/doc/doc.entity";
-import type { ColumnDef } from "@tanstack/react-table";
-import { DownloadIcon, Files } from "lucide-react";
+import type { DocEntity } from '@/features/doc/doc.entity';
+import type { ColumnDef } from '@tanstack/react-table';
+import { DownloadIcon, Files } from 'lucide-react';
 
 export const columns: ColumnDef<DocEntity>[] = [
   {
-    accessorKey: "lessonTitle",
+    accessorKey: 'lessonTitle',
     header: () => {
       return (
         <p className="text-gray-500 pl-10 dark:text-white">Nom du fichier</p>
@@ -14,13 +14,13 @@ export const columns: ColumnDef<DocEntity>[] = [
       <div className=" flex gap-2 pl-2">
         <Files className=" text-green-600" />
         <p className="font-semibold dark:text-white">
-          {row.getValue("lessonTitle")}
+          {row.getValue('lessonTitle')}
         </p>
       </div>
     ),
   },
   {
-    accessorKey: "author",
+    accessorKey: 'author',
     header: () => {
       return (
         <p className="text-gray-500 hidden md:flex dark:text-white">
@@ -30,30 +30,20 @@ export const columns: ColumnDef<DocEntity>[] = [
     },
     cell: ({ row }) => (
       <p className="pr-15 py-2 text-gray-500 hidden md:flex dark:text-white">
-        {row.getValue("author")}
+        {row.getValue('author')}
       </p>
     ),
   },
+
   {
-    accessorKey: "fileSize",
-    header: () => {
-      return <p className="text-gray-500 dark:text-white">Taille du fichier</p>;
-    },
-    cell: ({ row }) => (
-      <p className="pr-20 py-2 text-gray-500 dark:text-white">
-        {row.getValue("fileSize")} MB
-      </p>
-    ),
-  },
-  {
-    accessorKey: "fileUrl",
+    accessorKey: 'fileUrl',
     header: () => {},
     enableHiding: false,
     cell: ({ row }) => (
       <div className=" flex gap-2 pr-5">
         <a
           className="font-semibold"
-          href={row.getValue("fileUrl")}
+          href={row.getValue('fileUrl')}
           download="doc.pdf"
         >
           <DownloadIcon className=" text-green-600 hover:scale-120 transition-all duration-200" />

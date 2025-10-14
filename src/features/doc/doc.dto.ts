@@ -1,9 +1,10 @@
+import type { Branche, Level, Mention } from '@/core/types';
+
 export interface DocDto {
-  authorName: string;
   fileName: string;
-  fileSize: number;
   lessonTitle: string;
-  mention: string;
-  level: string;
-  branche: string;
+  mention: Mention;
+  level: Level;
+  branche: Branche;
+  id: string;
 }

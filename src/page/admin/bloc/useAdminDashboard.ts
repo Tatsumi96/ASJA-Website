@@ -9,6 +9,7 @@ import type { PostDto } from '@/features/post/post.dto';
 import type { TrancheDto } from '@/features/tranche/tranche.dto';
 
 import {
+  authRepository,
   docRepo,
   logRepo,
   mentionRepository,
@@ -46,7 +47,7 @@ export const useAdminDashboard = () => {
   const [studentPage, setStudentPage] = useState<number>(1);
   const [hasReachedMaxPage, setHasReachedMaxPage] = useState<boolean>(false);
 
-  const [docList, setDoclist] = useState<DocEntity[]>([]);
+  const [docList, setDoclist] = useState<DocDto[]>([]);
   const [page, setPage] = useState<number>(1);
   const [hasReachedMax, setHasReachedMax] = useState<boolean>(false);
   const [userData, setUserData] = useState<UserDto>();
@@ -60,7 +61,6 @@ export const useAdminDashboard = () => {
   const [mention, setMention] = useState<string>('');
   const [level, setLevel] = useState<string>('');
   const [branche, setBranche] = useState<string>('');
-  const [authorName, setAuthorName] = useState<string>('');
 
   const [errorMessage, setErrorMessage] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -105,6 +105,22 @@ export const useAdminDashboard = () => {
     } else {
       toast.error('Error', {
         description: 'Failed to delete post',
+      });
+    }
+  };
+
+  const deleteDoc = async (id: string, fileName: string) => {
+    const result = await docRepo.delete(id, fileName);
+
+    if (result.status === 'success') {
+      toast.success('Succes', {
+        description: 'Document deleted',
+      });
+      const newDocList = docList.filter((item) => item.id != id);
+      setDoclist(newDocList);
+    } else {
+      toast.error('Error', {
+        description: 'Failed to delete document',
       });
     }
   };
@@ -185,7 +201,6 @@ export const useAdminDashboard = () => {
           : (branche.replace(/_/g, ' ') as Branche),
       level: level as Level,
       mention: mention.replace(/_/g, ' ') as Mention,
-      role: 'User',
       Premier: isPremierPaid,
       Deuxieme: isDeuxiemePaid,
       Troisieme: isTroisiemePaid,
@@ -362,18 +377,21 @@ export const useAdminDashboard = () => {
   };
 
   const addDocMetaData = async () => {
-    const doc: DocDto = {
+    const doc: DocEntity = {
       fileName: selectedFile?.name as string,
       fileSize: selectedFile?.size as number,
-      branche: branche.length == 0 ? 'COMMUN' : branche.replace(/_/g, ' '),
-      mention: mention.replace(/_/g, ' '),
-      level,
+      branche:
+        branche.length == 0
+          ? 'COMMUN'
+          : (branche.replace(/_/g, ' ') as Branche),
+      mention: mention.replace(/_/g, ' ') as Mention,
+      level: level as Level,
       lessonTitle,
-      authorName,
     };
 
     const result = await docRepo.sendMetaData(doc);
     if (result.status === 'success') {
+      setDoclist((item) => [...item, ...[result.data]]);
       toast.success('Succes', {
         description: 'Product added',
         className: 'animate-fade animate-once animate-ease-out',
@@ -410,6 +428,19 @@ export const useAdminDashboard = () => {
     if (selectedFile) await handleUpload();
   };
 
+  const logOut = async (navigate: (path: string) => void) => {
+    const result = await authRepository.logOut();
+    if (result.status == 'failure')
+      return toast.error('Error', {
+        description: 'something went wrong',
+      });
+    toast.success('Success', {
+      description: 'Deconnecter',
+      className: 'animate-fade animate-once animate-ease-out',
+    });
+    navigate('/login');
+  };
+
   useEffect(() => {
     const callFetchUserAndDashboardData = async () => {
       await fetchUserData();
@@ -438,7 +469,6 @@ export const useAdminDashboard = () => {
     setMention,
     setLevel,
     sendToServer,
-    setAuthorName,
     onDrop,
     setBranche,
     mention,
@@ -482,5 +512,7 @@ export const useAdminDashboard = () => {
     description,
     postTitle,
     deletePost,
+    logOut,
+    deleteDoc,
   };
 };

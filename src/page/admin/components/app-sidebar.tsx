@@ -3,6 +3,7 @@
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarHeader,
@@ -15,12 +16,16 @@ import Logo from '@/assets/Logo/asja-logo.png';
 import type { Dispatch, SetStateAction } from 'react';
 import {
   MdBarChart,
+  MdExitToApp,
   MdFileOpen,
   MdNewspaper,
   MdPeople,
   MdSyncLock,
   MdTrendingUp,
 } from 'react-icons/md';
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
+import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
 
 export const AppSidebar = ({
   changePage,
@@ -68,6 +73,12 @@ export const AppSidebar = ({
       },
     ],
   };
+  const { logOut } = useAdminDashboardContext();
+
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    logOut(navigate);
+  };
 
   return (
     <Sidebar collapsible="offcanvas" variant="inset">
@@ -108,6 +119,17 @@ export const AppSidebar = ({
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        <Button
+          onClick={handleLogout}
+          className=" bg-transparent hover:bg-transparent flex w-full cursor-pointer p-6"
+        >
+          <p className=" text-xl text-red-600 flex items-center gap-1">
+            {' '}
+            <MdExitToApp /> Se deconnecter
+          </p>
+        </Button>
+      </SidebarFooter>
     </Sidebar>
   );
 };

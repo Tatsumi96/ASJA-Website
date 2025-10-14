@@ -26,6 +26,8 @@ export const useModal = () => {
 
   const [isAddPost, setAddPostVisible] = useState<boolean>(false);
 
+  const [isAddDocVisible, setAddDocVisible] = useState<boolean>(false);
+
   const [isPostInformationVisible, setPostInformationVisible] =
     useState<boolean>(false);
 
@@ -41,6 +43,14 @@ export const useModal = () => {
 
   const closeAddPost = () => {
     setAddPostVisible(false);
+  };
+
+  const openAddDoc = () => {
+    setAddDocVisible(true);
+  };
+
+  const closeAddDoc = () => {
+    setAddDocVisible(false);
   };
 
   const openPostInformation = () => {
@@ -106,5 +116,8 @@ export const useModal = () => {
     setDeleteCallBack,
     cancelCallBack,
     setcancelCallBack,
+    isAddDocVisible,
+    openAddDoc,
+    closeAddDoc,
   };
 };
