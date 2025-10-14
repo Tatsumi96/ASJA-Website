@@ -3,7 +3,6 @@ import { Separator } from '@/components/ui/separator';
 import type { UserDto } from '@/features/mention/user.dto';
 import type { ColumnDef } from '@tanstack/react-table';
 import { TrancheBadge } from './tranche-status-badge';
-import { DeleteButton } from './delete-button';
 import { MdPerson } from 'react-icons/md';
 import {
   Select,
@@ -13,6 +12,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { classes, mentions } from '@/core/types';
+import { DeleteUserButton } from './delete-user-button';
 
 export const columns: ColumnDef<UserDto>[] = [
   {
@@ -299,7 +299,7 @@ export const columns: ColumnDef<UserDto>[] = [
     enableHiding: false,
     cell: ({ row }) => {
       return (
-        <DeleteButton
+        <DeleteUserButton
           id={row.getValue('mentionId')}
           fileName={row.original.fileName as string}
         />

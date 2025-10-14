@@ -1,8 +1,8 @@
-import { SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarTrigger } from '@/components/ui/sidebar';
 
-import { Moon, Sun } from "lucide-react";
-import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
-import { useTheme } from "@/page/theme/useTheme";
+import { Moon, Sun } from 'lucide-react';
+import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
+import { useTheme } from '@/page/theme/useTheme';
 
 import {
   DropdownMenu,
@@ -17,15 +17,15 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+} from '@/components/ui/dropdown-menu';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const DropButton = ({ name }: { name: string }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="transition-all duration-500 ">
         <div className=" cursor-pointer flex rounded-2xl  py-2 w-full justify-between gap-2 items-center">
-          {" "}
+          {' '}
           <Avatar className=" size-11 ">
             <AvatarFallback className="dark:text-white  dark:bg-zinc-600">
               <AvatarImage src={name} />
@@ -88,15 +88,17 @@ const DropButton = ({ name }: { name: string }) => {
 };
 
 export const NavBar = () => {
-  const { userName } = useAdminDashboardContext();
+  const { userData } = useAdminDashboardContext();
   const { toggleTheme, isDark } = useTheme();
   return (
     <header className=" group-has-data-[collapsible=icon]/sidebar-wrapper:h-12  duration-500 flex dark:bg-zinc-800 h-15 shrink-0 items-center gap-2 border-b transition-all ease-linear">
       <div className="flex w-full  justify-between items-center gap-1 px-4 lg:gap-2 lg:px-6">
         <section className="flex items-center gap-5">
-          {" "}
+          {' '}
           <SidebarTrigger className="-ml-1 text-green-700 hover:text-green-700" />
-          <p className="font-semibold md:flex hidden">Administrateur : {userName}</p>
+          <p className="font-semibold md:flex hidden">
+            Administrateur : {userData?.name}
+          </p>
         </section>
 
         <div className="flex justify-end  items-center mr-5 ">
@@ -108,7 +110,7 @@ export const NavBar = () => {
               {isDark ? <Sun /> : <Moon />}
             </button>
           </div>
-          <DropButton name={userName} />
+          <DropButton name={userData?.name as string} />
         </div>
       </div>
     </header>

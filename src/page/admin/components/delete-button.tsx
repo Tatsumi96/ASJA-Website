@@ -1,26 +1,18 @@
 import { Button } from '@/components/ui/button';
 import { MdDelete } from 'react-icons/md';
-import { useModalContext } from '../bloc/useModalContext';
 
 export const DeleteButton = ({
-  id,
-  fileName,
+  callBack,
 }: {
-  id: string;
-  fileName: string;
+  callBack: () => Promise<void>;
 }) => {
-  const { openDeleteConfirmation, setDeleteId, setFileNameToDelete } =
-    useModalContext();
-
-  const callDeleteStudent = async () => {
-    setDeleteId(id);
-    setFileNameToDelete(fileName);
-    openDeleteConfirmation();
+  const callAsync = async () => {
+    await callBack();
   };
 
   return (
     <Button
-      onClick={callDeleteStudent}
+      onClick={callAsync}
       size="icon"
       variant="outline"
       className="rounded-full size-8 cursor-pointer border-transparent text-red-600 hover:bg-red-600 hover:text-white"

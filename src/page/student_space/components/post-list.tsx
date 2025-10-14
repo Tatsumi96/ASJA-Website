@@ -10,7 +10,7 @@ import { MdVisibility } from 'react-icons/md';
 export const PostList = () => {
   const { post } = useStudentPortalContext();
   return (
-    <Card className="p-4 transition-all duration-500">
+    <Card className="lg:p-4 transition-all duration-500 border-0 shadow-none">
       <ScrollArea className="h-full">
         {post.map((item) => (
           <section className="flex flex-col p-4 gap-3">
@@ -18,13 +18,21 @@ export const PostList = () => {
               <Avatar className=" size-11 ">
                 <img src={logo} />
               </Avatar>
-              <p className="font-semibold text-xl text-black dark:text-white">
+              <p className="font-semibold lg:text-xl text-black dark:text-white">
                 {item.title}
               </p>
             </section>
-            <p className=" text-black dark:text-white">{item.description}</p>
+            <p className=" text-black dark:text-white md:text-lg">
+              {item.description}
+            </p>
             {item.imageUrl && (
-              <img src={item.imageUrl} className="rounded-2xl size-200" />
+              <div className="aspect-[16/9]">
+                {' '}
+                <img
+                  src={item.imageUrl}
+                  className="rounded-2xl w-full h-full object-cover"
+                />
+              </div>
             )}
             <section className="flex justify-between w-full py-5">
               <p className="flex justify-center items-center gap-1 text-gray-500">

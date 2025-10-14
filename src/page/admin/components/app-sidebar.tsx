@@ -53,16 +53,17 @@ export const AppSidebar = ({
         icon: MdFileOpen,
         click: changePage,
       },
-      {
-        title: 'Historique',
-        url: '#',
-        icon: MdSyncLock,
-        click: changePage,
-      },
+
       {
         title: 'Annonce',
         url: '#',
         icon: MdNewspaper,
+        click: changePage,
+      },
+      {
+        title: 'Historique',
+        url: '#',
+        icon: MdSyncLock,
         click: changePage,
       },
     ],
@@ -73,7 +74,7 @@ export const AppSidebar = ({
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild className="hover:bg-transparent">
+            <SidebarMenuButton asChild className="hover:bg-transparent h-15">
               <a
                 className="flex  cursor-pointer"
                 onClick={() => (window.location.href = '/')}
@@ -94,7 +95,7 @@ export const AppSidebar = ({
               {data.navMain.map((item, index) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
-                    className="cursor-pointer font-boldaaaaaaaaa"
+                    className="cursor-pointer font-bold"
                     tooltip={item.title}
                     onClick={() => item.click(index)}
                   >

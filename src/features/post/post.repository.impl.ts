@@ -22,6 +22,7 @@ export class PostRepositoryImpl implements PostRepository {
         level: post.level,
         branche: post.branche,
         mention: post.mention,
+        fileName: post.imageUrl,
       };
 
       return success(postDto);
@@ -44,6 +45,7 @@ export class PostRepositoryImpl implements PostRepository {
         level: item.level,
         branche: item.branche,
         mention: item.mention,
+        fileName: item.imageUrl,
       }));
       return success(post);
     } catch (error) {
@@ -59,6 +61,16 @@ export class PostRepositoryImpl implements PostRepository {
     } catch (error) {
       console.error(error);
       return failure(Error());
+    }
+  }
+
+  async delete(id: string, fileName: string): Promise<Result<void>> {
+    try {
+      await this.service.delete(id, fileName);
+      return success(undefined);
+    } catch (error) {
+      console.error(error);
+      return failure(new Error());
     }
   }
 }

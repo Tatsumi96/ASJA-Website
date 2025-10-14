@@ -5,6 +5,18 @@ import { useState } from 'react';
 export const useModal = () => {
   const [deleteId, setDeleteId] = useState<string>('');
   const [fileNameToDelete, setFileNameToDelete] = useState<string>('');
+
+  const [deleteCallBack, setDeleteCallBack] = useState<() => Promise<void>>(
+    async () => {}
+  );
+
+  const [cancelCallBack, setcancelCallBack] = useState<() => void>(
+    async () => {}
+  );
+
+  const [postDeleteId, setPostDeleteId] = useState<string>('');
+  const [postFileNameToDelete, setPostFileNameToDelete] = useState<string>('');
+
   const [student, setStudent] = useState<UserDto>();
 
   const [post, setPost] = useState<PostDto>();
@@ -86,5 +98,13 @@ export const useModal = () => {
     closeAddPost,
     fileNameToDelete,
     setFileNameToDelete,
+    postDeleteId,
+    setPostDeleteId,
+    postFileNameToDelete,
+    setPostFileNameToDelete,
+    deleteCallBack,
+    setDeleteCallBack,
+    cancelCallBack,
+    setcancelCallBack,
   };
 };

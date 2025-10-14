@@ -12,6 +12,8 @@ export const Studentlist = () => {
     isAddStudentCardVisible,
     isStudentInfoVisible,
     student,
+    deleteCallBack,
+    cancelCallBack,
     isDeleteConfirmationVisible,
   } = useModalContext();
 
@@ -36,7 +38,11 @@ export const Studentlist = () => {
 
       {isDeleteConfirmationVisible && (
         <Modal>
-          <DeleteModalConfirmation />
+          <DeleteModalConfirmation
+            text=" Voulez-vous vraiment supprimer l'etudiant de la liste ?"
+            confirm={deleteCallBack}
+            cancel={cancelCallBack}
+          />
         </Modal>
       )}
     </section>
