@@ -67,11 +67,13 @@ export const PostTable = () => {
                   data-state={row.getIsSelected() && 'selected'}
                   className=" cursor-pointer"
                 >
-                  {row.getVisibleCells().map((cell) => (
+                  {row.getVisibleCells().map((cell, index) => (
                     <TableCell
                       onClick={() => {
-                        setPost(row.original);
-                        openPostInformation();
+                        if (index < 3) {
+                          setPost(row.original);
+                          openPostInformation();
+                        }
                       }}
                       key={cell.id}
                     >
