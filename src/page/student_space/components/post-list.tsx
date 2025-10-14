@@ -26,10 +26,13 @@ export const PostList = () => {
               {item.description}
             </p>
             {item.imageUrl && (
-              <img
-                src={item.imageUrl}
-                className="rounded-2xl size-120 md:size-250"
-              />
+              <div className="aspect-[16/9]">
+                {' '}
+                <img
+                  src={item.imageUrl}
+                  className="rounded-2xl w-full h-full object-cover"
+                />
+              </div>
             )}
             <section className="flex justify-between w-full py-5">
               <p className="flex justify-center items-center gap-1 text-gray-500">
