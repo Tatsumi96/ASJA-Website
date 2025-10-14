@@ -9,5 +9,4 @@ export interface PostDto {
   branche: Branche;
   level: Level;
   mention: Mention;
-  fileName: string | undefined;
 }

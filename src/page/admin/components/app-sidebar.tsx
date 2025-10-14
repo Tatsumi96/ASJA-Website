@@ -3,7 +3,6 @@
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarHeader,
@@ -16,16 +15,12 @@ import Logo from '@/assets/Logo/asja-logo.png';
 import type { Dispatch, SetStateAction } from 'react';
 import {
   MdBarChart,
-  MdExitToApp,
   MdFileOpen,
   MdNewspaper,
   MdPeople,
   MdSyncLock,
   MdTrendingUp,
 } from 'react-icons/md';
-import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
-import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
 
 export const AppSidebar = ({
   changePage,
@@ -58,26 +53,19 @@ export const AppSidebar = ({
         icon: MdFileOpen,
         click: changePage,
       },
-
-      {
-        title: 'Annonce',
-        url: '#',
-        icon: MdNewspaper,
-        click: changePage,
-      },
       {
         title: 'Historique',
         url: '#',
         icon: MdSyncLock,
         click: changePage,
       },
+      {
+        title: 'Annonce',
+        url: '#',
+        icon: MdNewspaper,
+        click: changePage,
+      },
     ],
-  };
-  const { logOut } = useAdminDashboardContext();
-
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    logOut(navigate);
   };
 
   return (
@@ -85,7 +73,7 @@ export const AppSidebar = ({
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild className="hover:bg-transparent h-15">
+            <SidebarMenuButton asChild className="hover:bg-transparent">
               <a
                 className="flex  cursor-pointer"
                 onClick={() => (window.location.href = '/')}
@@ -106,7 +94,7 @@ export const AppSidebar = ({
               {data.navMain.map((item, index) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
-                    className="cursor-pointer font-bold"
+                    className="cursor-pointer font-boldaaaaaaaaa"
                     tooltip={item.title}
                     onClick={() => item.click(index)}
                   >
@@ -119,17 +107,6 @@ export const AppSidebar = ({
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
-        <Button
-          onClick={handleLogout}
-          className=" bg-transparent hover:bg-transparent flex w-full cursor-pointer p-6"
-        >
-          <p className=" text-xl text-red-600 flex items-center gap-1">
-            {' '}
-            <MdExitToApp /> Se deconnecter
-          </p>
-        </Button>
-      </SidebarFooter>
     </Sidebar>
   );
 };
