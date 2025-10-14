@@ -16,8 +16,8 @@ export const AdminDashboardPage = () => {
     <p>Tranche Page</p>,
     <Studentlist />,
     <p>Document Page</p>,
-    <Loglist />,
     <Postlist />,
+    <Loglist />,
   ];
   return (
     <AdminDashBoardProvider>
