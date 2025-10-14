@@ -49,7 +49,7 @@ export const useAdminDashboard = () => {
   const [docList, setDoclist] = useState<DocEntity[]>([]);
   const [page, setPage] = useState<number>(1);
   const [hasReachedMax, setHasReachedMax] = useState<boolean>(false);
-  const [userName, setUserName] = useState<string>('');
+  const [userData, setUserData] = useState<UserDto>();
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [image, setImage] = useState<string | null>();
@@ -93,6 +93,22 @@ export const useAdminDashboard = () => {
     }
   };
 
+  const deletePost = async (id: string, fileName: string) => {
+    const result = await postRepo.delete(id, fileName);
+
+    if (result.status === 'success') {
+      toast.success('Succes', {
+        description: 'post deleted',
+      });
+      const newPostList = post.filter((item) => item.id != id);
+      setPostList(newPostList);
+    } else {
+      toast.error('Error', {
+        description: 'Failed to delete post',
+      });
+    }
+  };
+
   const sendPost = async () => {
     const result = await postRepo.create({
       title: postTitle.toLocaleUpperCase(),
@@ -113,7 +129,7 @@ export const useAdminDashboard = () => {
       clean();
 
       toast.success('Success', {
-        description: 'Post addee',
+        description: 'Post added',
         className: 'animate-fade animate-once animate-ease-out',
       });
     } else {
@@ -376,7 +392,7 @@ export const useAdminDashboard = () => {
         description: 'Failed to load user data',
       });
 
-    setUserName(result.data.userName);
+    setUserData(result.data as UserDto);
   };
 
   const fetchDashboardData = async () => {
@@ -409,7 +425,7 @@ export const useAdminDashboard = () => {
     setPage,
     fetchDocList,
     hasReachedMax,
-    userName,
+    userData,
     handleCancel,
     handleUpload,
     handleFileChange,
@@ -465,5 +481,6 @@ export const useAdminDashboard = () => {
     setPostTitle,
     description,
     postTitle,
+    deletePost,
   };
 };
