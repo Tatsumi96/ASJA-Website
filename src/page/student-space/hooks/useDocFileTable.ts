@@ -1,5 +1,5 @@
-import { useStudentPortalContext } from "./../bloc/useStudentSpaceContext";
-import * as React from "react";
+import { useStudentPortalContext } from '../bloc/useStudentSpaceContext';
+import * as React from 'react';
 import {
   type ColumnFiltersState,
   type SortingState,
@@ -9,11 +9,11 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
-} from "@tanstack/react-table";
+} from '@tanstack/react-table';
 
-import { columns } from "../components/doc-file-column";
+import { columns } from '../components/doc-file-column';
 
-import { useIntersectionObserver } from "./useIntersectionObserver";
+import { useIntersectionObserver } from './useIntersectionObserver';
 
 export const useDocTable = () => {
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -28,7 +28,7 @@ export const useDocTable = () => {
 
   const observerRef = useIntersectionObserver(fetchDocList, {
     threshold: 0.1,
-    rootMargin: "100px",
+    rootMargin: '100px',
     enabled: !hasReachedMax,
   });
 
