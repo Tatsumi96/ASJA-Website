@@ -53,16 +53,17 @@ export const AppSidebar = ({
         icon: MdFileOpen,
         click: changePage,
       },
-      {
-        title: 'Historique',
-        url: '#',
-        icon: MdSyncLock,
-        click: changePage,
-      },
+
       {
         title: 'Annonce',
         url: '#',
         icon: MdNewspaper,
+        click: changePage,
+      },
+      {
+        title: 'Historique',
+        url: '#',
+        icon: MdSyncLock,
         click: changePage,
       },
     ],
