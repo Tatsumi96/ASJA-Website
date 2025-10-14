@@ -201,7 +201,6 @@ export const useAdminDashboard = () => {
           : (branche.replace(/_/g, ' ') as Branche),
       level: level as Level,
       mention: mention.replace(/_/g, ' ') as Mention,
-      role: 'User',
       Premier: isPremierPaid,
       Deuxieme: isDeuxiemePaid,
       Troisieme: isTroisiemePaid,
