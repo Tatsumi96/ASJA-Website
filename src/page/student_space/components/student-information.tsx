@@ -4,13 +4,19 @@ import { MdExitToApp, MdPerson } from 'react-icons/md';
 import { useStudentPortalContext } from '../bloc/useStudentSpaceContext';
 import { Button } from '@/components/ui/button';
 import Badge from '@mui/material/Badge';
+import { useNavigate } from 'react-router-dom';
 
 export const StudentInformation = () => {
-  const { userData } = useStudentPortalContext();
+  const { userData, logOut } = useStudentPortalContext();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    logOut(navigate);
+  };
+
   return (
-    <div className="flex flex-col gap-5">
-      <Card className="transition-all duration-500 border-0 shadow-none h-full bg-transparent p-5 pt-8 md:justify-between">
-        <div className=" flex flex-col gap-10">
+    <div className="flex flex-col">
+      <Card className="transition-all duration-500 border-0 shadow-none h-full w-full bg-transparent md:p-5 pt-8 md:justify-between">
+        <div className=" flex flex-col gap-5">
           <section className=" flex flex-col items-center justify-center">
             {userData?.imageUrl ? (
               <img
@@ -25,7 +31,7 @@ export const StudentInformation = () => {
             )}
           </section>
           <section className="flex flex-col justify-center items-center gap-1 font-semibold  ">
-            <p className="text-lg">
+            <p className="text-xl pb-5">
               {userData?.name + ' ' + userData?.lastName}
             </p>
             <p>
@@ -68,8 +74,14 @@ export const StudentInformation = () => {
             </div>
           </section>
         </div>
-        <Button className=" bg-transparent hover:bg-transparent flex w-full cursor-pointer p-6">
-          <p className=" text-xl text-red-600 flex items-center gap-1"> <MdExitToApp/> Se deconnecter</p>
+        <Button
+          onClick={handleLogout}
+          className=" bg-transparent hover:bg-transparent flex w-full cursor-pointer p-6"
+        >
+          <p className=" text-xl text-red-600 flex items-center gap-1">
+            {' '}
+            <MdExitToApp /> Se deconnecter
+          </p>
         </Button>
       </Card>
     </div>

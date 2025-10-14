@@ -22,7 +22,7 @@ export const StudentSpacePage = () => {
           <PostList />
           <DocDataTable />
         </section>
-        <section className="md:hidden flex w-full">{page[index]}</section>
+        <section className="md:hidden flex justify-center  w-full">{page[index]}</section>
         <BottomBar callBack={setIndex} index={index} />
       </div>
     </StudentPortalProvider>
