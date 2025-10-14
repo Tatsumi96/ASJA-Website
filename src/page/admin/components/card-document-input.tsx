@@ -1,36 +1,43 @@
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent } from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
+} from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
 
-import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
+import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
 
-import FilePicker from "./file-picker";
+import FilePicker from './file-picker';
 
-import { mentions, classes } from "@/core/types";
-import { Input } from "@/components/ui/input";
+import { mentions, classes } from '@/core/types';
+import { Input } from '@/components/ui/input';
+import { MdCancel } from 'react-icons/md';
+import { useModalContext } from '../bloc/useModalContext';
 
-export const CardWithForm = () => {
+export const AddDocCard = () => {
   const {
     setLessonTitle,
     sendToServer,
-    setAuthorName,
     setMention,
     setLevel,
     setBranche,
     mention,
   } = useAdminDashboardContext();
 
+  const { closeAddDoc } = useModalContext();
+
   return (
-    <div className=" flex flex-col gap-5 w-1/2">
-      <Card className="transition-all duration-500">
+    <div className=" flex flex-col gap-5 w-1/2 ">
+      <Card className="transition-all duration-500 p-5">
         <CardContent>
+          <MdCancel
+            onClick={closeAddDoc}
+            className=" text-green-600 dark:text-white text-4xl cursor-pointer absolute  hover:scale-125 transition-all duration-300"
+          />
           <p className=" flex w-full justify-center font-semibold text-3xl text-gray-500 pb-10">
             Ajouter un document
           </p>
@@ -47,16 +54,6 @@ export const CardWithForm = () => {
                   className="bg-gray-200"
                   onChange={(e) => setLessonTitle(e.target.value)}
                 />
-                <Label
-                  htmlFor="name"
-                  className=" text-lg font-semibold text-green-700"
-                >
-                  Autheur
-                </Label>
-                <Input
-                  className="bg-gray-200"
-                  onChange={(e) => setAuthorName(e.target.value)}
-                />
               </div>
               <div className="flex flex-col py-2.5 space-y-1.5">
                 <div className=" flex gap-4">
@@ -64,10 +61,10 @@ export const CardWithForm = () => {
                     <SelectTrigger className="w-full bg-gray-200">
                       <SelectValue placeholder="Mention" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="z-[900]">
                       {Object.keys(mentions).map((mainBranche) => (
                         <SelectItem key={mainBranche} value={mainBranche}>
-                          {mainBranche.replace(/_/g, "   ")}
+                          {mainBranche.replace(/_/g, '   ')}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -76,7 +73,7 @@ export const CardWithForm = () => {
                     <SelectTrigger className="w-full bg-gray-200">
                       <SelectValue placeholder="Niveau" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="z-[900]">
                       {classes.map((level) => (
                         <SelectItem key={level} value={level}>
                           {level}
@@ -88,7 +85,7 @@ export const CardWithForm = () => {
                     <SelectTrigger className="w-full bg-gray-200">
                       <SelectValue placeholder="Branche" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="z-[900]">
                       {mention &&
                         mentions[mention].map((branche) => (
                           <SelectItem key={branche} value={branche}>
@@ -105,14 +102,12 @@ export const CardWithForm = () => {
             </div>
           </form>
         </CardContent>
-        <CardFooter>
-          <Button
-            className=" bg-green-700 hover:bg-green-900 flex w-full cursor-pointer py-6"
-            onClick={sendToServer}
-          >
-            <p className=" text-xl">Ajouter le document</p>
-          </Button>
-        </CardFooter>
+        <Button
+          className=" bg-green-700 hover:bg-green-900 flex w-full cursor-pointer py-6"
+          onClick={sendToServer}
+        >
+          <p className=" text-xl">Ajouter le document</p>
+        </Button>
       </Card>
     </div>
   );

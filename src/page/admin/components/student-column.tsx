@@ -29,7 +29,7 @@ export const columns: ColumnDef<UserDto>[] = [
       );
     },
     cell: ({ row }) => (
-      <Avatar className=" size-11 ">
+      <Avatar className=" size-11 rounded-full border-2 border-green-700">
         <AvatarFallback className="dark:text-white  bg-gradient-to-br from-zinc-400 to-zinc-500 text-white">
           {row.getValue('imageUrl') ? (
             <img src={row.getValue('imageUrl')} />

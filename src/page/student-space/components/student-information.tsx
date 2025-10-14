@@ -19,18 +19,20 @@ export const StudentInformation = () => {
         <div className=" flex flex-col gap-5">
           <section className=" flex flex-col items-center justify-center">
             {userData?.imageUrl ? (
-              <img
-                src={userData?.imageUrl}
-                alt="Photo de profil"
-                className="rounded-full size-50  object-cover "
-              />
+              <div className="rounded-full border-5 border-green-700 p-1">
+                <img
+                  src={userData?.imageUrl}
+                  alt="Photo de profil"
+                  className="rounded-full size-50  object-cover "
+                />
+              </div>
             ) : (
               <div className="rounded-full bg-gradient-to-br from-zinc-400 to-zinc-500 flex items-center justify-center text-white font-semibold">
                 <MdPerson className=" size-50 p-2 z-100" />
               </div>
             )}
           </section>
-          <section className="flex flex-col justify-center items-center gap-1 font-semibold  ">
+          <section className="flex flex-col justify-center  items-center gap-1 font-semibold  ">
             <p className="text-xl pb-5">
               {userData?.name + ' ' + userData?.lastName}
             </p>
@@ -49,7 +51,7 @@ export const StudentInformation = () => {
               Matricule:
               <span className="font-normal"> {userData?.identifier}</span>{' '}
             </p>
-            <div className="flex w-full justify-center gap-3 p-10">
+            <div className="flex w-full justify-center gap-3 p-5 md:py-4 md:px-8 mt-5  border-2 border-green-700 rounded-4xl">
               <Badge
                 className={`${
                   userData?.Premier ? 'bg-green-600' : 'bg-red-600'

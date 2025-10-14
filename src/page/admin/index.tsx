@@ -9,13 +9,14 @@ import { useState, type JSX } from 'react';
 import { Modalprovider } from './bloc/useModalProvider';
 import { Loglist } from './page/log-list';
 import { Postlist } from './page/post-list';
+import { Doclist } from './page/doc-list';
 export const AdminDashboardPage = () => {
   const [index, setIndex] = useState<number>(0);
   const page: JSX.Element[] = [
     <Dashboard />,
     <p>Tranche Page</p>,
     <Studentlist />,
-    <p>Document Page</p>,
+    <Doclist />,
     <Postlist />,
     <Loglist />,
   ];
