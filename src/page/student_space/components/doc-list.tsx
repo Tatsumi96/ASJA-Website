@@ -1,4 +1,4 @@
-import { flexRender } from "@tanstack/react-table";
+import { flexRender } from '@tanstack/react-table';
 
 import {
   Table,
@@ -7,16 +7,16 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table';
 
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { useDocTable } from "../hooks/useDocFileTable";
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { useDocTable } from '../hooks/useDocFileTable';
 
 export const DocDataTable = () => {
   const { observerRef, table, columns } = useDocTable();
 
   return (
-    <div className=" border transition-all hidden lg:flex flex-col duration-500 rounded-3xl p-4 w-1/2">
+    <div className=" border transition-all flex flex-col duration-500 rounded-3xl p-4 w-full md:w-1/2">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -44,7 +44,7 @@ export const DocDataTable = () => {
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
+                  data-state={row.getIsSelected() && 'selected'}
                   className="hover:bg-transparent "
                 >
                   {row.getVisibleCells().map((cell) => (

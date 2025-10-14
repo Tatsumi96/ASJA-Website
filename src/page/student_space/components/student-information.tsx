@@ -8,8 +8,8 @@ import Badge from '@mui/material/Badge';
 export const StudentInformation = () => {
   const { userData } = useStudentPortalContext();
   return (
-    <div className="hidden lg:flex flex-col gap-5">
-      <Card className="transition-all duration-500 border-0 shadow-none h-full bg-transparent p-5 pt-8 justify-between">
+    <div className="flex flex-col gap-5">
+      <Card className="transition-all duration-500 border-0 shadow-none h-full bg-transparent p-5 pt-8 md:justify-between">
         <div className=" flex flex-col gap-10">
           <section className=" flex flex-col items-center justify-center">
             {userData?.imageUrl ? (
@@ -47,21 +47,21 @@ export const StudentInformation = () => {
               <Badge
                 className={`${
                   userData?.Premier ? 'bg-green-600' : 'bg-red-600'
-                } text-white rounded-2xl px-4`}
+                } text-white rounded-2xl px-4 py-2`}
               >
                 Tranche 1
               </Badge>
               <Badge
                 className={`${
                   userData?.Deuxieme ? 'bg-green-600' : 'bg-red-600'
-                } text-white  rounded-2xl px-4`}
+                } text-white  rounded-2xl px-4 py-2`}
               >
                 Tranche 2
               </Badge>
               <Badge
                 className={`${
                   userData?.Troisieme ? 'bg-green-600' : 'bg-red-600'
-                } text-white  rounded-2xl px-4`}
+                } text-white  rounded-2xl px-4 py-2`}
               >
                 Tranche 3
               </Badge>
