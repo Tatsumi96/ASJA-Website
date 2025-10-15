@@ -1,4 +1,4 @@
-import type { Dispatch, SetStateAction } from 'react';
+import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 import { MdFileDownload, MdHome, MdPerson } from 'react-icons/md';
 
 export const BottomBar = ({
@@ -8,8 +8,39 @@ export const BottomBar = ({
   callBack: Dispatch<SetStateAction<number>>;
   index: number;
 }) => {
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+      const isAtBottom =
+        window.innerHeight + currentScrollY >=
+        document.documentElement.scrollHeight;
+
+      if (isAtBottom) {
+        setShow(false);
+      } else if (currentScrollY > lastScrollY) {
+        setShow(false);
+      } else {
+        setShow(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', controlNavbar);
+
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, [lastScrollY]);
   return (
-    <div className="md:hidden flex mx-20  bg-zinc-100 shadow-xl dark:bg-zinc-800 transition-all duration-500 rounded-full justify-between items-center bottom-5 left-0 right-0 py-4   fixed text-gray-800 z-50">
+    <div
+      className={`md:hidden flex mx-15  bg-zinc-100 shadow-xl dark:bg-zinc-800 transition-all duration-500 rounded-full justify-between items-center left-0 right-0 py-4   fixed text-gray-800 z-50 ${
+        show ? 'bottom-5' : 'bottom-[-100px]'
+      }`}
+    >
       <div
         className="absolute bg-green-700 rounded-full transition-all duration-200 ease-in-out"
         style={{
