@@ -51,7 +51,7 @@ export const StudentInformation = () => {
               Matricule:
               <span className="font-normal"> {userData?.identifier}</span>{' '}
             </p>
-            <div className="flex w-full justify-center gap-3 p-5 md:py-4 md:px-8 mt-5  border-2 border-green-700 rounded-4xl">
+            <div className="flex w-full justify-center gap-3 p-5 md:py-4 md:px-8 ">
               <Badge
                 className={`${
                   userData?.Premier ? 'bg-green-600' : 'bg-red-600'
