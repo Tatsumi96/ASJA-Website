@@ -129,9 +129,12 @@ export const useAdminDashboard = () => {
     const result = await postRepo.create({
       title: postTitle.toLocaleUpperCase(),
       description: description,
-      branche: branche as Branche,
+      branche:
+        !branche || level == 'L1' || level == 'L2'
+          ? 'COMMUN'
+          : (branche.replace(/_/g, ' ') as Branche),
       level: level as Level,
-      mention: mention == '' ? 'ASJA' : (mention as Mention),
+      mention: mention == '' ? 'ASJA' : (mention.replace(/_/g, ' ') as Mention),
       imageUrl: selectedFile?.name,
     });
     if (result.status === 'success') {
