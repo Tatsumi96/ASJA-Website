@@ -26,6 +26,7 @@ export const AddDocCard = () => {
     setLevel,
     setBranche,
     mention,
+    lessonTitle,
   } = useAdminDashboardContext();
 
   const { closeAddDoc } = useModalContext();
@@ -52,6 +53,7 @@ export const AddDocCard = () => {
                 </Label>
                 <Input
                   className="bg-gray-200"
+                  value={lessonTitle.toLocaleUpperCase()}
                   onChange={(e) => setLessonTitle(e.target.value)}
                 />
               </div>

@@ -384,12 +384,12 @@ export const useAdminDashboard = () => {
       fileName: selectedFile?.name as string,
       fileSize: selectedFile?.size as number,
       branche:
-        branche.length == 0
+        !branche || level == 'L1' || level == 'L2'
           ? 'COMMUN'
           : (branche.replace(/_/g, ' ') as Branche),
       mention: mention.replace(/_/g, ' ') as Mention,
       level: level as Level,
-      lessonTitle,
+      lessonTitle: lessonTitle.toLocaleUpperCase(),
     };
 
     const result = await docRepo.sendMetaData(doc);
@@ -517,5 +517,6 @@ export const useAdminDashboard = () => {
     deletePost,
     logOut,
     deleteDoc,
+    lessonTitle,
   };
 };
