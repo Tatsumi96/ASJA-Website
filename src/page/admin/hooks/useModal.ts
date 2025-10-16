@@ -14,6 +14,10 @@ export const useModal = () => {
 
   const [isAddPost, setAddPostVisible] = useState<boolean>(false);
 
+  const [isUpdateUserVisible, setUpdateUserVisible] = useState<boolean>(false);
+
+  const [isAddDocVisible, setAddDocVisible] = useState<boolean>(false);
+
   const [isPostInformationVisible, setPostInformationVisible] =
     useState<boolean>(false);
 
@@ -22,6 +26,14 @@ export const useModal = () => {
 
   const [isStudentInfoVisible, setIsStudentInfoVisible] =
     useState<boolean>(false);
+
+  const openUpdateUser = () => {
+    setUpdateUserVisible(true);
+  };
+
+  const closeUpdateUser = () => {
+    setUpdateUserVisible(false);
+  };
 
   const openAddPost = () => {
     setAddPostVisible(true);
@@ -86,5 +98,19 @@ export const useModal = () => {
     closeAddPost,
     fileNameToDelete,
     setFileNameToDelete,
+    postDeleteId,
+    setPostDeleteId,
+    postFileNameToDelete,
+    setPostFileNameToDelete,
+    deleteCallBack,
+    setDeleteCallBack,
+    cancelCallBack,
+    setcancelCallBack,
+    isAddDocVisible,
+    openAddDoc,
+    closeAddDoc,
+    isUpdateUserVisible,
+    openUpdateUser,
+    closeUpdateUser,
   };
 };

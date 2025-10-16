@@ -13,6 +13,8 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { classes, mentions } from '@/core/types';
+import { DeleteUserButton } from './delete-user-button';
+import { UpdateUserButton } from './edit-user-button';
 
 export const columns: ColumnDef<UserDto>[] = [
   {
@@ -29,7 +31,9 @@ export const columns: ColumnDef<UserDto>[] = [
       );
     },
     cell: ({ row }) => (
-      <Avatar className=" size-11 ">
+      <Avatar
+        className={`size-11 rounded-full ${row.getValue('imageUrl') ? 'border-2' : ' border-0'} border-green-700`}
+      >
         <AvatarFallback className="dark:text-white  bg-gradient-to-br from-zinc-400 to-zinc-500 text-white">
           {row.getValue('imageUrl') ? (
             <img src={row.getValue('imageUrl')} />
@@ -292,6 +296,14 @@ export const columns: ColumnDef<UserDto>[] = [
         trancheId={row.original.trancheId}
       />
     ),
+  },
+  {
+    accessorKey: 'id',
+    header: () => {},
+    enableHiding: false,
+    cell: ({ row }) => {
+      return <UpdateUserButton user={row.original} />;
+    },
   },
   {
     accessorKey: 'mentionId',

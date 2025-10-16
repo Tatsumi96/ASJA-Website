@@ -25,6 +25,7 @@ export const CardWithForm = () => {
     setLevel,
     setBranche,
     mention,
+    lessonTitle,
   } = useAdminDashboardContext();
 
   return (
@@ -45,6 +46,7 @@ export const CardWithForm = () => {
                 </Label>
                 <Input
                   className="bg-gray-200"
+                  value={lessonTitle.toLocaleUpperCase()}
                   onChange={(e) => setLessonTitle(e.target.value)}
                 />
                 <Label
