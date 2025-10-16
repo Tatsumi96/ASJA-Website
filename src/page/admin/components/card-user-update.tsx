@@ -168,7 +168,14 @@ export const CardUpdateUser = () => {
         <CardFooter className="p-0">
           <Button
             className=" bg-green-700 hover:bg-green-900 flex w-full cursor-pointer p-6"
-            onClick={updateUserInformation}
+            onClick={async () => {
+              await updateUserInformation();
+              setName('');
+              setLastName('');
+              setContact('');
+              setImage('');
+              closeUpdateUser();
+            }}
           >
             <p className=" text-xl">Modifier</p>
           </Button>

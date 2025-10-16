@@ -41,7 +41,7 @@ export class PostServiceImpl implements PostService {
   }
   async delete(id: string, fileName: string): Promise<void> {
     const response = await this.api.delete(
-      `${ApiSource.url}/mention?id=${id}&fileName=${fileName}`
+      `${ApiSource.url}/post?id=${id}&fileName=${fileName}`
     );
     if (response.status != 200) throw new Error();
   }
