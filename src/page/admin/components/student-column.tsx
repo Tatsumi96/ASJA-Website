@@ -3,6 +3,7 @@ import { Separator } from '@/components/ui/separator';
 import type { UserDto } from '@/features/mention/user.dto';
 import type { ColumnDef } from '@tanstack/react-table';
 import { TrancheBadge } from './tranche-status-badge';
+import { DeleteButton } from './delete-button';
 import { MdPerson } from 'react-icons/md';
 import {
   Select,
@@ -310,7 +311,7 @@ export const columns: ColumnDef<UserDto>[] = [
     enableHiding: false,
     cell: ({ row }) => {
       return (
-        <DeleteUserButton
+        <DeleteButton
           id={row.getValue('mentionId')}
           fileName={row.original.fileName as string}
         />

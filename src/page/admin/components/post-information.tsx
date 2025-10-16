@@ -24,15 +24,8 @@ export const PostInformation = () => {
           </Avatar>
           <p className="font-semibold text-xl">{post?.title}</p>
         </section>
+        {post?.imageUrl && <img src={post?.imageUrl} className="rounded-2xl" />}
         <p>{post?.description}</p>
-        {post?.imageUrl && (
-          <div className="aspect-[16/9]">
-            <img
-              src={post?.imageUrl}
-              className="rounded-2xl w-full h-full object-cover"
-            />{' '}
-          </div>
-        )}
         <p className="flex justify-end text-gray-500">
           Publie le , {post?.date}
         </p>
