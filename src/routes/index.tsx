@@ -1,17 +1,17 @@
-import { AdminDashboardPage } from '@/page/admin';
-import { LandingPage } from '@/page/landing';
-import { LogInSection } from '@/page/login';
-import { StudentSpacePage } from '@/page/student-space';
-import { InfoPage } from '@/page/Info';
-import { AgroPage } from '@/page/Agro';
-import { LeaPage } from '@/page/LEA';
-import { EcoPage } from '@/page/Eco';
-import { STPage } from '@/page/ST';
-import { DroitPage } from '@/page/Droit';
-import { useTheme } from '@/page/theme/useTheme';
-import '@/i18n';
+import { AdminDashboardPage } from "@/page/admin";
+import { LandingPage } from "@/page/landing";
+import { LogInSection } from "@/page/login";
+import { StudentSpacePage } from "@/page/student_space";
+import { InfoPage } from "@/page/Info";
+import { AgroPage } from "@/page/Agro";
+import { LeaPage } from "@/page/LEA";
+import { EcoPage } from "@/page/Eco";
+import { STPage } from "@/page/ST";
+import { DroitPage } from "@/page/Droit";
+import { useTheme } from "@/page/theme/useTheme";
+import "@/i18n";
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export const PageRoute = () => {
   useTheme();

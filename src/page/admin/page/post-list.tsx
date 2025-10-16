@@ -4,20 +4,11 @@ import { useModalContext } from '../bloc/useModalContext';
 import { useScrollLock } from '../hooks/useScrollLock';
 import { PostInformation } from '../components/post-information';
 import { CardAddPost } from '../components/card-add-post';
-import { DeleteModalConfirmation } from '../components/delete-modal-confirmantion';
 
 export const Postlist = () => {
-  const {
-    isPostInformationVisible,
-    isAddPost,
-    deleteCallBack,
-    cancelCallBack,
-    isDeleteConfirmationVisible,
-  } = useModalContext();
+  const { isPostInformationVisible, isAddPost } = useModalContext();
 
-  useScrollLock(
-    isPostInformationVisible || isAddPost || isDeleteConfirmationVisible
-  );
+  useScrollLock(isPostInformationVisible || isAddPost);
   return (
     <section className=" flex flex-col h-full dark:bg-zinc-900">
       <PostTable />
@@ -29,15 +20,6 @@ export const Postlist = () => {
       {isAddPost && (
         <Modal>
           <CardAddPost />
-        </Modal>
-      )}
-      {isDeleteConfirmationVisible && (
-        <Modal>
-          <DeleteModalConfirmation
-            text=" Voulez-vous vraiment supprimer cette annonce ?"
-            confirm={deleteCallBack}
-            cancel={cancelCallBack}
-          />
         </Modal>
       )}
     </section>

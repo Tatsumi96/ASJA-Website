@@ -7,7 +7,6 @@ export abstract class PostService {
   abstract create(post: PostEntity): Promise<{ id: string; date: string }>;
   abstract get(params: GetPostInputType): Promise<PostDto[]>;
   abstract sendFiles(file: FormData): Promise<void>;
-  abstract delete(id: string, fileName: string): Promise<void>;
 }
 
 export class PostServiceImpl implements PostService {
@@ -36,13 +35,6 @@ export class PostServiceImpl implements PostService {
           'Content-Type': 'multipart/form-data',
         },
       }
-    );
-    if (response.status != 200) throw new Error();
-  }
-
-  async delete(id: string, fileName: string): Promise<void> {
-    const response = await this.api.delete(
-      `${ApiSource.url}/post?id=${id}&fileName=${fileName}`
     );
     if (response.status != 200) throw new Error();
   }

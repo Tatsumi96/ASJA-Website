@@ -12,7 +12,7 @@ export class UserServiceImpl implements UserService {
   constructor(private api: AxiosInstance) {}
 
   async get(): Promise<UserDto> {
-    const response = await this.api.get(`${ApiSource.url}/student`);
+    const response = await this.api.get(`${ApiSource.url}/user`);
     if (response.status != 200) throw new Error();
     return response.data;
   }
