@@ -9,6 +9,7 @@ import type { PostDto } from '@/features/post/post.dto';
 import type { TrancheDto } from '@/features/tranche/tranche.dto';
 
 import {
+  authRepository,
   docRepo,
   logRepo,
   mentionRepository,
@@ -51,7 +52,7 @@ export const useAdminDashboard = () => {
   const [docList, setDoclist] = useState<DocEntity[]>([]);
   const [page, setPage] = useState<number>(1);
   const [hasReachedMax, setHasReachedMax] = useState<boolean>(false);
-  const [userName, setUserName] = useState<string>('');
+  const [userData, setUserData] = useState<UserDto>();
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [image, setImage] = useState<string | null>();
@@ -62,7 +63,6 @@ export const useAdminDashboard = () => {
   const [mention, setMention] = useState<string>('');
   const [level, setLevel] = useState<string>('');
   const [branche, setBranche] = useState<string>('');
-  const [authorName, setAuthorName] = useState<string>('');
 
   const [errorMessage, setErrorMessage] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -81,7 +81,7 @@ export const useAdminDashboard = () => {
     const result = await mentionRepository.deleteStudent(id, fileName);
 
     if (result.status === 'success') {
-      toast.success('Succes', {
+      toast.success('Success', {
         description: 'Student deleted',
       });
       await fetchDashboardData();
@@ -201,7 +201,7 @@ export const useAdminDashboard = () => {
           : (branche.replace(/_/g, ' ') as Branche),
       level: level as Level,
       mention: mention.replace(/_/g, ' ') as Mention,
-      role: 'User',
+      role: 'Student',
       Premier: isPremierPaid,
       Deuxieme: isDeuxiemePaid,
       Troisieme: isTroisiemePaid,
@@ -410,7 +410,7 @@ export const useAdminDashboard = () => {
         description: 'Failed to load user data',
       });
 
-    setUserName(result.data.userName);
+    setUserData(result.data as UserDto);
   };
 
   const fetchDashboardData = async () => {
@@ -428,6 +428,39 @@ export const useAdminDashboard = () => {
     if (selectedFile) await handleUpload();
   };
 
+  const deleteDoc = async (id: string, fileName: string) => {
+    const result = await docRepo.delete(id, fileName);
+    if (result.status == 'failure')
+      return toast.error('Error', {
+        description: 'Failed to delete document',
+      });
+    const newDocList = docList.filter((item) => item.id != id);
+    setDoclist(newDocList);
+  };
+
+  const deletePost = async (id: string, fileName: string) => {
+    const result = await postRepo.delete(id, fileName);
+    if (result.status == 'failure')
+      return toast.error('Error', {
+        description: 'Failed to delete post',
+      });
+    const newPostList = post.filter((item) => item.id != id);
+    setPostList(newPostList);
+  };
+
+  const logOut = async (navigate: (path: string) => void) => {
+    const result = await authRepository.logOut();
+
+    if (result.status == 'failure')
+      return toast.error('Error', {
+        description: 'Error on logged out',
+      });
+    toast.success('Succes', {
+      description: 'Logged out',
+    });
+    navigate('/login');
+  };
+
   useEffect(() => {
     const callFetchUserAndDashboardData = async () => {
       await fetchUserData();
@@ -438,12 +471,12 @@ export const useAdminDashboard = () => {
   }, []);
 
   return {
-    addDocFile: addDocMetaData,
+    addDocMetaData,
+    userData,
     docList,
     setPage,
     fetchDocList,
     hasReachedMax,
-    userName,
     handleCancel,
     handleUpload,
     handleFileChange,
@@ -456,7 +489,6 @@ export const useAdminDashboard = () => {
     setMention,
     setLevel,
     sendToServer,
-    setAuthorName,
     onDrop,
     setBranche,
     mention,

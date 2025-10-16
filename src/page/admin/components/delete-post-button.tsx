@@ -13,7 +13,7 @@ export const DeletePostButton = ({
     openDeleteConfirmation,
     closeDeleteConfirmation,
     setDeleteCallBack,
-    setcancelCallBack,
+    setCancelCallBack,
   } = useModalContext();
   const { deletePost } = useAdminDashboardContext();
 
@@ -24,7 +24,7 @@ export const DeletePostButton = ({
 
   const callDelete = async () => {
     setDeleteCallBack(() => callDeletePost);
-    setcancelCallBack(() => closeDeleteConfirmation);
+    setCancelCallBack(() => closeDeleteConfirmation);
     openDeleteConfirmation();
   };
 

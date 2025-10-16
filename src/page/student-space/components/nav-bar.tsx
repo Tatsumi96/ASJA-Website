@@ -6,7 +6,7 @@ import { useTheme } from '@/page/theme/useTheme';
 export const NavBar = () => {
   const { toggleTheme, isDark } = useTheme();
   return (
-    <div className="flex justify-between bg-white dark:bg-zinc-900 top-0 py-3 px-4 fixed w-full text-gray-800 z-50">
+    <div className="flex justify-between top-0 py-3 px-4 fixed w-full text-gray-800 z-50">
       <a
         className=" cursor-pointer"
         onClick={() => (window.location.href = '/')}

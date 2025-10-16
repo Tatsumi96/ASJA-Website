@@ -3,6 +3,7 @@ import type { UserDto } from './user.dto';
 import type { UserRepository } from './user.repository';
 import type { UserService } from './user.service';
 import type { UpdateDto } from './udpate.dto';
+import { ApiSource } from '@/core/constant';
 
 export class UserRepositoryImpl implements UserRepository {
   constructor(private service: UserService) {}
@@ -10,7 +11,22 @@ export class UserRepositoryImpl implements UserRepository {
   async getData(): Promise<Result<UserDto>> {
     try {
       const result = await this.service.get();
-      return success(result);
+      const userData: UserDto = {
+        imageUrl: result.imageUrl
+          ? `${ApiSource.url}/mention/stream/${result.imageUrl}`
+          : undefined,
+        identifier: result.identifier,
+        name: result.name,
+        lastName: result.lastName,
+        contact: result.contact,
+        mention: result.mention,
+        level: result.level,
+        branche: result.branche,
+        Premier: result.Premier,
+        Deuxieme: result.Deuxieme,
+        Troisieme: result.Troisieme,
+      };
+      return success(userData);
     } catch (error) {
       console.error(error);
       return failure(new Error());

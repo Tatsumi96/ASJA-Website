@@ -1,11 +1,11 @@
-import { Separator } from "@/components/ui/separator";
-import type { ColumnDef } from "@tanstack/react-table";
+import { Separator } from '@/components/ui/separator';
+import type { ColumnDef } from '@tanstack/react-table';
 
-import type { LogEntity } from "@/features/log/log.entity";
+import type { LogEntity } from '@/features/log/log.entity';
 
 export const columns: ColumnDef<LogEntity>[] = [
   {
-    accessorKey: "action",
+    accessorKey: 'action',
     header: () => {
       return (
         <div className="flex w-full items-center justify-between">
@@ -19,12 +19,12 @@ export const columns: ColumnDef<LogEntity>[] = [
     },
     cell: ({ row }) => (
       <p className=" hidden py-2 dark:text-white md:flex">
-        {row.getValue("action")}
+        {row.getValue('action')}
       </p>
     ),
   },
   {
-    accessorKey: "description",
+    accessorKey: 'description',
     header: () => {
       return (
         <div className="flex w-full items-center justify-between">
@@ -38,12 +38,12 @@ export const columns: ColumnDef<LogEntity>[] = [
     },
     cell: ({ row }) => (
       <p className=" hidden py-2 dark:text-white md:flex">
-        {row.getValue("description")}
+        {row.getValue('description')}
       </p>
     ),
   },
   {
-    accessorKey: "date",
+    accessorKey: 'date',
     header: () => {
       return (
         <div className="flex w-full items-center justify-between">
@@ -57,7 +57,7 @@ export const columns: ColumnDef<LogEntity>[] = [
     },
     cell: ({ row }) => (
       <p className=" hidden py-2 dark:text-white md:flex">
-        {row.getValue("date")}
+        {row.getValue('date')}
       </p>
     ),
   },
