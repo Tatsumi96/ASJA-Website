@@ -119,7 +119,7 @@ export const useAdminDashboard = () => {
       clean();
 
       toast.success('Success', {
-        description: 'Post addee',
+        description: 'Post added',
         className: 'animate-fade animate-once animate-ease-out',
       });
     } else {
@@ -472,6 +472,9 @@ export const useAdminDashboard = () => {
       });
     const newPostList = post.filter((item) => item.id != id);
     setPostList(newPostList);
+    return toast.success('Success', {
+      description: 'post deleted',
+    });
   };
 
   const logOut = async (navigate: (path: string) => void) => {
