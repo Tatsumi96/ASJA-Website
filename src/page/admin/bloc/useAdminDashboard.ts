@@ -7,7 +7,6 @@ import type { UserDto } from '@/features/mention/user.dto';
 import type { UserEntity } from '@/features/mention/user.entity';
 import type { PostDto } from '@/features/post/post.dto';
 import type { TrancheDto } from '@/features/tranche/tranche.dto';
-import type { UpdateDto } from '@/features/user/udpate.dto';
 
 import {
   authRepository,
