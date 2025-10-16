@@ -7,6 +7,7 @@ import type { UserDto } from '@/features/mention/user.dto';
 import type { UserEntity } from '@/features/mention/user.entity';
 import type { PostDto } from '@/features/post/post.dto';
 import type { TrancheDto } from '@/features/tranche/tranche.dto';
+import type { UpdateDto } from '@/features/user/udpate.dto';
 
 import {
   authRepository,
@@ -177,6 +178,31 @@ export const useAdminDashboard = () => {
     });
 
     if (result.status === 'success') {
+      const student = studentList.find(
+        (item) => item.identifier == userMatricule
+      ) as UserDto;
+
+      const newStudentInformationUpdated: UserDto = {
+        ...result.data,
+        Premier: student?.Premier,
+        Deuxieme: student?.Deuxieme,
+        Troisieme: student?.Troisieme,
+        trancheId: student?.trancheId,
+        mentionId: student?.mentionId,
+        fileName: selectedFile?.name as string,
+        imageUrl: result.data.imageUrl
+          ? result.data.imageUrl
+          : student.imageUrl,
+      };
+
+      const oldStudentList = studentList.filter(
+        (item) => item.identifier != userMatricule
+      );
+      setStudentlist(() => [
+        ...oldStudentList,
+        ...[newStudentInformationUpdated],
+      ]);
+
       toast.success('Succes', {
         description: 'Student information updated',
         className: 'animate-fade animate-once animate-ease-out',
