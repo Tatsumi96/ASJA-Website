@@ -15,6 +15,8 @@ export const Studentlist = () => {
     student,
     isDeleteConfirmationVisible,
     isUpdateUserVisible,
+    deleteCallBack,
+    cancelCallBack,
   } = useModalContext();
 
   useScrollLock(
@@ -44,7 +46,11 @@ export const Studentlist = () => {
 
       {isDeleteConfirmationVisible && (
         <Modal>
-          <DeleteModalConfirmation />
+          <DeleteModalConfirmation
+            text=" Voulez-vous vraiment supprimer cette etudiant?"
+            cancel={cancelCallBack}
+            confirm={deleteCallBack}
+          />
         </Modal>
       )}
     </section>

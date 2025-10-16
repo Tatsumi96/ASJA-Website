@@ -1,7 +1,6 @@
 import { AdminDashboardPage } from "@/page/admin";
 import { LandingPage } from "@/page/landing";
 import { LogInSection } from "@/page/login";
-import { StudentSpacePage } from "@/page/student_space";
 import { InfoPage } from "@/page/Info";
 import { AgroPage } from "@/page/Agro";
 import { LeaPage } from "@/page/LEA";
@@ -12,6 +11,7 @@ import { useTheme } from "@/page/theme/useTheme";
 import "@/i18n";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { StudentSpacePage } from "@/page/student-space";
 
 export const PageRoute = () => {
   useTheme();

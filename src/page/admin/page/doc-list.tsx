@@ -2,8 +2,8 @@ import { Modal } from '@/components/ui/modal';
 import { DocDataTable } from '../components/doc-data-table';
 import { useModalContext } from '../bloc/useModalContext';
 import { useScrollLock } from '../hooks/useScrollLock';
-import { AddDocCard } from '../components/card-document-input';
 import { DeleteModalConfirmation } from '../components/delete-modal-confirmantion';
+import { CardAddDoc } from '../components/card-document-input';
 
 export const Doclist = () => {
   const {
@@ -19,7 +19,7 @@ export const Doclist = () => {
       <DocDataTable />
       {isAddDocVisible && (
         <Modal>
-          <AddDocCard />
+          <CardAddDoc />
         </Modal>
       )}
       {isDeleteConfirmationVisible && (

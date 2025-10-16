@@ -6,6 +6,10 @@ export const useModal = () => {
   const [deleteId, setDeleteId] = useState<string>('');
   const [fileNameToDelete, setFileNameToDelete] = useState<string>('');
   const [student, setStudent] = useState<UserDto>();
+  const [deleteCallBack, setDeleteCallBack] = useState<() => Promise<void>>(
+    async () => {}
+  );
+  const [cancelCallBack, setCancelCallBack] = useState<() => void>(() => {});
 
   const [post, setPost] = useState<PostDto>();
 
@@ -26,6 +30,13 @@ export const useModal = () => {
 
   const [isStudentInfoVisible, setIsStudentInfoVisible] =
     useState<boolean>(false);
+
+  const openAddDoc = () => {
+    setAddDocVisible(true);
+  };
+  const closeAddDoc = () => {
+    setAddDocVisible(false);
+  };
 
   const openUpdateUser = () => {
     setUpdateUserVisible(true);
@@ -98,14 +109,10 @@ export const useModal = () => {
     closeAddPost,
     fileNameToDelete,
     setFileNameToDelete,
-    postDeleteId,
-    setPostDeleteId,
-    postFileNameToDelete,
-    setPostFileNameToDelete,
     deleteCallBack,
     setDeleteCallBack,
     cancelCallBack,
-    setcancelCallBack,
+    setCancelCallBack,
     isAddDocVisible,
     openAddDoc,
     closeAddDoc,

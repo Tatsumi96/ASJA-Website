@@ -1,4 +1,4 @@
-import type { DocDto } from '@/features/doc/doc.dto';
+import type { DocEntity } from '@/features/doc/doc.entity';
 import type { PostDto } from '@/features/post/post.dto';
 import type { UserDto } from '@/features/user/user.dto';
 import { authRepository, docRepo, postRepo, userRepository } from '@/injection';
@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 
 export const useStudentSpace = () => {
-  const [docList, setDoclist] = useState<DocDto[]>([]);
+  const [docList, setDoclist] = useState<DocEntity[]>([]);
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(4);
   const [hasReachedMax, setHasReachedMax] = useState<boolean>(false);
@@ -63,9 +63,8 @@ export const useStudentSpace = () => {
       return toast.error('Error', {
         description: 'something went wrong',
       });
-    toast.success('Success', {
-      description: 'Deconnecter',
-      className: 'animate-fade animate-once animate-ease-out',
+    toast.success('Succes', {
+      description: 'Logged out',
     });
     navigate('/login');
   };

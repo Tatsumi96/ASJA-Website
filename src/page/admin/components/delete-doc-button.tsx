@@ -13,7 +13,7 @@ export const DeleteDocButton = ({
 
   const {
     openDeleteConfirmation,
-    setcancelCallBack,
+    setCancelCallBack,
     closeDeleteConfirmation,
     setDeleteCallBack,
   } = useModalContext();
@@ -25,7 +25,7 @@ export const DeleteDocButton = ({
 
   const callDeleteStudent = async () => {
     setDeleteCallBack(() => callDelete);
-    setcancelCallBack(() => closeDeleteConfirmation);
+    setCancelCallBack(() => closeDeleteConfirmation);
     openDeleteConfirmation();
   };
 

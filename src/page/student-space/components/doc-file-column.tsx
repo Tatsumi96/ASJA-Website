@@ -1,8 +1,8 @@
-import type { DocDto } from '@/features/doc/doc.dto';
+import type { DocEntity } from '@/features/doc/doc.entity';
 import type { ColumnDef } from '@tanstack/react-table';
 import { DownloadIcon, Files } from 'lucide-react';
 
-export const columns: ColumnDef<DocDto>[] = [
+export const columns: ColumnDef<DocEntity>[] = [
   {
     accessorKey: 'lessonTitle',
     header: () => {

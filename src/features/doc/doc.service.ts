@@ -1,12 +1,13 @@
-import type { AxiosInstance } from "axios";
-import type { DocEntity } from "./doc.entity";
-import { ApiSource } from "@/core/constant";
-import type { DocDto } from "./doc.dto";
+import type { AxiosInstance } from 'axios';
+import type { DocEntity } from './doc.entity';
+import { ApiSource } from '@/core/constant';
+import type { DocDto } from './doc.dto';
 
 export abstract class DocService {
   abstract getFile(page: number, limit: number): Promise<DocEntity[]>;
   abstract sendFiles(file: FormData): Promise<void>;
   abstract sendMetaData(doc: DocDto): Promise<void>;
+  abstract delete(id: string, fileName: string): Promise<void>;
 }
 
 export class DocServiceImpl implements DocService {
@@ -26,7 +27,7 @@ export class DocServiceImpl implements DocService {
       file,
       {
         headers: {
-          "Content-Type": "multipart/form-data",
+          'Content-Type': 'multipart/form-data',
         },
       }
     );
@@ -40,5 +41,12 @@ export class DocServiceImpl implements DocService {
     );
 
     if (response.status != 201) throw new Error();
+  }
+
+  async delete(id: string, fileName: string): Promise<void> {
+    const response = await this.apiService.delete(
+      `${ApiSource.url}/doc?id=${id}&fileName=${fileName}`
+    );
+    if (response.status != 200) throw new Error();
   }
 }
