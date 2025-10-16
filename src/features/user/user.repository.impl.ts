@@ -3,6 +3,7 @@ import type { UserDto } from './user.dto';
 import type { UserRepository } from './user.repository';
 import type { UserService } from './user.service';
 import { ApiSource } from '@/core/constant';
+import type { UpdateDto } from './udpate.dto';
 
 export class UserRepositoryImpl implements UserRepository {
   constructor(private service: UserService) {}
@@ -26,6 +27,16 @@ export class UserRepositoryImpl implements UserRepository {
         mention: result.mention,
       };
       return success(userData);
+    } catch (error) {
+      console.error(error);
+      return failure(new Error());
+    }
+  }
+
+  async update(user: UpdateDto): Promise<Result<void>> {
+    try {
+      await this.service.update(user);
+      return success(undefined);
     } catch (error) {
       console.error(error);
       return failure(new Error());

@@ -22,6 +22,8 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { toast } from 'sonner';
 
 export const useAdminDashboard = () => {
+  const [userMatricule, setUserMatricule] = useState<number>();
+
   const [postTitle, setPostTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
 
@@ -187,6 +189,33 @@ export const useAdminDashboard = () => {
     } else {
       toast.error('Error', {
         description: 'Failed to load logs',
+      });
+    }
+  };
+
+  const updateUserInformation = async () => {
+    const result = await userRepository.update({
+      name: name.replace(/\s+/g, ''),
+      lastName: lastName.replace(/\s+/g, ''),
+      imageUrl: selectedFile?.name as string,
+      branche:
+        !branche || level == 'L1' || level == 'L2'
+          ? 'COMMUN'
+          : (branche.replace(/_/g, ' ') as Branche),
+      level: level as Level,
+      mention: mention.replace(/_/g, ' ') as Mention,
+      contact,
+      identifier: userMatricule as number,
+    });
+
+    if (result.status === 'success') {
+      toast.success('Succes', {
+        description: 'Student information updated',
+        className: 'animate-fade animate-once animate-ease-out',
+      });
+    } else {
+      toast.error('Error', {
+        description: 'Failed to update user information',
       });
     }
   };
@@ -518,5 +547,8 @@ export const useAdminDashboard = () => {
     logOut,
     deleteDoc,
     lessonTitle,
+    setImage,
+    setUserMatricule,
+    updateUserInformation,
   };
 };

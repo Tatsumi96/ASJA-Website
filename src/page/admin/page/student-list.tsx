@@ -6,6 +6,7 @@ import { CardInputUser } from '../components/card-user-input';
 import { StudentInformation } from '../components/student-information';
 import type { UserDto } from '@/features/mention/user.dto';
 import { DeleteModalConfirmation } from '../components/delete-modal-confirmantion';
+import { CardUpdateUser } from '../components/card-user-update';
 
 export const Studentlist = () => {
   const {
@@ -15,12 +16,14 @@ export const Studentlist = () => {
     deleteCallBack,
     cancelCallBack,
     isDeleteConfirmationVisible,
+    isUpdateUserVisible,
   } = useModalContext();
 
   useScrollLock(
     isAddStudentCardVisible ||
       isStudentInfoVisible ||
-      isDeleteConfirmationVisible
+      isDeleteConfirmationVisible ||
+      isUpdateUserVisible
   );
   return (
     <section className=" flex flex-col h-full dark:bg-zinc-900">
@@ -28,6 +31,11 @@ export const Studentlist = () => {
       {isAddStudentCardVisible && (
         <Modal>
           <CardInputUser />
+        </Modal>
+      )}
+      {isUpdateUserVisible && (
+        <Modal>
+          <CardUpdateUser />
         </Modal>
       )}
       {isStudentInfoVisible && (
