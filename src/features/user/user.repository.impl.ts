@@ -2,7 +2,6 @@ import { failure, success, type Result } from '@/core/result';
 import type { UserDto } from './user.dto';
 import type { UserRepository } from './user.repository';
 import type { UserService } from './user.service';
-import { ApiSource } from '@/core/constant';
 import type { UpdateDto } from './udpate.dto';
 
 export class UserRepositoryImpl implements UserRepository {
