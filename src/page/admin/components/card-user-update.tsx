@@ -49,6 +49,10 @@ export const CardUpdateUser = () => {
               setLastName('');
               setContact('');
               setImage('');
+              setImage('');
+              setLevel('');
+              setBranche('');
+              setMention('');
               closeUpdateUser();
             }}
             className=" text-green-600 dark:text-white text-4xl cursor-pointer absolute  hover:scale-125 transition-all duration-300"
@@ -174,6 +178,9 @@ export const CardUpdateUser = () => {
               setLastName('');
               setContact('');
               setImage('');
+              setLevel('');
+              setBranche('');
+              setMention('');
               closeUpdateUser();
             }}
           >
