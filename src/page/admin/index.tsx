@@ -15,7 +15,6 @@ export const AdminDashboardPage = () => {
   const [index, setIndex] = useState<number>(0);
   const page: JSX.Element[] = [
     <Dashboard />,
-    <p>Tranche Page</p>,
     <Studentlist />,
     <Doclist />,
     <Postlist />,

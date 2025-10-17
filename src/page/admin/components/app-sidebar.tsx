@@ -21,7 +21,6 @@ import {
   MdNewspaper,
   MdPeople,
   MdSyncLock,
-  MdTrendingUp,
 } from 'react-icons/md';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
@@ -40,12 +39,7 @@ export const AppSidebar = ({
         icon: MdBarChart,
         click: changePage,
       },
-      {
-        title: 'Statistique des tranches',
-        url: '#',
-        icon: MdTrendingUp,
-        click: changePage,
-      },
+
       {
         title: 'Liste des étudiants',
         url: '#',
