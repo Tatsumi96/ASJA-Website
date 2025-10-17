@@ -14,9 +14,9 @@ export const StudentInformation = () => {
   };
 
   return (
-    <div className="flex flex-col">
-      <Card className="transition-all duration-500 border-0 shadow-none h-full w-full bg-transparent md:p-5 pt-8 md:justify-between">
-        <div className=" flex flex-col gap-5">
+    <div className="flex flex-col ">
+      <Card className="  transition-all duration-500 border-0 shadow-none h-full w-full bg-transparent md:p-5 pt-8 md:justify-between">
+        <div className="shadow-lg p-[10px] dark:shadow-gray-950 rounded-3xl flex flex-col gap-5">
           <section className=" flex flex-col items-center justify-center">
             {userData?.imageUrl ? (
               <div className="rounded-full border-5 border-green-700 p-1">

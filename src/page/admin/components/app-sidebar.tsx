@@ -106,7 +106,7 @@ export const AppSidebar = ({
               {data.navMain.map((item, index) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
-                    className="cursor-pointer font-bold"
+                    className="cursor-pointer font-bold py-[30px] text-lg border-b-2 rounded-none "
                     tooltip={item.title}
                     onClick={() => item.click(index)}
                   >
