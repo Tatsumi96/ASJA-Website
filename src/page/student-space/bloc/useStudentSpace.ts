@@ -63,7 +63,7 @@ export const useStudentSpace = () => {
       return toast.error('Error', {
         description: 'something went wrong',
       });
-    toast.success('Succes', {
+    toast.success('Success', {
       description: 'Logged out',
     });
     navigate('/login');

@@ -17,12 +17,14 @@ export const StudentSpacePage = () => {
     <StudentPortalProvider>
       <div className=" bg-white h-screen pt-20 py-5 px-1 lg:px-5 gap-3 overflow-x-hidden dark:bg-zinc-900 transition-all duration-500 flex">
         <NavBar />
-        <section className="md:flex hidden ">
+        <section className="md:flex hidden w-full ">
           <StudentInformation />
           <PostList />
           <DocDataTable />
         </section>
-        <section className="md:hidden flex justify-center  w-full">{page[index]}</section>
+        <section className="md:hidden flex justify-center  w-full">
+          {page[index]}
+        </section>
         <BottomBar callBack={setIndex} index={index} />
       </div>
     </StudentPortalProvider>
