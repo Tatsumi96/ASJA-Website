@@ -10,6 +10,7 @@ import { Modalprovider } from './bloc/useModalProvider';
 import { Loglist } from './page/log-list';
 import { Postlist } from './page/post-list';
 import { Doclist } from './page/doc-list';
+import { MessageDeveloperScreen } from './components/mesage-developer-screen';
 export const AdminDashboardPage = () => {
   const [index, setIndex] = useState<number>(0);
   const page: JSX.Element[] = [
@@ -26,10 +27,11 @@ export const AdminDashboardPage = () => {
         {' '}
         <SidebarProvider>
           <AppSidebar changePage={setIndex} />
-          <SidebarInset className=" overflow-hidden transition-all duration-500">
+          <SidebarInset className=" overflow-hidden hidden md:flex transition-all duration-500">
             <NavBar />
             {page[index]}
           </SidebarInset>
+          <MessageDeveloperScreen />
         </SidebarProvider>
       </Modalprovider>
     </AdminDashBoardProvider>
