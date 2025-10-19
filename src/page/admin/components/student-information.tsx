@@ -25,7 +25,7 @@ export const StudentInformation = ({ student }: { student: UserDto }) => {
               <img
                 src={student.imageUrl}
                 alt="Photo de profil"
-                className="rounded-full size-50 object-cover border-2 border-gray-200 group-hover:border-green-400 transition-all duration-200"
+                className="rounded-full size-50 object-cover transition-all duration-200"
               />
             </div>
           ) : (
