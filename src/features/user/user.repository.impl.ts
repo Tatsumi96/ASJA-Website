@@ -13,7 +13,7 @@ export class UserRepositoryImpl implements UserRepository {
       const result = await this.service.get();
       const userData: UserDto = {
         imageUrl: result.imageUrl
-          ? `${ApiSource.url}/mention/stream/${result.imageUrl}`
+          ? `${ApiSource.url}/student/stream/${result.imageUrl}`
           : undefined,
         identifier: result.identifier,
         name: result.name,
