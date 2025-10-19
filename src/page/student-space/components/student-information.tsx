@@ -9,7 +9,7 @@ export const StudentInformation = () => {
 
   return (
     <div className="flex flex-col md:w-1/2 w-full">
-      <Card className="transition-all duration-500 border-0 shadow-none h-full  bg-transparent md:p-5 pt-8 md:justify-between">
+      <Card className="transition-all duration-500 border-0 shadow-none h-full  bg-transparent pt-8 md:justify-between">
         <div className=" p-[10px] pt-[25px]  dark:shadow-gray-950 rounded-3xl flex flex-col gap-5">
           <section className=" flex flex-col items-center justify-center">
             {userData?.imageUrl ? (
