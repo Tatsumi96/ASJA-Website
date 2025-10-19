@@ -9,7 +9,7 @@ export const StudentInformation = ({ student }: { student: UserDto }) => {
 
   return (
     <div className=" flex flex-col gap-5 w-1/3">
-      <Card className="transition-all duration-500 p-5">
+      <Card className="transition-all duration-500 p-5 border-l-4 border-l-green-700">
         <MdCancel
           onClick={() => {
             closeStudentInfo();
