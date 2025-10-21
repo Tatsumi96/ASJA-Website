@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Apple } from "lucide-react";
 
 type Pedag = {
   title: string;
@@ -31,7 +30,7 @@ export const SystemePedagogiqueSection = () => {
   return (
     <div
       id="systeme"
-      className="bg-gradient-to-r from-gray-400/50 from-10% to-75% to-white dark:bg-zinc-800  dark:text-white transition-all duration-500"
+      className="bg-gradient-to-br w-screen from-gray-300/50 from-50% to-33% to-white dark:from-zinc-800 dark:to-zinc-800  dark:text-white transition-all duration-500"
     >
       <motion.div
         initial={{ y: 100, opacity: 0 }}
@@ -56,7 +55,6 @@ export const SystemePedagogiqueSection = () => {
             className="flex flex-col justify-center items-center w-100 lg:w-150"
             key={key}
           >
-            <Apple />
             <h3 className="text-3xl font-bold text-gray-700 dark:text-white p-10">
               {pedag.title}
             </h3>
