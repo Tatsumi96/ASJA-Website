@@ -1,20 +1,22 @@
 import axios from 'axios';
 
-import { AuthServiceImpl } from './features/auth/auth.service';
-import { AuthRepositoryImpl } from './features/auth/auth.repository.impl';
-import { DocServiceImpl } from './features/doc/doc.service';
-import { DocRepositoryImpl } from './features/doc/doc.repository.impl';
-import { UserServiceImpl } from './features/user/user.service';
-import { UserRepositoryImpl } from './features/user/user.repository.impl';
-import { MentionServiceImpl } from './features/mention/mention.service';
-import { MentionRepositoryImpl } from './features/mention/mention.repository.impl';
 import { ApiSource } from './core/constant';
-import { TrancheServiceImpl } from './features/tranche/tranche.service';
-import { TrancheRepositoryImpl } from './features/tranche/tranche.repositoryImpl';
-import { LogServiceImpl } from './features/log/log.service';
+import { AdminRepositoryImpl } from './features/admin/admin.repository.impl';
+import { AdminServiceImpl } from './features/admin/admin.service';
+import { AuthRepositoryImpl } from './features/auth/auth.repository.impl';
+import { AuthServiceImpl } from './features/auth/auth.service';
+import { DocRepositoryImpl } from './features/doc/doc.repository.impl';
+import { DocServiceImpl } from './features/doc/doc.service';
 import { LogRepositoryImpl } from './features/log/log.repository.impl';
-import { PostServiceImpl } from './features/post/post.service';
+import { LogServiceImpl } from './features/log/log.service';
+import { MentionRepositoryImpl } from './features/mention/mention.repository.impl';
+import { MentionServiceImpl } from './features/mention/mention.service';
 import { PostRepositoryImpl } from './features/post/post.repository.impl';
+import { PostServiceImpl } from './features/post/post.service';
+import { TrancheRepositoryImpl } from './features/tranche/tranche.repositoryImpl';
+import { TrancheServiceImpl } from './features/tranche/tranche.service';
+import { UserRepositoryImpl } from './features/user/user.repository.impl';
+import { UserServiceImpl } from './features/user/user.service';
 
 const api = axios.create({
   timeout: 5000,
@@ -61,6 +63,10 @@ export const mentionRepository = new MentionRepositoryImpl(mentionService);
 const authService = new AuthServiceImpl(api);
 
 const userService = new UserServiceImpl(api);
+
+const adminService = new AdminServiceImpl(api);
+
+export const adminRepository = new AdminRepositoryImpl(adminService);
 
 export const userRepository = new UserRepositoryImpl(userService);
 

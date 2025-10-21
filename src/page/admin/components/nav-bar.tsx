@@ -1,8 +1,8 @@
 import { SidebarTrigger } from '@/components/ui/sidebar';
 
+import { useTheme } from '@/page/theme/useTheme';
 import { Moon, Sun } from 'lucide-react';
 import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
-import { useTheme } from '@/page/theme/useTheme';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
@@ -20,7 +20,7 @@ const DropButton = ({ name }: { name: string }) => {
 };
 
 export const NavBar = () => {
-  const { userData } = useAdminDashboardContext();
+  const { adminData } = useAdminDashboardContext();
   const { toggleTheme, isDark } = useTheme();
   return (
     <header className=" group-has-data-[collapsible=icon]/sidebar-wrapper:h-12  duration-500 flex dark:bg-zinc-800 h-15 shrink-0 items-center gap-2 border-b transition-all ease-linear">
@@ -29,7 +29,7 @@ export const NavBar = () => {
           {' '}
           <SidebarTrigger className="-ml-1 text-green-700 hover:text-green-700" />
           <p className="font-semibold md:flex hidden">
-            Administrateur : {userData?.name}
+            Administrateur : {adminData?.name}
           </p>
         </section>
 
@@ -42,7 +42,7 @@ export const NavBar = () => {
               {isDark ? <Sun /> : <Moon />}
             </button>
           </div>
-          <DropButton name={userData?.name as string} />
+          <DropButton name={adminData?.name as string} />
         </div>
       </div>
     </header>
