@@ -136,7 +136,7 @@ export const FaqSection = () => {
                     {faq.question}
                     <ChevronDown
                       size={22}
-                      className={`transition-transform duration-300 ${
+                      className={`transition-transform cursor-pointer duration-300 ${
                         openQuestion === faq.question
                           ? "rotate-180 text-green-600"
                           : "text-zinc-500"
