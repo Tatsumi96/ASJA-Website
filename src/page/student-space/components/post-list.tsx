@@ -9,7 +9,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 export const PostList = () => {
   const { post } = useStudentPortalContext();
   return (
-    <Card className="lg:p-4 transition-all duration-500 border-0 shadow-none">
+    <Card className="lg:px-4 transition-all  duration-500 border-0 shadow-none">
       <ScrollArea className="h-full">
         {post.map((item) => (
           <section className="flex flex-col p-4 gap-3">

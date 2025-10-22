@@ -13,7 +13,7 @@ export const DeleteModalConfirmation = ({
 }) => {
   return (
     <div className=" flex flex-col gap-5 w-1/3">
-      <Card className="transition-all duration-500 p-5 items-center">
+      <Card className="transition-all duration-500 p-5 items-center border-l-5 border-l-red-600">
         <MdWarning className=" text-7xl dark:text-white text-red-600" />
         <p className="font-semibold">{text}</p>
         <section className="flex justify-end gap-3">

@@ -21,7 +21,6 @@ import {
   MdNewspaper,
   MdPeople,
   MdSyncLock,
-  MdTrendingUp,
 } from 'react-icons/md';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
@@ -40,12 +39,7 @@ export const AppSidebar = ({
         icon: MdBarChart,
         click: changePage,
       },
-      {
-        title: 'Statistique des tranches',
-        url: '#',
-        icon: MdTrendingUp,
-        click: changePage,
-      },
+
       {
         title: 'Liste des étudiants',
         url: '#',
@@ -106,7 +100,7 @@ export const AppSidebar = ({
               {data.navMain.map((item, index) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
-                    className="cursor-pointer font-bold"
+                    className="cursor-pointer font-bold py-[30px] text-lg border-b-2 rounded-none "
                     tooltip={item.title}
                     onClick={() => item.click(index)}
                   >

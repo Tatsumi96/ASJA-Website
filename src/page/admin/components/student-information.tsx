@@ -1,15 +1,15 @@
 import { Card } from '@/components/ui/card';
 
-import { useModalContext } from '../bloc/useModalContext';
 import type { UserDto } from '@/features/mention/user.dto';
 import { MdCancel, MdPerson } from 'react-icons/md';
+import { useModalContext } from '../bloc/useModalContext';
 
 export const StudentInformation = ({ student }: { student: UserDto }) => {
   const { closeStudentInfo } = useModalContext();
 
   return (
     <div className=" flex flex-col gap-5 w-1/3">
-      <Card className="transition-all duration-500 p-5">
+      <Card className="transition-all duration-500 p-5 border-l-4 border-l-green-600">
         <MdCancel
           onClick={() => {
             closeStudentInfo();
@@ -25,7 +25,7 @@ export const StudentInformation = ({ student }: { student: UserDto }) => {
               <img
                 src={student.imageUrl}
                 alt="Photo de profil"
-                className="rounded-full size-50 object-cover border-2 border-gray-200 group-hover:border-green-400 transition-all duration-200"
+                className="rounded-full size-50 object-cover transition-all duration-200"
               />
             </div>
           ) : (
