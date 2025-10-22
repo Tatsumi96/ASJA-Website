@@ -1,6 +1,6 @@
 import dehonsDayImage from "@/assets/Image-evenement/Dehons_day/event-dehons_day3.jpg";
 import gennrossoImage from "@/assets/Image-evenement/event-genrosso.jpg";
-import suisseImage from "@/assets/Image-evenement/event-partenariat_esic.jpg";
+import suisseImage from "@/assets/Image-evenement/event-donation_1.jpg";
 import { useLangue } from "@/page/lang/useLang";
 import { motion } from "framer-motion";
 
@@ -27,7 +27,7 @@ const gennrossoEvent: Event = {
   altText: "Exterior Painting",
 };
 const suisseEvent: Event = {
-  title: "Suisse",
+  title: "25em anniversaire",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   imageUrl: suisseImage,
