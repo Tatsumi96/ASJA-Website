@@ -13,7 +13,7 @@ export const StudentInformation = () => {
         <div className=" p-[10px] pt-[25px]  dark:shadow-gray-950 rounded-3xl flex flex-col gap-5">
           <section className=" flex flex-col items-center justify-center">
             {userData?.imageUrl ? (
-              <div className="rounded-full border-5 border-green-700 p-1">
+              <div className="rounded-full border-5 border-green-700 p-1 ">
                 <img
                   src={userData?.imageUrl}
                   alt="Photo de profil"
@@ -22,7 +22,7 @@ export const StudentInformation = () => {
               </div>
             ) : (
               <div className="rounded-full bg-gradient-to-br from-zinc-400 to-zinc-500 flex items-center justify-center text-white font-semibold">
-                <MdPerson className=" size-50 p-2 z-100" />
+                <MdPerson className=" size-50 p-2 " />
               </div>
             )}
           </section>
