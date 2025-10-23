@@ -37,7 +37,7 @@ export const Footer = () => {
         </h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
-        <div className="flex h-full justify-center items-center">
+        <div className="flex h-full md:justify-center md:items-center">
           <ul className="flex flex-col gap-5">
             <h1 className="text-2xl font-bold">Contact</h1>
             {contact.map((contact, key) => (
@@ -48,7 +48,7 @@ export const Footer = () => {
             ))}
           </ul>
         </div>
-        <div className="flex h-full justify-center items-center">
+        <div className="flex h-full md:justify-center md:items-center">
           <ul className="flex flex-col gap-5">
             <h1 className="text-2xl font-bold gap-5">Reseaux Sociaux</h1>
             {socialMedia.map((socialMedia, key) => (
