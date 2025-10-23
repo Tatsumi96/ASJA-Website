@@ -64,7 +64,7 @@ export const FiliereSection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ amount: 0.2, once: true }}
-          className="flex justify-center items-center w-9/10 p-3 gap-20 my-10 flex-col lg:flex-row md:flex-col "
+          className="flex justify-center items-center w-9/10 md:p-3 md:gap-20 gap-5 my-10 flex-col lg:flex-row md:flex-col "
         >
           <Item
             mention={translate("filiereSection.AGRO.name")}
@@ -90,7 +90,7 @@ export const FiliereSection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ amount: 0.2, once: true }}
-          className="flex justify-center items-center w-9/10 p-3 gap-20 flex-col lg:flex-row md:flex-col "
+          className="flex justify-center items-center w-9/10 md:p-3 md:gap-20 gap-5 flex-col lg:flex-row md:flex-col "
         >
           <Item
             mention={translate("filiereSection.ST.name")}
