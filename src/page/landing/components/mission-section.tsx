@@ -44,7 +44,7 @@ export const MissionSection = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ amount: 0.2, once: true }}
-          className="md:border h-max md:rounded-xl px-7 py-7 bg-white dark:bg-zinc-900"
+          className="md:border h-max md:rounded-xl px-5 py-7 bg-white dark:bg-zinc-900"
         >
           <div className="md:hidden py-10 flex flex-col gap-5">
             <h1 className="flex text-4xl font-bold text-green-700 transition-all duration-500 dark:text-amber-100">
@@ -70,7 +70,7 @@ export const MissionSection = () => {
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className="md:border h-max md:rounded-xl px-7 py-7 bg-white dark:bg-zinc-900"
+        className="md:border h-max md:rounded-xl px-5 py-7 bg-white dark:bg-zinc-900"
       >
         <div className="flex pb-5 flex-col gap-5">
           <h1 className="flex text-4xl font-bold text-green-700 transition-all duration-500 dark:text-amber-100">

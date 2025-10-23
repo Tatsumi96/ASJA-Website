@@ -134,9 +134,9 @@ const FiliereSectionCarousel = () => {
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className="flex items-center justify-center py-10 flex-col"
+        className="flex items-center justify-center py-5 flex-col"
       >
-        <h1 className="flex text-center lg:text-start text-green-700 font-bold text-4xl">
+        <h1 className="flex  w-full justify-center lg:text-start text-green-700 font-bold text-4xl">
           {translate('filiereSection.title')}
         </h1>
         <p className="flex text-center lg:text-start text-lg transition-all duration-500 dark:text-white ">
