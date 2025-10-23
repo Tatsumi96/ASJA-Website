@@ -432,7 +432,7 @@ export const Navbar = () => {
           </NavigationMenu>
           <a onClick={() => (window.location.href = "/Login")}>
             <div
-              className="px-4 py-2 my-1 ml-3 text-white font-bold bg-green-700
+              className="px-4 py-2  text-white font-bold bg-green-700
                            rounded-full cursor-pointer hover:bg-green-800
                            hover:scale-105 duration-300"
             >
