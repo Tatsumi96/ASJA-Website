@@ -1,7 +1,7 @@
 import type { DocEntity } from '@/features/doc/doc.entity';
 import type { PostDto } from '@/features/post/post.dto';
 import type { UserDto } from '@/features/user/user.dto';
-import { docRepo, postRepo, userRepository } from '@/injection';
+import { authRepository, docRepo, postRepo, userRepository } from '@/injection';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 
@@ -57,6 +57,18 @@ export const useStudentSpace = () => {
     setUserData(result.data);
   };
 
+  const logOut = async (navigate: (path: string) => void) => {
+    const result = await authRepository.logOut();
+    if (result.status == 'failure')
+      return toast.error('Error', {
+        description: 'something went wrong',
+      });
+    toast.success('Success', {
+      description: 'Logged out',
+    });
+    navigate('/login');
+  };
+
   useEffect(() => {
     const callFetchUserData = async () => {
       await fetchUserData();
@@ -75,5 +87,6 @@ export const useStudentSpace = () => {
     userData,
     post,
     fetchPostList,
+    logOut,
   };
 };

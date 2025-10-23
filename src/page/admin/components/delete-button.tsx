@@ -6,13 +6,9 @@ export const DeleteButton = ({
 }: {
   callBack: () => Promise<void>;
 }) => {
-  const callAsync = async () => {
-    await callBack();
-  };
-
   return (
     <Button
-      onClick={callAsync}
+      onClick={callBack}
       size="icon"
       variant="outline"
       className="rounded-full size-8 cursor-pointer border-transparent text-red-600 hover:bg-red-600 hover:text-white"

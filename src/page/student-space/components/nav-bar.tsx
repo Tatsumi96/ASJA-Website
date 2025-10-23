@@ -2,9 +2,18 @@ import Logo from '@/assets/Logo/asja-logo.png';
 
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from '@/page/theme/useTheme';
+import { MdExitToApp } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
+import { useStudentPortalContext } from '../bloc/useStudentSpaceContext';
 
 export const NavBar = () => {
   const { toggleTheme, isDark } = useTheme();
+  const { logOut } = useStudentPortalContext();
+
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    logOut(navigate);
+  };
   return (
     <div className="flex justify-between top-0 py-3 px-4 fixed w-full text-gray-800 z-50">
       <a
@@ -24,6 +33,12 @@ export const NavBar = () => {
           onClick={toggleTheme}
         >
           {isDark ? <Sun /> : <Moon />}
+        </button>
+        <button
+          className="px-5 text-green-700 cursor-pointer"
+          onClick={handleLogout}
+        >
+          <MdExitToApp className="text-2xl text-red-600" />
         </button>
       </div>
     </div>

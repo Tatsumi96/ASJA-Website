@@ -39,7 +39,6 @@ export class PostServiceImpl implements PostService {
     );
     if (response.status != 200) throw new Error();
   }
-
   async delete(id: string, fileName: string): Promise<void> {
     const response = await this.api.delete(
       `${ApiSource.url}/post?id=${id}&fileName=${fileName}`

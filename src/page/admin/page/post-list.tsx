@@ -10,9 +10,9 @@ export const Postlist = () => {
   const {
     isPostInformationVisible,
     isAddPost,
-    deleteCallBack,
-    cancelCallBack,
     isDeleteConfirmationVisible,
+    cancelCallBack,
+    deleteCallBack,
   } = useModalContext();
 
   useScrollLock(
@@ -31,12 +31,13 @@ export const Postlist = () => {
           <CardAddPost />
         </Modal>
       )}
+
       {isDeleteConfirmationVisible && (
         <Modal>
           <DeleteModalConfirmation
-            text=" Voulez-vous vraiment supprimer cette annonce ?"
-            confirm={deleteCallBack}
+            text=" Voulez-vous vraiment supprimer cette annonce?"
             cancel={cancelCallBack}
+            confirm={deleteCallBack}
           />
         </Modal>
       )}

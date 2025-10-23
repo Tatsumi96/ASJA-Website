@@ -1,20 +1,20 @@
-import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
-import * as React from "react";
+import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
+import * as React from 'react';
 import {
   type SortingState,
   getCoreRowModel,
   getFilteredRowModel,
   getSortedRowModel,
   useReactTable,
-} from "@tanstack/react-table";
+} from '@tanstack/react-table';
 
-import { columns } from "../components/log-column";
+import { columns } from '../components/log-column';
 
-import { useIntersectionObserver } from "./useIntersectionObserver";
+import { useIntersectionObserver } from './useIntersectionObserver';
 
 export const useLogTable = () => {
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [globalFilter, setGlobalFilter] = React.useState("");
+  const [globalFilter, setGlobalFilter] = React.useState('');
 
   const [rowSelection, setRowSelection] = React.useState({});
 
@@ -22,7 +22,7 @@ export const useLogTable = () => {
 
   const observerRef = useIntersectionObserver(fetchLogs, {
     threshold: 0.1,
-    rootMargin: "100px",
+    rootMargin: '100px',
     enabled: !hasReachedMaxLogPage,
   });
 

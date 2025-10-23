@@ -52,7 +52,15 @@ export const columns: ColumnDef<PostDto>[] = [
   {
     accessorKey: 'nothing',
     header: () => {
-      return <p className="font-semibold dark:text-white">Addressé</p>;
+      return (
+        <div className="flex w-full items-center justify-between">
+          <p className="font-semibold dark:text-white">Addressé</p>
+          <Separator
+            orientation="vertical"
+            className="data-[orientation=vertical]:h-10"
+          />
+        </div>
+      );
     },
     cell: ({ row }) => {
       const post: PostDto = row.original;

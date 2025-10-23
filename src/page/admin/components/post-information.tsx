@@ -27,10 +27,7 @@ export const PostInformation = () => {
         <p>{post?.description}</p>
         {post?.imageUrl && (
           <div className="aspect-[16/9]">
-            <img
-              src={post?.imageUrl}
-              className="rounded-2xl w-full h-full object-cover"
-            />{' '}
+            <img src={post?.imageUrl} className="rounded-2xl" />
           </div>
         )}
         <p className="flex justify-end text-gray-500">

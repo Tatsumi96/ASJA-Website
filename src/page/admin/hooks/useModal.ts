@@ -5,19 +5,11 @@ import { useState } from 'react';
 export const useModal = () => {
   const [deleteId, setDeleteId] = useState<string>('');
   const [fileNameToDelete, setFileNameToDelete] = useState<string>('');
-
+  const [student, setStudent] = useState<UserDto>();
   const [deleteCallBack, setDeleteCallBack] = useState<() => Promise<void>>(
     async () => {}
   );
-
-  const [cancelCallBack, setcancelCallBack] = useState<() => void>(
-    async () => {}
-  );
-
-  const [postDeleteId, setPostDeleteId] = useState<string>('');
-  const [postFileNameToDelete, setPostFileNameToDelete] = useState<string>('');
-
-  const [student, setStudent] = useState<UserDto>();
+  const [cancelCallBack, setCancelCallBack] = useState<() => void>(() => {});
 
   const [post, setPost] = useState<PostDto>();
 
@@ -25,6 +17,10 @@ export const useModal = () => {
     useState<boolean>(false);
 
   const [isAddPost, setAddPostVisible] = useState<boolean>(false);
+
+  const [isUpdateUserVisible, setUpdateUserVisible] = useState<boolean>(false);
+
+  const [isAddDocVisible, setAddDocVisible] = useState<boolean>(false);
 
   const [isPostInformationVisible, setPostInformationVisible] =
     useState<boolean>(false);
@@ -34,6 +30,21 @@ export const useModal = () => {
 
   const [isStudentInfoVisible, setIsStudentInfoVisible] =
     useState<boolean>(false);
+
+  const openAddDoc = () => {
+    setAddDocVisible(true);
+  };
+  const closeAddDoc = () => {
+    setAddDocVisible(false);
+  };
+
+  const openUpdateUser = () => {
+    setUpdateUserVisible(true);
+  };
+
+  const closeUpdateUser = () => {
+    setUpdateUserVisible(false);
+  };
 
   const openAddPost = () => {
     setAddPostVisible(true);
@@ -98,13 +109,15 @@ export const useModal = () => {
     closeAddPost,
     fileNameToDelete,
     setFileNameToDelete,
-    postDeleteId,
-    setPostDeleteId,
-    postFileNameToDelete,
-    setPostFileNameToDelete,
     deleteCallBack,
     setDeleteCallBack,
     cancelCallBack,
-    setcancelCallBack,
+    setCancelCallBack,
+    isAddDocVisible,
+    openAddDoc,
+    closeAddDoc,
+    isUpdateUserVisible,
+    openUpdateUser,
+    closeUpdateUser,
   };
 };

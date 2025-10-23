@@ -52,8 +52,8 @@ const FilePicker: React.FC = () => {
         />
         {selectedFile && (
           <div className="mt-10 flex gap-5 flex-wrap justify-center items-center">
-            Selected file : <p className=" font-bold">{selectedFile.name}</p> (
-            {fileSize} Mo)
+            Fichier selectionne :{' '}
+            <p className=" font-bold">{selectedFile.name}</p> ({fileSize} Mo)
             {selectedFile && (
               <button
                 className="border-0 cursor-pointer bg-red-600 hover:bg-red-900 rounded-sm "

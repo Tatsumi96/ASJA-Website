@@ -1,5 +1,5 @@
-import { MentionCardList } from "../components/mention-list-card";
-import { ChartPie } from "../components/pie-chart";
+import { MentionCardList } from '../components/mention-list-card';
+import { ChartPie } from '../components/pie-chart';
 
 export const Dashboard = () => {
   return (

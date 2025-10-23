@@ -1,9 +1,9 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { BarChartGraph } from "./bar-chart";
-import { MdPerson2 } from "react-icons/md";
-import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
-import type { MentionDto } from "@/features/mention/mention.dto";
-import type { Mention } from "@/core/types";
+import { Card, CardContent } from '@/components/ui/card';
+import { BarChartGraph } from './bar-chart';
+import { MdPerson2 } from 'react-icons/md';
+import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
+import type { MentionDto } from '@/features/mention/mention.dto';
+import type { Mention } from '@/core/types';
 
 const MentionCart = ({
   className,
@@ -25,7 +25,7 @@ const MentionCart = ({
       <CardContent className="flex wrap-anywhere justify-center w-full h-full flex-col ">
         <p className=" text-start text-3xl">{mention}</p>
         <p className="flex text-start my-5 text-lg gap-2 items-center">
-          {" "}
+          {' '}
           <MdPerson2 className=" text-gray-400 text-2xl" />
           {totalStudent} etudiants
         </p>
@@ -39,7 +39,7 @@ export const MentionCardList = () => {
   const { mentionData } = useAdminDashboardContext();
   return (
     <div className="flex py-10 items-center gap-5  bg-transparent justify-center flex-wrap w-full flex-row transition-all duration-500">
-      {" "}
+      {' '}
       <MentionCart
         item={mentionData as MentionDto}
         totalStudent={mentionData?.DROIT.totalStudent as number}
