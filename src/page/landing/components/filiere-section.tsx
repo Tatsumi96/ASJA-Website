@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/carousel';
 import { useLangue } from '@/page/lang/useLang';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 interface ItemProps {
   mention: string;
@@ -126,6 +127,8 @@ export const FiliereSection = () => {
 
 const FiliereSectionCarousel = () => {
   const { translate } = useLangue();
+  const [current, setCurrent] = useState<number>(0);
+  const [count, setCount] = useState<number>(0);
 
   return (
     <div className="flex flex-col md:hidden justify-center text-gray-800 items-center transition-all duration-500 w-full h-max dark:bg-zinc-900 bg-gray-100 pb-10 z-10">
@@ -146,6 +149,13 @@ const FiliereSectionCarousel = () => {
       <Carousel
         opts={{
           align: 'start',
+          loop: true,
+        }}
+        setApi={(api) => {
+          if (!api) return;
+          setCount(api.scrollSnapList().length);
+          setCurrent(api.selectedScrollSnap());
+          api.on('select', () => setCurrent(api.selectedScrollSnap()));
         }}
         className="w-full px-2 md:px-0 lg:max-w-2/3 md:max-w-2/3 flex md:hidden "
       >
@@ -202,6 +212,15 @@ const FiliereSectionCarousel = () => {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
+      <div className="flex justify-center mt-4 space-x-2">
+        {Array.from({ length: count }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`size-3 rounded-full transition-colors ${index === current ? 'bg-green-700 dark:bg-white' : 'bg-zinc-400'}`}
+          ></button>
+        ))}
+      </div>
     </div>
   );
 };
