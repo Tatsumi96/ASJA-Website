@@ -59,6 +59,83 @@ export const Navbar = () => {
         >
           {isDark ? <Sun /> : <Moon />}
         </button>
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>
+                {translate('navBar.filieres')}
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <NavigationMenuLink>
+                  <Link
+                    to="AGRO"
+                    className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                  >
+                    {translate('filiereSection.AGRO.name')}
+                  </Link>
+                  <Link
+                    to="INFO"
+                    className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                    onClick={() => (window.location.href = '/agroPage')}
+                  >
+                    {translate('filiereSection.INFO.name')}
+                  </Link>
+                  <Link
+                    to="DROIT"
+                    onClick={() => (window.location.href = '/droitPage')}
+                    className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                  >
+                    {translate('filiereSection.DROIT.name')}
+                  </Link>
+                  <Link
+                    to="ECO"
+                    onClick={() => (window.location.href = '/ecoPage')}
+                    className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                  >
+                    {translate('filiereSection.ECO.name')}
+                  </Link>
+                  <Link
+                    to="LEA"
+                    onClick={() => (window.location.href = '/leaPage')}
+                    className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                  >
+                    {translate('filiereSection.LEA.name')}
+                  </Link>
+                  <Link
+                    to="ST"
+                    onClick={() => (window.location.href = '/stPage')}
+                    className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                  >
+                    {translate('filiereSection.ST.name')}
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>
+                {translate('navBar.contact')}
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <NavigationMenuLink className="flex flex-col">
+                  <p className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500">
+                    034 12 345 67
+                  </p>
+                  <a
+                    className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                    href=""
+                  >
+                    {' '}
+                    example@gmail.com{' '}
+                  </a>
+                </NavigationMenuLink>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
         <a className="py-2" onClick={() => (window.location.href = '/Login')}>
           <div
             className="px-4 py-2 my-1 ml-3 text-white font-bold bg-green-700
@@ -107,24 +184,28 @@ export const Navbar = () => {
                     </Link>
                     <Link
                       to="DROIT"
+                      onClick={() => (window.location.href = '/droitPage')}
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
                       {translate('filiereSection.DROIT.name')}
                     </Link>
                     <Link
                       to="ECO"
+                      onClick={() => (window.location.href = '/ecoPage')}
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
                       {translate('filiereSection.ECO.name')}
                     </Link>
                     <Link
                       to="LEA"
+                      onClick={() => (window.location.href = '/leaPage')}
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
                       {translate('filiereSection.LEA.name')}
                     </Link>
                     <Link
                       to="ST"
+                      onClick={() => (window.location.href = '/stPage')}
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
                       {translate('filiereSection.ST.name')}
