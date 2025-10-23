@@ -28,7 +28,7 @@ export const Footer = () => {
   return (
     <div
       id="contact"
-      className="flex flex-col lg:flex-row justify-center h-max md:gap-30 gap-10 items-center w-full text-gray-800  shadow-2xl transition-all duration-500 bg-white dark:bg-zinc-900 dark:text-white "
+      className="flex flex-col lg:flex-row justify-center  md:gap-30 gap-10 items-center w-full text-gray-800  shadow-2xl transition-all duration-500 bg-white dark:bg-zinc-900 dark:text-white pb-10 "
     >
       <div className="flex flex-col justify-center items-center gap-5">
         <img className="h-30 w-30" src={Logo} />
@@ -37,7 +37,7 @@ export const Footer = () => {
         </h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
-        <div>
+        <div className="flex h-full justify-center items-center">
           <ul className="flex flex-col gap-5">
             <h1 className="text-2xl font-bold">Contact</h1>
             {contact.map((contact, key) => (
@@ -48,7 +48,7 @@ export const Footer = () => {
             ))}
           </ul>
         </div>
-        <div>
+        <div className="flex h-full justify-center items-center">
           <ul className="flex flex-col gap-5">
             <h1 className="text-2xl font-bold gap-5">Reseaux Sociaux</h1>
             {socialMedia.map((socialMedia, key) => (
