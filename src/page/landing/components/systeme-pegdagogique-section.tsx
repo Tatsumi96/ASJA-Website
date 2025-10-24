@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 type Pedag = {
   title: string;
@@ -7,37 +7,37 @@ type Pedag = {
 export const SystemePedagogiqueSection = () => {
   const pedag: Pedag[] = [
     {
-      title: 'License 1',
+      title: "License 1",
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
-      title: 'License 2',
+      title: "License 2",
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
-      title: 'Master 1',
+      title: "Master 1",
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
-      title: 'Master 2',
+      title: "Master 2",
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
   ];
   return (
     <div
       id="systeme"
-      className="bg-gradient-to-br w-screen from-white lg:from-gray-300/50 from-50% to-33% to-white dark:from-zinc-800 dark:to-zinc-800  dark:text-white transition-all duration-500"
+      className="bg-gradient-to-br pb-20 w-screen from-white lg:from-gray-300/50 from-50% to-33% to-white dark:from-zinc-800 dark:to-zinc-800  dark:text-white transition-all duration-500"
     >
       <motion.div
         initial={{ y: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className="w-full  py-16 px-10"
+        className="w-full px-10"
       >
         <h1 className="text-5xl font-bold text-green-700 transition-all duration-500 dark:text-green-700 text-center mb-20">
           SYSTEME PEDAGOGIQUE

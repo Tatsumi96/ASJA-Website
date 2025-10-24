@@ -28,7 +28,7 @@ export const Footer = () => {
   return (
     <div
       id="contact"
-      className="flex flex-col lg:flex-row justify-center h-max gap-30 items-center w-full text-gray-800 p-10 shadow-2xl transition-all duration-500 bg-white dark:bg-zinc-900 dark:text-white "
+      className="flex flex-col lg:flex-row justify-center h-max gap-30 items-center w-full text-gray-800 p-10 shadow-2xl transition-all duration-500 bg-white dark:bg-zinc-900 dark:text-white border-t-2 "
     >
       <div className="flex flex-col justify-center items-center gap-5">
         <img className="h-30 w-30" src={Logo} />
