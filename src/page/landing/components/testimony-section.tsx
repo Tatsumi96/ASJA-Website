@@ -54,12 +54,12 @@ export const TestimonySection = () => {
         viewport={{ amount: 0.2, once: true }}
         className="flex flex-col items-center justify-center"
       >
-        <h1 className="text-6xl font-bold text-green-700 p-10">Témoignage</h1>
+        <h1 className="md:text-6xl text-4xl font-bold text-green-700 p-10">Témoignage</h1>
         <Carousel
           opts={{
             align: "start",
           }}
-          className="max-w-3/4 lg:max-w-2/3 md:max-w-2/3 "
+          className="w-full px-2 md:px-0 lg:max-w-2/3 md:max-w-2/3 "
         >
           <CarouselContent>
             {temoin.map((temoin, key) => (
@@ -68,7 +68,7 @@ export const TestimonySection = () => {
                   <Card className="dark:bg-zinc-800 transition-all m-10duration-500 h-120">
                     <CardContent className="flex h-full flex-col aspect-square items-center justify-center ">
                       <div className="flex h-40 w-40 justify-center items-center overflow-hidden">
-                        <img className="rounded-[50%] w-full h-full border-2" src={Image} alt="" />
+                        <img className="rounded-[50%] w-full h-full border-2 object-cover" src={Image} alt="" />
                       </div>
                       <div className="text-center">
                         <h3 className="text-lg font-semibold p-5">

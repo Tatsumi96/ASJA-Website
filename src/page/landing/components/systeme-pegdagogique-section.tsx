@@ -30,16 +30,16 @@ export const SystemePedagogiqueSection = () => {
   return (
     <div
       id="systeme"
-      className="bg-gradient-to-br pb-20 w-screen from-white lg:from-gray-300/50 from-50% to-33% to-white dark:from-zinc-800 dark:to-zinc-800  dark:text-white transition-all duration-500"
+      className="bg-gradient-to-br w-full from-white lg:from-gray-300/50 from-50% to-33% to-white dark:from-zinc-800 dark:to-zinc-800  dark:text-white transition-all duration-500"
     >
       <motion.div
         initial={{ y: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className="w-full px-10"
+        className="w-full"
       >
-        <h1 className="text-5xl font-bold text-green-700 transition-all duration-500 dark:text-green-700 text-center mb-20">
+        <h1 className="md:text-5xl text-4xl font-bold text-green-700 transition-all duration-500 dark:text-green-700 text-center mb-20">
           SYSTEME PEDAGOGIQUE
         </h1>
       </motion.div>
@@ -48,11 +48,11 @@ export const SystemePedagogiqueSection = () => {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className="flex lg:flex-row flex-col items-center justify-center flex-wrap p-5 gap-5 lg:gap-20 py-10 text-center"
+        className="flex lg:flex-row flex-col items-center justify-center flex-wrap md:p-5 lg:gap-20 py-10 text-center"
       >
         {pedag.map((pedag, key) => (
           <div
-            className="flex flex-col justify-center items-center w-100 lg:w-150"
+            className="flex flex-col justify-center items-center w-full px-5 lg:w-1/3"
             key={key}
           >
             <h3 className="text-3xl font-bold text-gray-700 dark:text-white p-10">
