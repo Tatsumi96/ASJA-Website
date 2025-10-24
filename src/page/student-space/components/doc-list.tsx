@@ -1,13 +1,6 @@
 import { flexRender } from '@tanstack/react-table';
 
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
+import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table';
 
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useDocTable } from '../hooks/useDocFileTable';
@@ -17,26 +10,9 @@ export const DocDataTable = () => {
 
   return (
     <div className=" border-0 transition-all lg:flex flex-col duration-500 w-full md:w-1/2  ">
-      <Table>
-        <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id} className="hover:bg-transparent ">
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </TableHead>
-                );
-              })}
-            </TableRow>
-          ))}
-        </TableHeader>
-      </Table>
+      <p className="text-xl md:text-3xl font-semibold p-5 text-green-700 dark:text-white transition-all duration-500">
+        Liste des documents
+      </p>
       <ScrollArea className="h-170">
         <Table>
           <TableBody>
@@ -63,7 +39,7 @@ export const DocDataTable = () => {
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No results.
+                  Aucun document pour l'instant
                 </TableCell>
               </TableRow>
             )}
