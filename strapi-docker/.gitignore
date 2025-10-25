@@ -1,0 +1,24 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+
+# Strapi
+.cache/
+build/
+exports/
+dist/
+*.tmp
+*.log
+
+# Docker
+volumes/
+data/
+.docker/
+docker-compose.override.yml
+
+# OS files
+.DS_Store
+Thumbs.db
