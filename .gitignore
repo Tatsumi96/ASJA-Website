@@ -1,3 +1,26 @@
 node_modules/
 .env
-my-strapi-docker/data/
+strapi-docker/data/
+# Ignore git
+strapi-docker/npm-debug.log*
+strapi-docker/yarn-debug.log*
+strapi-docker/yarn-error.log*
+strapi-docker/.env
+
+# Strapi
+strapi-docker/.cache/
+strapi-docker/build/
+strapi-docker/exports/
+strapi-docker/dist/
+strapi-docker/*.tmp
+strapi-docker/*.log
+
+# Docker
+strapi-docker/volumes/
+strapi-docker/data/
+strapi-docker/.docker/
+strapi-docker/docker-compose.override.yml
+
+# OS files
+strapi-docker/.DS_Store
+strapi-docker/Thumbs.db
