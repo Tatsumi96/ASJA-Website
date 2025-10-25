@@ -2,6 +2,7 @@ import { Separator } from '@/components/ui/separator';
 import type { ColumnDef } from '@tanstack/react-table';
 
 import type { PostDto } from '@/features/post/post.dto';
+import { DeletePostButton } from './delete-post-button';
 
 export const columns: ColumnDef<PostDto>[] = [
   {
@@ -69,6 +70,19 @@ export const columns: ColumnDef<PostDto>[] = [
             ? post.mention + ' ' + post.level + ' ' + post.branche
             : post.mention + ' ' + post.level}
         </p>
+      );
+    },
+  },
+  {
+    accessorKey: 'id',
+    header: () => {},
+    enableHiding: false,
+    cell: ({ row }) => {
+      return (
+        <DeletePostButton
+          id={row.getValue('id')}
+          fileName={row.original.fileName as string}
+        />
       );
     },
   },

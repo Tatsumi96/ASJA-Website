@@ -1,62 +1,67 @@
 import { motion } from "framer-motion";
 
+type Pedag = {
+  title: string;
+  description: string;
+};
 export const SystemePedagogiqueSection = () => {
+  const pedag: Pedag[] = [
+    {
+      title: "License 1",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+      title: "License 2",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+      title: "Master 1",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+      title: "Master 2",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+  ];
   return (
     <div
       id="systeme"
-      className="bg-white dark:bg-zinc-800  dark:text-white transition-all duration-500"
+      className="bg-gradient-to-br w-full from-white lg:from-gray-300/50 from-50% to-33% to-white dark:from-zinc-800 dark:to-zinc-800  dark:text-white transition-all duration-500"
     >
       <motion.div
-        initial={{ x: 100, opacity: 0 }}
+        initial={{ y: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className="w-full  py-16 px-10"
+        className="w-full"
       >
-        <h1 className="text-5xl font-bold text-green-700 transition-all duration-500 dark:text-green-700 text-center mb-20">
+        <h1 className="md:text-5xl text-4xl font-bold text-green-700 transition-all duration-500 dark:text-green-700 text-center mb-20">
           SYSTEME PEDAGOGIQUE
         </h1>
-
-        <div className="flex lg:flex-row flex-col items-center justify-center relative max-w-7xl mx-auto h-[600px] ">
-          <div className="lg:flex hidden items-center justify-center w-3/4 flex-wrap z-[1]">
-            <div className="flex flex-col justify-center items-center h-80 w-80 rounded-tl-full bg-gradient-to-tl from-gray-100 via-gray-200 to-gray-300 dark:from-zinc-800 dark:via-zinc-700 dark:to-zinc-600 m-5 transition-all duration-500">
-              <h2 className="text-3xl font-bold text-gray-700 transition-all duration-500 dark:text-white mb-4 text-center lg:text-right">
-                LMD
-              </h2>
-              <p className="text-gray-600 transition-all duration-500 dark:text-gray-300 text-center lg:text-right text-sm leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad,
-                voluptatum?
-              </p>
-            </div>
-            <div className="flex flex-col justify-center items-center h-80 w-80 rounded-tr-full bg-gradient-to-tr from-gray-100 via-gray-200 to-gray-300 dark:from-zinc-800 dark:via-zinc-700 dark:to-zinc-600 m-5 transition-all duration-500">
-              <h2 className="text-3xl font-bold text-gray-700 text-center lg:text-left transition-all duration-500 dark:text-white mb-4 ">
-                LOREM
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Tempore dolor exercitationem sed perspiciatis vitae quod?
-              </p>
-            </div>
-            <div className="flex flex-col justify-center items-center h-80 w-80 rounded-bl-full bg-gradient-to-bl from-gray-100 via-gray-200 to-gray-300 dark:from-zinc-800 dark:via-zinc-700 dark:to-zinc-600 m-5 transition-all duration-500">
-              <h2 className="text-3xl font-bold text-gray-700 transition-all duration-500 dark:text-white mb-4 text-center lg:text-right">
-                LOREM
-              </h2>
-              <p className="text-gray-600 transition-all duration-500 dark:text-gray-300 text-center lg:text-right text-sm leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
-                ratione architecto aliquam a unde numquam.
-              </p>
-            </div>
-            <div className="flex flex-col justify-center items-center h-80 w-80 rounded-br-full bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 dark:from-zinc-800 dark:via-zinc-700 dark:to-zinc-600 m-5 transition-all duration-500">
-              <h2 className="text-3xl font-bold text-gray-700 transition-all duration-500 dark:text-white mb-4 text-center lg:text-left">
-                LMD
-              </h2>
-              <p className="text-gray-600 transition-all duration-500 dark:text-gray-300 text-center lg:text-left text-sm leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad,
-                voluptatum?
-              </p>
-            </div>
+      </motion.div>
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ amount: 0.2, once: true }}
+        className="flex lg:flex-row flex-col items-center justify-center flex-wrap md:p-5 lg:gap-20 py-10 text-center"
+      >
+        {pedag.map((pedag, key) => (
+          <div
+            className="flex flex-col justify-center items-center w-full px-5 lg:w-1/3"
+            key={key}
+          >
+            <h3 className="text-3xl font-bold text-gray-700 dark:text-white p-10">
+              {pedag.title}
+            </h3>
+            <p className="text-start my-2">{pedag.description}</p>
+            <p className="text-start my-2">{pedag.description}</p>
           </div>
-        </div>
+        ))}
       </motion.div>
     </div>
   );

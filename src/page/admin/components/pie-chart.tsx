@@ -1,84 +1,84 @@
-"use client";
+'use client';
 
-import { Pie, PieChart } from "recharts";
+import { Pie, PieChart } from 'recharts';
 
 import {
   type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart";
-import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
+} from '@/components/ui/chart';
+import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
 
 export const ChartPie = () => {
   const { mentionData } = useAdminDashboardContext();
 
   const item = [
     {
-      Mention: "DROIT",
+      Mention: 'DROIT',
       Etudiant: mentionData?.DROIT.totalStudent,
-      fill: "#dc2626",
+      fill: '#dc2626',
     },
     {
-      Mention: "INFORMATIQUE",
+      Mention: 'INFORMATIQUE',
       Etudiant: mentionData?.INFORMATIQUE.totalStudent,
-      fill: "#7c3aed",
+      fill: '#7c3aed',
     },
     {
-      Mention: "ECONOMIE",
+      Mention: 'ECONOMIE',
       Etudiant: mentionData?.ECONOMIE.totalStudent,
-      fill: "#d97706",
+      fill: '#d97706',
     },
     {
-      Mention: "AGRONOMIE",
+      Mention: 'AGRONOMIE',
       Etudiant: mentionData?.AGRONOMIE.totalStudent,
-      fill: "#059669",
+      fill: '#059669',
     },
     {
-      Mention: "LEA",
+      Mention: 'LEA',
       Etudiant: mentionData?.LANGUE_ET_CULTURE.totalStudent,
-      fill: "#2563eb",
+      fill: '#2563eb',
     },
     {
-      Mention: "ST",
+      Mention: 'ST',
       Etudiant: mentionData?.SCIENCE_DE_LA_TERRE.totalStudent,
-      fill: "#4b5563",
+      fill: '#4b5563',
     },
   ];
   const fakeData = [
-    { Mention: "DROIT", Etudiant: 275, fill: "#dc2626" },
-    { Mention: "INFORMATIQUE", Etudiant: 200, fill: "#7c3aed" },
-    { Mention: "ECONOMIE", Etudiant: 187, fill: "#d97706" },
-    { Mention: "AGRONOMIE", Etudiant: 173, fill: "#059669" },
-    { Mention: "LEA", Etudiant: 90, fill: "#2563eb" },
-    { Mention: "ST", Etudiant: 90, fill: "#4b5563" },
+    { Mention: 'DROIT', Etudiant: 275, fill: '#dc2626' },
+    { Mention: 'INFORMATIQUE', Etudiant: 200, fill: '#7c3aed' },
+    { Mention: 'ECONOMIE', Etudiant: 187, fill: '#d97706' },
+    { Mention: 'AGRONOMIE', Etudiant: 173, fill: '#059669' },
+    { Mention: 'LEA', Etudiant: 90, fill: '#2563eb' },
+    { Mention: 'ST', Etudiant: 90, fill: '#4b5563' },
   ];
 
   const chartData = mentionData ? item : fakeData;
 
   const chartConfig = {
     Etudiant: {
-      label: "Etudiant",
+      label: 'Etudiant',
     },
     DROIT: {
-      label: "DROIT",
+      label: 'DROIT',
     },
     INFORMATIQUE: {
-      label: "INFORMATIQUE",
+      label: 'INFORMATIQUE',
     },
     ECONOMIE: {
-      label: "ECONONOMIE",
+      label: 'ECONONOMIE',
     },
     AGRONOMIE: {
-      label: "AGRONOMIE",
+      label: 'AGRONOMIE',
     },
 
     LEA: {
-      label: "LANGUE ETRANGERE APPLIQUE",
+      label: 'LANGUE ETRANGERE APPLIQUE',
     },
 
     ST: {
-      label: "SCIENCE DE LA TERRE",
+      label: 'SCIENCE DE LA TERRE',
     },
   } satisfies ChartConfig;
 

@@ -1,4 +1,4 @@
-import { flexRender } from "@tanstack/react-table";
+import { flexRender } from '@tanstack/react-table';
 
 import {
   Table,
@@ -7,10 +7,10 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table';
 
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { useLogTable } from "../hooks/useLogTable";
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { useLogTable } from '../hooks/useLogTable';
 
 export const LogTable = () => {
   const { observerRef, table, columns } = useLogTable();
@@ -54,7 +54,7 @@ export const LogTable = () => {
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
+                  data-state={row.getIsSelected() && 'selected'}
                   className=" cursor-pointer"
                 >
                   {row.getVisibleCells().map((cell) => (

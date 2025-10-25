@@ -3,26 +3,26 @@
   "navBar": {
     "accueil": "Accueil",
     "apropos": "A propos",
-    "filieres": "Filières",
+    "filieres": "Mention",
     "contact": "Contact",
     "intranet": "intranet"
   },
   "sectionAccueilNavbar": {
-    "description": "description",
-    "mission": "mission",
-    "filieres": "filieres",
-    "events": "evenements",
-    "systeme": "systeme pedagogique",
-    "temoignages": "temoignages",
+    "description": "DESCRIPTION",
+    "mission": "MISSION",
+    "filieres": "FILIERES",
+    "events": "EVENEMENTS",
+    "systeme": "SYSTEME PEDAGOGIQUE",
+    "temoignages": "TEMOINAGE",
     "FAQ": "FAQ",
-    "map": "Localisation"
+    "map": "LOCALISATION"
   },
   "descriptionSection": {
     "description": "  Qui propose une formation d'excellence aux étudiants désireux de devenir les managers et décideurs de demain.",
-    "ensavoirplus": "En savoir plus"
+    "ensavoirplus": "inscription"
   },
   "filiereSection": {
-    "title": " NOS FILIERE",
+    "title": " NOS MENTIONS",
     "description": " Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "INFO": {
       "name": "INFORMATIQUE",
