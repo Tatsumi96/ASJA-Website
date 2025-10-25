@@ -1,5 +1,4 @@
 version: "3"
-
 services:
   strapi:
     container_name: strapi
@@ -19,12 +18,11 @@ services:
       APP_KEYS: ${APP_KEYS}
       NODE_ENV: ${NODE_ENV}
     volumes:
-      - ./config:/opt/app/config
-      - ./src:/opt/app/src
-      - ./package.json:/opt/package.json
-      - ./yarn.lock:/opt/yarn.lock
-      - ./.env:/opt/app/.env
-      - ./public/uploads:/opt/app/public/uploads
+      - ./app/config:/opt/app/config
+      - ./app/src:/opt/app/src
+      - ./app/package.json:/opt/app/package.json
+      - ./app/yarn.lock:/opt/app/yarn.lock
+      - ./app/public/uploads:/opt/app/public/uploads
     ports:
       - "1337:1337"
     networks:
@@ -34,15 +32,15 @@ services:
 
   strapiDB:
     container_name: strapiDB
-    image: postgres:16-alpine
     restart: unless-stopped
     env_file: .env
+    image: postgres:16.0-alpine
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
     volumes:
-      - strapi-data:/var/lib/postgresql/data
+      - strapi-data:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
     networks:
