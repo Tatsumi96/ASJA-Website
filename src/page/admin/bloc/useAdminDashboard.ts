@@ -220,8 +220,8 @@ export const useAdminDashboard = () => {
 
   const sendStudentInformation = async () => {
     const student: UserEntity = {
-      name: name.replace(/\s+/g, ''),
-      lastName: lastName.replace(/\s+/g, ''),
+      name: name.replace(/\s+/g, '').toLocaleUpperCase(),
+      lastName: lastName,
       contact,
       password,
       fileName: selectedFile?.name as string,

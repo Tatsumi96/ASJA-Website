@@ -82,7 +82,7 @@ export const StudentTable = () => {
           <MdPerson /> <p>Ajouter</p>
         </Button>
       </div>
-      <ScrollArea className="h-[640px]">
+      <ScrollArea className="h-screen">
         <Table className="w-full">
           <TableHeader className=" z-10 bg-transparent  dark:bg-zinc-900 transition-all duration-500">
             {table.getHeaderGroups().map((headerGroup) => (
