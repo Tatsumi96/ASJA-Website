@@ -1,8 +1,8 @@
-import dehonsDayImage from "@/assets/Image-evenement/Dehons_day/event-dehons_day3.jpg";
-import gennrossoImage from "@/assets/Image-evenement/event-genrosso.jpg";
-import suisseImage from "@/assets/Image-evenement/event-partenariat_esic.jpg";
-import { useLangue } from "@/page/lang/useLang";
-import { motion } from "framer-motion";
+import dehonsDayImage from '@/assets/Image-evenement/Dehons_day/event-dehons_day3.jpg';
+import suisseImage from '@/assets/Image-evenement/event-donation_1.jpg';
+import gennrossoImage from '@/assets/Image-evenement/event-genrosso.jpg';
+import { useLangue } from '@/page/lang/useLang';
+import { motion } from 'framer-motion';
 
 interface Event {
   title: string;
@@ -12,26 +12,26 @@ interface Event {
 }
 
 const dehonsEvent: Event = {
-  title: "Dehons DAY",
+  title: 'Dehons DAY',
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   imageUrl: dehonsDayImage,
-  altText: "Interior Painting",
+  altText: 'Interior Painting',
 };
 
 const gennrossoEvent: Event = {
-  title: "Gennrosso",
+  title: 'Gennrosso',
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   imageUrl: gennrossoImage,
-  altText: "Exterior Painting",
+  altText: 'Exterior Painting',
 };
 const suisseEvent: Event = {
-  title: "Suisse",
+  title: '25em anniversaire',
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   imageUrl: suisseImage,
-  altText: "Cabinet Painting",
+  altText: 'Cabinet Painting',
 };
 
 export const CardEventSection = () => {
@@ -51,15 +51,15 @@ export const CardEventSection = () => {
             {dehonsEvent.title}
           </h3>
           <p className="text-lg">
-            {translate("evenementSection.dehon.description")}
+            {translate('evenementSection.dehon.description')}
           </p>
           <p className="mt-4 text-lg ">
-            {" "}
-            {translate("evenementSection.dehon.description")}
+            {' '}
+            {translate('evenementSection.dehon.description')}
           </p>
         </div>
         <div className="md:w-1/2">
-          <div className="md:w-1/2 md:pr-12 p-4  md:hidden">
+          <div className="md:w-1/2 md:pr-12 pb-5 md:hidden">
             <h3 className="lg:text-5xl md:text-4xl text-3xl mb-4 text-green-700 transition-all duration-500 dark:text-amber-100">
               {dehonsEvent.title}
             </h3>
@@ -81,7 +81,7 @@ export const CardEventSection = () => {
         viewport={{ amount: 0.2, once: true }}
         className="relative flex flex-col md:flex-row md:items-center px-4"
       >
-        <div className="md:w-1/2 md:order-2 md:pl-12 ">
+        <div className="md:w-1/2 md:order-2 md:pl-12 pb-5 ">
           <h3 className="lg:text-5xl md:text-4xl text-3xl mb-4 text-green-700 transition-all duration-500 dark:text-amber-100">
             {gennrossoEvent.title}
           </h3>
@@ -104,7 +104,7 @@ export const CardEventSection = () => {
         viewport={{ amount: 0.2, once: true }}
         className="relative flex flex-col md:flex-row md:items-center px-4"
       >
-        <div className="md:w-1/2 md:pr-12">
+        <div className="md:w-1/2 md:pr-12 pb-5">
           <h3 className="lg:text-5xl md:text-4xl text-3xl mb-4 text-green-700 transition-all duration-500 dark:text-amber-100">
             {suisseEvent.title}
           </h3>

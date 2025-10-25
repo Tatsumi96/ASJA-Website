@@ -1,4 +1,5 @@
 import type { Branche, Level, Mention, Tranche } from '@/core/types';
+import type { AdminDto } from '@/features/admin/admin.dto';
 import type { DocDto } from '@/features/doc/doc.dto';
 import type { DocEntity } from '@/features/doc/doc.entity';
 import type { LogEntity } from '@/features/log/log.entity';
@@ -9,6 +10,8 @@ import type { PostDto } from '@/features/post/post.dto';
 import type { TrancheDto } from '@/features/tranche/tranche.dto';
 
 import {
+  adminRepository,
+  authRepository,
   docRepo,
   logRepo,
   mentionRepository,
@@ -17,10 +20,12 @@ import {
   userRepository,
 } from '@/injection';
 
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
 
 export const useAdminDashboard = () => {
+  const [userMatricule, setUserMatricule] = useState<number>();
+
   const [postTitle, setPostTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
 
@@ -49,7 +54,7 @@ export const useAdminDashboard = () => {
   const [docList, setDoclist] = useState<DocEntity[]>([]);
   const [page, setPage] = useState<number>(1);
   const [hasReachedMax, setHasReachedMax] = useState<boolean>(false);
-  const [userName, setUserName] = useState<string>('');
+  // const [userData, setUserData] = useState<UserDto>();
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [image, setImage] = useState<string | null>();
@@ -60,13 +65,14 @@ export const useAdminDashboard = () => {
   const [mention, setMention] = useState<string>('');
   const [level, setLevel] = useState<string>('');
   const [branche, setBranche] = useState<string>('');
-  const [authorName, setAuthorName] = useState<string>('');
 
   const [errorMessage, setErrorMessage] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
   const fileSize = Math.round(
     selectedFile ? selectedFile.size / (1024 * 1024) : 0
   );
+
+  const [adminData, setAdminData] = useState<AdminDto>();
 
   const [name, setName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
@@ -75,11 +81,12 @@ export const useAdminDashboard = () => {
 
   const [mentionData, setMentionData] = useState<MentionDto>();
 
+
   const deleteStudent = async (id: string, fileName: string) => {
     const result = await mentionRepository.deleteStudent(id, fileName);
 
     if (result.status === 'success') {
-      toast.success('Succes', {
+      toast.success('Success', {
         description: 'Student deleted',
       });
       await fetchDashboardData();
@@ -97,9 +104,12 @@ export const useAdminDashboard = () => {
     const result = await postRepo.create({
       title: postTitle.toLocaleUpperCase(),
       description: description,
-      branche: branche as Branche,
+      branche:
+        !branche || level == 'L1' || level == 'L2'
+          ? 'COMMUN'
+          : (branche.replace(/_/g, ' ') as Branche),
       level: level as Level,
-      mention: mention == '' ? 'ASJA' : (mention as Mention),
+      mention: mention == '' ? 'ASJA' : (mention.replace(/_/g, ' ') as Mention),
       imageUrl: selectedFile?.name,
     });
     if (result.status === 'success') {
@@ -113,7 +123,7 @@ export const useAdminDashboard = () => {
       clean();
 
       toast.success('Success', {
-        description: 'Post addee',
+        description: 'Post added',
         className: 'animate-fade animate-once animate-ease-out',
       });
     } else {
@@ -156,6 +166,58 @@ export const useAdminDashboard = () => {
     }
   };
 
+  const updateUserInformation = async () => {
+    const result = await userRepository.update({
+      name: name.replace(/\s+/g, ''),
+      lastName: lastName.replace(/\s+/g, ''),
+      imageUrl: selectedFile?.name as string,
+      branche:
+        !branche || level == 'L1' || level == 'L2'
+          ? 'COMMUN'
+          : (branche.replace(/_/g, ' ') as Branche),
+      level: level as Level,
+      mention: mention.replace(/_/g, ' ') as Mention,
+      contact,
+      identifier: userMatricule as number,
+    });
+
+    if (result.status === 'success') {
+      const student = studentList.find(
+        (item) => item.identifier == userMatricule
+      ) as UserDto;
+
+      const newStudentInformationUpdated: UserDto = {
+        ...result.data,
+        Premier: student?.Premier,
+        Deuxieme: student?.Deuxieme,
+        Troisieme: student?.Troisieme,
+        trancheId: student?.trancheId,
+        mentionId: student?.mentionId,
+        fileName: selectedFile?.name as string,
+        imageUrl: result.data.imageUrl
+          ? result.data.imageUrl
+          : student.imageUrl,
+      };
+
+      const oldStudentList = studentList.filter(
+        (item) => item.identifier != userMatricule
+      );
+      setStudentlist(() => [
+        ...oldStudentList,
+        ...[newStudentInformationUpdated],
+      ]);
+
+      toast.success('Succes', {
+        description: 'Student information updated',
+        className: 'animate-fade animate-once animate-ease-out',
+      });
+    } else {
+      toast.error('Error', {
+        description: 'Failed to update user information',
+      });
+    }
+  };
+
   const sendStudentInformation = async () => {
     const student: UserEntity = {
       name: name.replace(/\s+/g, ''),
@@ -169,7 +231,7 @@ export const useAdminDashboard = () => {
           : (branche.replace(/_/g, ' ') as Branche),
       level: level as Level,
       mention: mention.replace(/_/g, ' ') as Mention,
-      role: 'User',
+      role: 'Student',
       Premier: isPremierPaid,
       Deuxieme: isDeuxiemePaid,
       Troisieme: isTroisiemePaid,
@@ -349,11 +411,13 @@ export const useAdminDashboard = () => {
     const doc: DocDto = {
       fileName: selectedFile?.name as string,
       fileSize: selectedFile?.size as number,
-      branche: branche.length == 0 ? 'COMMUN' : branche.replace(/_/g, ' '),
-      mention: mention.replace(/_/g, ' '),
-      level,
-      lessonTitle,
-      authorName,
+      branche:
+        !branche || level == 'L1' || level == 'L2'
+          ? 'COMMUN'
+          : (branche.replace(/_/g, ' ') as Branche),
+      mention: mention.replace(/_/g, ' ') as Mention,
+      level: level as Level,
+      lessonTitle: lessonTitle.toLocaleUpperCase(),
     };
 
     const result = await docRepo.sendMetaData(doc);
@@ -370,13 +434,13 @@ export const useAdminDashboard = () => {
   };
 
   const fetchUserData = async () => {
-    const result = await userRepository.getData();
+    const result = await adminRepository.getData();
     if (result.status == 'failure')
       return toast.error('Error', {
         description: 'Failed to load user data',
       });
 
-    setUserName(result.data.userName);
+    setAdminData(result.data);
   };
 
   const fetchDashboardData = async () => {
@@ -394,6 +458,42 @@ export const useAdminDashboard = () => {
     if (selectedFile) await handleUpload();
   };
 
+  const deleteDoc = async (id: string, fileName: string) => {
+    const result = await docRepo.delete(id, fileName);
+    if (result.status == 'failure')
+      return toast.error('Error', {
+        description: 'Failed to delete document',
+      });
+    const newDocList = docList.filter((item) => item.id != id);
+    setDoclist(newDocList);
+  };
+
+  const deletePost = async (id: string, fileName: string) => {
+    const result = await postRepo.delete(id, fileName);
+    if (result.status == 'failure')
+      return toast.error('Error', {
+        description: 'Failed to delete post',
+      });
+    const newPostList = post.filter((item) => item.id != id);
+    setPostList(newPostList);
+    return toast.success('Success', {
+      description: 'post deleted',
+    });
+  };
+
+  const logOut = async (navigate: (path: string) => void) => {
+    const result = await authRepository.logOut();
+
+    if (result.status == 'failure')
+      return toast.error('Error', {
+        description: 'Error on logged out',
+      });
+    toast.success('Succes', {
+      description: 'Logged out',
+    });
+    navigate('/login');
+  };
+
   useEffect(() => {
     const callFetchUserAndDashboardData = async () => {
       await fetchUserData();
@@ -404,12 +504,12 @@ export const useAdminDashboard = () => {
   }, []);
 
   return {
-    addDocFile: addDocMetaData,
+    addDocMetaData,
+    // userData,
     docList,
     setPage,
     fetchDocList,
     hasReachedMax,
-    userName,
     handleCancel,
     handleUpload,
     handleFileChange,
@@ -422,7 +522,6 @@ export const useAdminDashboard = () => {
     setMention,
     setLevel,
     sendToServer,
-    setAuthorName,
     onDrop,
     setBranche,
     mention,
@@ -465,5 +564,13 @@ export const useAdminDashboard = () => {
     setPostTitle,
     description,
     postTitle,
+    deletePost,
+    logOut,
+    deleteDoc,
+    lessonTitle,
+    setImage,
+    setUserMatricule,
+    updateUserInformation,
+    adminData
   };
 };

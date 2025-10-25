@@ -1,4 +1,4 @@
-import { Tranche } from '@/core/types';
+import type { Tranche } from '@/core/types';
 
 export interface TrancheDto {
   id: string;

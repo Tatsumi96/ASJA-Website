@@ -1,9 +1,9 @@
-import { failure, success, type Result } from "@/core/result";
-import type { DocEntity } from "./doc.entity";
-import type { DocFileRepository } from "./doc.repository";
-import type { DocService } from "./doc.service";
-import { ApiSource } from "@/core/constant";
-import type { DocDto } from "./doc.dto";
+import { failure, success, type Result } from '@/core/result';
+import type { DocEntity } from './doc.entity';
+import type { DocFileRepository } from './doc.repository';
+import type { DocService } from './doc.service';
+import { ApiSource } from '@/core/constant';
+import type { DocDto } from './doc.dto';
 
 export class DocRepositoryImpl implements DocFileRepository {
   constructor(private service: DocService) {}
@@ -42,6 +42,16 @@ export class DocRepositoryImpl implements DocFileRepository {
   async sendMetaData(doc: DocDto): Promise<Result<void>> {
     try {
       await this.service.sendMetaData(doc);
+      return success(undefined);
+    } catch (error) {
+      console.error(error);
+      return failure(new Error());
+    }
+  }
+
+  async delete(id: string, fileName: string): Promise<Result<void>> {
+    try {
+      await this.service.delete(id, fileName);
       return success(undefined);
     } catch (error) {
       console.error(error);

@@ -3,7 +3,6 @@ import { Separator } from '@/components/ui/separator';
 import type { UserDto } from '@/features/mention/user.dto';
 import type { ColumnDef } from '@tanstack/react-table';
 import { TrancheBadge } from './tranche-status-badge';
-import { DeleteButton } from './delete-button';
 import { MdPerson } from 'react-icons/md';
 import {
   Select,
@@ -13,6 +12,8 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { classes, mentions } from '@/core/types';
+import { UpdateUserButton } from './edit-user-button';
+import { DeleteUserButton } from './delete-user-button';
 
 export const columns: ColumnDef<UserDto>[] = [
   {
@@ -29,7 +30,9 @@ export const columns: ColumnDef<UserDto>[] = [
       );
     },
     cell: ({ row }) => (
-      <Avatar className=" size-11 ">
+      <Avatar
+        className={`size-11 rounded-full ${row.getValue('imageUrl') ? 'border-2' : ' border-0'} border-green-700`}
+      >
         <AvatarFallback className="dark:text-white  bg-gradient-to-br from-zinc-400 to-zinc-500 text-white">
           {row.getValue('imageUrl') ? (
             <img src={row.getValue('imageUrl')} />
@@ -294,12 +297,20 @@ export const columns: ColumnDef<UserDto>[] = [
     ),
   },
   {
+    accessorKey: 'id',
+    header: () => {},
+    enableHiding: false,
+    cell: ({ row }) => {
+      return <UpdateUserButton user={row.original} />;
+    },
+  },
+  {
     accessorKey: 'mentionId',
     header: () => {},
     enableHiding: false,
     cell: ({ row }) => {
       return (
-        <DeleteButton
+        <DeleteUserButton
           id={row.getValue('mentionId')}
           fileName={row.original.fileName as string}
         />
