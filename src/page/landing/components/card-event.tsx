@@ -39,9 +39,9 @@ export const CardEventSection = () => {
 
   return (
     <div className="flex flex-col z-20 site-container space-y-20 text-gray-800 transition-all duration-500 dark:text-gray-300 md:space-y-24 lg:space-y-32 ">
-      {event.map((item) => (
+      {event.map((item, index) => (
         <motion.div
-          initial={{ x: -100, opacity: 0 }}
+          initial={{ x: (-1) ** index * 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ amount: 0.2, once: true }}
