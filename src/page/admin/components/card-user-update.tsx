@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import {
@@ -7,13 +8,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Button } from '@/components/ui/button';
 import { MdCancel, MdPerson2, MdPhone } from 'react-icons/md';
 
-import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
+import { useAdminDashboardContext } from '../bloc/useAdminContext';
 
-import { mentions, classes } from '@/core/types';
 import { Input } from '@/components/ui/input';
+import { classes, mentions } from '@/core/types';
 import { useModalContext } from '../bloc/useModalContext';
 import { AvatarUploader } from './avatar-uploader';
 

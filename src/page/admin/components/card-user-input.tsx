@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/select';
 import { MdCancel, MdLock, MdPerson2, MdPhone } from 'react-icons/md';
 
-import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
+import { useAdminDashboardContext } from '../bloc/useAdminContext';
 
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
