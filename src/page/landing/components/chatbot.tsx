@@ -139,7 +139,7 @@ const Chatbot: React.FC = () => {
                   className={`max-w-[85%] p-3 rounded-xl text-sm break-words ${
                     msg.expediteur === "utilisateur"
                       ? "bg-green-700 text-white self-end rounded-br-md"
-                      : "bg-gray-100 text-gray-800 self-start rounded-tl-md"
+                      : "bg-gray-100 text-gray-800 dark:text-gray-300  dark:bg-zinc-700 self-start rounded-tl-md"
                   }`}
                 >
                   {msg.texte}
@@ -147,7 +147,7 @@ const Chatbot: React.FC = () => {
               ))
             )}
             {estEnChargement && (
-              <div className="bg-gray-100 text-gray-500 p-3 rounded-xl self-start text-sm animate-pulse">
+              <div className="bg-gray-100 dark:bg-zinc-700 text-gray-500 p-3 rounded-xl self-start text-sm animate-pulse">
                 ... L'assistant est en train de consulter les archives de
                 l'université...
               </div>
