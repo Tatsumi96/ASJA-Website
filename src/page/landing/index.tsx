@@ -7,6 +7,7 @@ import { Navbar } from "./components/nav-bar";
 import { SystemePedagogiqueSection } from "./components/systeme-pegdagogique-section";
 import { TestimonySection } from "./components/testimony-section";
 import { FaqSection } from "./components/faq-section";
+import Chatbot from "./components/chatbot";
 export const LandingPage = () => {
   return (
     <div className=" overflow-x-hidden ">
@@ -15,6 +16,7 @@ export const LandingPage = () => {
         <Description />
         <MissionSection />
         <FiliereSection />
+        <Chatbot />
         <EvenementSection />
         <SystemePedagogiqueSection />
         <TestimonySection />
