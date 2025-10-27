@@ -14,7 +14,7 @@ import { MentionServiceImpl } from './features/mention/mention.service';
 import { PostRepositoryImpl } from './features/post/post.repository.impl';
 import { PostServiceImpl } from './features/post/post.service';
 import { StrapiRepositoryImpl } from './features/strapi/strapi.repository.impl';
-import { FakeStrapiService } from './features/strapi/strapi.service';
+import { StrapiServiceImpl } from './features/strapi/strapi.service';
 import { TrancheRepositoryImpl } from './features/tranche/tranche.repositoryImpl';
 import { TrancheServiceImpl } from './features/tranche/tranche.service';
 import { UserRepositoryImpl } from './features/user/user.repository.impl';
@@ -78,6 +78,6 @@ export const authRepository = new AuthRepositoryImpl(authService);
 
 export const docRepo = new DocRepositoryImpl(docService);
 
-export const fakeStrapiService = new FakeStrapiService();
+export const strapiService = new StrapiServiceImpl(api);
 
-export const strapiRepo = new StrapiRepositoryImpl(fakeStrapiService);
+export const strapiRepo = new StrapiRepositoryImpl(strapiService);

@@ -10,41 +10,11 @@ export class StrapiServiceImpl implements StrapiService {
   constructor(private axios: AxiosInstance) {}
 
   async getEvent(): Promise<EventDto[]> {
-    const result = await this.axios.get(ApiSource.strapiUrl);
-    return result.data;
-  }
-}
+    const response = await this.axios.get(
+      `${ApiSource.strapiUrl}/api/section-evenements`
+    );
 
-import dehonsDayImage from '@/assets/Image-evenement/Dehons_day/event-dehons_day3.jpg';
-import suisseImage from '@/assets/Image-evenement/event-donation_1.jpg';
-import gennrossoImage from '@/assets/Image-evenement/event-genrosso.jpg';
-
-export class FakeStrapiService implements StrapiService {
-  private fakeData: EventDto[] = [
-    {
-      title: 'Dehons DAY',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      imageUrl: dehonsDayImage,
-      altText: 'Interior Painting',
-    },
-    {
-      title: 'Gennrosso',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      imageUrl: gennrossoImage,
-      altText: 'Exterior Painting',
-    },
-    {
-      title: '25em anniversaire',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      imageUrl: suisseImage,
-      altText: 'Cabinet Painting',
-    },
-  ];
-
-  getEvent(): Promise<EventDto[]> {
-    return Promise.resolve([...this.fakeData]);
+    if (response.status != 200) throw new Error();
+    return response.data.data;
   }
 }
