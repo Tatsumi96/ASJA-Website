@@ -110,8 +110,8 @@ const Chatbot: React.FC = () => {
           <CircleX size={30} className="m-2" />
         ) : (
           <div className="flex items-center px-5 py-3">
-            <Bot className="pb-2" size={45} />
-            <span className="text-lg">ASJABot</span>
+            <Bot className="pb-2" size={35} />
+            <span className="text-md">ASJABot</span>
           </div>
         )}
       </button>
@@ -122,8 +122,8 @@ const Chatbot: React.FC = () => {
           style={{ transform: "translateY(-10px)" }}
         >
           <div className="flex dark:text-white text-gray-800 shadow-md items-center px-5 py-3">
-            <Bot className="pb-2" size={45} />
-            <span className="text-lg">ASJABot</span>
+            <Bot className="pb-2" size={35} />
+            <span className="text-md">ASJABot</span>
           </div>
           <div className="flex-1 overflow-y-auto p-4 flex flex-col space-y-3">
             {messages.length === 0 ? (
