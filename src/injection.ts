@@ -5,6 +5,8 @@ import { AdminRepositoryImpl } from './features/admin/admin.repository.impl';
 import { AdminServiceImpl } from './features/admin/admin.service';
 import { AuthRepositoryImpl } from './features/auth/auth.repository.impl';
 import { AuthServiceImpl } from './features/auth/auth.service';
+import { ChatRepositoryImpl } from './features/chat/chat.repository.impl';
+import { ChatServiceImpl } from './features/chat/chat.service';
 import { DocRepositoryImpl } from './features/doc/doc.repository.impl';
 import { DocServiceImpl } from './features/doc/doc.service';
 import { LogRepositoryImpl } from './features/log/log.repository.impl';
@@ -81,3 +83,7 @@ export const docRepo = new DocRepositoryImpl(docService);
 export const strapiService = new StrapiServiceImpl(api);
 
 export const strapiRepo = new StrapiRepositoryImpl(strapiService);
+
+const chatService = new ChatServiceImpl(api);
+
+export const chatRepository = new ChatRepositoryImpl(chatService);
