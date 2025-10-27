@@ -69,6 +69,7 @@ export const Navbar = () => {
                 <NavigationMenuLink>
                   <Link
                     to="AGRO"
+                    onClick={() => (window.location.href = '/agroPage')}
                     className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                   >
                     {translate('filiereSection.AGRO.name')}
@@ -76,7 +77,7 @@ export const Navbar = () => {
                   <Link
                     to="INFO"
                     className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
-                    onClick={() => (window.location.href = '/agroPage')}
+                    onClick={() => (window.location.href = '/infoPage')}
                   >
                     {translate('filiereSection.INFO.name')}
                   </Link>
