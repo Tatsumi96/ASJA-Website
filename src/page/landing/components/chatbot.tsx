@@ -1,5 +1,7 @@
-import { Bot, CircleX, Send } from 'lucide-react';
+import { useScrollLock } from '@/page/admin/hooks/useScrollLock';
+import { Bot, Send } from 'lucide-react';
 import React from 'react';
+import { MdCancel } from 'react-icons/md';
 import { useLandingContext } from '../bloc/useLandingContext';
 
 const Chatbot: React.FC = () => {
@@ -13,30 +15,36 @@ const Chatbot: React.FC = () => {
     setMessage,
     refFinMessages,
   } = useLandingContext();
+  useScrollLock(isOpen);
   return (
     <div className="fixed bottom-4 right-4 z-[1000] font-sans">
       <button
         onClick={() => setIsOpen((isOpen) => !isOpen)}
         className="bg-green-700 hover:bg-green-800 text-white font-semibold rounded-full shadow-lg transition-all cursor-pointer duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
       >
-        {isOpen ? (
-          <CircleX size={30} className="m-2" />
-        ) : (
+        {!isOpen ? (
           <div className="flex items-center px-5 py-3">
             <Bot className="pb-2" size={35} />
-            <span className="text-md">ASJABot</span>
+            <p className="text-md">ASJABot</p>
           </div>
-        )}
+        ) : null}
       </button>
 
       {isOpen && (
         <div
-          className="w-80 h-[400px] sm:w-96 sm:h-[500px] dark:bg-zinc-800 bg-white rounded-xl shadow-2xl flex flex-col mb-4 overflow-hidden"
+          className="w-80 h-[400px] sm:w-96 sm:h-[500px] dark:bg-zinc-800 bg-white transition-all duration-500 rounded-xl shadow-2xl flex flex-col mb-4 overflow-hidden"
           style={{ transform: 'translateY(-10px)' }}
         >
-          <div className="flex dark:text-white text-gray-800 shadow-md items-center px-5 py-3">
-            <Bot className="pb-2" size={35} />
-            <span className="text-md">ASJABot</span>
+          <div className="flex dark:text-white text-gray-800 w-full justify-between shadow-md items-center px-5 py-3">
+            <section className="flex gap-1 items-center">
+              {' '}
+              <Bot className="pb-2" size={35} />
+              <span className="text-md text font-semibold">ASJABot</span>
+            </section>
+            <MdCancel
+              onClick={() => setIsOpen((isOpen) => !isOpen)}
+              className="text-2xl transition-all cursor-pointer hover:scale-110 duration-500 text-green-700 dark:text-white"
+            />
           </div>
           <div className="flex-1 overflow-y-auto p-4 flex flex-col space-y-3">
             {messagesList.length === 0 ? (
@@ -52,7 +60,7 @@ const Chatbot: React.FC = () => {
                   className={`max-w-[85%] p-3 rounded-xl text-sm break-words ${
                     msg.expediteur === 'User'
                       ? 'bg-green-700 text-white self-end rounded-br-md'
-                      : 'bg-gray-100 text-gray-800 dark:text-gray-300  dark:bg-zinc-700 self-start rounded-tl-md'
+                      : 'bg-gray-100 text-gray-800 dark:text-gray-300 transition-all duration-500  dark:bg-zinc-700 self-start rounded-tl-md'
                   }`}
                 >
                   {msg.message}
