@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import {
@@ -7,14 +8,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Button } from '@/components/ui/button';
 
-import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
+import { useAdminDashboardContext } from '../bloc/useAdminContext';
 
 import FilePicker from './file-picker';
 
-import { mentions, classes } from '@/core/types';
 import { Input } from '@/components/ui/input';
+import { classes, mentions } from '@/core/types';
 import { MdCancel } from 'react-icons/md';
 import { useModalContext } from '../bloc/useModalContext';
 

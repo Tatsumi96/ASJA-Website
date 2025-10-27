@@ -1,5 +1,3 @@
-import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
-import * as React from 'react';
 import {
   type SortingState,
   getCoreRowModel,
@@ -7,6 +5,8 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table';
+import * as React from 'react';
+import { useAdminDashboardContext } from '../bloc/useAdminContext';
 
 import { columns } from '../components/student-column';
 

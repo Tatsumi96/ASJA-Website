@@ -1,4 +1,4 @@
-import { flexRender } from "@tanstack/react-table";
+import { flexRender } from '@tanstack/react-table';
 
 import {
   Table,
@@ -7,17 +7,17 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table';
 
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { useStudentTable } from "../hooks/useStudentTable";
-import { MdPerson, MdSearch } from "react-icons/md";
-import { Button } from "@/components/ui/button";
-import { useModalContext } from "../bloc/useModalContext";
-import { Input } from "@/components/ui/input";
-import { useEffect, useMemo, useRef } from "react";
-import { useAdminDashboardContext } from "../bloc/useStudentSpaceContext";
-import { debounce } from "lodash";
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { debounce } from 'lodash';
+import { useEffect, useMemo, useRef } from 'react';
+import { MdPerson, MdSearch } from 'react-icons/md';
+import { useAdminDashboardContext } from '../bloc/useAdminContext';
+import { useModalContext } from '../bloc/useModalContext';
+import { useStudentTable } from '../hooks/useStudentTable';
 
 export const StudentTable = () => {
   const { observerRef, table, columns, globalFilter, setGlobalFilter } =
@@ -65,7 +65,7 @@ export const StudentTable = () => {
         <div className="relative">
           <MdSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
           <Input
-            value={globalFilter ?? ""}
+            value={globalFilter ?? ''}
             onChange={(event) => {
               setGlobalFilter(event.target.value);
               setQuery(event.target.value);
@@ -82,7 +82,7 @@ export const StudentTable = () => {
           <MdPerson /> <p>Ajouter</p>
         </Button>
       </div>
-      <ScrollArea className="h-[640px]">
+      <ScrollArea className="h-screen">
         <Table className="w-full">
           <TableHeader className=" z-10 bg-transparent  dark:bg-zinc-900 transition-all duration-500">
             {table.getHeaderGroups().map((headerGroup) => (
@@ -111,7 +111,7 @@ export const StudentTable = () => {
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
+                  data-state={row.getIsSelected() && 'selected'}
                   className=" cursor-pointer"
                 >
                   {row.getVisibleCells().map((cell, index) => (

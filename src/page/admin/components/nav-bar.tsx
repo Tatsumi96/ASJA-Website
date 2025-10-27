@@ -2,7 +2,7 @@ import { SidebarTrigger } from '@/components/ui/sidebar';
 
 import { useTheme } from '@/page/theme/useTheme';
 import { Moon, Sun } from 'lucide-react';
-import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
+import { useAdminDashboardContext } from '../bloc/useAdminContext';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
