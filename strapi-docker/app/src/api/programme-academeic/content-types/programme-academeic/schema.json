@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "programme_academeics",
+  "info": {
+    "singularName": "programme-academeic",
+    "pluralName": "programme-academeics",
+    "displayName": "ProgrammeAcademeic"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Inscription": {
+      "type": "date"
+    },
+    "label_1": {
+      "type": "string"
+    },
+    "Concours": {
+      "type": "date"
+    },
+    "label_2": {
+      "type": "string"
+    },
+    "Reinscription": {
+      "type": "date"
+    },
+    "label_3": {
+      "type": "string"
+    }
+  }
+}
