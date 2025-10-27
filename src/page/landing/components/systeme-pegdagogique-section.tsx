@@ -30,7 +30,7 @@ export const SystemePedagogiqueSection = () => {
   return (
     <div
       id="systeme"
-      className="bg-gradient-to-br w-full from-white lg:from-gray-300/50 from-50% to-33% to-white dark:from-zinc-800 dark:to-zinc-800  dark:text-white transition-all duration-500"
+      className="bg-gradient-to-br w-full pb-20 from-white lg:from-gray-300/50 from-50% to-33% to-white dark:from-zinc-800 dark:to-zinc-800  dark:text-white transition-all duration-500"
     >
       <motion.div
         initial={{ y: 100, opacity: 0 }}
@@ -39,7 +39,7 @@ export const SystemePedagogiqueSection = () => {
         viewport={{ amount: 0.2, once: true }}
         className="w-full"
       >
-        <h1 className="md:text-5xl text-4xl font-bold text-green-700 transition-all duration-500 dark:text-green-700 text-center mb-20">
+        <h1 className="md:text-5xl text-4xl font-bold text-green-700 transition-all duration-500 dark:text-green-700 text-center pb-30">
           SYSTEME PEDAGOGIQUE
         </h1>
       </motion.div>
