@@ -1,49 +1,49 @@
-import Agro from "@/assets/Mentions/AgronomieImage/Agro.jpg";
-import Image3 from "@/assets/Mentions/AgronomieImage/Brochure-Agro.jpg";
-import Image1 from "@/assets/Mentions/AgronomieImage/Labo.jpg";
-import { DispositionAboutFiliere } from "../landing/components/disposition-about-filiere";
+import Agro from '@/assets/Mentions/AgronomieImage/Agro.jpg';
+import Image3 from '@/assets/Mentions/AgronomieImage/Brochure-Agro.jpg';
+import Image1 from '@/assets/Mentions/AgronomieImage/Labo.jpg';
+import { DispositionAboutFiliere } from '../landing/components/disposition-about-filiere';
 
 const mention = {
-  name: "SCIENCES AGRONOMIQUES",
+  name: 'SCIENCES AGRONOMIQUES',
   ImageMention: Agro,
 };
 
 const descriptionMention = {
-  title: "SCIENCES AGRONOMIQUES",
+  title: 'SCIENCES AGRONOMIQUES',
   description:
-    "Formation complète en agronomie, sciences des plantes et technologies agricoles.",
+    'La filière Sciences Agronomiques forme des ingénieurs et techniciens capables de répondre aux défis agricoles et environnementaux de Madagascar. Les étudiants y acquièrent des compétences solides sur la transformation alimentaire, la production animale et végétale, ainsi que l’agriculture durable. Des cours théoriques sont complétés par des travaux pratiques, des stages en exploitation et en laboratoire, afin de relier la science à la réalité du terrain. L’objectif est de former des professionnels autonomes, innovants et conscients des enjeux de la sécurité alimentaire et du développement rural.',
 };
 
 const descriptionParcours = [
   {
-    title: "PRODUCTION ANIMALE",
+    title: 'PRODUCTION ANIMALE',
     description:
-      "Production animale & Production et Santé Animale (PA & PSA) Compétences acquises à la fin de votre formation chez nous : Techniques d’élevage Rationnement et nutrition animale Bien-être animal Diagnostic et prévention des maladies Débouchés professionnels : Technicien Ingénieur en élevage Responsable d’unité de production animale Conseiller en alimentation et reproduction animale Gestionnaire de ferme zootechnique Chef de projet de développement local Consultants Cadres et Techiciens au sein du Ministère de l’Agriculture et de l’Elevage ",
-    categorieParcours: "PRODUCTION ANIMALE",
+      'Production animale & Production et Santé Animale (PA & PSA) Compétences acquises à la fin de votre formation chez nous : Techniques d’élevage Rationnement et nutrition animale Bien-être animal Diagnostic et prévention des maladies Débouchés professionnels : Technicien Ingénieur en élevage Responsable d’unité de production animale Conseiller en alimentation et reproduction animale Gestionnaire de ferme zootechnique Chef de projet de développement local Consultants Cadres et Techiciens au sein du Ministère de l’Agriculture et de l’Elevage ',
+    categorieParcours: 'PRODUCTION ANIMALE',
   },
   {
-    title: "PRODUCTION VEGETALE",
+    title: 'PRODUCTION VEGETALE',
     description:
-      "Production végétale & Développement Agricole et Rural (PV & DAR) Compétences acquises à la fin de votre formation chez nous : Conduites des cultures (vivrière, maraichère, …) Gestion de l’irrigation et du sol Amélioration des rendements agricoles Animation des communautés rurales Gestion des projets de développement Débouchés professionnels : Conseiller en cultures végétales Responsable d’exploitation agricole Animateur ou Agent de développement rural Chargé de programme agricole Agent de vulgarisation agricole Conseiller en organisation paysanne Chef de projet de développement local Consultants Cadres et Techniciens au sein du Ministère de l’Agriculture et de l’Elevage, des ONG et des sociétés",
-    categorieParcours: "PRODUCTION VEGETALE",
+      'Production végétale & Développement Agricole et Rural (PV & DAR) Compétences acquises à la fin de votre formation chez nous : Conduites des cultures (vivrière, maraichère, …) Gestion de l’irrigation et du sol Amélioration des rendements agricoles Animation des communautés rurales Gestion des projets de développement Débouchés professionnels : Conseiller en cultures végétales Responsable d’exploitation agricole Animateur ou Agent de développement rural Chargé de programme agricole Agent de vulgarisation agricole Conseiller en organisation paysanne Chef de projet de développement local Consultants Cadres et Techniciens au sein du Ministère de l’Agriculture et de l’Elevage, des ONG et des sociétés',
+    categorieParcours: 'PRODUCTION VEGETALE',
   },
   {
-    title: "AGROALIMENTAIRE",
+    title: 'AGROALIMENTAIRE',
     description:
-      "Compétences acquises à la fin de votre formation chez nous : Transformation des matières premières (artisanales et industrielles) Recherche et Développement Gestion de la chaîne de production Normes d’hygiène et sécurité alimentaire Contrôle qualité des denrées alimentaires Analyses physico-chimiques et microbiologiques Traçabilité et évaluation sensorielle Nutrition Débouchés professionnels : Techniciens/Ingénieur agroalimentaire Responsable de production Chargé de développement de produits Technicien/Ingénieur en contrôle qualité Analyste en laboratoire alimentaire Responsable assurance qualité Consultant Cadres et Techniciens au sein du Ministère de l’Industrialisation et du Commerce, des ONG, des sociétés et des bureaux d’études.",
-    categorieParcours: "AGROALIMENTAIRE",
+      'Compétences acquises à la fin de votre formation chez nous : Transformation des matières premières (artisanales et industrielles) Recherche et Développement Gestion de la chaîne de production Normes d’hygiène et sécurité alimentaire Contrôle qualité des denrées alimentaires Analyses physico-chimiques et microbiologiques Traçabilité et évaluation sensorielle Nutrition Débouchés professionnels : Techniciens/Ingénieur agroalimentaire Responsable de production Chargé de développement de produits Technicien/Ingénieur en contrôle qualité Analyste en laboratoire alimentaire Responsable assurance qualité Consultant Cadres et Techniciens au sein du Ministère de l’Industrialisation et du Commerce, des ONG, des sociétés et des bureaux d’études.',
+    categorieParcours: 'AGROALIMENTAIRE',
   },
 ];
 
 const shortDescriptionList = [
   {
-    titleEvent: "Hackathon 2023",
-    descriptionEvent: "Victoire de nos étudiants.",
+    titleEvent: 'Hackathon 2023',
+    descriptionEvent: 'Victoire de nos étudiants.',
     RandomImage: Image3,
   },
   {
-    titleEvent: "Visite PAMF",
-    descriptionEvent: "Renforcement de la collaboration.",
+    titleEvent: 'Visite PAMF',
+    descriptionEvent: 'Renforcement de la collaboration.',
     RandomImage: Image1,
   },
 ];
