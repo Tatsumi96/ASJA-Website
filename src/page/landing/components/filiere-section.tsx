@@ -17,29 +17,20 @@ import { useState } from 'react';
 
 interface ItemProps {
   mention: string;
-  description: string;
   image: string;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-const Item: React.FC<ItemProps> = ({
-  mention,
-  description,
-  image,
-  onClick,
-}) => {
+const Item: React.FC<ItemProps> = ({ mention, image, onClick }) => {
   return (
     <div
       onClick={onClick}
       className="flex-1/2 md:hover:scale-105 md:w-full rounded-2xl overflow-hidden duration-500 bg-white dark:bg-zinc-800 cursor-pointer border z-20"
     >
       <img className="w-full p-4 rounded-3xl" src={image} alt={mention} />
-      <h2 className="px-5 pt-5 text-2xl font-bold text-stone-500 dark:text-stone-200">
+      <h2 className="px-5 py-5 text-2xl font-bold text-stone-500 dark:text-stone-200">
         {mention}
       </h2>
-      <p className="p-5 pb-10 pt-0 text-gray-800 dark:text-gray-300">
-        {description}
-      </p>
     </div>
   );
 };
@@ -61,10 +52,10 @@ export const FiliereSection = () => {
           className="flex items-center justify-center pt-10 flex-col"
         >
           <h1 className="flex text-center lg:text-start text-green-700 font-bold text-4xl">
-            {translate('filiereSection.title')}
+            NOS MENTIONS
           </h1>
           <p className="flex text-center lg:text-start text-lg transition-all duration-500 dark:text-white ">
-            {translate('filiereSection.description')}
+            L'ASJA propose 6 domaines de formations
           </p>
         </motion.div>
         <motion.div
@@ -77,19 +68,16 @@ export const FiliereSection = () => {
           <Item
             mention={translate('filiereSection.AGRO.name')}
             image={Image2}
-            description={translate('filiereSection.AGRO.description')}
             onClick={() => (window.location.href = '/agroPage')}
           />
           <Item
             mention={translate('filiereSection.INFO.name')}
             image={Image}
-            description={translate('filiereSection.INFO.description')}
             onClick={() => (window.location.href = '/infoPage')}
           />
           <Item
             mention={translate('filiereSection.DROIT.name')}
             image={Image3}
-            description={translate('filiereSection.DROIT.description')}
             onClick={() => (window.location.href = '/droitPage')}
           />
         </motion.div>
@@ -103,19 +91,16 @@ export const FiliereSection = () => {
           <Item
             mention={translate('filiereSection.ST.name')}
             image={Image4}
-            description={translate('filiereSection.ST.description')}
             onClick={() => (window.location.href = '/stPage')}
           />
           <Item
             mention={translate('filiereSection.LEA.name')}
             image={Image5}
-            description={translate('filiereSection.LEA.description')}
             onClick={() => (window.location.href = '/leaPage')}
           />
           <Item
             mention={translate('filiereSection.ECO.name')}
             image={Image6}
-            description={translate('filiereSection.ECO.description')}
             onClick={() => (window.location.href = '/ecoPage')}
           />
         </motion.div>
@@ -164,7 +149,6 @@ const FiliereSectionCarousel = () => {
             <Item
               mention={translate('filiereSection.AGRO.name')}
               image={Image2}
-              description={translate('filiereSection.AGRO.description')}
               onClick={() => (window.location.href = '/agroPage')}
             />
           </CarouselItem>
@@ -172,7 +156,6 @@ const FiliereSectionCarousel = () => {
             <Item
               mention={translate('filiereSection.INFO.name')}
               image={Image}
-              description={translate('filiereSection.INFO.description')}
               onClick={() => (window.location.href = '/infoPage')}
             />
           </CarouselItem>
@@ -180,7 +163,6 @@ const FiliereSectionCarousel = () => {
             <Item
               mention={translate('filiereSection.DROIT.name')}
               image={Image3}
-              description={translate('filiereSection.DROIT.description')}
               onClick={() => (window.location.href = '/droitPage')}
             />
           </CarouselItem>
@@ -188,7 +170,6 @@ const FiliereSectionCarousel = () => {
             <Item
               mention={translate('filiereSection.ST.name')}
               image={Image4}
-              description={translate('filiereSection.ST.description')}
               onClick={() => (window.location.href = '/stPage')}
             />
           </CarouselItem>
@@ -196,7 +177,6 @@ const FiliereSectionCarousel = () => {
             <Item
               mention={translate('filiereSection.LEA.name')}
               image={Image5}
-              description={translate('filiereSection.LEA.description')}
               onClick={() => (window.location.href = '/leaPage')}
             />
           </CarouselItem>
@@ -204,7 +184,6 @@ const FiliereSectionCarousel = () => {
             <Item
               mention={translate('filiereSection.ECO.name')}
               image={Image6}
-              description={translate('filiereSection.ECO.description')}
               onClick={() => (window.location.href = '/ecoPage')}
             />
           </CarouselItem>
