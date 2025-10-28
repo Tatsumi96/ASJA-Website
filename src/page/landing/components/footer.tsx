@@ -1,9 +1,8 @@
-import Logo from '@/assets/Logo/asja-logo.png';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import 'leaflet/dist/leaflet.css';
-import type { ReactNode } from 'react';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import Logo from "@/assets/Logo/asja-logo.png";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import "leaflet/dist/leaflet.css";
+import type { ReactNode } from "react";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 type Contact = {
   name: string;
@@ -17,13 +16,12 @@ type SocialMedia = {
 export const Footer = () => {
   const asjaPosition: [number, number] = [-19.814068, 47.070135];
   const contact: Contact[] = [
-    { name: 'tel', link: '034 12 345 67' },
-    { name: 'email', link: 'example@gmail.com' },
-    { name: 'address' },
+    { name: "tel", link: "034 12 345 67" },
+    { name: "email", link: "example@gmail.com" },
+    { name: "address" },
   ];
   const socialMedia: SocialMedia[] = [
-    { name: 'Facebook', link: '', icon: <FacebookIcon /> },
-    { name: 'Instagram', link: '', icon: <InstagramIcon /> },
+    { name: "Facebook", link: "", icon: <FacebookIcon /> },
   ];
   return (
     <div
@@ -42,8 +40,8 @@ export const Footer = () => {
             <h1 className="text-2xl font-bold">Contact</h1>
             {contact.map((contact, key) => (
               <li key={key}>
-                {contact.name}:{' '}
-                {contact.link ? contact.link : 'Antsaha, Antsirabe, Madagascar'}
+                {contact.name}:{" "}
+                {contact.link ? contact.link : "Antsaha, Antsirabe, Madagascar"}
               </li>
             ))}
           </ul>
@@ -53,7 +51,7 @@ export const Footer = () => {
             <h1 className="text-2xl font-bold gap-5">Reseaux Sociaux</h1>
             {socialMedia.map((socialMedia, key) => (
               <a className="flex cursor-pointer" key={key}>
-                {' '}
+                {" "}
                 {socialMedia.icon}
                 {socialMedia.name}
               </a>
