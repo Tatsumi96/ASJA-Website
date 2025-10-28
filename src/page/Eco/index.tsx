@@ -6,12 +6,12 @@ import { DispositionAboutFiliere } from '@/page/landing/components/disposition-a
 
 export const EcoPage = () => {
   const mention = {
-    name: 'Mention Economie',
+    name: 'ECONOMIE ET COMMERCE',
     ImageMention: Economie,
   };
 
   const descriptionMention = {
-    title: 'La Mention Economie',
+    title: 'ECONOMIE ET COMMERCE',
     description:
       'La filière Économie et Commerce forme des cadres polyvalents capables d’analyser, de gérer et de dynamiser les activités économiques. Elle offre une solide formation en économie générale, gestion, marketing, finance, comptabilité et commerce international. Les étudiants apprennent à comprendre les mécanismes du marché, à élaborer des stratégies commerciales et à utiliser des outils modernes d’analyse économique. La filière met en avant l’esprit d’entreprise et l’ouverture sur le monde professionnel, afin de préparer des gestionnaires compétents et responsables.',
   };
