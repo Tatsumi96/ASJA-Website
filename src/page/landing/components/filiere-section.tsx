@@ -61,10 +61,10 @@ export const FiliereSection = () => {
           className="flex items-center justify-center pt-10 flex-col"
         >
           <h1 className="flex text-center lg:text-start text-green-700 font-bold text-4xl">
-            {translate('filiereSection.title')}
+            NOS MENTIONS
           </h1>
           <p className="flex text-center lg:text-start text-lg transition-all duration-500 dark:text-white ">
-            {translate('filiereSection.description')}
+            L'ASJA propose 6 domaines de formations
           </p>
         </motion.div>
         <motion.div
