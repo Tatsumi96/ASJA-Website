@@ -132,17 +132,6 @@ export const Navbar = () => {
                   >
                     {translate("sectionAccueilNavbar.FAQ")}
                   </Link>
-                  <Link
-                    to="map"
-                    spy={true}
-                    smooth={true}
-                    offset={-50}
-                    duration={300}
-                    activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
-                    className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
-                  >
-                    {translate("sectionAccueilNavbar.map")}
-                  </Link>
                 </NavigationMenuLink>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -205,24 +194,13 @@ export const Navbar = () => {
         </NavigationMenu>
         <NavigationMenu>
           <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>
+            <NavigationMenuItem className="text-white">
+              <Link
+                to="contact"
+                className="text-gray-800 cursor-pointer dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+              >
                 {translate("navBar.contact")}
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <NavigationMenuLink className="flex flex-col">
-                  <p className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500">
-                    034 12 345 67
-                  </p>
-                  <a
-                    className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
-                    href=""
-                  >
-                    {" "}
-                    example@gmail.com{" "}
-                  </a>
-                </NavigationMenuLink>
-              </NavigationMenuContent>
+              </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
@@ -327,17 +305,6 @@ export const Navbar = () => {
                     >
                       {translate("sectionAccueilNavbar.FAQ")}
                     </Link>
-                    <Link
-                      to="map"
-                      spy={true}
-                      smooth={true}
-                      offset={-50}
-                      duration={300}
-                      activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
-                    >
-                      {translate("sectionAccueilNavbar.map")}
-                    </Link>
                   </NavigationMenuLink>
                 </NavigationMenuContent>
               </NavigationMenuItem>
@@ -400,24 +367,13 @@ export const Navbar = () => {
           </NavigationMenu>
           <NavigationMenu>
             <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>
+              <NavigationMenuItem className="text-white">
+                <Link
+                  to="contact"
+                  className="text-gray-800 cursor-pointer dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                >
                   {translate("navBar.contact")}
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <NavigationMenuLink className="flex flex-col">
-                    <p className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500">
-                      034 12 345 67
-                    </p>
-                    <a
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
-                      href=""
-                    >
-                      {" "}
-                      example@gmail.com{" "}
-                    </a>
-                  </NavigationMenuLink>
-                </NavigationMenuContent>
+                </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
