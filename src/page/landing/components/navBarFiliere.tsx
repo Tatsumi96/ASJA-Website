@@ -1,4 +1,4 @@
-import Logo from "@/assets/Logo/asja-logo.png";
+import Logo from '@/assets/Logo/asja-logo.png';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -6,12 +6,12 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { useLangue } from "@/page/lang/useLang";
-import { useTheme } from "@/page/theme/useTheme";
-import { MenuIcon, Moon, Sun, X } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Link } from "react-scroll";
+} from '@/components/ui/navigation-menu';
+import { useLangue } from '@/page/lang/useLang';
+import { useTheme } from '@/page/theme/useTheme';
+import { MenuIcon, Moon, Sun, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-scroll';
 
 export const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -23,8 +23,8 @@ export const Navbar = () => {
       if (window.innerWidth >= 500) setOpen(false);
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
@@ -32,11 +32,11 @@ export const Navbar = () => {
       <div className="flex w-full md:w-auto justify-between items-center">
         <a
           className="flex items-center gap-2 cursor-pointer"
-          onClick={() => (window.location.href = "/")}
+          onClick={() => (window.location.href = '/')}
         >
           <img className=" w-10 h-10" src={Logo} />
           <h1 className=" flex items-center justify-center transition-all duration-500 text-md text-gray-900 dark:text-white font-bold">
-            {translate("universite")}
+            {translate('universite')}
           </h1>
         </a>
         <button
@@ -51,51 +51,60 @@ export const Navbar = () => {
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger>
-                {translate("navBar.filieres")}
+                {translate('navBar.filieres')}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <NavigationMenuLink>
                   <Link
                     to="AGRO"
-                    onClick={() => (window.location.href = "/agroPage")}
+                    onClick={() =>
+                      (window.location.href = '/mention/agronomie')
+                    }
                     className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                   >
-                    {translate("filiereSection.AGRO.name")}
+                    {translate('filiereSection.AGRO.name')}
                   </Link>
                   <Link
                     to="INFO"
                     className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
-                    onClick={() => (window.location.href = "/infoPage")}
+                    onClick={() =>
+                      (window.location.href = '/mention/informatique')
+                    }
                   >
-                    {translate("filiereSection.INFO.name")}
+                    {translate('filiereSection.INFO.name')}
                   </Link>
                   <Link
                     to="DROIT"
-                    onClick={() => (window.location.href = "/droitPage")}
+                    onClick={() => (window.location.href = '/mention/droit')}
                     className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                   >
-                    {translate("filiereSection.DROIT.name")}
+                    {translate('filiereSection.DROIT.name')}
                   </Link>
                   <Link
                     to="ECO"
-                    onClick={() => (window.location.href = "/ecoPage")}
+                    onClick={() => (window.location.href = '/mention/economie')}
                     className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                   >
-                    {translate("filiereSection.ECO.name")}
+                    {translate('filiereSection.ECO.name')}
                   </Link>
                   <Link
                     to="LEA"
-                    onClick={() => (window.location.href = "/leaPage")}
+                    onClick={() =>
+                      (window.location.href =
+                        '/mention/langue-etrangere-applique')
+                    }
                     className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                   >
-                    {translate("filiereSection.LEA.name")}
+                    {translate('filiereSection.LEA.name')}
                   </Link>
                   <Link
                     to="ST"
-                    onClick={() => (window.location.href = "/stPage")}
+                    onClick={() =>
+                      (window.location.href = '/mention/science-de-la-terre')
+                    }
                     className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                   >
-                    {translate("filiereSection.ST.name")}
+                    {translate('filiereSection.ST.name')}
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuContent>
@@ -109,7 +118,7 @@ export const Navbar = () => {
                 to="contact"
                 className="text-gray-800 cursor-pointer dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
               >
-                {translate("navBar.contact")}
+                {translate('navBar.contact')}
               </Link>
               <NavigationMenuContent></NavigationMenuContent>
             </NavigationMenuItem>
@@ -136,51 +145,62 @@ export const Navbar = () => {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger>
-                  {translate("navBar.filieres")}
+                  {translate('navBar.filieres')}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <NavigationMenuLink>
                     <Link
                       to="AGRO"
-                      onClick={() => (window.location.href = "/agroPage")}
+                      onClick={() =>
+                        (window.location.href = '/mention/agronomie')
+                      }
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate("filiereSection.AGRO.name")}
+                      {translate('filiereSection.AGRO.name')}
                     </Link>
                     <Link
                       to="INFO"
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
-                      onClick={() => (window.location.href = "/infoPage")}
+                      onClick={() =>
+                        (window.location.href = '/mention/informatique')
+                      }
                     >
-                      {translate("filiereSection.INFO.name")}
+                      {translate('filiereSection.INFO.name')}
                     </Link>
                     <Link
                       to="DROIT"
-                      onClick={() => (window.location.href = "/droitPage")}
+                      onClick={() => (window.location.href = '/mention/droit')}
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate("filiereSection.DROIT.name")}
+                      {translate('filiereSection.DROIT.name')}
                     </Link>
                     <Link
                       to="ECO"
-                      onClick={() => (window.location.href = "/ecoPage")}
+                      onClick={() =>
+                        (window.location.href = '/mention/economie')
+                      }
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate("filiereSection.ECO.name")}
+                      {translate('filiereSection.ECO.name')}
                     </Link>
                     <Link
                       to="LEA"
-                      onClick={() => (window.location.href = "/leaPage")}
+                      onClick={() =>
+                        (window.location.href =
+                          '/mention/langue-etrangere-applique')
+                      }
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate("filiereSection.LEA.name")}
+                      {translate('filiereSection.LEA.name')}
                     </Link>
                     <Link
                       to="ST"
-                      onClick={() => (window.location.href = "/stPage")}
+                      onClick={() =>
+                        (window.location.href = '/mention/science-de-la-terre')
+                      }
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate("filiereSection.ST.name")}
+                      {translate('filiereSection.ST.name')}
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuContent>
@@ -194,7 +214,7 @@ export const Navbar = () => {
                   to="contact"
                   className="text-gray-800 cursor-pointer dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                 >
-                  {translate("navBar.contact")}
+                  {translate('navBar.contact')}
                 </Link>
                 <NavigationMenuContent></NavigationMenuContent>
               </NavigationMenuItem>
