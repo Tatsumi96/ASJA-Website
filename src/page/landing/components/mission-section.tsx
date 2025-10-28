@@ -24,7 +24,7 @@ export const MissionSection = () => {
             Athénée Saint Joseph Antsirabe
           </h1>
           <p className="lg:text-2xl transition-all duration-500 dark:text-white text-xl">
-            {translate('descriptionSection.description')}
+              L’Athénée Saint Joseph Antsirabe est une université Catholique ouverte à tous les étudiants du pays entier et même les étrangers qui souhaitent bénéficier d’une formation d’excellence pour leurs études supérieures.
           </p>
           <div className="flex lg:justify-start justify-center items-center pt-10">
             <button className="bg-green-800 hover:bg-green-900 cursor-pointer hover:scale-105 duration-300 rounded-full">
@@ -32,7 +32,7 @@ export const MissionSection = () => {
                 href="/about"
                 className="text-white font-bold lg:text-lg text-sm flex gap-3 justify-center items-center md:px-6 md:py-3 py-2 px-4"
               >
-                {translate('descriptionSection.ensavoirplus')}
+                  Inscription
               </a>
             </button>
           </div>
