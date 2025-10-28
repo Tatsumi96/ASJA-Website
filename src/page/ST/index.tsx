@@ -4,12 +4,12 @@ import Image1 from '@/assets/Mentions/SienceDeLaTerre/event-reboisement-2.jpg';
 import { DispositionAboutFiliere } from '../../page/landing/components/disposition-about-filiere';
 
 const mention = {
-  name: 'Mention ST',
+  name: 'SCIENCES DE LA TERRE',
   ImageMention: ST,
 };
 
 const descriptionMention = {
-  title: 'La Mention ST',
+  title: 'SCIENCES DE LA TERRE',
   description:
     'La filière Sciences de la Terre s’adresse aux passionnés de la nature, de l’environnement et des phénomènes géologiques. Elle forme des spécialistes capables de comprendre, analyser et exploiter les ressources naturelles tout en respectant l’équilibre écologique. Les enseignements portent sur la géologie, la géophysique, la minéralogie, la cartographie, l’hydrologie et la gestion des risques naturels.Grâce à des travaux pratiques sur le terrain et en laboratoire, les étudiants acquièrent une expérience scientifique et technique essentielle pour travailler dans les domaines de l’environnement, des mines ou de l’aménagement du territoire.',
 };
