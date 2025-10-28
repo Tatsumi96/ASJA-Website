@@ -1,5 +1,5 @@
+import { useAdminDashboardContext } from '../bloc/useAdminContext';
 import { useModalContext } from '../bloc/useModalContext';
-import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
 import { DeleteButton } from './delete-button';
 
 export const DeleteUserButton = ({

@@ -8,7 +8,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart';
-import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
+import { useAdminDashboardContext } from '../bloc/useAdminContext';
 
 export const ChartPie = () => {
   const { mentionData } = useAdminDashboardContext();

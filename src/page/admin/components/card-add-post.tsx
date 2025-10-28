@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import {
@@ -7,17 +8,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Button } from '@/components/ui/button';
 import { MdCancel, MdNewspaper } from 'react-icons/md';
 
-import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
+import { useAdminDashboardContext } from '../bloc/useAdminContext';
 
-import { mentions, classes } from '@/core/types';
 import { Input } from '@/components/ui/input';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Textarea } from '@/components/ui/textarea';
+import { classes, mentions } from '@/core/types';
 import { useModalContext } from '../bloc/useModalContext';
 import { UploadAndViewImage } from './upload-view-image';
-import { Textarea } from '@/components/ui/textarea';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 export const CardAddPost = () => {
   const {

@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import {
@@ -7,16 +8,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Button } from '@/components/ui/button';
 import { MdCancel, MdLock, MdPerson2, MdPhone } from 'react-icons/md';
 
-import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
+import { useAdminDashboardContext } from '../bloc/useAdminContext';
 
-import { mentions, classes } from '@/core/types';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
+import { classes, mentions } from '@/core/types';
 import { useModalContext } from '../bloc/useModalContext';
 import { AvatarUploader } from './avatar-uploader';
-import { Checkbox } from '@/components/ui/checkbox';
 
 export const CardInputUser = () => {
   const {
@@ -81,7 +81,7 @@ export const CardInputUser = () => {
                         placeholder="Nom"
                         className="pl-10 pr-3 bg-gray-200"
                         onChange={(e) => setName(e.target.value)}
-                        value={name}
+                        value={name.toLocaleUpperCase()}
                       />
                     </div>
                   </div>{' '}

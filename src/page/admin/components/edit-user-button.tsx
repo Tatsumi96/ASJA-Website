@@ -1,6 +1,6 @@
 import type { UserDto } from '@/features/mention/user.dto';
+import { useAdminDashboardContext } from '../bloc/useAdminContext';
 import { useModalContext } from '../bloc/useModalContext';
-import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
 import { EditButton } from './edit-button';
 
 export const UpdateUserButton = ({ user }: { user: UserDto }) => {

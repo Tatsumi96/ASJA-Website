@@ -81,7 +81,6 @@ export const useAdminDashboard = () => {
 
   const [mentionData, setMentionData] = useState<MentionDto>();
 
-
   const deleteStudent = async (id: string, fileName: string) => {
     const result = await mentionRepository.deleteStudent(id, fileName);
 
@@ -90,6 +89,7 @@ export const useAdminDashboard = () => {
         description: 'Student deleted',
       });
       await fetchDashboardData();
+      await fetchLogs();
       const newStudentList = studentList.filter((item) => item.mentionId != id);
       setInitialStudentlist(newStudentList);
       setStudentlist(newStudentList);
@@ -220,8 +220,8 @@ export const useAdminDashboard = () => {
 
   const sendStudentInformation = async () => {
     const student: UserEntity = {
-      name: name.replace(/\s+/g, ''),
-      lastName: lastName.replace(/\s+/g, ''),
+      name: name.replace(/\s+/g, '').toLocaleUpperCase(),
+      lastName: lastName,
       contact,
       password,
       fileName: selectedFile?.name as string,
@@ -251,6 +251,7 @@ export const useAdminDashboard = () => {
       await mentionRepository.sendFiles(formData);
 
       await fetchDashboardData();
+      await fetchLogs();
       clean();
 
       toast.success('Succes', {
@@ -571,6 +572,6 @@ export const useAdminDashboard = () => {
     setImage,
     setUserMatricule,
     updateUserInformation,
-    adminData
+    adminData,
   };
 };

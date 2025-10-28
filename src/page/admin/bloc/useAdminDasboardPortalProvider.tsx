@@ -1,5 +1,5 @@
-import { useAdminDashboard } from "./useAdminDashboard";
-import { AdminDashboardContext } from "./useStudentSpaceContext";
+import { AdminDashboardContext } from './useAdminContext';
+import { useAdminDashboard } from './useAdminDashboard';
 
 export const AdminDashBoardProvider = ({
   children,
