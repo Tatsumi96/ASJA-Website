@@ -1,19 +1,19 @@
-import Image2 from "@/assets/Agro.jpg";
-import Image3 from "@/assets/Droit.jpeg";
-import Image6 from "@/assets/Eco.jpg";
-import Image from "@/assets/GL.jpeg";
-import Image5 from "@/assets/LC.webp";
-import Image4 from "@/assets/St.jpg";
+import Image2 from '@/assets/Agro.jpg';
+import Image3 from '@/assets/Droit.jpeg';
+import Image6 from '@/assets/Eco.jpg';
+import Image from '@/assets/GL.jpeg';
+import Image5 from '@/assets/LC.webp';
+import Image4 from '@/assets/St.jpg';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { useLangue } from "@/page/lang/useLang";
-import { motion } from "framer-motion";
-import { useState } from "react";
+} from '@/components/ui/carousel';
+import { useLangue } from '@/page/lang/useLang';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 interface ItemProps {
   mention: string;
@@ -68,17 +68,17 @@ export const FiliereSection = () => {
           <Item
             mention="SCIENCES AGRONOMIQUES"
             image={Image2}
-            onClick={() => (window.location.href = "/agroPage")}
+            onClick={() => (window.location.href = '/mention/agronomie')}
           />
           <Item
             mention="INFORMATIQUE"
             image={Image}
-            onClick={() => (window.location.href = "/infoPage")}
+            onClick={() => (window.location.href = '/mention/informatique')}
           />
           <Item
             mention="DROIT"
             image={Image3}
-            onClick={() => (window.location.href = "/droitPage")}
+            onClick={() => (window.location.href = '/mention/droit')}
           />
         </motion.div>
         <motion.div
@@ -89,19 +89,23 @@ export const FiliereSection = () => {
           className="flex justify-center items-center w-9/10 md:p-3 md:gap-20 gap-5 flex-col lg:flex-row md:flex-col "
         >
           <Item
-            mention={translate("filiereSection.ST.name")}
+            mention={translate('filiereSection.ST.name')}
             image={Image4}
-            onClick={() => (window.location.href = "/stPage")}
+            onClick={() =>
+              (window.location.href = '/mention/science-de-la-terre')
+            }
           />
           <Item
             mention="LANGUES ETRANGERES APPLIQUEES"
             image={Image5}
-            onClick={() => (window.location.href = "/leaPage")}
+            onClick={() =>
+              (window.location.href = '/mention/langue-etrangere-applique')
+            }
           />
           <Item
             mention="ECONOMIE ET COMMERCE"
             image={Image6}
-            onClick={() => (window.location.href = "/ecoPage")}
+            onClick={() => (window.location.href = '/mention/economie')}
           />
         </motion.div>
       </div>
@@ -133,58 +137,62 @@ const FiliereSectionCarousel = () => {
       </motion.div>
       <Carousel
         opts={{
-          align: "start",
+          align: 'start',
           loop: true,
         }}
         setApi={(api) => {
           if (!api) return;
           setCount(api.scrollSnapList().length);
           setCurrent(api.selectedScrollSnap());
-          api.on("select", () => setCurrent(api.selectedScrollSnap()));
+          api.on('select', () => setCurrent(api.selectedScrollSnap()));
         }}
         className="w-full px-2 md:px-0 lg:max-w-2/3 md:max-w-2/3 flex md:hidden "
       >
         <CarouselContent>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
-              mention={translate("filiereSection.AGRO.name")}
+              mention={translate('filiereSection.AGRO.name')}
               image={Image2}
-              onClick={() => (window.location.href = "/agroPage")}
+              onClick={() => (window.location.href = '/mention/agronomie')}
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
-              mention={translate("filiereSection.INFO.name")}
+              mention={translate('filiereSection.INFO.name')}
               image={Image}
-              onClick={() => (window.location.href = "/infoPage")}
+              onClick={() => (window.location.href = '/mention/informatique')}
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
-              mention={translate("filiereSection.DROIT.name")}
+              mention={translate('filiereSection.DROIT.name')}
               image={Image3}
-              onClick={() => (window.location.href = "/droitPage")}
+              onClick={() => (window.location.href = '/mention/droit')}
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
-              mention={translate("filiereSection.ST.name")}
+              mention={translate('filiereSection.ST.name')}
               image={Image4}
-              onClick={() => (window.location.href = "/stPage")}
+              onClick={() =>
+                (window.location.href = '/mention/science-de-la-terre')
+              }
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
-              mention={translate("filiereSection.LEA.name")}
+              mention={translate('filiereSection.LEA.name')}
               image={Image5}
-              onClick={() => (window.location.href = "/leaPage")}
+              onClick={() =>
+                (window.location.href = '/mention/langue-etrangere-applique')
+              }
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
-              mention={translate("filiereSection.ECO.name")}
+              mention={translate('filiereSection.ECO.name')}
               image={Image6}
-              onClick={() => (window.location.href = "/ecoPage")}
+              onClick={() => (window.location.href = '/mention/economie')}
             />
           </CarouselItem>
         </CarouselContent>
@@ -196,7 +204,7 @@ const FiliereSectionCarousel = () => {
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`size-3 rounded-full transition-colors ${index === current ? "bg-green-700 dark:bg-white" : "bg-zinc-400"}`}
+            className={`size-3 rounded-full transition-colors ${index === current ? 'bg-green-700 dark:bg-white' : 'bg-zinc-400'}`}
           ></button>
         ))}
       </div>
