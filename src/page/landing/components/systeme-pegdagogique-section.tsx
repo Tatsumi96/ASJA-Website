@@ -64,7 +64,7 @@ export const SystemePedagogiqueSection = () => {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className="flex lg:flex-row flex-col items-center justify-center flex-wrap md:p-5 lg:gap-20 py-10 text-center"
+        className="flex lg:flex-row flex-col gap-20 items-center justify-center flex-wrap md:p-5 lg:gap-20 py-10 text-center"
       >
         {pedag.map((pedag, key) => (
           <div
