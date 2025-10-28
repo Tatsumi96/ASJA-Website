@@ -11,7 +11,7 @@ export const DroitPage = () => {
   const descriptionMention = {
     title: 'La Mention Droit',
     description:
-      "Formation complète en droit des affaires, droit international et droits de l'homme.",
+      'La filière Droit offre une formation complète en droit civil, pénal, constitutionnel, administratif et commercial. Elle vise à développer une solide culture juridique et un esprit critique, indispensables à la compréhension des institutions et des règles qui régissent la société. Les étudiants apprennent à analyser, interpréter et appliquer les textes juridiques, mais aussi à défendre des arguments de manière rigoureuse et éthique. Cette formation prépare à des carrières variées : avocat, juriste d’entreprise, magistrat, fonctionnaire, conseiller juridique ou encore chercheur en droit.',
   };
 
   const descriptionParcours = [

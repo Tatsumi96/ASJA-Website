@@ -13,7 +13,7 @@ export const EcoPage = () => {
   const descriptionMention = {
     title: 'La Mention Economie',
     description:
-      'Compétences acquises à la fin de votre formation chez nous : Esprit d’analyse et esprit critique Création et gestion d’entreprises Gestion financière des entreprises Économie territoriale, rurale et inclusive Techniques de commerce et négociation Management des équipes et organisation Analyse des politiques publiques et sociales Gestion de projets et planification stratégique Évaluation d’impacts économiques et sociaux Stratégies de marketing digital et international Analyse économique, stratégique et financière',
+      'La filière Économie et Commerce forme des cadres polyvalents capables d’analyser, de gérer et de dynamiser les activités économiques. Elle offre une solide formation en économie générale, gestion, marketing, finance, comptabilité et commerce international. Les étudiants apprennent à comprendre les mécanismes du marché, à élaborer des stratégies commerciales et à utiliser des outils modernes d’analyse économique. La filière met en avant l’esprit d’entreprise et l’ouverture sur le monde professionnel, afin de préparer des gestionnaires compétents et responsables.',
   };
 
   const descriptionParcours = [

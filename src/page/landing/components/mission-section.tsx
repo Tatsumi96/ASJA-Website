@@ -2,11 +2,8 @@ import { motion } from 'framer-motion';
 
 import Image from '@/assets/Image-evenement/event-diplome_master.jpg';
 import Image2 from '@/assets/Lieu_espace/Bibliotheque.jpg';
-import { useLangue } from '@/page/lang/useLang';
 
 export const MissionSection = () => {
-  const { translate } = useLangue();
-
   return (
     <div
       id="mission"
@@ -24,7 +21,9 @@ export const MissionSection = () => {
             Athénée Saint Joseph Antsirabe
           </h1>
           <p className="lg:text-2xl transition-all duration-500 dark:text-white text-xl">
-              L’Athénée Saint Joseph Antsirabe est une université Catholique ouverte à tous les étudiants du pays entier et même les étrangers qui souhaitent bénéficier d’une formation d’excellence pour leurs études supérieures.
+            L'Athénée Saint Joseph Antsirabe (ASJA) est une université
+            catholique offrant une formation d'excellence aux étudiants
+            nationaux et internationaux.
           </p>
           <div className="flex lg:justify-start justify-center items-center pt-10">
             <button className="bg-green-800 hover:bg-green-900 cursor-pointer hover:scale-105 duration-300 rounded-full">
@@ -32,7 +31,7 @@ export const MissionSection = () => {
                 href="/about"
                 className="text-white font-bold lg:text-lg text-sm flex gap-3 justify-center items-center md:px-6 md:py-3 py-2 px-4"
               >
-                  Inscription
+                Inscription
               </a>
             </button>
           </div>
@@ -48,19 +47,27 @@ export const MissionSection = () => {
         >
           <div className="md:hidden py-10 flex flex-col gap-5">
             <h1 className="flex text-4xl font-bold text-green-700 transition-all duration-500 dark:text-amber-100">
-              {translate('missionSection.missiontitle')}
+              Notre Mission
             </h1>
             <p className="text-lg max-w-150 transition-all duration-500 dark:text-white">
-              {translate('missionSection.mission')}
+              L'Athénée Saint Joseph Antsirabe (ASJA) fonde son projet éducatif
+              sur l'excellence académique, la discipline, la foi et l'engagement
+              social. Sa mission est d'offrir une formation complète (savoir,
+              savoir-faire, savoir-être) en alliant rigueur, solidarité et
+              créativité.
             </p>
           </div>
           <img src={Image} className="rounded-lg lg:w-150 lg:h-100" />
           <div className=" hidden lg:flex lg:flex-col">
             <h1 className="flex text-4xl font-bold text-green-700 dark:text-amber-100 py-5">
-              {translate('missionSection.missiontitle')}
+              Notre Mission
             </h1>
             <p className="text-lg max-w-150 transition-all duration-500 dark:text-white">
-              {translate('missionSection.mission')}
+              L'Athénée Saint Joseph Antsirabe (ASJA) fonde son projet éducatif
+              sur l'excellence académique, la discipline, la foi et l'engagement
+              social. Sa mission est d'offrir une formation complète (savoir,
+              savoir-faire, savoir-être) en alliant rigueur, solidarité et
+              créativité.
             </p>
           </div>
         </motion.div>
@@ -74,10 +81,15 @@ export const MissionSection = () => {
       >
         <div className="flex pb-5 flex-col gap-5">
           <h1 className="flex text-4xl font-bold text-green-700 transition-all duration-500 dark:text-amber-100">
-            {translate('missionSection.objectifTitle')}
+            Notre Objectif
           </h1>
           <p className="text-lg max-w-150 transition-all duration-500 dark:text-white text-wrap">
-            {translate('missionSection.objectif')}
+            Notre vision pour une université moderne et ancrée nationalement
+            repose sur six piliers : assurer une formation de haut niveau
+            adaptée au marché du travail et à la mondialisation ; encourager la
+            recherche scientifique et l'innovation au service du développement ;
+            développer les compétences des étudiants via des stages et des
+            projets concrets .
           </p>
         </div>
 

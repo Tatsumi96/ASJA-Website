@@ -13,7 +13,7 @@ export const InfoPage = () => {
   const descriptionMention = {
     title: 'La Mention Informatique',
     description:
-      'Formation complète en développement logiciel, réseaux, IA et cybersécurité.',
+      'La filière Informatique prépare les étudiants à maîtriser les outils et technologies de l’ère numérique. Elle couvre des domaines essentiels tels que la programmation, le développement web et mobile, les bases de données, les réseaux, la cybersécurité, l’intelligence artificielle et la gestion de projets logiciels. Grâce à une approche pratique et professionnalisante, les étudiants développent une véritable expertise technique, leur permettant d’évoluer comme développeurs, ingénieurs logiciels, administrateurs systèmes ou chefs de projets IT. La formation met aussi l’accent sur la créativité, l’innovation et la résolution de problèmes concrets.',
   };
 
   const descriptionParcours = [
