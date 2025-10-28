@@ -1,30 +1,46 @@
 import { motion } from "framer-motion";
 
 type Pedag = {
+  pourcentage?: string;
   title: string;
   description: string;
 };
 export const SystemePedagogiqueSection = () => {
   const pedag: Pedag[] = [
     {
-      title: "License 1",
+      pourcentage: "40%",
+      title: "Cours théoriques",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Acquisition des bases scientifiques et conceptuelles solide de chaque filière.",
     },
     {
-      title: "License 2",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      pourcentage: "25%",
+      title: "Travaux pratiques et laboratoires",
+      description: "Mise en application concrète des notions vues en cours.",
     },
     {
-      title: "Master 1",
+      pourcentage: "15%",
+      title: "Stages et projets professionnels",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Immersion dans le monde du travail, projets de terrain et étude de cas réels.",
     },
     {
-      title: "Master 2",
+      pourcentage: "10%",
+      title: "Evaluation continue",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Devoirs, présentations, mini-projets et contrôles réguliers.",
+    },
+    {
+      pourcentage: "5%",
+      title: "Ouverture et recherche",
+      description:
+        "Activités de recherche, innovations, conférences, et collaborations externes.",
+    },
+    {
+      pourcentage: "5%",
+      title: "Développement personnel & valeurs",
+      description:
+        "Formation humaine, éthique et sociale selon les valeurs Déhoniennes.",
     },
   ];
   return (
@@ -39,7 +55,7 @@ export const SystemePedagogiqueSection = () => {
         viewport={{ amount: 0.2, once: true }}
         className="w-full"
       >
-        <h1 className="md:text-5xl text-4xl font-bold text-green-700 transition-all duration-500 dark:text-green-700 text-center pb-30">
+        <h1 className="md:text-5xl mb-10 text-4xl font-bold text-green-700 transition-all duration-500 dark:text-green-700 text-center pb-30">
           SYSTEME PEDAGOGIQUE
         </h1>
       </motion.div>
@@ -55,11 +71,13 @@ export const SystemePedagogiqueSection = () => {
             className="flex flex-col justify-center items-center w-full px-5 lg:w-1/3"
             key={key}
           >
-            <h3 className="text-3xl font-bold text-gray-700 dark:text-white p-10">
+            <h3 className="text-5xl font-bold text-green-700 dark:text-white pb-5">
+              {pedag.pourcentage}
+            </h3>
+            <h3 className="text-3xl font-bold text-gray-700 dark:text-white pb-2">
               {pedag.title}
             </h3>
-            <p className="text-start my-2">{pedag.description}</p>
-            <p className="text-start my-2">{pedag.description}</p>
+            <p className="text-center">{pedag.description}</p>
           </div>
         ))}
       </motion.div>
