@@ -24,7 +24,9 @@ export const Footer = () => {
             <li>address: Antsaha, Antsirabe, Madagascar</li>
             <li>
               {" "}
-              <FacebookIcon /> Facebook
+              <a href="https://www.facebook.com/UniversiteASJA">
+                <FacebookIcon /> Facebook
+              </a>
             </li>
           </ul>
         </div>
