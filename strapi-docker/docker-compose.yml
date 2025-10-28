@@ -1,0 +1,14 @@
+services:
+  strapi:
+    build: .
+    container_name: strapi-app
+    ports:
+      - "1337:1337"
+    volumes:
+      - ./app:/srv/app
+      - node_modules:/srv/app/node_modules
+    environment:
+      - NODE_ENV=development
+    restart: always
+volumes:
+  node_modules:

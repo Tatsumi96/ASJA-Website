@@ -4,7 +4,7 @@
   "info": {
     "singularName": "section-evenement",
     "pluralName": "section-evenements",
-    "displayName": "sectionEvenement"
+    "displayName": "SectionEvenement"
   },
   "options": {
     "draftAndPublish": true
@@ -27,8 +27,11 @@
         "audios"
       ]
     },
-    "alttext": {
+    "altText": {
       "type": "string"
+    },
+    "FileName": {
+      "type": "text"
     }
   }
 }
