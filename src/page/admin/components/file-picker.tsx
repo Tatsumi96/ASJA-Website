@@ -1,8 +1,8 @@
-import { FaFile } from 'react-icons/fa';
 import { useDropzone } from 'react-dropzone';
+import { FaFile } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 
-import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
+import { useAdminDashboardContext } from '../bloc/useAdminContext';
 
 const FilePicker: React.FC = () => {
   const {

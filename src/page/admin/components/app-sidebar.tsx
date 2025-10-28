@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/sidebar';
 
 import Logo from '@/assets/Logo/asja-logo.png';
+import { Button } from '@/components/ui/button';
 import type { Dispatch, SetStateAction } from 'react';
 import {
   MdBarChart,
@@ -22,9 +23,8 @@ import {
   MdPeople,
   MdSyncLock,
 } from 'react-icons/md';
-import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import { useAdminDashboardContext } from '../bloc/useStudentSpaceContext';
+import { useAdminDashboardContext } from '../bloc/useAdminContext';
 
 export const AppSidebar = ({
   changePage,

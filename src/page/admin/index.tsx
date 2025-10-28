@@ -2,15 +2,15 @@ import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 import { AdminDashBoardProvider } from './bloc/useAdminDasboardPortalProvider';
 
 import { AppSidebar } from '@/page/admin/components/app-sidebar';
-import { Dashboard } from './page/dashboard';
-import { Studentlist } from './page/student-list';
-import { NavBar } from './components/nav-bar';
 import { useState, type JSX } from 'react';
 import { Modalprovider } from './bloc/useModalProvider';
+import { MessageDeveloperScreen } from './components/mesage-developer-screen';
+import { NavBar } from './components/nav-bar';
+import { Dashboard } from './page/dashboard';
+import { Doclist } from './page/doc-list';
 import { Loglist } from './page/log-list';
 import { Postlist } from './page/post-list';
-import { Doclist } from './page/doc-list';
-import { MessageDeveloperScreen } from './components/mesage-developer-screen';
+import { Studentlist } from './page/student-list';
 export const AdminDashboardPage = () => {
   const [index, setIndex] = useState<number>(0);
   const page: JSX.Element[] = [

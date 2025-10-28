@@ -1,11 +1,11 @@
+import { ApiSource } from '@/core/constant';
 import { failure, success, type Result } from '@/core/result';
-import { MentionRepository } from './mention.repository';
+import type { Level, Mention } from '@/core/types';
 import type { MentionDto } from './mention.dto';
-import type { UserEntity } from './user.entity';
+import { MentionRepository } from './mention.repository';
 import type { MentionService } from './mention.service';
 import type { UserDto } from './user.dto';
-import { ApiSource } from '@/core/constant';
-import type { Level, Mention } from '@/core/types';
+import type { UserEntity } from './user.entity';
 
 export class MentionRepositoryImpl implements MentionRepository {
   constructor(private service: MentionService) {}
@@ -72,7 +72,6 @@ export class MentionRepositoryImpl implements MentionRepository {
         mentionId: item.mentionId,
         fileName: item.fileName,
       }));
-      console.log(data)
       return success(data);
     } catch (error) {
       console.error(error);
