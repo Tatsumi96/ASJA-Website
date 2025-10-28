@@ -122,7 +122,9 @@ export const CardAddPost = () => {
                       </SelectTrigger>
                       <SelectContent className="z-[900]">
                         {mention &&
-                          mentions[mention].map((branche) => (
+                          mentions[mention] &&
+                          mentions[mention][level] &&
+                          mentions[mention][level].map((branche) => (
                             <SelectItem key={branche} value={branche}>
                               {branche}
                             </SelectItem>
