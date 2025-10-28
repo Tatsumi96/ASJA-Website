@@ -468,7 +468,7 @@ export interface ApiSectionEvenementSectionEvenement
   extends Struct.CollectionTypeSchema {
   collectionName: 'section_evenements';
   info: {
-    displayName: 'sectionEvenement';
+    displayName: 'SectionEvenement';
     pluralName: 'section-evenements';
     singularName: 'section-evenement';
   };
