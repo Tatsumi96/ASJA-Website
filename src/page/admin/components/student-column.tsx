@@ -1,9 +1,4 @@
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Separator } from '@/components/ui/separator';
-import type { UserDto } from '@/features/mention/user.dto';
-import type { ColumnDef } from '@tanstack/react-table';
-import { TrancheBadge } from './tranche-status-badge';
-import { MdPerson } from 'react-icons/md';
 import {
   Select,
   SelectContent,
@@ -11,9 +6,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { Separator } from '@/components/ui/separator';
 import { classes, mentions } from '@/core/types';
-import { UpdateUserButton } from './edit-user-button';
+import type { UserDto } from '@/features/mention/user.dto';
+import type { ColumnDef } from '@tanstack/react-table';
+import { MdPerson } from 'react-icons/md';
 import { DeleteUserButton } from './delete-user-button';
+import { UpdateUserButton } from './edit-user-button';
+import { TrancheBadge } from './tranche-status-badge';
 
 export const columns: ColumnDef<UserDto>[] = [
   {
@@ -201,6 +201,8 @@ export const columns: ColumnDef<UserDto>[] = [
       const mention = table.getColumn('mention')?.getFilterValue() as
         | string
         | undefined;
+      const level = table.getColumn('level')?.getFilterValue() as string;
+
       return (
         <div className="flex w-full items-center justify-between gap-5">
           <Select
@@ -218,7 +220,9 @@ export const columns: ColumnDef<UserDto>[] = [
             <SelectContent>
               <SelectItem value="Tout">Tout</SelectItem>
               {mention &&
-                mentions[mention.replace(/ /g, '_')].map((branche) => (
+                mentions[mention] &&
+                mentions[mention][level] &&
+                mentions[mention][level].map((branche) => (
                   <SelectItem key={branche} value={branche}>
                     {branche}
                   </SelectItem>
