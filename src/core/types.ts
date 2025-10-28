@@ -34,6 +34,7 @@ export const mentions: Record<string, Record<string, string[]>> = {
       'GENIE INDUSTRIEL',
     ],
     M1: ['GENIE LOGICIEL', 'TELECOMMUNICATION', 'GENIE INDUSTRIEL'],
+    M2: ['GENIE LOGICIEL', 'TELECOMMUNICATION', 'GENIE INDUSTRIEL'],
   },
   DROIT: {
     L3: ['PROCESSUEL', 'AFFAIRES'],
