@@ -27,8 +27,11 @@
         "audios"
       ]
     },
-    "alttext": {
+    "altText": {
       "type": "string"
+    },
+    "FileName": {
+      "type": "text"
     }
   }
 }
