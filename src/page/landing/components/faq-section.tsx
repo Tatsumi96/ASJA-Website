@@ -10,18 +10,19 @@ interface FaqItem {
 
 const frequentlyAskedQuestions: FaqItem[] = [
   {
-    question: "En cas de perte de Bordereau, que dois-je faire ?",
-    answer: "Veuillez signaler au service des Etudiants.",
+    question: "Où se trouve l’ASJA ?",
+    answer: "Il existe des universités ASJA à Antsirabe et Antsohihy.",
     categoriesQuestion: "Générale",
   },
   {
-    question: "Il y a-t-il une politique de remboursement ?",
-    answer: "oui",
+    question: "Combien coûtent les frais de scolarité à l’ASJA ?",
+    answer: "Les coûts varient selon le niveau d’études (L1, L2, L3, M1, M2).",
     categoriesQuestion: "Générale",
   },
   {
-    question: "Ou est situé le service des Etudiants ?",
-    answer: "Le service des Etudiants se trouve au rez-de-chaussee.",
+    question: "Les diplômes de l’ASJA sont-ils reconnus ?",
+    answer:
+      "Oui, les diplômes délivrés par l’ASJA sont reconnus par le MESupReS de Madagascar.",
     categoriesQuestion: "Générale",
   },
   {
@@ -30,37 +31,42 @@ const frequentlyAskedQuestions: FaqItem[] = [
       "Le service des Étudiants est ouvert de 8h à 12h et de 13:30h à 15h.",
     categoriesQuestion: "Générale",
   },
-
   {
-    question: "A quel heure commence le cours ?",
-    answer: "Le cours commence à 8h.",
+    question: "C'est quoi systeme LMD ?",
+    answer:
+      "Licence-Master-Doctorat est un modèle universitaire international fondé sur 3 niveaux de formation : Licence (3 ans), Master (2 ans), Doctorat (3 ans). Chaque année d’étude correspond à 60 crédits ECTS, permettant une validation progressive des acquis.",
     categoriesQuestion: "Enseignement",
   },
   {
-    question: "Ces quoi systeme LMD ?",
-    answer: "le systeme LMD est un systeme d enseignement.",
+    question: "Pourquoi l’ASJA suit ce système ?",
+    answer:
+      "Ce système rend les diplômes reconnus à l’international et favorise la mobilité des étudiants.",
     categoriesQuestion: "Enseignement",
   },
 
   {
-    question: "Comment s’inscrire ?",
-    answer: "Allez sur la page d’inscription et remplissez le formulaire.",
+    question: "Comment s’inscrire à l’ASJA?",
+    answer:
+      "Vous pouvez vous inscrire en allant au bureau du service de scolarité à l’ASJA ou remplir le formulaire d’inscription en ligne.",
     categoriesQuestion: "Inscription",
   },
   {
-    question: "Quels documents sont nécessaires ?",
-    answer: "Une pièce d’identité et une photo d’identité récente.",
+    question: "Quels sont les documents à fournir pour l’inscription ?",
+    answer:
+      "1 photocopie légalisée du bulletin de notes Terminale, 1 photocopie légalisée du bulletin de notes du BACC, 1 bulletin de naissance, 2 photos d’identité + 1 numérique, 1 photo buste, 1 enveloppe timbrée avec adresse exacte des parents, 1 lettre de motivation, 1 enveloppe A4, 1 photocopie CIN.",
     categoriesQuestion: "Inscription",
   },
 
   {
     question: "Il y a t il une cantine ?",
-    answer: "Oui, les cantines sont ouvertes tous les jours.",
+    answer:
+      "Oui, l’ASJA dispose de 2 cafétérias ouvertes du Lundi au Samedi pour les besoins alimentaires des étudiants.",
     categoriesQuestion: "Autres",
   },
   {
-    question: "Il y a t il un liue ou habite si on vien de l’exterieur ?",
-    answer: "Oui, il existe plusieur cite universitaire au alentours.",
+    question: "Y a-t-il des activités sportives ?",
+    answer:
+      "Oui, l’ASJA comprend divers clubs de sport (volleyball, football et basketball), organise chaque année un tournoi inter-filières et participe également aux tournois interuniversitaires.",
     categoriesQuestion: "Autres",
   },
 ];
