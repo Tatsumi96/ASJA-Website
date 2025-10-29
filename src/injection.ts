@@ -6,7 +6,10 @@ import { AdminServiceImpl } from './features/admin/admin.service';
 import { AuthRepositoryImpl } from './features/auth/auth.repository.impl';
 import { AuthServiceImpl } from './features/auth/auth.service';
 import { ChatRepositoryImpl } from './features/chat/chat.repository.impl';
-import { ChatGeminiServiceImpl } from './features/chat/chat.service';
+import {
+  ChatGeminiServiceImpl,
+  ChatN8NService,
+} from './features/chat/chat.service';
 import { DocRepositoryImpl } from './features/doc/doc.repository.impl';
 import { DocServiceImpl } from './features/doc/doc.service';
 import { LogRepositoryImpl } from './features/log/log.repository.impl';
@@ -27,6 +30,7 @@ const api = axios.create({
   withCredentials: true,
 });
 
+const apiWithoutCookie = axios.create();
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
@@ -86,4 +90,6 @@ export const strapiRepo = new StrapiRepositoryImpl(strapiService);
 
 const chatService = new ChatGeminiServiceImpl();
 
-export const chatRepository = new ChatRepositoryImpl(chatService);
+const n8nservice = new ChatN8NService(apiWithoutCookie);
+
+export const chatRepository = new ChatRepositoryImpl(n8nservice);
