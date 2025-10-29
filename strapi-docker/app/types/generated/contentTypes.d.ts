@@ -481,11 +481,7 @@ export interface ApiSectionEvenementSectionEvenement
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
-<<<<<<< HEAD
     FileName: Schema.Attribute.Text;
-=======
-    FileName: Schema.Attribute.String;
->>>>>>> main
     imageUrl: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
