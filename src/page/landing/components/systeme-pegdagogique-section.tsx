@@ -46,7 +46,7 @@ export const SystemePedagogiqueSection = () => {
   return (
     <div
       id="systeme"
-      className="bg-gradient-to-br w-full pb-20 from-white lg:from-gray-300/50 from-50% to-33% to-white dark:from-zinc-800 dark:to-zinc-800  dark:text-white transition-all duration-500"
+      className="bg-gradient-to-br w-full pb-20 from-white lg:from-gray-300/50 from-50% to-33% to-white dark:from-zinc-800 dark:lg:from-zinc-900 dark:to-zinc-800  dark:text-white transition-all duration-500"
     >
       <motion.div
         initial={{ y: 100, opacity: 0 }}
