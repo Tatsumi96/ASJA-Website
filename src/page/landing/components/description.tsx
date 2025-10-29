@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import backgroundImage from "@/assets/Lieu_espace/asja_couloir.jpg";
+import backgroundImage from "@/assets/Lieu_espace/Devant_asja.jpg";
 import { useLangue } from "@/page/lang/useLang";
 
 export const Description = () => {
@@ -24,16 +24,19 @@ export const Description = () => {
           transition={{ duration: 0.7 }}
           viewport={{ amount: 0.2, once: true }}
         >
-          <h1 className="text-4xl dark:text-amber-100 lg:text-6xl transition-all duration-500 text-green-700 mb-10 font-semibold">
+          <h1 className="text-4xl lg:px-5 dark:text-amber-100 lg:text-6xl transition-all duration-500 text-green-700 font-semibold">
             Athénée Saint Joseph Antsirabe
           </h1>
-          <p className="lg:text-2xl transition-all duration-500 text-xl">
-           L’Athénée Saint Joseph Antsirabe est une université Catholique ouverte à tous les étudiants du pays entier et même les étrangers qui souhaitent bénéficier d’une formation d’excellence pour leurs études supérieures.
+          <p className="lg:text-lg transition-all duration-500 text-xl lg:p-5">
+            L’Athénée Saint Joseph Antsirabe est une université Catholique
+            ouverte à tous les étudiants du pays entier et même les étrangers
+            qui souhaitent bénéficier d’une formation d’excellence pour leurs
+            études supérieures.
           </p>
-          <div className="flex lg:justify-start justify-center items-center pt-10">
+          <div className="flex lg:justify-start justify-center items-center pt-10 lg:px-5">
             <button className="bg-green-800 hover:bg-green-900 cursor-pointer hover:scale-105 duration-300 rounded-full">
               <a
-                href="/about"
+                href="/"
                 className="text-white font-bold lg:text-lg text-sm flex gap-3 justify-center items-center md:px-6 md:py-3 py-2 px-4"
               >
                 {translate("descriptionSection.ensavoirplus")} ➞{" "}

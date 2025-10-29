@@ -54,8 +54,8 @@ export const FiliereSection = () => {
           <h1 className="flex text-center lg:text-start text-green-700 font-bold text-4xl">
             NOS MENTIONS
           </h1>
-          <p className="flex text-center lg:text-start text-lg transition-all duration-500 dark:text-white ">
-            L'ASJA propose 6 domaines de formations
+          <p className="flex lg:text-start text-lg transition-all duration-500 dark:text-white pt-5 ">
+            L'ASJA propose 6 domaines de formations:
           </p>
         </motion.div>
         <motion.div
@@ -66,19 +66,19 @@ export const FiliereSection = () => {
           className="flex justify-center items-center w-9/10 md:p-3 md:gap-20 gap-5 my-10 flex-col lg:flex-row md:flex-col "
         >
           <Item
-            mention={translate('filiereSection.AGRO.name')}
+            mention="SCIENCES AGRONOMIQUES"
             image={Image2}
-            onClick={() => (window.location.href = '/agroPage')}
+            onClick={() => (window.location.href = '/mention/agronomie')}
           />
           <Item
-            mention={translate('filiereSection.INFO.name')}
+            mention="INFORMATIQUE"
             image={Image}
-            onClick={() => (window.location.href = '/infoPage')}
+            onClick={() => (window.location.href = '/mention/informatique')}
           />
           <Item
-            mention={translate('filiereSection.DROIT.name')}
+            mention="DROIT"
             image={Image3}
-            onClick={() => (window.location.href = '/droitPage')}
+            onClick={() => (window.location.href = '/mention/droit')}
           />
         </motion.div>
         <motion.div
@@ -91,17 +91,21 @@ export const FiliereSection = () => {
           <Item
             mention={translate('filiereSection.ST.name')}
             image={Image4}
-            onClick={() => (window.location.href = '/stPage')}
+            onClick={() =>
+              (window.location.href = '/mention/science-de-la-terre')
+            }
           />
           <Item
-            mention={translate('filiereSection.LEA.name')}
+            mention="LANGUES ETRANGERES APPLIQUEES"
             image={Image5}
-            onClick={() => (window.location.href = '/leaPage')}
+            onClick={() =>
+              (window.location.href = '/mention/langue-etrangere-applique')
+            }
           />
           <Item
-            mention={translate('filiereSection.ECO.name')}
+            mention="ECONOMIE ET COMMERCE"
             image={Image6}
-            onClick={() => (window.location.href = '/ecoPage')}
+            onClick={() => (window.location.href = '/mention/economie')}
           />
         </motion.div>
       </div>
@@ -149,42 +153,46 @@ const FiliereSectionCarousel = () => {
             <Item
               mention={translate('filiereSection.AGRO.name')}
               image={Image2}
-              onClick={() => (window.location.href = '/agroPage')}
+              onClick={() => (window.location.href = '/mention/agronomie')}
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
               mention={translate('filiereSection.INFO.name')}
               image={Image}
-              onClick={() => (window.location.href = '/infoPage')}
+              onClick={() => (window.location.href = '/mention/informatique')}
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
               mention={translate('filiereSection.DROIT.name')}
               image={Image3}
-              onClick={() => (window.location.href = '/droitPage')}
+              onClick={() => (window.location.href = '/mention/droit')}
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
               mention={translate('filiereSection.ST.name')}
               image={Image4}
-              onClick={() => (window.location.href = '/stPage')}
+              onClick={() =>
+                (window.location.href = '/mention/science-de-la-terre')
+              }
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
               mention={translate('filiereSection.LEA.name')}
               image={Image5}
-              onClick={() => (window.location.href = '/leaPage')}
+              onClick={() =>
+                (window.location.href = '/mention/langue-etrangere-applique')
+              }
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
               mention={translate('filiereSection.ECO.name')}
               image={Image6}
-              onClick={() => (window.location.href = '/ecoPage')}
+              onClick={() => (window.location.href = '/mention/economie')}
             />
           </CarouselItem>
         </CarouselContent>
