@@ -120,7 +120,7 @@ export const SystemePedagogiqueSection = () => {
         viewport={{ amount: 0.2, once: true }}
         className="w-full"
       >
-        <h1 className="flex justify-center items-center pt-15 pb-5 text-4xl font-bold text-green-700 dark:text-white lg:text-5xl">
+        <h1 className="flex justify-center items-center pt-15 pb-5 text-3xl font-bold text-green-700 dark:text-white lg:text-5xl">
           SYSTEME PEDAGOGIQUE
         </h1>
       </motion.div>
