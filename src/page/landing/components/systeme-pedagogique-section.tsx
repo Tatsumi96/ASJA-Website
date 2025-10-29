@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
 type Pedag = {
   pourcentage: number;
@@ -16,38 +16,38 @@ export const SystemePedagogiqueSection = () => {
   const pedag: Pedag[] = [
     {
       pourcentage: 40,
-      title: 'Cours théoriques',
+      title: "Cours théoriques",
       description:
-        'Acquisition des bases scientifiques et conceptuelles solide de chaque filière.',
+        "Acquisition des bases scientifiques et conceptuelles solide de chaque filière.",
     },
     {
       pourcentage: 25,
-      title: 'Travaux pratiques et laboratoires',
-      description: 'Mise en application concrète des notions vues en cours.',
+      title: "Travaux pratiques et laboratoires",
+      description: "Mise en application concrète des notions vues en cours.",
     },
     {
       pourcentage: 15,
-      title: 'Stages et projets professionnels',
+      title: "Stages et projets professionnels",
       description:
-        'Immersion dans le monde du travail, projets de terrain et étude de cas réels.',
+        "Immersion dans le monde du travail, projets de terrain et étude de cas réels.",
     },
     {
       pourcentage: 10,
-      title: 'Evaluation continue',
+      title: "Evaluation continue",
       description:
-        'Devoirs, présentations, mini-projets et contrôles réguliers.',
+        "Devoirs, présentations, mini-projets et contrôles réguliers.",
     },
     {
       pourcentage: 5,
-      title: 'Ouverture et recherche',
+      title: "Ouverture et recherche",
       description:
-        'Activités de recherche, innovations, conférences, et collaborations externes.',
+        "Activités de recherche, innovations, conférences, et collaborations externes.",
     },
     {
       pourcentage: 5,
-      title: 'Développement personnel & valeurs',
+      title: "Développement personnel & valeurs",
       description:
-        'Formation humaine, éthique et sociale selon les valeurs Déhoniennes.',
+        "Formation humaine, éthique et sociale selon les valeurs Déhoniennes.",
     },
   ];
 
@@ -103,7 +103,7 @@ export const SystemePedagogiqueSection = () => {
     },
     {
       threshold: 0.2,
-      rootMargin: '50px',
+      rootMargin: "50px",
     }
   );
 
@@ -120,7 +120,7 @@ export const SystemePedagogiqueSection = () => {
         viewport={{ amount: 0.2, once: true }}
         className="w-full"
       >
-        <h1 className="md:text-5xl mb-10 text-4xl font-bold text-green-700 transition-all duration-500 dark:text-green-700 text-center pb-30">
+        <h1 className="flex justify-center items-center pt-15 pb-5 text-4xl font-bold text-green-700 dark:text-white lg:text-5xl">
           SYSTEME PEDAGOGIQUE
         </h1>
       </motion.div>
@@ -130,7 +130,7 @@ export const SystemePedagogiqueSection = () => {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, delay: 0.2 }}
         viewport={{ amount: 0.1, once: true }}
-        className="flex lg:flex-row flex-col gap-20 items-center justify-center flex-wrap md:p-5 lg:gap-20 py-10 text-center"
+        className="flex lg:flex-row flex-col gap-20 items-center justify-center flex-wrap md:p-5 lg:gap-20 text-center"
       >
         {pedag.map((item, index) => (
           <motion.div
@@ -141,7 +141,7 @@ export const SystemePedagogiqueSection = () => {
             className="flex flex-col justify-center items-center w-full px-5 lg:w-1/3"
             key={index}
           >
-            <h3 className="text-5xl font-bold text-green-700 dark:text-white pb-5">
+            <h3 className="text-5xl font-bold text-green-700 pb-5">
               {percentages[index]}%
             </h3>
             <h3 className="text-3xl font-bold text-gray-700 dark:text-white pb-2">
