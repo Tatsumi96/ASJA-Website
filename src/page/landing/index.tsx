@@ -7,7 +7,7 @@ import { FiliereSection } from './components/filiere-section';
 import { Footer } from './components/footer';
 import { MissionSection } from './components/mission-section';
 import { Navbar } from './components/nav-bar';
-import { SystemePedagogiqueSection } from './components/systeme-pegdagogique-section';
+import { SystemePedagogiqueSection } from './components/systeme-pedagogique-section';
 import { TestimonySection } from './components/testimony-section';
 export const LandingPage = () => {
   return (
