@@ -4,14 +4,14 @@ import Image1 from '@/assets/Mentions/AgronomieImage/Labo.jpg';
 import { DispositionAboutFiliere } from '../landing/components/disposition-about-filiere';
 
 const mention = {
-  name: 'Mention Agro',
+  name: 'SCIENCES AGRONOMIQUES',
   ImageMention: Agro,
 };
 
 const descriptionMention = {
-  title: 'La Mention Agro',
+  title: 'SCIENCES AGRONOMIQUES',
   description:
-    'Formation complète en agronomie, sciences des plantes et technologies agricoles.',
+    'La filière Sciences Agronomiques forme des ingénieurs et techniciens capables de répondre aux défis agricoles et environnementaux de Madagascar. Les étudiants y acquièrent des compétences solides sur la transformation alimentaire, la production animale et végétale, ainsi que l’agriculture durable. Des cours théoriques sont complétés par des travaux pratiques, des stages en exploitation et en laboratoire, afin de relier la science à la réalité du terrain. L’objectif est de former des professionnels autonomes, innovants et conscients des enjeux de la sécurité alimentaire et du développement rural.',
 };
 
 const descriptionParcours = [
