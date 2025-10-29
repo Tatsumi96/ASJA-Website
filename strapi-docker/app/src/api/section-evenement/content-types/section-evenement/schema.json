@@ -28,12 +28,6 @@
       ]
     },
     "altText": {
-<<<<<<< HEAD
-=======
-      "type": "string"
-    },
-    "FileName": {
->>>>>>> main
       "type": "string"
     },
     "FileName": {
