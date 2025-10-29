@@ -55,7 +55,7 @@ export const SystemePedagogiqueSection = () => {
         viewport={{ amount: 0.2, once: true }}
         className="w-full"
       >
-        <h1 className="md:text-5xl mb-10 text-4xl font-bold text-green-700 transition-all duration-500 dark:text-green-700 text-center pb-30">
+        <h1 className="flex items-center justify-center md:text-5xl text-4xl font-bold text-green-700 transition-all duration-500 dark:text-green-700 text-center">
           SYSTEME PEDAGOGIQUE
         </h1>
       </motion.div>
@@ -64,7 +64,7 @@ export const SystemePedagogiqueSection = () => {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
         viewport={{ amount: 0.2, once: true }}
-        className="flex lg:flex-row flex-col gap-20 items-center justify-center flex-wrap md:p-5 lg:gap-20 py-10 text-center"
+        className="flex lg:flex-row flex-col gap-20 items-center justify-center flex-wrap mt-40 md:p-5 lg:gap-20 py-10 text-center"
       >
         {pedag.map((pedag, key) => (
           <div
