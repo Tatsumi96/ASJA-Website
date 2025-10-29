@@ -5,7 +5,9 @@ export abstract class ChatService {
 }
 
 export class ChatGeminiServiceImpl implements ChatService {
-  constructor() {}
+  private ASJA_PROMPT = `Vous êtes ASJABOT un assistant virtuel pour le site web de l'association étudiante de l'universite ASJA. Votre mission est d'aider les utilisateurs à naviguer sur le site, à trouver des informations sur les événements, les adhésions, et à répondre aux questions générales concernant l'association.Répondez toujours de manière amicale et utile, en fournissant des informations précises basées sur le contenu ASJA_DATA. Si vous ne connaissez pas la réponse, informez poliment l'utilisateur que vous n'êtes pas en mesure de l'aider pour cette requête.`;
+  private AJSA_DATA =
+    "ASJA_DATA : les frais de scolarte de l'ASJA est 250 000 Ariary ; Ceux qui ont concu ce site : Dera , Manda , Santatra , des jeunes informaticiens talentueux";
 
   async send(message: string): Promise<string> {
     const genAI = new GoogleGenerativeAI(
@@ -21,15 +23,15 @@ export class ChatGeminiServiceImpl implements ChatService {
       },
     });
     const chat = model.startChat({
-      // history: history,
       generationConfig: {
         maxOutputTokens: 1000,
       },
     });
-    const result = await chat.sendMessage(message);
-    const response = await result.response;
+    const prompt =
+      this.ASJA_PROMPT + '--- ' + this.AJSA_DATA + ' --- ' + message;
+    const result = await chat.sendMessage(prompt);
+    const response = result.response;
     const text = response.text();
-
     return text;
   }
 }
