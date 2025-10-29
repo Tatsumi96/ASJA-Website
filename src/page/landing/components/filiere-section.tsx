@@ -34,7 +34,7 @@ const Item: React.FC<ItemProps> = ({ mention, image, onClick }) => {
       onClick={onClick}
       className="md:hover:scale-105 rounded-2xl overflow-hidden duration-500 bg-white cursor-pointer z-20"
     >
-      <img className="size-100 rounded-2xl" src={image} alt={mention} />
+      <img className="size-100  rounded-2xl" src={image} alt={mention} />
     </div>
   );
 };
@@ -124,6 +124,8 @@ const FiliereSectionCarousel = () => {
   const [current, setCurrent] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
 
+  const { isDark } = useThemeContext();
+
   return (
     <div className="flex flex-col md:hidden justify-center text-gray-800 items-center transition-all duration-500 w-full h-max dark:bg-zinc-900 bg-gray-100 pb-10 z-10">
       <motion.div
@@ -156,29 +158,29 @@ const FiliereSectionCarousel = () => {
         <CarouselContent>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
-              mention={translate('filiereSection.AGRO.name')}
-              image={Image2}
+              mention="SCIENCES AGRONOMIQUES"
+              image={isDark ? Dark : Image2}
               onClick={() => (window.location.href = '/mention/agronomie')}
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
-              mention={translate('filiereSection.INFO.name')}
-              image={Image}
+              mention="INFORMATIQUE"
+              image={isDark ? Dark2 : Image}
               onClick={() => (window.location.href = '/mention/informatique')}
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
-              mention={translate('filiereSection.DROIT.name')}
-              image={Image3}
+              mention="DROIT"
+              image={isDark ? Dark3 : Image3}
               onClick={() => (window.location.href = '/mention/droit')}
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
               mention={translate('filiereSection.ST.name')}
-              image={Image4}
+              image={isDark ? Dark4 : Image4}
               onClick={() =>
                 (window.location.href = '/mention/science-de-la-terre')
               }
@@ -186,8 +188,8 @@ const FiliereSectionCarousel = () => {
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
-              mention={translate('filiereSection.LEA.name')}
-              image={Image5}
+              mention="LANGUES ETRANGERES APPLIQUEES"
+              image={isDark ? Dark5 : Image5}
               onClick={() =>
                 (window.location.href = '/mention/langue-etrangere-applique')
               }
@@ -195,8 +197,8 @@ const FiliereSectionCarousel = () => {
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
-              mention={translate('filiereSection.ECO.name')}
-              image={Image6}
+              mention="ECONOMIE ET COMMERCE"
+              image={isDark ? Dark6 : Image6}
               onClick={() => (window.location.href = '/mention/economie')}
             />
           </CarouselItem>
