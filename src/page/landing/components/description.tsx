@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import backgroundImage from "@/assets/Lieu_espace/Devant_asja2.jpg";
+import backgroundImage from "@/assets/Lieu_espace/Devant_asja.jpg";
 import { useLangue } from "@/page/lang/useLang";
 
 export const Description = () => {
