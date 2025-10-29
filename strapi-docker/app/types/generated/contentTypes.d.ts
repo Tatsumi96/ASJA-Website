@@ -476,11 +476,12 @@ export interface ApiSectionEvenementSectionEvenement
     draftAndPublish: true;
   };
   attributes: {
-    alttext: Schema.Attribute.String;
+    altText: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    FileName: Schema.Attribute.String;
     imageUrl: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
