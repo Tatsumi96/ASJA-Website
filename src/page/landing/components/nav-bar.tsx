@@ -29,9 +29,9 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav className="flex flex-col fixed z-200">
+    <nav className="flex flex-col fixed z-200 w-full">
       <AnnonceSection />
-      <div className="md:flex md:flex-row flex flex-col transition-all duration-500  md:px-5 px-2 py-4 md:py-0 justify-between top-0 w-full shadow-sm bg-white dark:bg-zinc-800 text-black border-b-gray-300 z-50">
+      <div className="md:flex md:flex-row flex flex-col transition-all duration-500  md:px-5 px-2 py-1  md:py-0 justify-between top-0 w-full shadow-sm bg-white dark:bg-zinc-800 text-black border-b-gray-300 z-50">
         <div className="flex w-full md:w-auto justify-between items-center m-3">
           <a
             className="flex items-center gap-2 cursor-pointer"
