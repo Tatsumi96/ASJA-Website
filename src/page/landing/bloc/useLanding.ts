@@ -28,6 +28,7 @@ export const useLanding = () => {
       { message: messageFiltred, expediteur: 'User' },
     ]);
     setLoading(true);
+    setMessage('');
     const result = await chatRepository.send(message);
     if (result.status == 'success') {
       setMessagesList((prev) => [
