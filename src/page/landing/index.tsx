@@ -13,10 +13,10 @@ import { TestimonySection } from './components/testimony-section';
 export const LandingPage = () => {
   return (
     <ThemeProvider>
-      <div className="flex flex-col overflow-x-hidden ">
-        <Navbar />
-        <div className="flex-col items-center justify-center">
-          <LandingProvider>
+      <LandingProvider>
+        <div className="flex flex-col overflow-x-hidden ">
+          <Navbar />
+          <div className="flex-col items-center justify-center">
             <Description />
             <MissionSection />
             <FiliereSection />
@@ -26,9 +26,9 @@ export const LandingPage = () => {
             <TestimonySection />
             <FaqSection />
             <Footer />
-          </LandingProvider>
+          </div>
         </div>
-      </div>
+      </LandingProvider>
     </ThemeProvider>
   );
 };
