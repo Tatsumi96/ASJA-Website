@@ -25,4 +25,14 @@ export class StrapiRepositoryImpl implements StrapiRepository {
       return failure(new Error());
     }
   }
+
+  async getAnnonce(): Promise<Result<string>> {
+    try {
+      const result = await this.service.getAnnonce();
+      return success(result);
+    } catch (error) {
+      console.error(error);
+      return failure(new Error());
+    }
+  }
 }

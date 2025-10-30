@@ -11,6 +11,9 @@ export const useLanding = () => {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const [isAnnonce, setIsAnnonce] = useState<boolean>(false);
+  const [annonce, setAnnonce] = useState('');
+
   const refFinMessages = useRef<HTMLDivElement>(null);
   const scrollToBottom = () => {
     refFinMessages.current?.scrollIntoView({ behavior: 'smooth' });
@@ -43,7 +46,14 @@ export const useLanding = () => {
       ]);
     }
     setLoading(false);
-    setMessage('');
+  };
+
+  const fetchAnnonce = async () => {
+    const result = await strapiRepo.getAnnonce();
+    if (result.status == 'failure') return;
+
+    setAnnonce(result.data);
+    setIsAnnonce(true);
   };
 
   const fetchEvent = async () => {
@@ -57,6 +67,7 @@ export const useLanding = () => {
   useEffect(() => {
     const callFetchEvent = async () => {
       await fetchEvent();
+      await fetchAnnonce();
     };
 
     callFetchEvent();
@@ -72,5 +83,7 @@ export const useLanding = () => {
     message,
     setMessage,
     refFinMessages,
+    isAnnonce,
+    annonce,
   };
 };
