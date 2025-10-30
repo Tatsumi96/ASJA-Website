@@ -88,8 +88,10 @@ export const strapiService = new StrapiServiceImpl(api);
 
 export const strapiRepo = new StrapiRepositoryImpl(strapiService);
 
-const chatService = new ChatGeminiServiceImpl();
+const chatGeminiService = new ChatGeminiServiceImpl();
 
 const n8nservice = new ChatN8NService(apiWithoutCookie);
 
-export const chatRepository = new ChatRepositoryImpl(n8nservice);
+export const chatN8NRepository = new ChatRepositoryImpl(n8nservice);
+
+export const chatGemini = new ChatRepositoryImpl(chatGeminiService);

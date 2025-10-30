@@ -8,16 +8,13 @@ import {
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 import { useLangue } from '@/page/lang/useLang';
-import { useThemeContext } from '@/page/theme/useThemeContext';
-import { MenuIcon, Moon, Sun, X } from 'lucide-react';
+import { MenuIcon, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import { useScrollLock } from '../hooks/useScrollLock';
-import { AnnonceSection } from './annonce-section';
 
 export const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const { toggleTheme, isDark } = useThemeContext();
   const { translate } = useLangue();
 
   useEffect(() => {
@@ -36,8 +33,7 @@ export const Navbar = () => {
   useScrollLock(open);
 
   return (
-    <nav className="flex flex-col fixed z-200 w-full">
-      <AnnonceSection />
+    <nav className="flex flex-col fixed z-200 w-screen">
       <div className="md:flex md:flex-row flex flex-col transition-all duration-500 md:px-5 px-2 py-1 md:py-0 justify-between top-0 w-full shadow-sm bg-white dark:bg-zinc-800 text-black border-b-gray-300 z-50">
         <div className="flex w-full md:w-auto justify-between items-center m-3">
           <a
@@ -58,97 +54,6 @@ export const Navbar = () => {
         </div>
 
         <div className="md:flex justify-center items-center hidden">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>
-                  {translate('navBar.accueil')}
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <NavigationMenuLink>
-                    <Link
-                      to="description"
-                      spy={true}
-                      smooth={true}
-                      offset={-50}
-                      duration={500}
-                      activeClass="text-green-700 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
-                    >
-                      {translate('sectionAccueilNavbar.description')}
-                    </Link>
-                    <Link
-                      to="mission"
-                      spy={true}
-                      smooth={true}
-                      offset={-50}
-                      duration={300}
-                      activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
-                    >
-                      {translate('sectionAccueilNavbar.mission')}
-                    </Link>
-                    <Link
-                      to="filiere"
-                      spy={true}
-                      smooth={true}
-                      offset={-50}
-                      duration={300}
-                      activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
-                    >
-                      {translate('sectionAccueilNavbar.filieres')}
-                    </Link>
-                    <Link
-                      to="events"
-                      spy={true}
-                      smooth={true}
-                      offset={-50}
-                      duration={300}
-                      activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
-                    >
-                      {translate('sectionAccueilNavbar.events')}
-                    </Link>
-                    <Link
-                      to="systeme"
-                      spy={true}
-                      smooth={true}
-                      offset={-50}
-                      duration={300}
-                      activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
-                    >
-                      {translate('sectionAccueilNavbar.systeme')}
-                    </Link>
-                    <Link
-                      to="temoignages"
-                      spy={true}
-                      smooth={true}
-                      offset={-50}
-                      duration={300}
-                      activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
-                    >
-                      {translate('sectionAccueilNavbar.temoignages')}
-                    </Link>
-                    <Link
-                      to="FAQ"
-                      spy={true}
-                      smooth={true}
-                      offset={-50}
-                      duration={300}
-                      activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
-                    >
-                      {translate('sectionAccueilNavbar.FAQ')}
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -236,13 +141,6 @@ export const Navbar = () => {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-
-          <button
-            className="px-5 text-green-700 cursor-pointer"
-            onClick={toggleTheme}
-          >
-            {isDark ? <Sun /> : <Moon />}
-          </button>
         </div>
       </div>
 
@@ -277,58 +175,7 @@ export const Navbar = () => {
           </div>
 
           <div className="p-4 space-y-6 overflow-y-auto h-full pb-20">
-            <div
-              onClick={toggleTheme}
-              className="flex items-center justify-between p-3 bg-gray-50 dark:bg-zinc-700 rounded-lg"
-            >
-              <span className="text-gray-700 dark:text-gray-300">
-                {isDark ? 'Mode clair' : 'Mode sombre'}
-              </span>
-              <button
-                onClick={toggleTheme}
-                className="p-2 text-green-700 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-full transition-colors duration-200"
-              >
-                {isDark ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-            </div>
-
             <div className="space-y-4">
-              <div className="space-y-2">
-                <h3 className="font-semibold text-gray-900 dark:text-white px-2">
-                  {translate('navBar.accueil')}
-                </h3>
-                <div className="space-y-1">
-                  {[
-                    {
-                      to: 'description',
-                      key: 'sectionAccueilNavbar.description',
-                    },
-                    { to: 'mission', key: 'sectionAccueilNavbar.mission' },
-                    { to: 'filiere', key: 'sectionAccueilNavbar.filieres' },
-                    { to: 'events', key: 'sectionAccueilNavbar.events' },
-                    { to: 'systeme', key: 'sectionAccueilNavbar.systeme' },
-                    {
-                      to: 'temoignages',
-                      key: 'sectionAccueilNavbar.temoignages',
-                    },
-                    { to: 'FAQ', key: 'sectionAccueilNavbar.FAQ' },
-                  ].map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      spy={true}
-                      smooth={true}
-                      offset={-50}
-                      duration={500}
-                      onClick={handleLinkClick}
-                      activeClass="text-green-700 bg-green-50 dark:bg-green-950 font-medium"
-                      className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-700 rounded-lg transition-all duration-200"
-                    >
-                      {translate(item.key)}
-                    </Link>
-                  ))}
-                </div>
-              </div>
               <div className="space-y-2">
                 <h3 className="font-semibold text-gray-900 dark:text-white px-2">
                   {translate('navBar.filieres')}
