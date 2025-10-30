@@ -28,7 +28,7 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div className="md:flex md:flex-row flex flex-col transition-all duration-500  md:px-5 px-2 py-4 md:py-0 justify-between top-0 fixed w-full shadow-sm bg-white dark:bg-zinc-800 text-black border-b-gray-300 z-50">
+    <div className="md:flex md:flex-row flex flex-col transition-all duration-500  md:px-5 px-2 py-2 md:py-0 justify-between top-0 fixed w-full shadow-sm bg-white dark:bg-zinc-800 text-black border-b-gray-300 z-50">
       <div className="flex w-full md:w-auto justify-between items-center">
         <a
           className="flex items-center gap-2 cursor-pointer"
