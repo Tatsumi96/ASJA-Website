@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Footer } from "./footer";
-import { Navbar } from "./navBarFiliere";
+import { Navbar } from "./nav-bar-filiere";
 const TIME = 5000;
 interface DescriptionParcours {
   title: string;
