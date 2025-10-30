@@ -1,7 +1,8 @@
-import Logo from "@/assets/Logo/asja-logo.png";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import "leaflet/dist/leaflet.css";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import Logo from '@/assets/Logo/asja-logo.png';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import 'leaflet/dist/leaflet.css';
+import { MdEmail, MdLocationOn, MdPhone } from 'react-icons/md';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 export const Footer = () => {
   const asjaPosition: [number, number] = [-19.814068, 47.070135];
   return (
@@ -19,11 +20,18 @@ export const Footer = () => {
         <div className="flex h-full md:justify-center md:items-center">
           <ul className="flex flex-col gap-5">
             <h1 className="text-2xl font-bold">Contact</h1>
-            <li>tel: 034 49 483 19</li>
-            <li>email: example@gmail.com</li>
-            <li>address: Antsaha, Antsirabe, Madagascar</li>
+            <li className=" flex items-center gap-1">
+              <MdPhone className="size-6" /> 034 49 483 19
+            </li>
+            <li className=" flex items-center gap-1">
+              <MdEmail className="size-6" /> example@gmail.com
+            </li>
+            <li className=" flex items-center gap-1">
+              {' '}
+              <MdLocationOn className="size-6" /> Antsaha, Antsirabe, Madagascar
+            </li>
             <li>
-              {" "}
+              {' '}
               <a href="https://www.facebook.com/UniversiteASJA">
                 <FacebookIcon /> Facebook
               </a>
