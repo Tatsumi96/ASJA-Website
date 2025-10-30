@@ -1,4 +1,4 @@
-import Logo from '@/assets/Logo/asja-logo.png';
+import Logo from "@/assets/Logo/asja-logo.png";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -6,13 +6,13 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from '@/components/ui/navigation-menu';
-import { useLangue } from '@/page/lang/useLang';
-import { useThemeContext } from '@/page/theme/useThemeContext';
-import { MenuIcon, Moon, Sun, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-scroll';
-import { AnnonceSection } from './annonce-section';
+} from "@/components/ui/navigation-menu";
+import { useLangue } from "@/page/lang/useLang";
+import { useThemeContext } from "@/page/theme/useThemeContext";
+import { MenuIcon, Moon, Sun, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link } from "react-scroll";
+import { AnnonceSection } from "./annonce-section";
 
 export const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -24,8 +24,8 @@ export const Navbar = () => {
       if (window.innerWidth >= 500) setOpen(false);
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -35,11 +35,11 @@ export const Navbar = () => {
         <div className="flex w-full md:w-auto justify-between items-center m-3">
           <a
             className="flex items-center gap-2 cursor-pointer"
-            onClick={() => (window.location.href = '/')}
+            onClick={() => (window.location.href = "/")}
           >
             <img className=" w-10 h-10" src={Logo} />
             <h1 className=" flex items-center justify-center transition-all duration-500 text-md text-gray-900 dark:text-white font-bold">
-              {translate('universite')}
+              {translate("universite")}
             </h1>
           </a>
           <button
@@ -54,7 +54,7 @@ export const Navbar = () => {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger>
-                  {translate('navBar.accueil')}
+                  {translate("navBar.accueil")}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <NavigationMenuLink>
@@ -67,7 +67,7 @@ export const Navbar = () => {
                       activeClass="text-green-700 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate('sectionAccueilNavbar.description')}
+                      {translate("sectionAccueilNavbar.description")}
                     </Link>
                     <Link
                       to="mission"
@@ -78,7 +78,7 @@ export const Navbar = () => {
                       activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate('sectionAccueilNavbar.mission')}
+                      {translate("sectionAccueilNavbar.mission")}
                     </Link>
                     <Link
                       to="filiere"
@@ -89,7 +89,7 @@ export const Navbar = () => {
                       activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate('sectionAccueilNavbar.filieres')}
+                      {translate("sectionAccueilNavbar.filieres")}
                     </Link>
                     <Link
                       to="events"
@@ -100,7 +100,7 @@ export const Navbar = () => {
                       activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate('sectionAccueilNavbar.events')}
+                      {translate("sectionAccueilNavbar.events")}
                     </Link>
                     <Link
                       to="systeme"
@@ -111,7 +111,7 @@ export const Navbar = () => {
                       activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate('sectionAccueilNavbar.systeme')}
+                      {translate("sectionAccueilNavbar.systeme")}
                     </Link>
                     <Link
                       to="temoignages"
@@ -122,7 +122,7 @@ export const Navbar = () => {
                       activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate('sectionAccueilNavbar.temoignages')}
+                      {translate("sectionAccueilNavbar.temoignages")}
                     </Link>
                     <Link
                       to="FAQ"
@@ -133,7 +133,7 @@ export const Navbar = () => {
                       activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate('sectionAccueilNavbar.FAQ')}
+                      {translate("sectionAccueilNavbar.FAQ")}
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuContent>
@@ -144,62 +144,62 @@ export const Navbar = () => {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger>
-                  {translate('navBar.filieres')}
+                  {translate("navBar.filieres")}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <NavigationMenuLink>
                     <Link
                       to="AGRO"
                       onClick={() =>
-                        (window.location.href = '/mention/agronomie')
+                        (window.location.href = "/mention/agronomie")
                       }
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate('filiereSection.AGRO.name')}
+                      {translate("filiereSection.AGRO.name")}
                     </Link>
                     <Link
                       to="INFO"
                       onClick={() =>
-                        (window.location.href = '/mention/informatique')
+                        (window.location.href = "/mention/informatique")
                       }
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate('filiereSection.INFO.name')}
+                      {translate("filiereSection.INFO.name")}
                     </Link>
                     <Link
                       to="DROIT"
-                      onClick={() => (window.location.href = '/mention/droit')}
+                      onClick={() => (window.location.href = "/mention/droit")}
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate('filiereSection.DROIT.name')}
+                      {translate("filiereSection.DROIT.name")}
                     </Link>
                     <Link
                       to="ECO"
                       onClick={() =>
-                        (window.location.href = '/mention/economie')
+                        (window.location.href = "/mention/economie")
                       }
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate('filiereSection.ECO.name')}
+                      {translate("filiereSection.ECO.name")}
                     </Link>
                     <Link
                       to="LEA"
                       onClick={() =>
                         (window.location.href =
-                          '/mention/langue-etrangere-applique')
+                          "/mention/langue-etrangere-applique")
                       }
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate('filiereSection.LEA.name')}
+                      {translate("filiereSection.LEA.name")}
                     </Link>
                     <Link
                       to="ST"
                       onClick={() =>
-                        (window.location.href = '/mention/science-de-la-terre')
+                        (window.location.href = "/mention/science-de-la-terre")
                       }
                       className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                     >
-                      {translate('filiereSection.ST.name')}
+                      {translate("filiereSection.ST.name")}
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuContent>
@@ -213,7 +213,7 @@ export const Navbar = () => {
                   to="contact"
                   className="text-gray-800 cursor-pointer dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                 >
-                  {translate('navBar.contact')}
+                  {translate("navBar.contact")}
                 </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -238,7 +238,7 @@ export const Navbar = () => {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>
-                    {translate('navBar.accueil')}
+                    {translate("navBar.accueil")}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <NavigationMenuLink>
@@ -251,7 +251,7 @@ export const Navbar = () => {
                         activeClass="text-green-700 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
                         className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                       >
-                        {translate('sectionAccueilNavbar.description')}
+                        {translate("sectionAccueilNavbar.description")}
                       </Link>
                       <Link
                         to="mission"
@@ -262,7 +262,7 @@ export const Navbar = () => {
                         activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
                         className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                       >
-                        {translate('sectionAccueilNavbar.mission')}
+                        {translate("sectionAccueilNavbar.mission")}
                       </Link>
                       <Link
                         to="filiere"
@@ -273,7 +273,7 @@ export const Navbar = () => {
                         activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
                         className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                       >
-                        {translate('sectionAccueilNavbar.filieres')}
+                        {translate("sectionAccueilNavbar.filieres")}
                       </Link>
                       <Link
                         to="events"
@@ -284,7 +284,7 @@ export const Navbar = () => {
                         activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
                         className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                       >
-                        {translate('sectionAccueilNavbar.events')}
+                        {translate("sectionAccueilNavbar.events")}
                       </Link>
                       <Link
                         to="systeme"
@@ -295,7 +295,7 @@ export const Navbar = () => {
                         activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
                         className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                       >
-                        {translate('sectionAccueilNavbar.systeme')}
+                        {translate("sectionAccueilNavbar.systeme")}
                       </Link>
                       <Link
                         to="temoignages"
@@ -306,7 +306,7 @@ export const Navbar = () => {
                         activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
                         className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                       >
-                        {translate('sectionAccueilNavbar.temoignages')}
+                        {translate("sectionAccueilNavbar.temoignages")}
                       </Link>
                       <Link
                         to="FAQ"
@@ -317,7 +317,7 @@ export const Navbar = () => {
                         activeClass="text-green-700 m-1 bg-green-50 dark:bg-green-950 font-medium px-4 py-2 rounded"
                         className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                       >
-                        {translate('sectionAccueilNavbar.FAQ')}
+                        {translate("sectionAccueilNavbar.FAQ")}
                       </Link>
                     </NavigationMenuLink>
                   </NavigationMenuContent>
@@ -328,65 +328,65 @@ export const Navbar = () => {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>
-                    {translate('navBar.filieres')}
+                    {translate("navBar.filieres")}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <NavigationMenuLink>
                       <Link
                         to="AGRO"
                         onClick={() =>
-                          (window.location.href = '/mention/agronomie')
+                          (window.location.href = "/mention/agronomie")
                         }
                         className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                       >
-                        {translate('filiereSection.AGRO.name')}
+                        {translate("filiereSection.AGRO.name")}
                       </Link>
                       <Link
                         to="INFO"
                         onClick={() =>
-                          (window.location.href = '/mention/informatique')
+                          (window.location.href = "/mention/informatique")
                         }
                         className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                       >
-                        {translate('filiereSection.INFO.name')}
+                        {translate("filiereSection.INFO.name")}
                       </Link>
                       <Link
                         to="DROIT"
                         onClick={() =>
-                          (window.location.href = '/mention/droit')
+                          (window.location.href = "/mention/droit")
                         }
                         className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                       >
-                        {translate('filiereSection.DROIT.name')}
+                        {translate("filiereSection.DROIT.name")}
                       </Link>
                       <Link
                         to="ECO"
                         onClick={() =>
-                          (window.location.href = '/mention/economie')
+                          (window.location.href = "/mention/economie")
                         }
                         className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                       >
-                        {translate('filiereSection.ECO.name')}
+                        {translate("filiereSection.ECO.name")}
                       </Link>
                       <Link
                         to="LEA"
                         onClick={() =>
                           (window.location.href =
-                            '/mention/langue-etrangere-applique')
+                            "/mention/langue-etrangere-applique")
                         }
                         className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                       >
-                        {translate('filiereSection.LEA.name')}
+                        {translate("filiereSection.LEA.name")}
                       </Link>
                       <Link
                         to="ST"
                         onClick={() =>
                           (window.location.href =
-                            '/mention/science-de-la-terre')
+                            "/mention/science-de-la-terre")
                         }
                         className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                       >
-                        {translate('filiereSection.ST.name')}
+                        {translate("filiereSection.ST.name")}
                       </Link>
                     </NavigationMenuLink>
                   </NavigationMenuContent>
@@ -400,12 +400,12 @@ export const Navbar = () => {
                     to="contact"
                     className="text-gray-800 cursor-pointer dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                   >
-                    {translate('navBar.contact')}
+                    {translate("navBar.contact")}
                   </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            <a onClick={() => (window.location.href = '/Login')}></a>
+            <a onClick={() => (window.location.href = "/Login")}></a>
           </div>
         ) : null}
       </div>
