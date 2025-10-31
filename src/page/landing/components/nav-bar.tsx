@@ -53,7 +53,7 @@ export const Navbar = () => {
             onClick={() => setOpen((value) => !value)}
             className="flex md:hidden justify-center items-center text-green-700 dark:text-white pr-5 cursor-pointer hover:scale-110 hover:text-green-700/50 transition-all duration-500"
           >
-            {open ? <X /> : <MenuIcon />}
+            {!open ? <MenuIcon /> : null}
           </button>
         </div>
 
