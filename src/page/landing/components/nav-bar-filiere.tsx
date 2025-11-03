@@ -3,7 +3,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
@@ -30,13 +29,18 @@ export const Navbar = () => {
     setOpen(false);
   };
 
+  const handleFiliereClick = (href: string) => {
+    window.location.href = href;
+    handleLinkClick();
+  };
+
   useScrollLock(open);
 
   return (
     <nav className="flex flex-col fixed z-200 w-screen">
       <div className="md:flex md:flex-row flex flex-col transition-all duration-500 md:px-5 px-2 py-1 md:py-0 justify-between top-0 w-full shadow-sm bg-white dark:bg-zinc-800 text-black border-b-gray-300 z-50">
         <div className="flex w-full md:w-auto justify-between items-center m-3">
-          <a
+          <button
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => (window.location.href = '/')}
           >
@@ -44,7 +48,7 @@ export const Navbar = () => {
             <h1 className="flex items-center justify-center transition-all duration-500 text-md text-gray-900 dark:text-white font-bold">
               {translate('universite')}
             </h1>
-          </a>
+          </button>
           <button
             onClick={() => setOpen((value) => !value)}
             className="flex md:hidden justify-center items-center text-green-700 dark:text-white pr-5 cursor-pointer hover:scale-110 hover:text-green-700/50 transition-all duration-500"
@@ -61,69 +65,50 @@ export const Navbar = () => {
                   {translate('navBar.filieres')}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <NavigationMenuLink>
-                    <Link
-                      to="AGRO"
-                      onClick={() => {
-                        window.location.href = '/mention/agronomie';
-                        handleLinkClick();
-                      }}
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                  <div className="p-4 w-64">
+                    <button
+                      onClick={() => handleFiliereClick('/mention/agronomie')}
+                      className="block w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                     >
                       {translate('filiereSection.AGRO.name')}
-                    </Link>
-                    <Link
-                      to="INFO"
-                      onClick={() => {
-                        window.location.href = '/mention/informatique';
-                        handleLinkClick();
-                      }}
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                    </button>
+                    <button
+                      onClick={() =>
+                        handleFiliereClick('/mention/informatique')
+                      }
+                      className="block w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                     >
                       {translate('filiereSection.INFO.name')}
-                    </Link>
-                    <Link
-                      to="DROIT"
-                      onClick={() => {
-                        window.location.href = '/mention/droit';
-                        handleLinkClick();
-                      }}
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                    </button>
+                    <button
+                      onClick={() => handleFiliereClick('/mention/droit')}
+                      className="block w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                     >
                       {translate('filiereSection.DROIT.name')}
-                    </Link>
-                    <Link
-                      to="ECO"
-                      onClick={() => {
-                        window.location.href = '/mention/economie';
-                        handleLinkClick();
-                      }}
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                    </button>
+                    <button
+                      onClick={() => handleFiliereClick('/mention/economie')}
+                      className="block w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                     >
                       {translate('filiereSection.ECO.name')}
-                    </Link>
-                    <Link
-                      to="LEA"
-                      onClick={() => {
-                        window.location.href =
-                          '/mention/langue-etrangere-applique';
-                        handleLinkClick();
-                      }}
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                    </button>
+                    <button
+                      onClick={() =>
+                        handleFiliereClick('/mention/langue-etrangere-applique')
+                      }
+                      className="block w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                     >
                       {translate('filiereSection.LEA.name')}
-                    </Link>
-                    <Link
-                      to="ST"
-                      onClick={() => {
-                        window.location.href = '/mention/science-de-la-terre';
-                        handleLinkClick();
-                      }}
-                      className="text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
+                    </button>
+                    <button
+                      onClick={() =>
+                        handleFiliereClick('/mention/science-de-la-terre')
+                      }
+                      className="block w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                     >
                       {translate('filiereSection.ST.name')}
-                    </Link>
-                  </NavigationMenuLink>
+                    </button>
+                  </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -131,9 +116,13 @@ export const Navbar = () => {
 
           <NavigationMenu>
             <NavigationMenuList>
-              <NavigationMenuItem className="text-white">
+              <NavigationMenuItem>
                 <Link
                   to="contact"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={500}
                   className="text-gray-800 cursor-pointer dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                 >
                   {translate('navBar.contact')}
@@ -160,12 +149,18 @@ export const Navbar = () => {
           }`}
         >
           <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-            <div className="flex items-center gap-3">
+            <button
+              className="flex items-center gap-3"
+              onClick={() => {
+                window.location.href = '/';
+                handleLinkClick();
+              }}
+            >
               <img className="w-10 h-10" src={Logo} alt="Logo" />
               <h1 className="text-lg font-bold text-gray-900 dark:text-white">
                 {translate('universite')}
               </h1>
-            </div>
+            </button>
             <button
               onClick={() => setOpen(false)}
               className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-700"
@@ -207,14 +202,13 @@ export const Navbar = () => {
                       key: 'filiereSection.ST.name',
                     },
                   ].map((item) => (
-                    <a
+                    <button
                       key={item.href}
-                      href={item.href}
-                      onClick={handleLinkClick}
-                      className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-700 rounded-lg transition-all duration-200"
+                      onClick={() => handleFiliereClick(item.href)}
+                      className="block w-full text-left px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-700 rounded-lg transition-all duration-200"
                     >
                       {translate(item.key)}
-                    </a>
+                    </button>
                   ))}
                 </div>
               </div>
