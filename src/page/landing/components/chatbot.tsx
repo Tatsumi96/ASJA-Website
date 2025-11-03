@@ -90,8 +90,8 @@ const Chatbot: React.FC = () => {
       >
         {!isOpen ? (
           <div className="flex items-center px-5 py-3">
-            <Bot className="pb-2" size={35} />
-            <p className="text-md">ASJABot</p>
+            <Bot size={30} />
+            <p className="text-md pl-1">ASJABot</p>
           </div>
         ) : null}
       </button>
