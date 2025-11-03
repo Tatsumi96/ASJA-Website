@@ -9,7 +9,7 @@ export const useLanding = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messagesList, setMessagesList] = useState<ChatDto[]>([
     {
-      message: `Bonjour! Je suis ASJABOT, votre assistant virtuel pour l'université ASJA. 😊 Comment puis-je vous aider aujourd'hui ? Que cherchez-vous à savoir sur nos événements, les adhésions, ou toute autre information concernant université ?`,
+      message: `Bonjour! Je suis ASJABOT, votre assistant virtuel pour l'université ASJA. 😊 Comment puis-je vous aider aujourd'hui ? Que cherchez-vous à savoir sur nos événements, les adhésions, ou toute autre information concernant l'université ?`,
       expediteur: 'Bot',
     },
   ]);
