@@ -15,6 +15,9 @@ export const Footer = () => {
         <h1 className=" flex text-center items-center justify-center text-xl text-gray-900 transition-all duration-500 dark:text-white font-bold">
           Université ASJA
         </h1>
+        <p className="text-gray-500 dark:text-gray-400 text-sm transition-all duration-500">
+          © {new Date().getFullYear()}. Tous droits réservés.
+        </p>
       </div>
       <div className="flex lg:flex-row flex-col items-center justify-center gap-10 lg:gap-50 ">
         <div className="flex h-full md:justify-center md:items-center">
