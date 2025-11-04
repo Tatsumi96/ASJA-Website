@@ -18,14 +18,18 @@ const descriptionParcours = [
   {
     title: 'HYDROGEOLOGIE',
     description:
-      'Recherche, exploitation et gestion des ressources en eaux Techniques de forage d’eau Système d’AEP, système d’irrigation, Aménagement hydro-électrique et Aménagement hydroagricole... Modélisation des processus hydrogéologiques et hydrologiques Analyse et traitement des eaux usées Débouchés professionnels : Hydrogéologue Cadres et techniciens au sein du Ministère de l’eau (MEAH), des ONG et bureaux d’études œuvrant dans le secteur de l’eau et de l’assainissement Chefs de projet',
+      'Recherche, exploitation et gestion des ressources en eaux Techniques de forage d’eau Système d’AEP, système d’irrigation, Aménagement hydro-électrique et Aménagement hydroagricole... Modélisation des processus hydrogéologiques et hydrologiques Analyse et traitement des eaux usées',
+    debouche:
+      'Débouchés professionnels : Hydrogéologue Cadres et techniciens au sein du Ministère de l’eau (MEAH), des ONG et bureaux d’études œuvrant dans le secteur de l’eau et de l’assainissement Chefs de projet',
     categorieParcours: 'HYDROGEOLOGIE',
   },
   {
     title: 'GEOLOGIE MINIERE',
     description:
-      'Techniques de prospection géologique et minière Exploitation minière Cartographie (Télédétection et SIG) Caractérisation et valorisation des matériaux géologiques Gestion environnementale et restauration des sites miniers Débouchés professionnels : Géologue consultant Cadres et techniciens dans les industries minières Cadres et techniciens au sein du Ministère des Mines (MMRS)',
+      'Techniques de prospection géologique et minière Exploitation minière Cartographie (Télédétection et SIG) Caractérisation et valorisation des matériaux géologiques Gestion environnementale et restauration des sites miniers',
     categorieParcours: 'GEOLOGIE MINIERE',
+    debouche:
+      'Débouchés professionnels : Géologue consultant Cadres et techniciens dans les industries minières Cadres et techniciens au sein du Ministère des Mines (MMRS)',
   },
 ];
 
