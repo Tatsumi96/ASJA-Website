@@ -1,11 +1,10 @@
-import Lea from '@/assets/Mentions/LEA/LC.webp';
-import Image1 from '@/assets/Mentions/LEA/brochure-LEA.jpg';
-import Image3 from '@/assets/Mentions/LEA/terrain-basket.jpg';
+import Image1 from '@/assets/Mentions/LEA/Theatre_1.jpg';
+import Image3 from '@/assets/Mentions/LEA/Visite_Culinaire_française.jpg';
 import { DispositionAboutFiliere } from '../landing/components/disposition-about-filiere';
 export const LeaPage = () => {
   const mention = {
     name: 'LANGUES ÉTRANGÈRES APPLIQUÉES',
-    ImageMention: Lea,
+    ImageMention: "",
   };
 
   const descriptionMention = {
@@ -16,13 +15,13 @@ export const LeaPage = () => {
 
   const shortDescriptionList = [
     {
-      titleEvent: 'Hackathon 2023',
-      descriptionEvent: 'Victoire de nos étudiants.',
+      titleEvent: 'Bain Culinaire',
+      descriptionEvent: 'Bain Culinaire de la cuisine française.',
       RandomImage: Image3,
     },
     {
-      titleEvent: 'Visite PAMF',
-      descriptionEvent: 'Renforcement de la collaboration.',
+      titleEvent: 'Theathre',
+      descriptionEvent: '',
       RandomImage: Image1,
     },
   ];
