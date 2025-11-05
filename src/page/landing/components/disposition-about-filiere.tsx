@@ -61,7 +61,7 @@ export const DispositionAboutFiliere = ({
   const displayedDebouche = selectedParcours ? selectedParcours.debouche : null;
 
   return (
-    <div className="min-h-screen flex flex-col dark:bg-zinc-900 bg-gray-50">
+    <div className="flex flex-col overflow-x-hidden dark:bg-zinc-900 bg-gray-50">
       <Navbar />
 
       {descriptionParcours && (
@@ -88,7 +88,7 @@ export const DispositionAboutFiliere = ({
       )}
 
       <div
-        className={`${mention.name === 'LANGUES ÉTRANGÈRES APPLIQUÉES' ? 'mt-50' : 'mt-10'} flex flex-col md:flex-row justify-center items-start gap-10 mt-12 px-6`}
+        className={`${mention.name === 'LANGUES ÉTRANGÈRES APPLIQUÉES' ? 'md:mt-50 mt-25' : 'mt-10'} flex flex-col md:flex-row justify-center items-start gap-10 mt-12 px-6`}
       >
         <div className="flex-1  mb-10 max-w-2xl bg-white dark:bg-zinc-800 rounded-2xl shadow-lg p-8 text-left transition-all duration-500">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-4">
@@ -114,8 +114,9 @@ export const DispositionAboutFiliere = ({
             key={currentEvent.RandomImage}
             src={currentEvent.RandomImage}
             alt={currentEvent.titleEvent}
-            className="w-full h-64 object-cover rounded-lg mb-4 transition-opacity duration-700"
+            className="object-cover rounded-lg mb-4 transition-opacity duration-700"
           />
+
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-300 mb-3">
             {currentEvent.titleEvent}
           </h2>
