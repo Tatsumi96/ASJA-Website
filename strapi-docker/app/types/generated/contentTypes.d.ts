@@ -434,7 +434,7 @@ export interface ApiProgrammeAcademeicProgrammeAcademeic
   extends Struct.CollectionTypeSchema {
   collectionName: 'programme_academeics';
   info: {
-    displayName: 'ProgrammeAcademeic';
+    displayName: 'ProgrammeAcademics';
     pluralName: 'programme-academeics';
     singularName: 'programme-academeic';
   };
@@ -442,14 +442,11 @@ export interface ApiProgrammeAcademeicProgrammeAcademeic
     draftAndPublish: true;
   };
   attributes: {
-    Concours: Schema.Attribute.Date;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Inscription: Schema.Attribute.Date;
-    label_1: Schema.Attribute.String;
-    label_2: Schema.Attribute.String;
-    label_3: Schema.Attribute.String;
+    date: Schema.Attribute.Date;
+    label: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -457,7 +454,6 @@ export interface ApiProgrammeAcademeicProgrammeAcademeic
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Reinscription: Schema.Attribute.Date;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
