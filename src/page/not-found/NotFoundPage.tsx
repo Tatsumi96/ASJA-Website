@@ -12,7 +12,7 @@ export const NotFoundPage = () => {
           href="/"
           className="px-4 py-2 text-gray-800 border-2 dark:border-white border-gray-800 bg-white rounded-sm hover:bg-green-300"
         >
-          Go to Homepage
+          Go to Homepage →
         </a>
       </div>
     </div>
