@@ -6,6 +6,7 @@ import { InfoPage } from '@/page/Info';
 import { LandingPage } from '@/page/landing';
 import { LeaPage } from '@/page/LEA';
 import { STPage } from '@/page/ST';
+import { NotFoundPage } from '@/page/not-found/NotFoundPage';
 import { useTheme } from '@/page/theme/useTheme';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -25,7 +26,9 @@ export const PageRoute = () => {
         />
         <Route path="/mention/science-de-la-terre" element={<STPage />} />
         <Route path="/mention/droit" element={<DroitPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
 };
+
