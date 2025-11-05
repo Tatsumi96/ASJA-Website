@@ -22,12 +22,14 @@ export const EcoPage = () => {
       description:
         'Économiste/analyste (secteur public/international) Chargé de mission en développement local Expert en politiques publiques ou économie rurale Responsable de projet (ONG, coopération) Consultant en développement et impac',
       categorieParcours: 'Economie et Développement',
+      debouche: 'Économiste/analyste (secteur public/international)',
     },
     {
       title: 'Gestion et commerces Internationaux',
       description:
         'Responsable administratif ou marketing Directeur de PME ou chef de produit Analyste financier ou chargé d’affaires Chef de projet (commerce/export) Entrepreneur (services, innovation) Consultant en gestion ou finance',
       categorieParcours: 'Gestion et commerces Internationaux',
+      debouche: 'Responsable administratif ou marketing Directeur',
     },
   ];
 

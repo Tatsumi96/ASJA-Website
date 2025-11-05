@@ -1,9 +1,11 @@
 import { ApiSource } from '@/core/constant';
 import type { AxiosInstance } from 'axios';
+import type { AnnonceDto } from './annonce.dto';
 import type { EventDto } from './event.dto';
 
 export abstract class StrapiService {
   abstract getEvent(): Promise<EventDto[]>;
+  abstract getAnnonce(): Promise<AnnonceDto[]>;
 }
 
 export class StrapiServiceImpl implements StrapiService {
@@ -12,6 +14,15 @@ export class StrapiServiceImpl implements StrapiService {
   async getEvent(): Promise<EventDto[]> {
     const response = await this.axios.get(
       `${ApiSource.strapiUrl}/api/section-evenements`
+    );
+
+    if (response.status != 200) throw new Error();
+    return response.data.data;
+  }
+
+  async getAnnonce(): Promise<AnnonceDto[]> {
+    const response = await this.axios.get(
+      `${ApiSource.strapiUrl}/api/programme-academeics`
     );
 
     if (response.status != 200) throw new Error();

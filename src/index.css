@@ -4,6 +4,40 @@
 @custom-variant dark (&:is(.dark *));
 
 
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #15803d, #16a34a);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  transition: background 0.3s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #166534, #15803d);
+}
+
+:root {
+  --scroll-thumb: #15803d;
+  --scroll-track: rgba(0, 0, 0, 0.06);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+
+
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
