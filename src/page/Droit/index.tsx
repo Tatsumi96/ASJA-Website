@@ -1,6 +1,8 @@
 import Droit from '@/assets/Mentions/Droit/Droit.jpeg';
-import Image1 from '@/assets/Mentions/Droit/event-droi_conference.jpg';
-import Image3 from '@/assets/Mentions/Droit/event-licence_sortie.jpg';
+import Image1 from '@/assets/droitEvent1.jpeg';
+import Image2 from '@/assets/droitEvent2.jpeg';
+import Image3 from '@/assets/droitEvent3.jpeg';
+
 import { DispositionAboutFiliere } from '@/page/landing/components/disposition-about-filiere';
 export const DroitPage = () => {
   const mention = {
@@ -35,13 +37,18 @@ export const DroitPage = () => {
 
   const shortDescriptionList = [
     {
-      titleEvent: 'Hackathon 2023',
-      descriptionEvent: 'Victoire de nos étudiants.',
+      titleEvent: 'Proces Fictif',
+      descriptionEvent: '',
       RandomImage: Image3,
     },
     {
-      titleEvent: 'Visite PAMF',
-      descriptionEvent: 'Renforcement de la collaboration.',
+      titleEvent: 'Proces Fictif',
+      descriptionEvent: '',
+      RandomImage: Image2,
+    },
+    {
+      titleEvent: 'Proces Fictif',
+      descriptionEvent: '',
       RandomImage: Image1,
     },
   ];

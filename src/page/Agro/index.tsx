@@ -1,6 +1,7 @@
 import Agro from '@/assets/Mentions/AgronomieImage/Agro.jpg';
-import Image3 from '@/assets/Mentions/AgronomieImage/Brochure-Agro.jpg';
-import Image1 from '@/assets/Mentions/AgronomieImage/Labo.jpg';
+import agroEvent1 from '@/assets/agroEvent1.jpeg';
+import agroEvent2 from '@/assets/agroEvent2.jpg';
+
 import { DispositionAboutFiliere } from '../landing/components/disposition-about-filiere';
 
 const mention = {
@@ -43,14 +44,14 @@ const descriptionParcours = [
 
 const shortDescriptionList = [
   {
-    titleEvent: 'Hackathon 2023',
-    descriptionEvent: 'Victoire de nos étudiants.',
-    RandomImage: Image3,
+    titleEvent: 'Visite sur Terrain',
+    descriptionEvent: '',
+    RandomImage: agroEvent1,
   },
   {
-    titleEvent: 'Visite PAMF',
-    descriptionEvent: 'Renforcement de la collaboration.',
-    RandomImage: Image1,
+    titleEvent: 'Experience en laboratoire',
+    descriptionEvent: '',
+    RandomImage: agroEvent2,
   },
 ];
 

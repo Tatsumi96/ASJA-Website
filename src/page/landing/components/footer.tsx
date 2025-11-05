@@ -26,9 +26,9 @@ export const Footer = () => {
             <li className=" flex items-center gap-1">
               <MdPhone className="size-6" /> 034 49 483 19
             </li>
-            <li className=" flex items-center gap-1">
-              <MdEmail className="size-6" /> example@gmail.com
-            </li>
+            <a href="https://asja@moov.mg" className=" flex items-center gap-1">
+              <MdEmail className="size-6" /> asja@moov.mg
+            </a>
             <li className=" flex items-center gap-1">
               {' '}
               <MdLocationOn className="size-6" /> Antsaha, Antsirabe, Madagascar
