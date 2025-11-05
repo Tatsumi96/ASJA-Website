@@ -26,18 +26,19 @@ export const useLanding = () => {
 
   useEffect(scrollToBottom, [messagesList]);
 
-  const sendMessage = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const messageFiltred = message.trim();
-    if (!messageFiltred) return;
+  const sendMessage = async (messageText?: string) => {
+    const messageToSend = messageText || message.trim();
+    if (!messageToSend) return;
 
     setMessagesList((prev) => [
       ...prev,
-      { message: messageFiltred, expediteur: 'User' },
+      { message: messageToSend, expediteur: 'User' },
     ]);
     setLoading(true);
-    setMessage('');
-    const result = await chatN8NRepository.send(message);
+    if (!messageText) {
+      setMessage('');
+    }
+    const result = await chatN8NRepository.send(messageToSend);
     if (result.status == 'success') {
       setMessagesList((prev) => [
         ...prev,
@@ -45,7 +46,7 @@ export const useLanding = () => {
       ]);
     }
     if (result.status == 'failure') {
-      const result = await chatGemini.send(message);
+      const result = await chatGemini.send(messageToSend);
       if (result.status == 'success') {
         setMessagesList((prev) => [
           ...prev,
