@@ -1,14 +1,14 @@
-import Image from "@/assets/Image-evenement/event-info_1.jpg";
-import { Card, CardContent } from "@/components/ui/card";
+import Image from '@/assets/Image-evenement/event-info_1.jpg';
+import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { motion } from "framer-motion";
-import { useState } from "react";
+} from '@/components/ui/carousel';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 type Temoin = {
   name: string;
@@ -20,35 +20,35 @@ export const TestimonySection = () => {
   const [count, setCount] = useState<number>(0);
   const temoin: Temoin[] = [
     {
-      name: "Marie Rasoamalala",
+      name: 'Marie Rasoamalala',
       description:
         "Grâce à la formation de qualité à ASJA, j'ai pu décrocher un poste de développeuse web dans une entreprise internationale. Les professeurs sont excellents et le programme est très complet.",
     },
     {
-      name: "David Andriamanana",
+      name: 'David Andriamanana',
       description:
         "L'université ASJA m'a donné toutes les compétences nécessaires pour réussir dans le domaine de l'informatique. Je travaille maintenant comme chef de projet IT et je n'aurais pas pu y arriver sans cette formation.",
     },
     {
-      name: "Paul Rakotondrabe",
+      name: 'Paul Rakotondrabe',
       description:
-        "Formation excellente qui m’a permis de lancer ma propre startup tech. Les compétences acquises à ASJA sont directement applicables dans le monde professionnel.",
+        'Formation excellente qui m’a permis de lancer ma propre startup tech. Les compétences acquises à ASJA sont directement applicables dans le monde professionnel.',
     },
     {
-      name: "Sarah Randrianarisoa",
+      name: 'Sarah Randrianarisoa',
       description:
-        "La formation à ASJA m’a permis de découvrir ma passion pour la cybersécurité. Aujourd’hui, je travaille comme analyste sécurité dans une entreprise locale. Les cours pratiques m’ont énormément aidée à progresser rapidement.",
+        'La formation à ASJA m’a permis de découvrir ma passion pour la cybersécurité. Aujourd’hui, je travaille comme analyste sécurité dans une entreprise locale. Les cours pratiques m’ont énormément aidée à progresser rapidement.',
     },
     {
-      name: "Jean Michel Ravelomanana",
+      name: 'Jean Michel Ravelomanana',
       description:
-        "Grâce à l’accompagnement des enseignants d’ASJA, j’ai pu créer ma première application mobile dès la deuxième année. L’université m’a donné confiance et les bases solides pour me lancer dans le développement.",
+        'Grâce à l’accompagnement des enseignants d’ASJA, j’ai pu créer ma première application mobile dès la deuxième année. L’université m’a donné confiance et les bases solides pour me lancer dans le développement.',
     },
   ];
   return (
     <section
       id="temoignages"
-      className="bg-zinc-100 dark:bg-zinc-900 h-full transition-all duration-500 p-0 lg:p-10 md:p-5"
+      className="bg-zinc-100 dark:bg-zinc-900 h-full transition-all duration-500 p-0 lg:p-10 md:p-5 py-5"
     >
       <motion.div
         initial={{ x: -100, opacity: 0 }}
@@ -62,13 +62,13 @@ export const TestimonySection = () => {
         </h1>
         <Carousel
           opts={{
-            align: "start",
+            align: 'start',
           }}
           setApi={(api) => {
             if (!api) return;
             setCount(api.scrollSnapList().length);
             setCurrent(api.selectedScrollSnap());
-            api.on("select", () => setCurrent(api.selectedScrollSnap()));
+            api.on('select', () => setCurrent(api.selectedScrollSnap()));
           }}
           className="w-full px-2 md:px-0 lg:max-w-2/3 md:max-w-2/3 "
         >
@@ -105,7 +105,7 @@ export const TestimonySection = () => {
             <button
               key={index}
               onClick={() => setCurrent(index)}
-              className={`size-3 rounded-full transition-colors ${index === current ? "bg-green-700 dark:bg-white" : "bg-zinc-400"}`}
+              className={`size-3 rounded-full transition-colors ${index === current ? 'bg-green-700 dark:bg-white' : 'bg-zinc-400'}`}
             ></button>
           ))}
         </div>

@@ -3,4 +3,5 @@ import type { EventDto } from './event.dto';
 
 export abstract class StrapiRepository {
   abstract getEvent(): Promise<Result<EventDto[]>>;
+  abstract getAnnonce(): Promise<Result<string>>;
 }

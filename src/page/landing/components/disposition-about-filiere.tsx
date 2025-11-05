@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Footer } from './footer';
-import { Navbar } from './navBarFiliere';
+import { Navbar } from './nav-bar-filiere';
 const TIME = 5000;
 interface DescriptionParcours {
   title: string;
   description: string;
   categorieParcours: string;
+  debouche: string;
 }
 
 interface Mention {
@@ -57,29 +58,15 @@ export const DispositionAboutFiliere = ({
     ? selectedParcours.description
     : descriptionMention.description;
 
+  const displayedDebouche = selectedParcours ? selectedParcours.debouche : null;
+
   return (
     <div className="min-h-screen flex flex-col dark:bg-zinc-900 bg-gray-50">
       <Navbar />
 
-      <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden">
-        <img
-          src={mention.ImageMention}
-          alt={mention.name}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-blue-900/70" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
-          <h1 className="text-4xl md:text-5xl dark:text-white font-bold drop-shadow-lg">
-            {mention.name}
-          </h1>
-        </div>
-      </div>
       {descriptionParcours && (
-        <div className="flex justify-center sm:flex-col md:flex-row mt-10 px-6">
-          <div className="flex flex-col justify-center items-center w-full max-w-4xl bg-white dark:bg-zinc-800 rounded-2xl py-6 px-4 shadow-md">
-            <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
-              Parcours
-            </h2>
+        <div className="flex mt-30 justify-center sm:flex-col md:flex-row px-6">
+          <div className="flex flex-col justify-center items-center w-full max-w-4xl rounded-2xl py-6 px-4">
             <div className="flex flex-wrap justify-center gap-4 w-full ">
               {descriptionParcours?.map((parcours) => (
                 <button
@@ -100,14 +87,26 @@ export const DispositionAboutFiliere = ({
         </div>
       )}
 
-      <div className="flex flex-col md:flex-row justify-center items-start gap-10 mt-12 px-6">
-        <div className="flex-1 max-w-2xl bg-white dark:bg-zinc-800 rounded-2xl shadow-lg p-8 text-left transition-all duration-500">
+      <div
+        className={`${mention.name === 'LANGUES ÉTRANGÈRES APPLIQUÉES' ? 'mt-50' : 'mt-10'} flex flex-col md:flex-row justify-center items-start gap-10 mt-12 px-6`}
+      >
+        <div className="flex-1  mb-10 max-w-2xl bg-white dark:bg-zinc-800 rounded-2xl shadow-lg p-8 text-left transition-all duration-500">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-4">
             {displayedTitle}
           </h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-xl">
             {displayedDescription}
           </p>
+          {displayedDebouche && (
+            <>
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mt-5">
+                Debouche professionel
+              </h2>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-xl">
+                {displayedDebouche}
+              </p>
+            </>
+          )}
         </div>
 
         <div className="flex-1 max-w-md bg-white dark:bg-zinc-800 rounded-2xl shadow-lg p-6 text-left relative overflow-hidden transition-all duration-700 mb-10">
