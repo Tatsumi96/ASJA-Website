@@ -51,7 +51,7 @@ export const FiliereSection = () => {
     <>
       <div
         id="filiere"
-        className="hidden md:flex flex-col justify-center text-gray-800 items-center transition-all duration-500 w-full h-max dark:bg-zinc-800 bg-gray-200/75 pb-10 z-10"
+        className="hidden md:flex flex-col justify-center text-gray-800 items-center transition-all duration-500 w-full h-max dark:bg-zinc-800 bg-gray-200 pb-10 z-10"
       >
         <motion.div
           initial={{ x: -100, opacity: 0 }}
