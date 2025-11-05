@@ -1,18 +1,18 @@
-import Logo from '@/assets/Logo/asja-logo.png';
+import Logo from "@/assets/Logo/asja-logo.png";
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from '@/components/ui/navigation-menu';
-import { useLangue } from '@/page/lang/useLang';
-import { useThemeContext } from '@/page/theme/useThemeContext';
-import { MenuIcon, Moon, Sun, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-scroll';
-import { useScrollLock } from '../hooks/useScrollLock';
-import { AnnonceSection } from './annonce-section';
+} from "@/components/ui/navigation-menu";
+import { useLangue } from "@/page/lang/useLang";
+import { useThemeContext } from "@/page/theme/useThemeContext";
+import { MenuIcon, Moon, Sun, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link } from "react-scroll";
+import { useScrollLock } from "../hooks/useScrollLock";
+import { AnnonceSection } from "./annonce-section";
 
 export const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -24,8 +24,8 @@ export const Navbar = () => {
       if (window.innerWidth >= 500) setOpen(false);
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleLinkClick = () => {
@@ -38,7 +38,7 @@ export const Navbar = () => {
   };
 
   const handleLogoClick = () => {
-    window.location.href = '/';
+    window.location.href = "/";
   };
 
   useScrollLock(open);
@@ -54,7 +54,7 @@ export const Navbar = () => {
           >
             <img className="w-10 h-10" src={Logo} alt="Logo" />
             <h1 className="flex items-center justify-center transition-all duration-500 text-md text-gray-900 dark:text-white font-bold">
-              {translate('universite')}
+              {translate("universite")}
             </h1>
           </button>
           <button
@@ -70,7 +70,7 @@ export const Navbar = () => {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger>
-                  {translate('navBar.accueil')}
+                  {translate("navBar.accueil")}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="p-4 w-64 space-y-1">
@@ -81,10 +81,10 @@ export const Navbar = () => {
                       offset={-50}
                       duration={500}
                       activeClass="text-green-700 bg-green-50 dark:bg-green-950 font-medium"
-                      className="block text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
+                      className="block cursor-pointer text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                       onClick={handleLinkClick}
                     >
-                      {translate('sectionAccueilNavbar.description')}
+                      {translate("sectionAccueilNavbar.description")}
                     </Link>
                     <Link
                       to="mission"
@@ -93,10 +93,10 @@ export const Navbar = () => {
                       offset={-50}
                       duration={300}
                       activeClass="text-green-700 bg-green-50 dark:bg-green-950 font-medium"
-                      className="block text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
+                      className="block cursor-pointer text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                       onClick={handleLinkClick}
                     >
-                      {translate('sectionAccueilNavbar.mission')}
+                      {translate("sectionAccueilNavbar.mission")}
                     </Link>
                     <Link
                       to="filiere"
@@ -105,10 +105,10 @@ export const Navbar = () => {
                       offset={-50}
                       duration={300}
                       activeClass="text-green-700 bg-green-50 dark:bg-green-950 font-medium"
-                      className="block text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
+                      className="block cursor-pointer text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                       onClick={handleLinkClick}
                     >
-                      {translate('sectionAccueilNavbar.filieres')}
+                      {translate("sectionAccueilNavbar.filieres")}
                     </Link>
                     <Link
                       to="events"
@@ -117,10 +117,10 @@ export const Navbar = () => {
                       offset={-50}
                       duration={300}
                       activeClass="text-green-700 bg-green-50 dark:bg-green-950 font-medium"
-                      className="block text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
+                      className="block cursor-pointer text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                       onClick={handleLinkClick}
                     >
-                      {translate('sectionAccueilNavbar.events')}
+                      {translate("sectionAccueilNavbar.events")}
                     </Link>
                     <Link
                       to="systeme"
@@ -129,10 +129,10 @@ export const Navbar = () => {
                       offset={-50}
                       duration={300}
                       activeClass="text-green-700 bg-green-50 dark:bg-green-950 font-medium"
-                      className="block text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
+                      className="block cursor-pointer text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                       onClick={handleLinkClick}
                     >
-                      {translate('sectionAccueilNavbar.systeme')}
+                      {translate("sectionAccueilNavbar.systeme")}
                     </Link>
                     <Link
                       to="temoignages"
@@ -141,10 +141,10 @@ export const Navbar = () => {
                       offset={-50}
                       duration={300}
                       activeClass="text-green-700 bg-green-50 dark:bg-green-950 font-medium"
-                      className="block text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
+                      className="block cursor-pointer text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                       onClick={handleLinkClick}
                     >
-                      {translate('sectionAccueilNavbar.temoignages')}
+                      {translate("sectionAccueilNavbar.temoignages")}
                     </Link>
                     <Link
                       to="FAQ"
@@ -153,10 +153,10 @@ export const Navbar = () => {
                       offset={-50}
                       duration={300}
                       activeClass="text-green-700 bg-green-50 dark:bg-green-950 font-medium"
-                      className="block text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
+                      className="block cursor-pointer text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                       onClick={handleLinkClick}
                     >
-                      {translate('sectionAccueilNavbar.FAQ')}
+                      {translate("sectionAccueilNavbar.FAQ")}
                     </Link>
                   </div>
                 </NavigationMenuContent>
@@ -168,51 +168,51 @@ export const Navbar = () => {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger>
-                  {translate('navBar.filieres')}
+                  {translate("navBar.filieres")}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="p-4 w-64 space-y-1">
                     <button
-                      onClick={() => handleFiliereClick('/mention/agronomie')}
-                      className="block w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
+                      onClick={() => handleFiliereClick("/mention/agronomie")}
+                      className="block cursor-pointer w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                     >
-                      {translate('filiereSection.AGRO.name')}
+                      {translate("filiereSection.AGRO.name")}
                     </button>
                     <button
                       onClick={() =>
-                        handleFiliereClick('/mention/informatique')
+                        handleFiliereClick("/mention/informatique")
                       }
-                      className="block w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
+                      className="block cursor-pointer w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                     >
-                      {translate('filiereSection.INFO.name')}
+                      {translate("filiereSection.INFO.name")}
                     </button>
                     <button
-                      onClick={() => handleFiliereClick('/mention/droit')}
-                      className="block w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
+                      onClick={() => handleFiliereClick("/mention/droit")}
+                      className="block cursor-pointer w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                     >
-                      {translate('filiereSection.DROIT.name')}
+                      {translate("filiereSection.DROIT.name")}
                     </button>
                     <button
-                      onClick={() => handleFiliereClick('/mention/economie')}
-                      className="block w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
+                      onClick={() => handleFiliereClick("/mention/economie")}
+                      className="block cursor-pointer w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                     >
-                      {translate('filiereSection.ECO.name')}
+                      {translate("filiereSection.ECO.name")}
                     </button>
                     <button
                       onClick={() =>
-                        handleFiliereClick('/mention/langue-etrangere-applique')
+                        handleFiliereClick("/mention/langue-etrangere-applique")
                       }
-                      className="block w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
+                      className="block cursor-pointer w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                     >
-                      {translate('filiereSection.LEA.name')}
+                      {translate("filiereSection.LEA.name")}
                     </button>
                     <button
                       onClick={() =>
-                        handleFiliereClick('/mention/science-de-la-terre')
+                        handleFiliereClick("/mention/science-de-la-terre")
                       }
-                      className="block w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
+                      className="block cursor-pointer w-full text-left text-gray-800 dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500 hover:bg-gray-100 dark:hover:bg-zinc-700"
                     >
-                      {translate('filiereSection.ST.name')}
+                      {translate("filiereSection.ST.name")}
                     </button>
                   </div>
                 </NavigationMenuContent>
@@ -231,7 +231,7 @@ export const Navbar = () => {
                   duration={500}
                   className="text-gray-800 cursor-pointer dark:text-white hover:text-stone-500 px-4 py-2 rounded transition-all duration-500"
                 >
-                  {translate('navBar.contact')}
+                  {translate("navBar.contact")}
                 </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -247,18 +247,18 @@ export const Navbar = () => {
       </div>
 
       <div
-        className={`fixed inset-0 z-40 md:hidden ${open ? 'block' : 'hidden'}`}
+        className={`fixed inset-0 z-40 md:hidden ${open ? "block" : "hidden"}`}
       >
         <div
           className={`fixed inset-0 bg-black transition-all duration-500 ${
-            open ? 'opacity-50' : 'opacity-0'
+            open ? "opacity-50" : "opacity-0"
           }`}
           onClick={() => setOpen(false)}
         />
 
         <div
           className={`fixed top-0 left-0 h-full w-80 bg-white dark:bg-zinc-800 shadow-xl transition-all duration-500 ease-out ${
-            open ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+            open ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
           }`}
         >
           <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
@@ -268,7 +268,7 @@ export const Navbar = () => {
             >
               <img className="w-10 h-10" src={Logo} alt="Logo" />
               <h1 className="text-lg font-bold text-gray-900 dark:text-white">
-                {translate('universite')}
+                {translate("universite")}
               </h1>
             </button>
             <button
@@ -282,7 +282,7 @@ export const Navbar = () => {
           <div className="p-4 space-y-6 overflow-y-auto h-full pb-20">
             <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-zinc-700 rounded-lg">
               <span className="text-gray-700 dark:text-gray-300">
-                {isDark ? 'Mode clair' : 'Mode sombre'}
+                {isDark ? "Mode clair" : "Mode sombre"}
               </span>
               <button
                 onClick={toggleTheme}
@@ -295,23 +295,23 @@ export const Navbar = () => {
             <div className="space-y-4">
               <div className="space-y-2">
                 <h3 className="font-semibold text-gray-900 dark:text-white px-2">
-                  {translate('navBar.accueil')}
+                  {translate("navBar.accueil")}
                 </h3>
                 <div className="space-y-1">
                   {[
                     {
-                      to: 'description',
-                      key: 'sectionAccueilNavbar.description',
+                      to: "description",
+                      key: "sectionAccueilNavbar.description",
                     },
-                    { to: 'mission', key: 'sectionAccueilNavbar.mission' },
-                    { to: 'filiere', key: 'sectionAccueilNavbar.filieres' },
-                    { to: 'events', key: 'sectionAccueilNavbar.events' },
-                    { to: 'systeme', key: 'sectionAccueilNavbar.systeme' },
+                    { to: "mission", key: "sectionAccueilNavbar.mission" },
+                    { to: "filiere", key: "sectionAccueilNavbar.filieres" },
+                    { to: "events", key: "sectionAccueilNavbar.events" },
+                    { to: "systeme", key: "sectionAccueilNavbar.systeme" },
                     {
-                      to: 'temoignages',
-                      key: 'sectionAccueilNavbar.temoignages',
+                      to: "temoignages",
+                      key: "sectionAccueilNavbar.temoignages",
                     },
-                    { to: 'FAQ', key: 'sectionAccueilNavbar.FAQ' },
+                    { to: "FAQ", key: "sectionAccueilNavbar.FAQ" },
                   ].map((item) => (
                     <Link
                       key={item.to}
@@ -331,33 +331,33 @@ export const Navbar = () => {
               </div>
               <div className="space-y-2">
                 <h3 className="font-semibold text-gray-900 dark:text-white px-2">
-                  {translate('navBar.filieres')}
+                  {translate("navBar.filieres")}
                 </h3>
                 <div className="space-y-1">
                   {[
                     {
-                      href: '/mention/agronomie',
-                      key: 'filiereSection.AGRO.name',
+                      href: "/mention/agronomie",
+                      key: "filiereSection.AGRO.name",
                     },
                     {
-                      href: '/mention/informatique',
-                      key: 'filiereSection.INFO.name',
+                      href: "/mention/informatique",
+                      key: "filiereSection.INFO.name",
                     },
                     {
-                      href: '/mention/droit',
-                      key: 'filiereSection.DROIT.name',
+                      href: "/mention/droit",
+                      key: "filiereSection.DROIT.name",
                     },
                     {
-                      href: '/mention/economie',
-                      key: 'filiereSection.ECO.name',
+                      href: "/mention/economie",
+                      key: "filiereSection.ECO.name",
                     },
                     {
-                      href: '/mention/langue-etrangere-applique',
-                      key: 'filiereSection.LEA.name',
+                      href: "/mention/langue-etrangere-applique",
+                      key: "filiereSection.LEA.name",
                     },
                     {
-                      href: '/mention/science-de-la-terre',
-                      key: 'filiereSection.ST.name',
+                      href: "/mention/science-de-la-terre",
+                      key: "filiereSection.ST.name",
                     },
                   ].map((item) => (
                     <button
@@ -382,7 +382,7 @@ export const Navbar = () => {
                   activeClass="text-green-700 bg-green-50 dark:bg-green-950 font-medium"
                   className="block px-4 py-3 font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-700 rounded-lg transition-all duration-200"
                 >
-                  {translate('navBar.contact')}
+                  {translate("navBar.contact")}
                 </Link>
               </div>
             </div>
