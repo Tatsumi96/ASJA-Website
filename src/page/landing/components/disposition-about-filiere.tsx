@@ -1,7 +1,7 @@
-import { ArrowRight, BookOpen, Briefcase, GraduationCap } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { Footer } from './footer';
-import { Navbar } from './nav-bar-filiere';
+import { BookOpen, Briefcase, GraduationCap } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Footer } from "./footer";
+import { Navbar } from "./nav-bar-filiere";
 const TIME = 5000;
 interface DescriptionParcours {
   title: string;
@@ -76,8 +76,8 @@ export const DispositionAboutFiliere = ({
                   className={`px-6 py-3 rounded-full text-white cursor-pointer font-semibold transition-transform duration-200 hover:scale-105 flex items-center gap-2 ${
                     selectedParcours?.categorieParcours ===
                     parcours.categorieParcours
-                      ? 'bg-green-800'
-                      : 'bg-green-700 hover:bg-green-800'
+                      ? "bg-green-800"
+                      : "bg-green-700 hover:bg-green-800"
                   }`}
                 >
                   <GraduationCap size={20} />
@@ -90,7 +90,7 @@ export const DispositionAboutFiliere = ({
       )}
 
       <div
-        className={`${mention.name === 'LANGUES ÉTRANGÈRES APPLIQUÉES' ? 'md:mt-50 mt-25' : 'mt-10'} flex flex-col md:flex-row justify-center items-start gap-10 mt-12 px-6`}
+        className={`${mention.name === "LANGUES ÉTRANGÈRES APPLIQUÉES" ? "md:mt-50 mt-25" : "mt-10"} flex flex-col md:flex-row justify-center items-start gap-10 mt-12 px-6`}
       >
         <div className="flex-1  mb-10 max-w-2xl bg-white dark:bg-zinc-800 rounded-2xl shadow-lg p-8 text-left transition-all duration-500">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-4 flex items-center gap-3">
@@ -125,14 +125,6 @@ export const DispositionAboutFiliere = ({
           <p className="text-gray-700 dark:text-white text-lg mb-4">
             {currentEvent.descriptionEvent}
           </p>
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block text-gray-500 font-semibold text-lg hover:text-green-700 transition-transform duration-300 hover:scale-105"
-          >
-            Inscription <ArrowRight className="inline-block" size={20} />
-          </a>
         </div>
       </div>
 

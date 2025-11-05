@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
 import backgroundImage from "@/assets/Lieu_espace/Asja_devant2.jpg";
-import { useLangue } from "@/page/lang/useLang";
 
 export const Description = () => {
-  const { translate } = useLangue();
-
   return (
     <section
       id="description"
@@ -33,16 +30,7 @@ export const Description = () => {
             qui souhaitent bénéficier d’une formation d’excellence pour leurs
             études supérieures.
           </p>
-          <div className="flex lg:justify-start justify-center items-center pt-10 lg:px-5">
-            <button className="bg-green-800 hover:bg-green-900 cursor-pointer hover:scale-105 duration-300 rounded-full">
-              <a
-                href="/"
-                className="text-white font-bold lg:text-lg text-sm flex gap-3 justify-center items-center md:px-6 md:py-3 py-2 px-4"
-              >
-                {translate("descriptionSection.ensavoirplus")} ➞{" "}
-              </a>
-            </button>
-          </div>
+          <div className="flex lg:justify-start justify-center items-center pt-10 lg:px-5"></div>
         </motion.div>
       </div>
       <motion.div
