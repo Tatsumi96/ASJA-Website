@@ -1,3 +1,4 @@
+import { ArrowRight, BookOpen, Briefcase, GraduationCap } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Footer } from './footer';
 import { Navbar } from './nav-bar-filiere';
@@ -61,7 +62,7 @@ export const DispositionAboutFiliere = ({
   const displayedDebouche = selectedParcours ? selectedParcours.debouche : null;
 
   return (
-    <div className="min-h-screen flex flex-col dark:bg-zinc-900 bg-gray-50">
+    <div className="flex flex-col overflow-x-hidden dark:bg-zinc-900 bg-gray-50">
       <Navbar />
 
       {descriptionParcours && (
@@ -72,13 +73,14 @@ export const DispositionAboutFiliere = ({
                 <button
                   key={parcours.categorieParcours}
                   onClick={() => setSelectedParcours(parcours)}
-                  className={`px-6 py-3 rounded-full text-white cursor-pointer font-semibold transition-transform duration-200 hover:scale-105 ${
+                  className={`px-6 py-3 rounded-full text-white cursor-pointer font-semibold transition-transform duration-200 hover:scale-105 flex items-center gap-2 ${
                     selectedParcours?.categorieParcours ===
                     parcours.categorieParcours
                       ? 'bg-green-800'
                       : 'bg-green-700 hover:bg-green-800'
                   }`}
                 >
+                  <GraduationCap size={20} />
                   {parcours.categorieParcours}
                 </button>
               ))}
@@ -88,19 +90,19 @@ export const DispositionAboutFiliere = ({
       )}
 
       <div
-        className={`${mention.name === 'LANGUES ÉTRANGÈRES APPLIQUÉES' ? 'mt-50' : 'mt-10'} flex flex-col md:flex-row justify-center items-start gap-10 mt-12 px-6`}
+        className={`${mention.name === 'LANGUES ÉTRANGÈRES APPLIQUÉES' ? 'md:mt-50 mt-25' : 'mt-10'} flex flex-col md:flex-row justify-center items-start gap-10 mt-12 px-6`}
       >
         <div className="flex-1  mb-10 max-w-2xl bg-white dark:bg-zinc-800 rounded-2xl shadow-lg p-8 text-left transition-all duration-500">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-4">
-            {displayedTitle}
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-4 flex items-center gap-3">
+            <BookOpen size={30} /> {displayedTitle}
           </h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-xl">
             {displayedDescription}
           </p>
           {displayedDebouche && (
             <>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mt-5">
-                Debouche professionel
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mt-5 flex items-center gap-3">
+                <Briefcase size={30} /> Debouche professionel
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-xl">
                 {displayedDebouche}
@@ -114,8 +116,9 @@ export const DispositionAboutFiliere = ({
             key={currentEvent.RandomImage}
             src={currentEvent.RandomImage}
             alt={currentEvent.titleEvent}
-            className="w-full h-64 object-cover rounded-lg mb-4 transition-opacity duration-700"
+            className="object-cover rounded-lg mb-4 transition-opacity duration-700"
           />
+
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-300 mb-3">
             {currentEvent.titleEvent}
           </h2>
@@ -128,7 +131,7 @@ export const DispositionAboutFiliere = ({
             rel="noopener noreferrer"
             className="inline-block text-gray-500 font-semibold text-lg hover:text-green-700 transition-transform duration-300 hover:scale-105"
           >
-            Inscription →
+            Inscription <ArrowRight className="inline-block" size={20} />
           </a>
         </div>
       </div>
