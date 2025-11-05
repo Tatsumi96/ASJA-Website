@@ -1,4 +1,4 @@
-import Image from '@/assets/Image-evenement/event-info_1.jpg';
+import Image from '@/assets/Logo/asja-logo.png';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
@@ -10,9 +10,13 @@ import {
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
+import ainaImage from '@/assets/Aina-Arthur.jpg';
+import genciaImage from '@/assets/RANDRIAMANAPAKA-Manantena-Toditsara-Jencia.jpg';
+
 type Temoin = {
   name: string;
   description: string;
+  image?: string;
 };
 
 export const TestimonySection = () => {
@@ -20,14 +24,16 @@ export const TestimonySection = () => {
   const [count, setCount] = useState<number>(0);
   const temoin: Temoin[] = [
     {
-      name: 'Marie Rasoamalala',
+      name: 'RANDRIAMANAPAKA Manantena Toditsara Jencia',
       description:
         "Grâce à la formation de qualité à ASJA, j'ai pu décrocher un poste de développeuse web dans une entreprise internationale. Les professeurs sont excellents et le programme est très complet.",
+      image: genciaImage,
     },
     {
-      name: 'David Andriamanana',
+      name: 'Aina Arthur',
       description:
         "L'université ASJA m'a donné toutes les compétences nécessaires pour réussir dans le domaine de l'informatique. Je travaille maintenant comme chef de projet IT et je n'aurais pas pu y arriver sans cette formation.",
+      image: ainaImage,
     },
     {
       name: 'Paul Rakotondrabe',
@@ -81,7 +87,7 @@ export const TestimonySection = () => {
                       <div className="flex h-40 w-40 justify-center items-center overflow-hidden">
                         <img
                           className="rounded-[50%] w-full h-full border-2 object-cover"
-                          src={Image}
+                          src={temoin.image ? temoin.image : Image}
                           alt=""
                         />
                       </div>
