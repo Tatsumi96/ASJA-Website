@@ -1,8 +1,8 @@
-import { useScrollLock } from '@/page/admin/hooks/useScrollLock';
 import { Bot, Send } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { MdCancel } from 'react-icons/md';
 import { useLandingContext } from '../bloc/useLandingContext';
+import { useScrollLock } from '../hooks/useScrollLock';
 import PromptSuggestions from './suggestion-bot';
 
 const Chatbot: React.FC = () => {
