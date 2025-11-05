@@ -1,8 +1,9 @@
-import { useScrollLock } from '@/page/admin/hooks/useScrollLock';
-import { Bot, Send } from 'lucide-react';
-import React, { useEffect, useRef, useState } from 'react';
-import { MdCancel } from 'react-icons/md';
-import { useLandingContext } from '../bloc/useLandingContext';
+import { useScrollLock } from "@/page/admin/hooks/useScrollLock";
+import { Bot, Send } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { MdCancel } from "react-icons/md";
+import { useLandingContext } from "../bloc/useLandingContext";
+import PromptSuggestions from "./suggestion-bot";
 
 const Chatbot: React.FC = () => {
   const {
@@ -33,7 +34,7 @@ const Chatbot: React.FC = () => {
 
       if (isKeyboardOpen && formRef.current) {
         setTimeout(() => {
-          refFinMessages.current?.scrollIntoView({ behavior: 'smooth' });
+          refFinMessages.current?.scrollIntoView({ behavior: "smooth" });
         }, 100);
       }
     };
@@ -51,22 +52,22 @@ const Chatbot: React.FC = () => {
     };
 
     if (window.visualViewport) {
-      window.visualViewport.addEventListener('resize', handleResize);
+      window.visualViewport.addEventListener("resize", handleResize);
     }
 
     const inputElement = inputRef.current;
     if (inputElement) {
-      inputElement.addEventListener('focusin', handleFocusIn);
-      inputElement.addEventListener('focusout', handleFocusOut);
+      inputElement.addEventListener("focusin", handleFocusIn);
+      inputElement.addEventListener("focusout", handleFocusOut);
     }
 
     return () => {
       if (window.visualViewport) {
-        window.visualViewport.removeEventListener('resize', handleResize);
+        window.visualViewport.removeEventListener("resize", handleResize);
       }
       if (inputElement) {
-        inputElement.removeEventListener('focusin', handleFocusIn);
-        inputElement.removeEventListener('focusout', handleFocusOut);
+        inputElement.removeEventListener("focusin", handleFocusIn);
+        inputElement.removeEventListener("focusout", handleFocusOut);
       }
     };
   }, [isOpen, refFinMessages]);
@@ -75,8 +76,8 @@ const Chatbot: React.FC = () => {
     if (messagesList.length > 0 || loading) {
       setTimeout(() => {
         refFinMessages.current?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
+          behavior: "smooth",
+          block: "nearest",
         });
       }, 100);
     }
@@ -103,10 +104,10 @@ const Chatbot: React.FC = () => {
           sm:absolute sm:inset-auto sm:bottom-0 sm:right-0 sm:w-96 sm:h-[500px]
           sm:rounded-xl sm:shadow-2xl sm:mb-4
           transition-all duration-300
-          ${keyboardVisible ? 'pb-0' : ''}
+          ${keyboardVisible ? "pb-0" : ""}
         `}
         >
-          {' '}
+          {" "}
           <div className="flex-shrink-0 flex dark:text-white text-gray-800 w-full justify-between shadow-md items-center px-5 py-3 border-b border-gray-200">
             <section className="flex gap-1 items-center">
               <Bot className="pb-2" size={35} />
@@ -120,7 +121,7 @@ const Chatbot: React.FC = () => {
           <div
             className={`
             flex-1 overflow-y-auto p-4 flex flex-col space-y-3
-            ${keyboardVisible ? 'pb-2' : ''}
+            ${keyboardVisible ? "pb-2" : ""}
           `}
           >
             {messagesList.length === 0 ? (
@@ -136,9 +137,9 @@ const Chatbot: React.FC = () => {
                 <div
                   key={index}
                   className={`max-w-[85%] p-3 rounded-xl text-sm break-words ${
-                    msg.expediteur === 'User'
-                      ? 'bg-green-700 text-white self-end rounded-br-md'
-                      : 'bg-gray-100 text-gray-800 dark:text-gray-300 transition-all duration-500 dark:bg-zinc-700 self-start rounded-tl-md'
+                    msg.expediteur === "User"
+                      ? "bg-green-700 text-white self-end rounded-br-md"
+                      : "bg-gray-100 text-gray-800 dark:text-gray-300 transition-all duration-500 dark:bg-zinc-700 self-start rounded-tl-md"
                   }`}
                 >
                   {msg.message}
@@ -152,13 +153,14 @@ const Chatbot: React.FC = () => {
             )}
             <div ref={refFinMessages} />
           </div>
+          <PromptSuggestions onSelect={(text) => setMessage(text)} />
           <form
             ref={formRef}
             onSubmit={sendMessage}
             className={`
               flex-shrink-0 flex p-3 border-t border-gray-200 bg-white dark:bg-zinc-800
               transition-all duration-300
-              ${keyboardVisible ? 'pb-4' : ''}
+              ${keyboardVisible ? "pb-4" : ""}
             `}
           >
             <input
