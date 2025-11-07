@@ -20,34 +20,34 @@ export const DroitPage = () => {
     {
       title: 'Droit des Affaires',
       description:
-        'Former des juristes d’entreprise et des conseils juridiques Maîtriser le droit commercial, fiscal, des sociétés, contrats… Compétences acquises à la fin de votre formation chez nous : Gestion juridique des sociétés Analyse des risques et conformités Négociations et rédactions des contrats',
+        'Former des juristes d’entreprise et des conseils juridiques Maîtriser le droit commercial, fiscal, des sociétés, contrats… Compétences acquises à la fin de votre formation chez nous : Gestion juridique des sociétés, Analyse des risques et conformités, Négociations et rédactions des contrats',
       debouche:
-        'Fonctionnaire international Notaire spécialisé en sociétés Consultant en fiscalité Juriste d’entreprise Avocat d’affaires',
+        'Fonctionnaire international, Notaire spécialisé en sociétés, Consultant en fiscalité, Juriste d’entreprise et Avocat d’affaires',
       categorieParcours: 'Droit des Affaires',
     },
     {
       title: 'Droit Processuel',
       description:
-        'Préparer aux concours de barreau, magistrature, greffe Former à toutes les Procédures (civile, pénale, administrative…) Compétences acquises à la fin de votre formation chez nous : Analyse juridique et argumentation Rédaction d’actes juridiques Stratégies procédurales',
+        'Préparer aux concours de barreau, magistrature, greffier et avocat, former à toutes les procédures (civile, pénale, administrative…), compétences acquises à la fin de votre formation chez nous : analyse juridique et argumentation, rédaction d’actes juridiques et stratégies procédurales.',
       categorieParcours: 'Droit Processuel',
       debouche:
-        'Débouchés professionnels : Assistant(e) de justice Avocat Magistrat Greffier',
+        'Débouchés professionnels : Assistant(e) de justice, Avocat, Magistrat et Greffier',
     },
   ];
 
   const shortDescriptionList = [
     {
       titleEvent: 'Proces Fictif',
-      descriptionEvent: '',
+      descriptionEvent: 'nos étudiants mettent en pratique leurs connaissances juridiques en participant à des procès simulés, développant ainsi leurs compétences en plaidoirie, argumentation, analyse et stratégie juridique dans un cadre réaliste mais pédagogique.',
       RandomImage: Image3,
     },
     {
-      titleEvent: 'Proces Fictif',
+      titleEvent: '',
       descriptionEvent: '',
       RandomImage: Image2,
     },
     {
-      titleEvent: 'Proces Fictif',
+      titleEvent: '',
       descriptionEvent: '',
       RandomImage: Image1,
     },
