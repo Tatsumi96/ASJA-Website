@@ -111,7 +111,7 @@ export const DispositionAboutFiliere = ({
           )}
         </div>
 
-        <div className="flex-1 max-w-md bg-white dark:bg-zinc-800 rounded-2xl shadow-lg p-6 text-left relative overflow-hidden transition-all duration-700 mb-10">
+        <div className="flex-1 max-w-md dark:bg-zinc-800 p-6 text-left relative overflow-hidden transition-all duration-700 mb-10">
           <img
             key={currentEvent.RandomImage}
             src={currentEvent.RandomImage}
