@@ -1,7 +1,6 @@
-import informatiqueImg from '@/assets/Mentions/InformatiqueImage/Informatique.jpg';
-import { DispositionAboutFiliere } from '@/page/landing/components/disposition-about-filiere';
 import Image2 from '@/assets/Mentions/InformatiqueImage/Victoir_Hackathon2025.jpg';
 import Image3 from '@/assets/Mentions/InformatiqueImage/hackathon.jpg';
+import { DispositionAboutFiliere } from '@/page/landing/components/disposition-about-filiere';
 
 export const InfoPage = () => {
   const mention = {
@@ -19,7 +18,7 @@ export const InfoPage = () => {
     {
       title: 'Génie Logiciel',
       description:
-        "Compétences acquises à la fin de votre formation chez nous : Développement d’applications web, Gestion de bases de données, Programmation orientée objet et UML",
+        'Compétences acquises à la fin de votre formation chez nous : Développement d’applications web, Gestion de bases de données, Programmation orientée objet et UML',
       categorieParcours: 'Genie Logiciel',
       debouche:
         "Data scientist et Programmation Développeur Full Stack, Designer web et d'applications",
@@ -44,13 +43,15 @@ export const InfoPage = () => {
   const shortDescriptionList = [
     {
       titleEvent: 'Hackathon Inter-Univestaire 2023',
-      descriptionEvent: 'Lors de l’Hackathon 2023, nos étudiants ont remporté la 3ᵉ place, prouvant que curiosité, ingéniosité et soif d’apprendre mènent à l’excellence.',
+      descriptionEvent:
+        'Lors de l’Hackathon 2023, nos étudiants ont remporté la 3ᵉ place, prouvant que curiosité, ingéniosité et soif d’apprendre mènent à l’excellence.',
       RandomImage: Image3,
     },
 
     {
       titleEvent: 'Hackathon DevFest 2025',
-      descriptionEvent: 'Nos étudiants triomphent à l’Hackathon 2025 du Devfest Antsirabe !',
+      descriptionEvent:
+        'Nos étudiants triomphent à l’Hackathon 2025 du Devfest Antsirabe !',
       RandomImage: Image2,
     },
   ];
