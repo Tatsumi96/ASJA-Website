@@ -1,6 +1,6 @@
 import ST from '@/assets/Mentions/SienceDeLaTerre/St.jpg';
-import Image2 from '@/assets/Mentions/SienceDeLaTerre/event-prime_master.jpg';
-import Image1 from '@/assets/Mentions/SienceDeLaTerre/event-reboisement-2.jpg';
+import Image2 from '@/assets/Mentions/SienceDeLaTerre/ST-VisiteSurTerain.jpg';
+import Image1 from '@/assets/Mentions/SienceDeLaTerre/ST-Event.jpg';
 import { DispositionAboutFiliere } from '../../page/landing/components/disposition-about-filiere';
 
 const mention = {
@@ -35,13 +35,13 @@ const descriptionParcours = [
 
 const shortDescriptionList = [
   {
-    titleEvent: 'Visite PAMF',
-    descriptionEvent: 'Renforcement de la collaboration.',
+    titleEvent: 'Visite sur terrain',
+    descriptionEvent: 'Sortie sur le terrain organisée par la mention Science de la Terre : les étudiants explorent les paysages naturels et géologiques, observent la formation des reliefs, analysent les roches et le sol, et appliquent leurs connaissances théoriques dans un environnement réel.',
     RandomImage: Image1,
   },
   {
-    titleEvent: 'Viavy Tech',
-    descriptionEvent: 'Girl tech hackathon',
+    titleEvent: 'Visite sur terrain',
+    descriptionEvent: 'Sortie sur le terrain organisée par la mention Science de la Terre : les étudiants explorent les paysages naturels et géologiques, observent la formation des reliefs, analysent les roches et le sol, et appliquent leurs connaissances théoriques dans un environnement réel.',
     RandomImage: Image2,
   },
 ];

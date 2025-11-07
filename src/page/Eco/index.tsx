@@ -1,13 +1,11 @@
-import Image3 from '@/assets/Mentions/Economie/brochure-economie.jpg';
-import Economie from '@/assets/Mentions/Economie/Eco.jpg';
-import Image2 from '@/assets/Mentions/Economie/event-chorale_asja.jpg';
-import Image1 from '@/assets/Mentions/Economie/event-donation_2.jpg';
+import Image2 from '@/assets/Mentions/Economie/ECO-events-5.jpg';
+import Image1 from '@/assets/Mentions/Economie/ECO-events-9.jpg';
 import { DispositionAboutFiliere } from '@/page/landing/components/disposition-about-filiere';
 
 export const EcoPage = () => {
   const mention = {
     name: 'ECONOMIE ET COMMERCE',
-    ImageMention: Economie,
+    ImageMention: '',
   };
 
   const descriptionMention = {
@@ -20,14 +18,14 @@ export const EcoPage = () => {
     {
       title: 'Economie et Développement',
       description:
-        'Économiste/analyste (secteur public/international) Chargé de mission en développement local Expert en politiques publiques ou économie rurale Responsable de projet (ONG, coopération) Consultant en développement et impac',
+        'Économiste/analyste (secteur public/international) Chargé de mission en développement local, Expert en politiques publiques ou économie rurale, Responsable de projet (ONG, coopération) Consultant en développement et impac',
       categorieParcours: 'Economie et Développement',
       debouche: 'Économiste/analyste (secteur public/international)',
     },
     {
       title: 'Gestion et commerces Internationaux',
       description:
-        'Responsable administratif ou marketing Directeur de PME ou chef de produit Analyste financier ou chargé d’affaires Chef de projet (commerce/export) Entrepreneur (services, innovation) Consultant en gestion ou finance',
+        'Responsable administratif ou marketing Directeur de PME ou chef de produit, Analyste financier ou chargé d’affaires, Chef de projet (commerce/export) Entrepreneur (services, innovation) Consultant en gestion ou finance',
       categorieParcours: 'Gestion et commerces Internationaux',
       debouche: 'Responsable administratif ou marketing Directeur',
     },
@@ -35,19 +33,14 @@ export const EcoPage = () => {
 
   const shortDescriptionList = [
     {
-      titleEvent: 'Hackathon 2023',
-      descriptionEvent: 'Victoire de nos étudiants.',
-      RandomImage: Image3,
-    },
-    {
-      titleEvent: 'Visite PAMF',
-      descriptionEvent: 'Renforcement de la collaboration.',
-      RandomImage: Image1,
-    },
-    {
-      titleEvent: 'Viavy Tech',
-      descriptionEvent: 'Girl tech hackathon',
+      titleEvent: 'Remise de certificat',
+      descriptionEvent: 'Remise de certificat pour la mention Économie : nos étudiants sont récompensés pour leur excellence académique et leur engagement dans leurs études.',
       RandomImage: Image2,
+    },
+    {
+      titleEvent: 'Voyage d étude',
+      descriptionEvent: 'Dans le cadre de l’amélioration continue des compétences de ses étudiants, le département d’économie a organisé un voyage d’étude enrichissant.',
+      RandomImage: Image1,
     },
   ];
 

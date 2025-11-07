@@ -16,12 +16,12 @@ export const LeaPage = () => {
   const shortDescriptionList = [
     {
       titleEvent: 'Bain Culinaire',
-      descriptionEvent: 'Bain Culinaire de la cuisine française.',
+      descriptionEvent: 'Exploration culinaire de la culture française',
       RandomImage: Image3,
     },
     {
       titleEvent: 'Theathre',
-      descriptionEvent: '',
+      descriptionEvent: 'Plongez au cœur de l’émotion et de la créativité : notre théâtre organisé offre une expérience unique où les talents se rencontrent et où chaque scène raconte une histoire captivante.',
       RandomImage: Image1,
     },
   ];
