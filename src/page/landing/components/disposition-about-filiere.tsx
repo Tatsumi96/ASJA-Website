@@ -62,7 +62,7 @@ export const DispositionAboutFiliere = ({
   const displayedDebouche = selectedParcours ? selectedParcours.debouche : null;
 
   return (
-    <div className="flex flex-col overflow-x-hidden dark:bg-zinc-900 bg-gray-50">
+    <div className="flex flex-col overflow-x-hidden dark:bg-zinc-900 bg-white">
       <Navbar />
 
       {descriptionParcours && (
@@ -92,7 +92,7 @@ export const DispositionAboutFiliere = ({
       <div
         className={`${mention.name === "LANGUES ÉTRANGÈRES APPLIQUÉES" ? "md:mt-50 mt-25" : "mt-10"} flex flex-col md:flex-row justify-center items-start gap-10 mt-12 px-6`}
       >
-        <div className="flex-1  mb-10 max-w-2xl bg-white dark:bg-zinc-800 rounded-2xl shadow-lg p-8 text-left transition-all duration-500">
+        <div className="flex-1  mb-10 max-w-2xl dark:bg-zinc-800 p-8 text-left transition-all duration-500">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-4 flex items-center gap-3">
             <BookOpen size={30} /> {displayedTitle}
           </h2>
