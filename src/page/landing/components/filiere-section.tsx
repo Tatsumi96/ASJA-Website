@@ -1,26 +1,26 @@
-import Image2 from "@/assets/AGROLOGO.png";
-import Dark from "@/assets/AGROLOGODARK.png";
-import Image3 from "@/assets/DROITLOGO.png";
-import Dark3 from "@/assets/DROITLOGODARK.png";
-import Image6 from "@/assets/ECOLOGO.png";
-import Dark6 from "@/assets/ECOLOGODARK.png";
-import Image from "@/assets/INFOLOGO.png";
-import Dark2 from "@/assets/INFOLOGODARK.png";
-import Dark5 from "@/assets/LCLOGODARK.png";
-import Image5 from "@/assets/LEALOGO.png";
-import Image4 from "@/assets/STLOGO.png";
-import Dark4 from "@/assets/STLOGODARK.png";
+import Image2 from '@/assets/AGROLOGO.png';
+import Dark from '@/assets/AGROLOGODARK.png';
+import Image3 from '@/assets/DROITLOGO.png';
+import Dark3 from '@/assets/DROITLOGODARK.png';
+import Image6 from '@/assets/ECOLOGO.png';
+import Dark6 from '@/assets/ECOLOGODARK.png';
+import Image from '@/assets/INFOLOGO.png';
+import Dark2 from '@/assets/INFOLOGODARK.png';
+import Dark5 from '@/assets/LCLOGODARK.png';
+import Image5 from '@/assets/LEALOGO.png';
+import Image4 from '@/assets/STLOGO.png';
+import Dark4 from '@/assets/STLOGODARK.png';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { useLangue } from "@/page/lang/useLang";
-import { useThemeContext } from "@/page/theme/useThemeContext";
-import { motion } from "framer-motion";
-import { useState } from "react";
+} from '@/components/ui/carousel';
+import { useLangue } from '@/page/lang/useLang';
+import { useThemeContext } from '@/page/theme/useThemeContext';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 interface ItemProps {
   mention: string;
@@ -48,11 +48,8 @@ export const FiliereSection = () => {
   const { isDark } = useThemeContext();
 
   return (
-    <>
-      <div
-        id="filiere"
-        className="hidden md:flex flex-col justify-center text-gray-800 items-center transition-all duration-500 w-full h-max dark:bg-zinc-800 bg-gray-200 pb-10 z-10"
-      >
+    <div id="filiere">
+      <div className="hidden md:flex flex-col justify-center text-gray-800 items-center transition-all duration-500 w-full h-max dark:bg-zinc-800 bg-gray-200 pb-10 z-10">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -77,17 +74,17 @@ export const FiliereSection = () => {
           <Item
             mention="SCIENCES AGRONOMIQUES"
             image={isDark ? Dark : Image2}
-            onClick={() => (window.location.href = "/mention/agronomie")}
+            onClick={() => (window.location.href = '/mention/agronomie')}
           />
           <Item
             mention="INFORMATIQUE"
             image={isDark ? Dark2 : Image}
-            onClick={() => (window.location.href = "/mention/informatique")}
+            onClick={() => (window.location.href = '/mention/informatique')}
           />
           <Item
             mention="DROIT"
             image={isDark ? Dark3 : Image3}
-            onClick={() => (window.location.href = "/mention/droit")}
+            onClick={() => (window.location.href = '/mention/droit')}
           />
         </motion.div>
         <motion.div
@@ -98,28 +95,28 @@ export const FiliereSection = () => {
           className="flex justify-center items-center w-9/10 md:p-3 md:gap-20 gap-5 flex-col lg:flex-row md:flex-col "
         >
           <Item
-            mention={translate("filiereSection.ST.name")}
+            mention={translate('filiereSection.ST.name')}
             image={isDark ? Dark4 : Image4}
             onClick={() =>
-              (window.location.href = "/mention/science-de-la-terre")
+              (window.location.href = '/mention/science-de-la-terre')
             }
           />
           <Item
             mention="LANGUES ETRANGERES APPLIQUEES"
             image={isDark ? Dark5 : Image5}
             onClick={() =>
-              (window.location.href = "/mention/langue-etrangere-applique")
+              (window.location.href = '/mention/langue-etrangere-applique')
             }
           />
           <Item
             mention="ECONOMIE ET COMMERCE"
             image={isDark ? Dark6 : Image6}
-            onClick={() => (window.location.href = "/mention/economie")}
+            onClick={() => (window.location.href = '/mention/economie')}
           />
         </motion.div>
       </div>
       <FiliereSectionCarousel />
-    </>
+    </div>
   );
 };
 
@@ -148,14 +145,14 @@ const FiliereSectionCarousel = () => {
       </motion.div>
       <Carousel
         opts={{
-          align: "start",
+          align: 'start',
           loop: true,
         }}
         setApi={(api) => {
           if (!api) return;
           setCount(api.scrollSnapList().length);
           setCurrent(api.selectedScrollSnap());
-          api.on("select", () => setCurrent(api.selectedScrollSnap()));
+          api.on('select', () => setCurrent(api.selectedScrollSnap()));
         }}
         className="w-full px-2 md:px-0 lg:max-w-2/3 md:max-w-2/3 flex md:hidden "
       >
@@ -164,29 +161,29 @@ const FiliereSectionCarousel = () => {
             <Item
               mention="SCIENCES AGRONOMIQUES"
               image={isDark ? Dark : Image2}
-              onClick={() => (window.location.href = "/mention/agronomie")}
+              onClick={() => (window.location.href = '/mention/agronomie')}
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
               mention="INFORMATIQUE"
               image={isDark ? Dark2 : Image}
-              onClick={() => (window.location.href = "/mention/informatique")}
+              onClick={() => (window.location.href = '/mention/informatique')}
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
               mention="DROIT"
               image={isDark ? Dark3 : Image3}
-              onClick={() => (window.location.href = "/mention/droit")}
+              onClick={() => (window.location.href = '/mention/droit')}
             />
           </CarouselItem>
           <CarouselItem className="md:basis-1/2 lg:basis-1/3">
             <Item
-              mention={translate("filiereSection.ST.name")}
+              mention={translate('filiereSection.ST.name')}
               image={isDark ? Dark4 : Image4}
               onClick={() =>
-                (window.location.href = "/mention/science-de-la-terre")
+                (window.location.href = '/mention/science-de-la-terre')
               }
             />
           </CarouselItem>
@@ -195,7 +192,7 @@ const FiliereSectionCarousel = () => {
               mention="LANGUES ETRANGERES APPLIQUEES"
               image={isDark ? Dark5 : Image5}
               onClick={() =>
-                (window.location.href = "/mention/langue-etrangere-applique")
+                (window.location.href = '/mention/langue-etrangere-applique')
               }
             />
           </CarouselItem>
@@ -203,7 +200,7 @@ const FiliereSectionCarousel = () => {
             <Item
               mention="ECONOMIE ET COMMERCE"
               image={isDark ? Dark6 : Image6}
-              onClick={() => (window.location.href = "/mention/economie")}
+              onClick={() => (window.location.href = '/mention/economie')}
             />
           </CarouselItem>
         </CarouselContent>
@@ -215,7 +212,7 @@ const FiliereSectionCarousel = () => {
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`size-3 rounded-full transition-colors ${index === current ? "bg-green-700 dark:bg-white" : "bg-zinc-400"}`}
+            className={`size-3 rounded-full transition-colors ${index === current ? 'bg-green-700 dark:bg-white' : 'bg-zinc-400'}`}
           ></button>
         ))}
       </div>

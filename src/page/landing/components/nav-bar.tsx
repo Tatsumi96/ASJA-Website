@@ -304,7 +304,7 @@ export const Navbar = () => {
                       key: 'sectionAccueilNavbar.description',
                     },
                     { to: 'mission', key: 'sectionAccueilNavbar.mission' },
-                    { to: 'filieres', key: 'sectionAccueilNavbar.filieres' },
+                    { to: 'filiere', key: 'sectionAccueilNavbar.filieres' },
                     { to: 'events', key: 'sectionAccueilNavbar.events' },
                     { to: 'systeme', key: 'sectionAccueilNavbar.systeme' },
                     {
