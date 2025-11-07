@@ -1,6 +1,6 @@
 import type { ChatDto } from '@/features/chat/chat.dto';
 import type { EventDto } from '@/features/strapi/event.dto';
-import { chatGemini, chatN8NRepository, strapiRepo } from '@/injection';
+import { chatGemini, strapiRepo } from '@/injection';
 import { useEffect, useRef, useState } from 'react';
 
 export const useLanding = () => {
@@ -38,29 +38,22 @@ export const useLanding = () => {
     if (!messageText) {
       setMessage('');
     }
-    const result = await chatN8NRepository.send(messageToSend);
+    const result = await chatGemini.send(messageToSend);
+
     if (result.status == 'success') {
       setMessagesList((prev) => [
         ...prev,
         { message: result.data.message, expediteur: 'Bot' },
       ]);
     }
-    if (result.status == 'failure') {
-      const result = await chatGemini.send(messageToSend);
-      if (result.status == 'success') {
-        setMessagesList((prev) => [
-          ...prev,
-          { message: result.data.message, expediteur: 'Bot' },
-        ]);
-      }
 
-      if (result.status == 'failure') {
-        setMessagesList((prev) => [
-          ...prev,
-          { message: 'Error occured on sending message', expediteur: 'Bot' },
-        ]);
-      }
+    if (result.status == 'failure') {
+      setMessagesList((prev) => [
+        ...prev,
+        { message: 'Error occured on sending message', expediteur: 'Bot' },
+      ]);
     }
+
     setLoading(false);
   };
 
