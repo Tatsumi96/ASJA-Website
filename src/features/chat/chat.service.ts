@@ -1,6 +1,4 @@
-import { ApiSource } from '@/core/constant';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import type { AxiosInstance } from 'axios';
 
 export abstract class ChatService {
   abstract send(message: string): Promise<string>;
@@ -47,16 +45,5 @@ Fournissez des réponses précises basées sur ASJA_DATA. Si vous ne connaissez 
     const response = result.response;
     const text = response.text();
     return text;
-  }
-}
-
-export class ChatN8NService implements ChatService {
-  constructor(private axios: AxiosInstance) {}
-
-  async send(message: string): Promise<string> {
-    const response = await this.axios.post(`${ApiSource.botUrl}`, { message });
-    console.log(response.data);
-    if (response.status != 200) throw new Error();
-    return response.data.output;
   }
 }
