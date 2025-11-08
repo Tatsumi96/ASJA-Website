@@ -29,21 +29,21 @@ export const TestimonySection = () => {
       name: "RAHARIJESY Safidy",
       status: "UI/UX Designer",
       description:
-        "Étudier à l’Université ASJA a été une expérience déterminante. J’y ai acquis les compétences et la confiance nécessaires pour réussir dans le monde de l’informatique.",
+        "Mon parcours, de la formation en informatique à la spécialisation en UI/UX Design, m'a doté de l'expertise technique et de la vision créative nécessaires pour aujourd'hui, en tant qu'entrepreneur, aider les marques à s'exprimer pleinement.",
       image: safidyImage,
     },
     {
       name: "RANDRIAMANAPAKA Manantena Toditsara Jencia",
-      status: "Développeuse Web",
+      status: "Etudiante en Droit",
       description:
-        "Grâce à la formation de qualité à ASJA, j'ai pu décrocher un poste de développeuse web dans une entreprise internationale. Les professeurs sont excellents et le programme est très complet.",
+        "Stages aux Ministères (Affaires Étrangères, Fonction Publique): l'ASJA a nourri mon expertise publique et mon leadership.",
       image: genciaImage,
     },
     {
       name: "Aina Arthur",
-      status: "Chef de projet IT",
+      status: "Sortant en droit",
       description:
-        "L'université ASJA m'a donné toutes les compétences nécessaires pour réussir dans le domaine de l'informatique. Je travaille maintenant comme chef de projet IT et je n'aurais pas pu y arriver sans cette formation.",
+        "L' ASJA m'a aidé à trouver mon parcours professionnel. Les cours de l'ASJA ont permis de me perfectionner et de me faire confiance.",
       image: ainaImage,
     },
     {
@@ -97,14 +97,14 @@ export const TestimonySection = () => {
                           alt={temoin.name}
                         />
                       </div>
-                      <div className="text-center">
+                      <div className="text-center mt-2">
                         <h3 className="text-lg font-semibold pb-2">
                           {temoin.name}
                         </h3>
                         <p className="text-sm text-gray-500 pb-2">
                           {temoin.status}
                         </p>
-                        <p className="px-2">{temoin.description}</p>
+                        <p className="px-2 lg:text-sm/relaxed pt-1/2">{temoin.description}</p>
                       </div>
                     </CardContent>
                   </Card>

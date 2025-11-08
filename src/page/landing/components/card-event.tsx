@@ -2,8 +2,8 @@ import type { EventDto } from '@/features/strapi/event.dto';
 import { motion } from 'framer-motion';
 import { useLandingContext } from '../bloc/useLandingContext';
 
-import annivImage from '@/assets/Image-evenement/Dehons_day/event-dehons_day .jpg';
-import dehonsImage from '@/assets/Image-evenement/Dehons_day/event-dehons_day2.jpg';
+import annivImage from '@/assets/Image-evenement/25ans.jpg';
+import dehonsImage from '@/assets/Image-evenement/Dehons_day/event-dehons_day.jpg';
 import gennrosso from '@/assets/Image-evenement/event-genrosso.jpg';
 
 export const CardEventSection = () => {
@@ -12,20 +12,20 @@ export const CardEventSection = () => {
   const eventDefault: EventDto[] = [
     {
       title: "Dehon's Day",
-      description: 'ajsdnaksjdnajksndjaksndkasndjakdsnask',
+      description: 'Le Dehon s Day est l\'un des événements phares de l\'ASJA. C\'est un moment fort de recueillement et de prière, mais aussi une occasion unique pour nos étudiants de démontrer la richesse de leurs talents à travers une grande diversité d animations et de prestations.',
       imageUrl: dehonsImage,
       altText: " Dehons'S Day",
     },
     {
       title: '25ème anniversaire',
-      description: '',
+      description: 'L\'ASJA célèbre fièrement ses 25 ans ! Née en 2000, notre institution est restée un pilier de l\'enseignement supérieur, évoluant sans cesse pour intégrer de nouvelles innovations. Cette longévité est le gage de notre fiabilité et la raison pour laquelle les étudiants continuent de nous accorder leur confiance.',
       imageUrl: annivImage,
       altText: '25ème anniversaire',
     },
 
     {
       title: 'Gennrosso',
-      description: '',
+      description: 'Le groupe italien Gen Rosso a livré un spectacle mémorable ! Une performance vibrante qui a transformé cet événement en un moment d\'énergie et de partage inoubliable.',
       imageUrl: gennrosso,
       altText: 'Gennrosso',
     },
@@ -55,7 +55,6 @@ export const CardEventSection = () => {
                 {item.title}
               </h3>
               <p className="text-lg">{item.description}</p>
-              <p className="mt-4 text-lg ">{item.description}</p>
             </div>
             <img
               className="rounded-lg w-full h-64 md:h-80 lg:h-96 object-cover"
