@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
-import Image from "@/assets/Image-evenement/event-diplome_master.jpg";
-import Image2 from "@/assets/Lieu_espace/Bibliotheque.jpg";
+import Image from "@/assets/Image-evenement/event-diplome_master-quality.jpg";
+import Image2 from "@/assets/Lieu_espace/Bibliotheque-quality.jpg";
 
 export const MissionSection = () => {
   return (
