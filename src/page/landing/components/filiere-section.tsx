@@ -57,7 +57,7 @@ export const FiliereSection = () => {
           viewport={{ amount: 0.2, once: true }}
           className="flex items-center justify-center pt-10 flex-col"
         >
-          <h1 className="flex text-center lg:text-start text-green-700 font-bold text-4xl">
+          <h1 className="flex text-center  text-green-700 font-bold text-4xl md:text-5xl">
             NOS MENTIONS
           </h1>
           <p className="flex lg:text-start text-lg transition-all duration-500 dark:text-white pt-5 ">
