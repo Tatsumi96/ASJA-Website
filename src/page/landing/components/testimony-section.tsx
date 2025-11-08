@@ -1,20 +1,22 @@
-import Image from '@/assets/Logo/asja-logo.png';
-import { Card, CardContent } from '@/components/ui/card';
+import Image from "@/assets/Logo/asja-logo.png";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@/components/ui/carousel';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
+} from "@/components/ui/carousel";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
-import ainaImage from '@/assets/Aina-Arthur-quality.jpg';
-import genciaImage from '@/assets/RANDRIAMANAPAKA-Manantena-Jencia.jpg';
+import ainaImage from "@/assets/Aina-Arthur-quality.jpg";
+import genciaImage from "@/assets/RANDRIAMANAPAKA-Manantena-Jencia.jpg";
+import safidyImage from "@/assets/Safidy-pic.jpg";
 
 type Temoin = {
   name: string;
+  status?: string;
   description: string;
   image?: string;
 };
@@ -24,31 +26,35 @@ export const TestimonySection = () => {
   const [count, setCount] = useState<number>(0);
   const temoin: Temoin[] = [
     {
-      name: 'RANDRIAMANAPAKA Manantena Toditsara Jencia',
+      name: "RAHARIJESY Safidy",
+      status: "UI/UX Designer",
+      description:
+        "Étudier à l’Université ASJA a été une expérience déterminante. J’y ai acquis les compétences et la confiance nécessaires pour réussir dans le monde de l’informatique.",
+      image: safidyImage,
+    },
+    {
+      name: "RANDRIAMANAPAKA Manantena Toditsara Jencia",
+      status: "Développeuse Web",
       description:
         "Grâce à la formation de qualité à ASJA, j'ai pu décrocher un poste de développeuse web dans une entreprise internationale. Les professeurs sont excellents et le programme est très complet.",
       image: genciaImage,
     },
     {
-      name: 'Aina Arthur',
+      name: "Aina Arthur",
+      status: "Chef de projet IT",
       description:
         "L'université ASJA m'a donné toutes les compétences nécessaires pour réussir dans le domaine de l'informatique. Je travaille maintenant comme chef de projet IT et je n'aurais pas pu y arriver sans cette formation.",
       image: ainaImage,
     },
     {
-      name: 'Paul Rakotondrabe',
+      name: "Paul Rakotondrabe",
       description:
-        'Formation excellente qui m’a permis de lancer ma propre startup tech. Les compétences acquises à ASJA sont directement applicables dans le monde professionnel.',
+        "Formation excellente qui m’a permis de lancer ma propre startup tech. Les compétences acquises à ASJA sont directement applicables dans le monde professionnel.",
     },
     {
-      name: 'Sarah Randrianarisoa',
+      name: "Sarah Randrianarisoa",
       description:
-        'La formation à ASJA m’a permis de découvrir ma passion pour la cybersécurité. Aujourd’hui, je travaille comme analyste sécurité dans une entreprise locale. Les cours pratiques m’ont énormément aidée à progresser rapidement.',
-    },
-    {
-      name: 'Jean Michel Ravelomanana',
-      description:
-        'Grâce à l’accompagnement des enseignants d’ASJA, j’ai pu créer ma première application mobile dès la deuxième année. L’université m’a donné confiance et les bases solides pour me lancer dans le développement.',
+        "La formation à ASJA m’a permis de découvrir ma passion pour la cybersécurité. Aujourd’hui, je travaille comme analyste sécurité dans une entreprise locale. Les cours pratiques m’ont énormément aidée à progresser rapidement.",
     },
   ];
   return (
@@ -68,13 +74,13 @@ export const TestimonySection = () => {
         </h1>
         <Carousel
           opts={{
-            align: 'start',
+            align: "start",
           }}
           setApi={(api) => {
             if (!api) return;
             setCount(api.scrollSnapList().length);
             setCurrent(api.selectedScrollSnap());
-            api.on('select', () => setCurrent(api.selectedScrollSnap()));
+            api.on("select", () => setCurrent(api.selectedScrollSnap()));
           }}
           className="w-full px-2 md:px-0 lg:max-w-2/3 md:max-w-2/3 "
         >
@@ -92,9 +98,12 @@ export const TestimonySection = () => {
                         />
                       </div>
                       <div className="text-center">
-                        <h3 className="text-lg font-semibold p-5">
+                        <h3 className="text-lg font-semibold pb-2">
                           {temoin.name}
                         </h3>
+                        <p className="text-sm text-gray-500 pb-2">
+                          {temoin.status}
+                        </p>
                         <p className="px-2">{temoin.description}</p>
                       </div>
                     </CardContent>
@@ -111,7 +120,7 @@ export const TestimonySection = () => {
             <button
               key={index}
               onClick={() => setCurrent(index)}
-              className={`size-3 rounded-full transition-colors ${index === current ? 'bg-green-700 dark:bg-white' : 'bg-zinc-400'}`}
+              className={`size-3 rounded-full transition-colors ${index === current ? "bg-green-700 dark:bg-white" : "bg-zinc-400"}`}
             ></button>
           ))}
         </div>
