@@ -47,7 +47,7 @@ const frequentlyAskedQuestions: FaqItem[] = [
   {
     question: "Comment s’inscrire à l’ASJA?",
     answer:
-      "Vous pouvez vous inscrire en allant au bureau du service de scolarité à l’ASJA ou remplir le formulaire d’inscription en ligne.",
+      "Vous pouvez vous inscrire en allant au bureau du service de scolarité à l’ASJA.",
     categoriesQuestion: "Inscription",
   },
   {
@@ -67,6 +67,12 @@ const frequentlyAskedQuestions: FaqItem[] = [
     question: "Y a-t-il des activités sportives ?",
     answer:
       "Oui, l’ASJA comprend divers clubs de sport (volleyball, football et basketball), organise chaque année un tournoi inter-filières et participe également aux tournois interuniversitaires.",
+    categoriesQuestion: "Autres",
+  },
+    {
+    question: "Il y a t il une logement ?",
+    answer:
+      "Oui, l’ASJA dispose de logements pour les étudiants, offrant un cadre de vie propice à l'étude et à l'épanouissement personnel.",
     categoriesQuestion: "Autres",
   },
 ];
