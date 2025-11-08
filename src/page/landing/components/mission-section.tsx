@@ -29,7 +29,11 @@ export const MissionSection = () => {
               créativité.
             </p>
           </div>
-          <img src={Image} className="rounded-lg lg:w-150 lg:h-100" />
+          <img
+            src={Image}
+            alt="Étudiants diplômés de master de l'ASJA en toge"
+            className="rounded-lg lg:w-150 lg:h-100"
+          />
           <div className=" hidden lg:flex lg:flex-col">
             <h1 className="flex text-4xl font-bold text-green-700 dark:text-amber-100 py-5">
               Notre Mission
@@ -65,7 +69,11 @@ export const MissionSection = () => {
           </p>
         </div>
 
-        <img src={Image2} alt="" className="rounded-lg lg:w-150 lg:h-100" />
+        <img
+          src={Image2}
+          alt="Bibliothèque de l'université ASJA avec des étudiants"
+          className="rounded-lg lg:w-150 lg:h-100"
+        />
       </motion.div>
     </div>
   );

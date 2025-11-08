@@ -52,7 +52,7 @@ export const Navbar = () => {
             className="flex items-center gap-2 cursor-pointer"
             onClick={handleLogoClick}
           >
-            <img className="w-10 h-10" src={Logo} alt="Logo" />
+            <img className="w-10 h-10" src={Logo} alt="Logo de l'université ASJA" />
             <h1 className="flex items-center justify-center transition-all duration-500 text-md text-gray-900 dark:text-white font-bold">
               {translate('universite')}
             </h1>
@@ -266,7 +266,7 @@ export const Navbar = () => {
               className="flex items-center gap-3"
               onClick={handleLogoClick}
             >
-              <img className="w-10 h-10" src={Logo} alt="Logo" />
+              <img className="w-10 h-10" src={Logo} alt="Logo de l'université ASJA" />
               <h1 className="text-lg font-bold text-gray-900 dark:text-white">
                 {translate('universite')}
               </h1>
