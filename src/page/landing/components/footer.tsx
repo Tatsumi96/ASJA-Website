@@ -11,7 +11,7 @@ export const Footer = () => {
       className="flex lg:h-130 flex-col lg:flex-row justify-center md:gap-30 items-center w-full text-gray-800 gap-10 shadow-2xl transition-all duration-500 bg-white dark:bg-zinc-900 dark:text-white py-10 border-t-2 "
     >
       <div className="flex flex-col justify-center items-center gap-5">
-        <img className="h-30 w-30 mx-50" src={Logo} />
+        <img className="h-30 w-30 mx-50" src={Logo} alt="Logo de l'université ASJA" />
         <h1 className=" flex text-center items-center justify-center text-xl text-gray-900 transition-all duration-500 dark:text-white font-bold">
           Université ASJA
         </h1>

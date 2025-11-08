@@ -11,7 +11,7 @@ export const Description = () => {
         <img
           className="h-100 md:h-full w-max object-cover "
           src={backgroundImage}
-          alt=""
+          alt="Façade de l'entrée principale de l'université ASJA"
         />
       </div>
       <div className=" hidden lg:flex flex-col justify-center py-10 px-5 lg:w-1/2   relative top-80 lg:top-0">
@@ -44,7 +44,7 @@ export const Description = () => {
           <img
             className="h-full w-max rounded-l-full object-cover "
             src={backgroundImage}
-            alt=""
+            alt="Façade de l'entrée principale de l'université ASJA"
           />
         </div>
       </motion.div>

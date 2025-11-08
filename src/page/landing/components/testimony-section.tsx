@@ -88,7 +88,7 @@ export const TestimonySection = () => {
                         <img
                           className="rounded-[50%] w-full h-full border-2 object-cover"
                           src={temoin.image ? temoin.image : Image}
-                          alt=""
+                          alt={temoin.name}
                         />
                       </div>
                       <div className="text-center">
