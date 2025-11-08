@@ -44,12 +44,12 @@ const descriptionParcours = [
 const shortDescriptionList = [
   {
     titleEvent: 'Visite sur Terrain',
-    descriptionEvent: '',
+    descriptionEvent: 'Des étudiants participent à une visite sur terrain au cœur des rizières, dans un cadre verdoyant et paisible. L’activité favorise l’observation directe du milieu naturel et renforce l’apprentissage pratique sur le terrain, tout en offrant un moment de cohésion et de découverte.',
     RandomImage: agroEvent1,
   },
   {
     titleEvent: 'Experience en laboratoire',
-    descriptionEvent: '',
+    descriptionEvent: 'Cette activité pratique leur permet d’appliquer les notions théoriques acquises en cours et de développer leurs compétences expérimentales dans une ambiance collaborative et dynamique.',
     RandomImage: agroEvent2,
   },
 ];
