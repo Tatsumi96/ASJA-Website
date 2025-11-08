@@ -1,5 +1,5 @@
-import Image1 from '@/assets/Mentions/LEA/Theatre_1.jpg';
-import Image3 from '@/assets/Mentions/LEA/Visite_Culinaire_française.jpg';
+import Image1 from '@/assets/Mentions/LEA/Theatre_1-quality.jpg';
+import Image3 from '@/assets/Mentions/LEA/Visite_Culinaire_française-quality.jpg';
 import { DispositionAboutFiliere } from '../landing/components/disposition-about-filiere';
 export const LeaPage = () => {
   const mention = {

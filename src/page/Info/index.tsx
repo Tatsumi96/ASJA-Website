@@ -1,5 +1,5 @@
-import Image2 from '@/assets/Mentions/InformatiqueImage/Victoir_Hackathon2025.jpg';
-import Image3 from '@/assets/Mentions/InformatiqueImage/hackathon.jpg';
+import Image2 from '@/assets/Mentions/InformatiqueImage/Victoir_Hackathon2025-quality.jpg';
+import Image3 from '@/assets/Mentions/InformatiqueImage/hackathon-quality.jpg';
 import { DispositionAboutFiliere } from '@/page/landing/components/disposition-about-filiere';
 
 export const InfoPage = () => {

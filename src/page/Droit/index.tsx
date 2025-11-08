@@ -1,13 +1,12 @@
-import Droit from '@/assets/Mentions/Droit/Droit.jpeg';
-import Image1 from '@/assets/droitEvent1.jpeg';
-import Image2 from '@/assets/droitEvent2.jpeg';
-import Image3 from '@/assets/droitEvent3.jpeg';
+import Image1 from '@/assets/droitEvent1-quality.jpeg';
+import Image2 from '@/assets/droitEvent2-quality.jpeg';
+import Image3 from '@/assets/droitEvent3-quality.jpeg';
 
 import { DispositionAboutFiliere } from '@/page/landing/components/disposition-about-filiere';
 export const DroitPage = () => {
   const mention = {
     name: 'DROIT',
-    ImageMention: Droit,
+    ImageMention: '',
   };
 
   const descriptionMention = {

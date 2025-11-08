@@ -1,4 +1,4 @@
-import Image2 from '@/assets/Mentions/Economie/ECO-events-5.jpg';
+import Image2 from '@/assets/Mentions/Economie/Eco-event-quality-5.jpg';
 import Image1 from '@/assets/Mentions/Economie/ECO-events-9.jpg';
 import { DispositionAboutFiliere } from '@/page/landing/components/disposition-about-filiere';
 

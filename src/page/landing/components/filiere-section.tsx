@@ -1,15 +1,15 @@
-import Image2 from '@/assets/AGROLOGO.png';
-import Dark from '@/assets/AGROLOGODARK.png';
-import Image3 from '@/assets/DROITLOGO.png';
+import Image2 from '@/assets/AGROLOGO-quality.png';
+import Dark from '@/assets/AGROLOGODARK-quality.png';
+import Image3 from '@/assets/DROITLOGO-quality.png';
 import Dark3 from '@/assets/DROITLOGODARK.png';
-import Image6 from '@/assets/ECOLOGO.png';
-import Dark6 from '@/assets/ECOLOGODARK.png';
-import Image from '@/assets/INFOLOGO.png';
+import Image6 from '@/assets/ECOLOGO-quality.png';
+import Dark6 from '@/assets/ECOLOGODARK-quality.png';
+import Image from '@/assets/INFOLOGO-quality.png';
 import Dark2 from '@/assets/INFOLOGODARK.png';
-import Dark5 from '@/assets/LCLOGODARK.png';
+import Dark5 from '@/assets/LCLOGODARK-quality.png';
 import Image5 from '@/assets/LEALOGO.png';
-import Image4 from '@/assets/STLOGO.png';
-import Dark4 from '@/assets/STLOGODARK.png';
+import Image4 from '@/assets/STLOGO-quality.png';
+import Dark4 from '@/assets/STLOGODARK-quality.png';
 import {
   Carousel,
   CarouselContent,

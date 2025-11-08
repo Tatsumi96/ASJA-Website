@@ -1,12 +1,11 @@
-import Agro from '@/assets/Mentions/AgronomieImage/Agro.jpg';
-import agroEvent1 from '@/assets/agroEvent1.jpeg';
-import agroEvent2 from '@/assets/agroEvent2.jpg';
+import agroEvent1 from '@/assets/agroEvent1-quality.jpeg';
+import agroEvent2 from '@/assets/agroEvent2-quality.jpg';
 
 import { DispositionAboutFiliere } from '../landing/components/disposition-about-filiere';
 
 const mention = {
   name: 'SCIENCES AGRONOMIQUES',
-  ImageMention: Agro,
+  ImageMention: '',
 };
 
 const descriptionMention = {

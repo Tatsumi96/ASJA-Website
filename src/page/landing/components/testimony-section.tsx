@@ -10,8 +10,8 @@ import {
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-import ainaImage from '@/assets/Aina-Arthur.jpg';
-import genciaImage from '@/assets/RANDRIAMANAPAKA-Manantena-Toditsara-Jencia.jpg';
+import ainaImage from '@/assets/Aina-Arthur-quality.jpg';
+import genciaImage from '@/assets/RANDRIAMANAPAKA-Manantena-Jencia.jpg';
 
 type Temoin = {
   name: string;
@@ -54,7 +54,7 @@ export const TestimonySection = () => {
   return (
     <section
       id="temoignages"
-      className="bg-zinc-100 dark:bg-zinc-900 h-full transition-all duration-500"
+      className="bg-zinc-100 dark:bg-zinc-900 h-full transition-all duration-500 py-5 "
     >
       <motion.div
         initial={{ x: -100, opacity: 0 }}

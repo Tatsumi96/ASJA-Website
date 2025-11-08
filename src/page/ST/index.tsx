@@ -1,11 +1,11 @@
-import ST from '@/assets/Mentions/SienceDeLaTerre/St.jpg';
-import Image2 from '@/assets/Mentions/SienceDeLaTerre/ST-VisiteSurTerain.jpg';
-import Image1 from '@/assets/Mentions/SienceDeLaTerre/ST-Event.jpg';
+
+import Image2 from '@/assets/Mentions/SienceDeLaTerre/ST-event-1-quality.jpg';
+import Image1 from '@/assets/Mentions/SienceDeLaTerre/ST-event-2-quality.jpg';
 import { DispositionAboutFiliere } from '../../page/landing/components/disposition-about-filiere';
 
 const mention = {
   name: 'SCIENCES DE LA TERRE',
-  ImageMention: ST,
+  ImageMention: '',
 };
 
 const descriptionMention = {
