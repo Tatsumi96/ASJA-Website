@@ -1,5 +1,5 @@
 import agroEvent1 from '@/assets/agroEvent1-quality.jpeg';
-import agroEvent2 from '@/assets/agroEvent2-quality.jpg';
+import agroEvent2 from '@/assets/Labo.jpg';
 
 import { DispositionAboutFiliere } from '../landing/components/disposition-about-filiere';
 
