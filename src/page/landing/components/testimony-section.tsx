@@ -54,7 +54,7 @@ export const TestimonySection = () => {
   return (
     <section
       id="temoignages"
-      className="bg-zinc-100 dark:bg-zinc-900 h-full transition-all duration-500 p-0 lg:p-10 md:p-5 py-5"
+      className="bg-zinc-100 dark:bg-zinc-900 h-full transition-all duration-500"
     >
       <motion.div
         initial={{ x: -100, opacity: 0 }}
@@ -63,7 +63,7 @@ export const TestimonySection = () => {
         viewport={{ amount: 0.2, once: true }}
         className="flex flex-col items-center justify-center"
       >
-        <h1 className="md:text-6xl text-4xl font-bold text-green-700 p-10">
+        <h1 className="md:text-5xl text-4xl font-bold text-green-700 md:py-10 py-6">
           Témoignage
         </h1>
         <Carousel

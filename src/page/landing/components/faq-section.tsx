@@ -98,7 +98,7 @@ export const FaqSection = () => {
         viewport={{ amount: 0.2, once: true }}
         className="flex flex-col w-screen px-5 md:px-20 py-20 text-gray-800 dark:text-gray-200"
       >
-        <h1 className="md:text-5xl text-4xl text-green-700 font-extrabold text-center mb-16">
+        <h1 className="md:text-5xl text-4xl text-green-700 font-bold text-center mb-16">
           Foire Aux Questions
         </h1>
         <div className="flex flex-col md:flex-row items-start justify-center md:gap-16 gap-5 lg:gap-30 max-w-6xl mx-auto">
