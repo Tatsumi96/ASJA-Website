@@ -1,34 +1,23 @@
-# --- STAGE 1 : BUILD ---
-FROM node:18-bullseye AS builder
+# Utilise une version compatible avec Strapi v5
+FROM node:18-bullseye
+
+# Crée le dossier de l'app
 WORKDIR /srv/app
+
+# Copie les fichiers de ton app
 COPY ./app/package*.json ./
-RUN npm install
+
+# Installe les dépendances
+RUN npm install --force --include=optional
+
+# Copie le reste du code Strapi
 COPY ./app .
-RUN npm run build
-RUN npm prune --production
 
-# --- STAGE 2 : PRODUCTION ---
-FROM node:18-alpine
-WORKDIR /srv/app
+# Reconstruit sharp pour le système Docker
+RUN npm rebuild sharp --force
 
-# Copie les dépendances, package.json, config, et public
-COPY --from=builder /srv/app/node_modules ./node_modules
-COPY --from=builder /srv/app/package.json ./package.json
-COPY --from=builder /srv/app/config ./config
-COPY --from=builder /srv/app/public ./public
-COPY --from=builder /srv/app/dist ./dist
-
-# >>> CORRECTION ICI : Inclus les fichiers cachés de Strapi si nécessaire
-# (Contient la configuration et parfois les assets admin construits)
-COPY --from=builder /srv/app/.strapi ./.strapi
-
-# Ancien COPY qui a échoué (gardé en commentaire si vous voulez tester)
-# # COPY --from=builder /srv/app/build ./build
-
-# SECURITY
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-RUN chown -R appuser:appgroup /srv/app
-USER appuser
-
+# Expose le port Strapi
 EXPOSE 1337
-CMD ["npm", "run", "start"]
+
+# Démarre Strapi
+CMD ["npm", "run", "develop"]

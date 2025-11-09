@@ -1,2 +1,6 @@
 app/.tmp/
 app/.strapi-updater.json
+app/node_modules
+app/build
+app/dist
+app/.env
