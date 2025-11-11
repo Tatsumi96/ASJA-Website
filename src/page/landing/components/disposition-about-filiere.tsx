@@ -1,7 +1,8 @@
-import { BookOpen, Briefcase, GraduationCap } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Footer } from "./footer";
-import { Navbar } from "./nav-bar-filiere";
+import { BookOpen, Briefcase, GraduationCap } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Footer } from './footer';
+import { MentionDiapo, type MentionDiapoProps } from './mention-image-diapo';
+import { Navbar } from './nav-bar-filiere';
 const TIME = 5000;
 interface DescriptionParcours {
   title: string;
@@ -31,6 +32,7 @@ interface DispositionAboutFiliereProps {
   descriptionMention: DescriptionMention;
   descriptionParcours?: DescriptionParcours[];
   shortDescriptionList: ShortDescription[];
+  mentionDiapoProps?: MentionDiapoProps[];
 }
 
 export const DispositionAboutFiliere = ({
@@ -38,6 +40,7 @@ export const DispositionAboutFiliere = ({
   descriptionMention,
   descriptionParcours,
   shortDescriptionList,
+  mentionDiapoProps,
 }: DispositionAboutFiliereProps) => {
   const [selectedParcours, setSelectedParcours] =
     useState<DescriptionParcours | null>(null);
@@ -76,8 +79,8 @@ export const DispositionAboutFiliere = ({
                   className={`px-6 py-3 rounded-full text-white cursor-pointer font-semibold transition-transform duration-200 hover:scale-105 flex items-center gap-2 ${
                     selectedParcours?.categorieParcours ===
                     parcours.categorieParcours
-                      ? "bg-green-800"
-                      : "bg-green-700 hover:bg-green-800"
+                      ? 'bg-green-800'
+                      : 'bg-green-700 hover:bg-green-800'
                   }`}
                 >
                   <GraduationCap size={20} />
@@ -90,7 +93,7 @@ export const DispositionAboutFiliere = ({
       )}
 
       <div
-        className={`${mention.name === "LANGUES ÉTRANGÈRES APPLIQUÉES" ? "md:mt-50 mt-25" : "mt-10"} flex flex-col md:flex-row justify-center items-start gap-10 mt-12 px-6`}
+        className={`${mention.name === 'LANGUES ÉTRANGÈRES APPLIQUÉES' ? 'md:mt-50 mt-25' : 'mt-10'} flex flex-col md:flex-row justify-center items-start gap-10 mt-12 px-6`}
       >
         <div className="flex-1 max-w-2xl md:p-8 text-left transition-all duration-500">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-4 flex items-center gap-3">
@@ -111,7 +114,7 @@ export const DispositionAboutFiliere = ({
           )}
         </div>
 
-        <div className="flex-1 max-w-md md:p-6 text-left relative overflow-hidden transition-all duration-700 mb-10">
+        <div className="flex-1 max-w-md text-left relative overflow-hidden transition-all duration-700 mb-10">
           <img
             key={currentEvent.RandomImage}
             src={currentEvent.RandomImage}
@@ -127,6 +130,7 @@ export const DispositionAboutFiliere = ({
           </p>
         </div>
       </div>
+      {mentionDiapoProps && <MentionDiapo props={mentionDiapoProps} />}
 
       <Footer />
     </div>
