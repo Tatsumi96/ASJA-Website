@@ -104,7 +104,7 @@ export const DispositionAboutFiliere = ({
           </p>
           {displayedDebouche && (
             <>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mt-5 flex items-center gap-3">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 my-5 flex items-center gap-3">
                 <Briefcase size={30} /> Debouche professionel
               </h2>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-xl">
