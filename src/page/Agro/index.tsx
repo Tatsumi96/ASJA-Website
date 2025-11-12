@@ -16,28 +16,28 @@ const descriptionMention = {
 
 const descriptionParcours = [
   {
-    title: 'PRODUCTION ANIMALE',
+    title: 'PRODUCTION ET SANTE ANIMALE',
     description:
       'Production animale & Production et Santé Animale (PA & PSA) Compétences acquises à la fin de votre formation chez nous : Techniques d’élevage, Rationnement et nutrition animale, Bien-être animal, Diagnostic et prévention des maladies',
-    categorieParcours: 'PRODUCTION ANIMALE',
+    categorieParcours: 'PRODUCTION ET SANTE ANIMALE',
     debouche:
       'Débouchés professionnels : Technicien Ingénieur en élevage Responsable d’unité de production animale, Conseiller en alimentation et reproduction animale, Gestionnaire de ferme zootechnique, Chef de projet de développement local, Consultants Cadres et Techiciens au sein du Ministère de l’Agriculture et de l’Elevage ',
   },
   {
-    title: 'PRODUCTION VEGETALE',
+    title: 'DEVELOPMENT AGRICOLE ET RURALE',
     description:
       'Production végétale & Développement Agricole et Rural (PV & DAR). Compétences acquises à la fin de votre formation chez nous : Conduites des cultures (vivrière, maraichère, …) Gestion de l’irrigation et du sol, Amélioration des rendements agricoles, Animation des communautés rurales Gestion des projets de développement',
     debouche:
       'Conseiller en cultures végétales, Responsable d’exploitation agricole, Animateur ou Agent de développement rural, Chargé de programme agricole, Agent de vulgarisation agricole, Conseiller en organisation paysanne, Chef de projet de développement local, Consultants Cadres et Techniciens au sein du Ministère de l’Agriculture et de l’Elevage, des ONG et des sociétés',
-    categorieParcours: 'PRODUCTION VEGETALE',
+    categorieParcours: 'DEVELOPMENT AGRICOLE ET RURALE',
   },
   {
-    title: 'AGROALIMENTAIRE',
+    title: 'TRANSFORMATION ET CONTROLE QUALITE DES PRODUIT ALIMENTAIRE',
     description:
       'Compétences acquises à la fin de votre formation chez nous : Transformation des matières premières (artisanales et industrielles) Recherche et Développement Gestion de la chaîne de production Normes d’hygiène et sécurité alimentaire Contrôle qualité des denrées alimentaires Analyses physico-chimiques et microbiologiques Traçabilité et évaluation sensorielle Nutrition',
     debouche:
       'Techniciens/Ingénieur agroalimentaire, Responsable de production, Chargé de développement de produits, Technicien Ingénieur en contrôle qualité, Analyste en laboratoire alimentaire, Responsable assurance qualité, Consultant Cadres et Techniciens au sein du Ministère de l’Industrialisation et du Commerce, des ONG, des sociétés et des bureaux d’études',
-    categorieParcours: 'AGROALIMENTAIRE',
+    categorieParcours: 'TRANSFORMATION ET CONTROLE QUALITE DES PRODUIT ALIMENTAIRE',
   },
 ];
 
