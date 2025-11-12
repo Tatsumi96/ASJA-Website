@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Footer } from './footer';
 import { MentionDiapo, type MentionDiapoProps } from './mention-image-diapo';
 import { Navbar } from './nav-bar-filiere';
+
 const TIME = 5000;
 interface DescriptionParcours {
   title: string;
