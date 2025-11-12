@@ -13,7 +13,11 @@ import { useState } from "react";
 import ainaImage from "@/assets/Aina-Arthur-quality.jpg";
 import genciaImage from "@/assets/RANDRIAMANAPAKA-Manantena-Jencia.jpg";
 import safidyImage from "@/assets/Safidy-pic.jpg";
-
+import Michou from "@/assets/Bouchet_Michou_Diana.jpeg"
+import Miarotiana from "@/assets/Mandimbiharison_Miarotiana.jpeg"
+import Sitraka from "@/assets/Sitraka.jpg"
+import Falihery from "@/assets/Falihery.jpg"
+import Raoul from "@/assets/DADARE-Raoul.jpg"
 type Temoin = {
   name: string;
   status?: string;
@@ -26,18 +30,46 @@ export const TestimonySection = () => {
   const [count, setCount] = useState<number>(0);
   const temoin: Temoin[] = [
     {
-      name: "RAHARIJESY Safidy",
+      name: "Raharijesy Safidy",
       status: "UI/UX Designer",
       description:
         "Mon parcours, de la formation en informatique à la spécialisation en UI/UX Design, m'a doté de l'expertise technique et de la vision créative nécessaires pour aujourd'hui, en tant qu'entrepreneur, aider les marques à s'exprimer pleinement.",
       image: safidyImage,
     },
     {
-      name: "RANDRIAMANAPAKA Manantena Toditsara Jencia",
+      name: "Randiambolasoa Andriatsilavo Falihery",
+      status: "Genie Industrielle",
+      description:
+        "La formation à ASJA m’a permis de découvrir ma passion pour la cybersécurité. Aujourd’hui, je travaille comme analyste sécurité dans une entreprise locale. Les cours pratiques m’ont énormément aidée à progresser rapidement.",
+       image: Falihery,
+    },
+    {
+      name: "Randriamanapaka Manantena Toditsara Jencia",
       status: "Etudiante en Droit",
       description:
         "Stages aux Ministères (Affaires Étrangères, Fonction Publique): l'ASJA a nourri mon expertise publique et mon leadership.",
       image: genciaImage,
+    },
+      {
+      name: "Bouchet Michou Diana",
+       status: "UI/UX Designer",
+      description:
+        "La formation à ASJA m’a permis de découvrir ma passion pour la cybersécurité. Aujourd’hui, je travaille comme analyste sécurité dans une entreprise locale. Les cours pratiques m’ont énormément aidée à progresser rapidement.",
+       image: Michou,
+    },
+      {
+      name: "Dadare Raoul",
+       status: "UI/UX Designer",
+      description:
+        "Formation excellente qui m’a permis de lancer ma propre startup tech. Les compétences acquises à ASJA sont directement applicables dans le monde professionnel.",
+         image: Raoul,
+    },
+    {
+      name: "Razanato Nambinintsoa Sitraka",
+       status: "UI/UX Designer",
+      description:
+        "Mes étude à l'ASJA ont confirmé que l'Agronomie ne ce limite pas jsute à cultiver, élever ou juste transformer mais que l'agronomie par bien au delà comme le commerce, la gestion, le marketing, la qualité et l'environnement",
+       image: Sitraka,
     },
     {
       name: "Aina Arthur",
@@ -47,14 +79,11 @@ export const TestimonySection = () => {
       image: ainaImage,
     },
     {
-      name: "Paul Rakotondrabe",
+      name: "Mandimbiharison Miarotiana",
+       status: "UI/UX Designer",
       description:
         "Formation excellente qui m’a permis de lancer ma propre startup tech. Les compétences acquises à ASJA sont directement applicables dans le monde professionnel.",
-    },
-    {
-      name: "Sarah Randrianarisoa",
-      description:
-        "La formation à ASJA m’a permis de découvrir ma passion pour la cybersécurité. Aujourd’hui, je travaille comme analyste sécurité dans une entreprise locale. Les cours pratiques m’ont énormément aidée à progresser rapidement.",
+         image: Miarotiana,
     },
   ];
   return (
