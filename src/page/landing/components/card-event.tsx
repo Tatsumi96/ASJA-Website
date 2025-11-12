@@ -12,7 +12,7 @@ export const CardEventSection = () => {
   const eventDefault: EventDto[] = [
     {
       title: "Dehon's Day",
-      description: 'Le Dehon s Day est l\'un des événements phares de l\'ASJA. C\'est un moment fort de recueillement et de prière, mais aussi une occasion unique pour nos étudiants de démontrer la richesse de leurs talents à travers une grande diversité d animations et de prestations.',
+      description: "Le Dehon's Day est l\'un des événements phares de l\'ASJA. C\'est un moment fort de recueillement et de prière, mais aussi une occasion unique pour nos étudiants de démontrer la richesse de leurs talents à travers une grande diversité d animations et de prestations.",
       imageUrl: dehonsImage,
       altText: " Dehons'S Day",
     },
@@ -24,10 +24,10 @@ export const CardEventSection = () => {
     },
 
     {
-      title: 'Gennrosso',
-      description: 'Le groupe italien Gen Rosso a livré un spectacle mémorable ! Une performance vibrante qui a transformé cet événement en un moment d\'énergie et de partage inoubliable.',
+      title: 'Département Suisse',
+      description: "Le groupe italien Gen Rosso a livré un spectacle mémorable ! Une performance vibrante qui a transformé cet événement en un moment d\'énergie et de partage inoubliable.",
       imageUrl: gennrosso,
-      altText: 'Gennrosso',
+      altText: 'Département suisse',
     },
   ];
 

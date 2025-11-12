@@ -15,13 +15,13 @@ export const SystemePedagogiqueSection = () => {
 
   const pedag: Pedag[] = [
     {
-      pourcentage: 40,
+      pourcentage: 45,
       title: 'Cours théoriques',
       description:
         'Acquisition des bases scientifiques et conceptuelles solide de chaque filière.',
     },
     {
-      pourcentage: 25,
+      pourcentage: 10,
       title: 'Travaux pratiques et laboratoires',
       description: 'Mise en application concrète des notions vues en cours.',
     },
@@ -38,7 +38,7 @@ export const SystemePedagogiqueSection = () => {
         'Devoirs, présentations, mini-projets et contrôles réguliers.',
     },
     {
-      pourcentage: 5,
+      pourcentage: 15,
       title: 'Ouverture et recherche',
       description:
         'Activités de recherche, innovations, conférences, et collaborations externes.',
