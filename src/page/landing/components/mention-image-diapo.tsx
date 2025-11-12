@@ -19,7 +19,6 @@ export const MentionDiapo = ({ props }: { props: MentionDiapoProps[] }) => {
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
 
-  // Défilement automatique avec inversion de direction
   useEffect(() => {
     if (!api || props.length <= 1 || isPaused) return;
 
@@ -28,7 +27,6 @@ export const MentionDiapo = ({ props }: { props: MentionDiapoProps[] }) => {
 
       if (direction === 'forward') {
         if (currentIndex === props.length - 1) {
-          // Arrivé à la fin, on inverse la direction
           setDirection('backward');
           api.scrollTo(props.length - 2);
         } else {
@@ -36,7 +34,6 @@ export const MentionDiapo = ({ props }: { props: MentionDiapoProps[] }) => {
         }
       } else {
         if (currentIndex === 0) {
-          // Arrivé au début, on inverse la direction
           setDirection('forward');
           api.scrollTo(1);
         } else {
@@ -53,20 +50,13 @@ export const MentionDiapo = ({ props }: { props: MentionDiapoProps[] }) => {
   };
 
   const handleInteractionEnd = () => {
-    // On remet en marche après un délai
     setTimeout(() => {
       setIsPaused(false);
-    }, 3000); // 3 secondes après la fin de l'interaction
+    }, 3000);
   };
 
   return (
-    <div
-      className="flex flex-col justify-center items-center text-gray-800 transition-all duration-500 w-full bg-white dark:bg-zinc-900 pb-6 z-10"
-      onMouseEnter={handleInteractionStart}
-      onMouseLeave={handleInteractionEnd}
-      onTouchStart={handleInteractionStart}
-      onTouchEnd={handleInteractionEnd}
-    >
+    <div className="flex flex-col justify-center items-center text-gray-800 transition-all duration-500 w-full bg-white dark:bg-zinc-900 pb-6 z-10">
       <Carousel
         opts={{
           align: 'start',
@@ -82,38 +72,35 @@ export const MentionDiapo = ({ props }: { props: MentionDiapoProps[] }) => {
       >
         <CarouselContent>
           {props.map((item, index) => (
-            <CarouselItem
-              key={index}
-              className="md:px-10"
-              onMouseDown={handleInteractionStart}
-              onMouseUp={handleInteractionEnd}
-              onTouchStart={handleInteractionStart}
-              onTouchEnd={handleInteractionEnd}
-            >
+            <CarouselItem key={index} className="md:px-10">
               <div
                 className="aspect-video md:aspect-[16/9] flex items-center justify-center"
-                onMouseDown={handleInteractionStart}
-                onMouseUp={handleInteractionEnd}
+                onMouseEnter={handleInteractionStart}
+                onMouseLeave={handleInteractionEnd}
+                onTouchStart={handleInteractionStart}
+                onTouchEnd={handleInteractionEnd}
               >
                 <img
                   className="w-full h-full object-cover rounded-2xl select-none"
                   src={item.image}
                   alt={item.altText}
                   draggable="false"
-                  onMouseDown={handleInteractionStart}
-                  onMouseUp={handleInteractionEnd}
                 />
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
         <CarouselPrevious
-          onClick={handleInteractionStart}
-          onMouseUp={handleInteractionEnd}
+          onMouseEnter={handleInteractionStart}
+          onMouseLeave={handleInteractionEnd}
+          onTouchStart={handleInteractionStart}
+          onTouchEnd={handleInteractionEnd}
         />
         <CarouselNext
-          onClick={handleInteractionStart}
-          onMouseUp={handleInteractionEnd}
+          onMouseEnter={handleInteractionStart}
+          onMouseLeave={handleInteractionEnd}
+          onTouchStart={handleInteractionStart}
+          onTouchEnd={handleInteractionEnd}
         />
       </Carousel>
       <div className="flex justify-center mt-4 space-x-2">
@@ -126,8 +113,10 @@ export const MentionDiapo = ({ props }: { props: MentionDiapoProps[] }) => {
               handleInteractionStart();
               handleInteractionEnd();
             }}
-            onMouseDown={handleInteractionStart}
-            onMouseUp={handleInteractionEnd}
+            onMouseEnter={handleInteractionStart}
+            onMouseLeave={handleInteractionEnd}
+            onTouchStart={handleInteractionStart}
+            onTouchEnd={handleInteractionEnd}
             className={`size-3 rounded-full transition-colors ${
               index === current ? 'bg-green-700 dark:bg-white' : 'bg-zinc-400'
             }`}
