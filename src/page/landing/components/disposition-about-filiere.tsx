@@ -73,19 +73,35 @@ export const DispositionAboutFiliere = ({
           <div className="flex flex-col justify-center items-center w-full max-w-4xl rounded-2xl py-6 px-4">
             <div className="flex flex-wrap justify-center gap-4 w-full ">
               {descriptionParcours?.map((parcours) => (
-                <button
-                  key={parcours.categorieParcours}
-                  onClick={() => setSelectedParcours(parcours)}
-                  className={`px-6 py-3 rounded-full text-white cursor-pointer font-semibold transition-transform duration-200 hover:scale-105 flex items-center gap-2 ${
-                    selectedParcours?.categorieParcours ===
-                    parcours.categorieParcours
-                      ? 'bg-green-800'
-                      : 'bg-green-700 hover:bg-green-800'
-                  }`}
-                >
-                  <GraduationCap size={20} />
-                  {parcours.categorieParcours}
-                </button>
+                <>
+                  <button
+                    key={parcours.categorieParcours}
+                    onClick={() => setSelectedParcours(parcours)}
+                    className={`px-6 py-3 hidden md:flex rounded-full text-white cursor-pointer font-semibold transition-transform duration-200 hover:scale-105  items-center gap-2 ${
+                      selectedParcours?.categorieParcours ===
+                      parcours.categorieParcours
+                        ? 'bg-green-800'
+                        : 'bg-green-700 hover:bg-green-800'
+                    }`}
+                  >
+                    <GraduationCap size={20} /> {parcours.categorieParcours}
+                  </button>
+                  <button
+                    key={parcours.categorieParcours}
+                    onClick={() => setSelectedParcours(parcours)}
+                    className={`px-6 py-3 md:hidden  rounded-full text-white cursor-pointer font-semibold transition-transform duration-200 hover:scale-105 flex items-center gap-2 ${
+                      selectedParcours?.categorieParcours ===
+                      parcours.categorieParcours
+                        ? 'bg-green-800'
+                        : 'bg-green-700 hover:bg-green-800'
+                    }`}
+                  >
+                    <GraduationCap size={20} />
+                    {parcours.categorieParcours.length > 20
+                      ? parcours.categorieParcours.slice(0, 15) + ' ...'
+                      : parcours.categorieParcours}
+                  </button>
+                </>
               ))}
             </div>
           </div>
