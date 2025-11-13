@@ -191,6 +191,14 @@ const MobileNav = ({
           <h1 className="text-lg font-bold text-gray-900 dark:text-white">
             Menu
           </h1>
+          <div
+            onClick={toggleTheme}
+            className="flex items-center justify-between rounded-full p-3 bg-gray-100 dark:bg-zinc-800   mt-4"
+          >
+            <div className="p-2 text-green-700">
+              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+            </div>
+          </div>
           <button onClick={() => setOpen(false)} className="p-2">
             <X size={24} className="text-gray-700 dark:text-gray-300" />
           </button>
@@ -239,17 +247,6 @@ const MobileNav = ({
             >
               {translate('navBar.contact')}
             </Link>
-            <div
-              onClick={toggleTheme}
-              className="flex items-center justify-between p-3 bg-gray-100 dark:bg-zinc-800 rounded-lg mt-4"
-            >
-              <span className="text-gray-700 dark:text-gray-300">
-                {isDark ? 'Mode clair' : 'Mode sombre'}
-              </span>
-              <div className="p-2 text-green-700">
-                {isDark ? <Sun size={20} /> : <Moon size={20} />}
-              </div>
-            </div>
           </div>
         </div>
       </div>

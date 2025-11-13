@@ -1,7 +1,10 @@
 import backgroundImage from '@/assets/Lieu_espace/Asja-devant-quality-2.jpg';
 import { Button } from '@/components/ui/button';
+import { useThemeContext } from '@/page/theme/useThemeContext';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
+
+import asjaDark from '@/assets/Asja-dark.jpg';
 
 export const Description = () => {
   const scrollToFiliere = () => {
@@ -10,6 +13,7 @@ export const Description = () => {
       filiereSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  const { isDark } = useThemeContext();
 
   return (
     <section
@@ -18,7 +22,7 @@ export const Description = () => {
     >
       <div className="absolute inset-0 w-full h-full -z-20">
         <img
-          src={backgroundImage}
+          src={isDark ? asjaDark : backgroundImage}
           alt="Façade de l'entrée principale de l'université ASJA"
           className="w-full h-full object-cover"
         />

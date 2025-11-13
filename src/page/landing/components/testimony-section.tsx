@@ -15,6 +15,8 @@ import Michou from '@/assets/Bouchet_Michou_Diana.jpeg';
 import Raoul from '@/assets/DADARE-Raoul.jpg';
 import Falihery from '@/assets/Falihery.jpg';
 import Miarotiana from '@/assets/Mandimbiharison_Miarotiana.jpeg';
+import RAJEMISON from '@/assets/RAJEMISON-Steffy-Jachia.jpg';
+import steffy from '@/assets/Rajemson-suziah-jaida.jpg';
 import genciaImage from '@/assets/RANDRIAMANAPAKA-Manantena-Jencia.jpg';
 import safidyImage from '@/assets/Safidy-pic.jpg';
 import Sitraka from '@/assets/Sitraka.jpg';
@@ -82,6 +84,20 @@ const temoignages: Temoin[] = [
     description:
       'Le cursus en informatique de l’ASJA est très complet. Il m’a offert les bases techniques solides pour devenir développeuse et m’adapter aux nouvelles technologies du marché.',
     image: Miarotiana,
+  },
+  {
+    name: 'RAJEMISON Steffy Jachia',
+    status: 'Développeuse Full-Stack',
+    description:
+      'Le cursus en informatique de l’ASJA est très complet. Il m’a offert les bases techniques solides pour devenir développeuse et m’adapter aux nouvelles technologies du marché.',
+    image: steffy,
+  },
+  {
+    name: 'RAJEMISON Suziah Jaida',
+    status: 'Développeuse Full-Stack',
+    description:
+      'Le cursus en informatique de l’ASJA est très complet. Il m’a offert les bases techniques solides pour devenir développeuse et m’adapter aux nouvelles technologies du marché.',
+    image: RAJEMISON,
   },
 ];
 
