@@ -57,6 +57,7 @@
     "cookie-parser": "^1.4.7",
     "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
+    "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.3",
     "i18next": "^25.5.2",
