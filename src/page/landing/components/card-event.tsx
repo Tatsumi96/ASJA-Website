@@ -2,7 +2,7 @@ import annivImage from '@/assets/Image-evenement/25ans.jpg';
 import dehonsImage from '@/assets/Image-evenement/Dehons_day/event-dehons_day.jpg';
 import gennrosso from '@/assets/Image-evenement/event-genrosso.jpg';
 import type { EventDto } from '@/features/strapi/event.dto';
-import { motion } from 'framer-motion';
+import { easeOut, motion } from 'framer-motion';
 import { useLandingContext } from '../bloc/useLandingContext';
 
 const EventCard = ({
@@ -17,7 +17,7 @@ const EventCard = ({
     visible: {
       x: 0,
       opacity: 1,
-      transition: { duration: 0.7, ease: 'easeOut' },
+      transition: { duration: 0.7, ease: easeOut },
     },
   };
 
