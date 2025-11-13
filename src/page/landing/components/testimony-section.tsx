@@ -1,23 +1,24 @@
-import Image from "@/assets/Logo/asja-logo.png";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { motion } from "framer-motion";
-import { useState } from "react";
+  type CarouselApi,
+} from '@/components/ui/carousel';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
-import ainaImage from "@/assets/Aina-Arthur-quality.jpg";
-import genciaImage from "@/assets/RANDRIAMANAPAKA-Manantena-Jencia.jpg";
-import safidyImage from "@/assets/Safidy-pic.jpg";
-import Michou from "@/assets/Bouchet_Michou_Diana.jpeg"
-import Miarotiana from "@/assets/Mandimbiharison_Miarotiana.jpeg"
-import Sitraka from "@/assets/Sitraka.jpg"
-import Falihery from "@/assets/Falihery.jpg"
-import Raoul from "@/assets/DADARE-Raoul.jpg"
+import ainaImage from '@/assets/Aina-Arthur-quality.jpg';
+import Michou from '@/assets/Bouchet_Michou_Diana.jpeg';
+import Raoul from '@/assets/DADARE-Raoul.jpg';
+import Falihery from '@/assets/Falihery.jpg';
+import Miarotiana from '@/assets/Mandimbiharison_Miarotiana.jpeg';
+import genciaImage from '@/assets/RANDRIAMANAPAKA-Manantena-Jencia.jpg';
+import safidyImage from '@/assets/Safidy-pic.jpg';
+import Sitraka from '@/assets/Sitraka.jpg';
+
 type Temoin = {
   name: string;
   status?: string;
@@ -25,135 +26,169 @@ type Temoin = {
   image?: string;
 };
 
+const temoignages: Temoin[] = [
+  {
+    name: 'Raharijesy Safidy',
+    status: 'UI/UX Designer',
+    description:
+      "Mon parcours, de la formation en informatique à la spécialisation en UI/UX Design, m'a doté de l'expertise technique et de la vision créative nécessaires pour aujourd'hui, en tant qu'entrepreneur, aider les marques à s'exprimer pleinement.",
+    image: safidyImage,
+  },
+  {
+    name: 'Randiambolasoa Andriatsilavo Falihery',
+    status: 'Génie Industriel',
+    description:
+      'La formation à ASJA m’a permis de découvrir ma passion pour la cybersécurité. Aujourd’hui, je travaille comme analyste sécurité dans une entreprise locale. Les cours pratiques m’ont énormément aidée à progresser rapidement.',
+    image: Falihery,
+  },
+  {
+    name: 'Randriamanapaka Manantena Toditsara Jencia',
+    status: 'Étudiante en Droit',
+    description:
+      "Stages aux Ministères (Affaires Étrangères, Fonction Publique): l'ASJA a nourri mon expertise publique et mon leadership.",
+    image: genciaImage,
+  },
+  {
+    name: 'Bouchet Michou Diana',
+    status: 'Experte en Marketing Digital',
+    description:
+      'Grâce à l’ASJA, j’ai acquis une solide compréhension du marketing digital. Les projets concrets et les intervenants professionnels m’ont préparée à relever les défis du secteur et à innover.',
+    image: Michou,
+  },
+  {
+    name: 'Dadare Raoul',
+    status: 'Entrepreneur Tech',
+    description:
+      'Formation excellente qui m’a permis de lancer ma propre startup tech. Les compétences acquises à ASJA sont directement applicables dans le monde professionnel et m’ont donné la confiance nécessaire pour entreprendre.',
+    image: Raoul,
+  },
+  {
+    name: 'Razanato Nambinintsoa Sitraka',
+    status: 'Ingénieure Agronome',
+    description:
+      "Mes études à l'ASJA ont confirmé que l'Agronomie ne se limite pas juste à cultiver, mais englobe aussi le commerce, la gestion, le marketing, la qualité et l'environnement.",
+    image: Sitraka,
+  },
+  {
+    name: 'Aina Arthur',
+    status: 'Juriste d’Affaires',
+    description:
+      "L'ASJA m'a aidé à trouver mon parcours professionnel. Les cours de droit des affaires ont été particulièrement pertinents et m'ont permis de me perfectionner et de prendre confiance en mes capacités.",
+    image: ainaImage,
+  },
+  {
+    name: 'Mandimbiharison Miarotiana',
+    status: 'Développeuse Full-Stack',
+    description:
+      'Le cursus en informatique de l’ASJA est très complet. Il m’a offert les bases techniques solides pour devenir développeuse et m’adapter aux nouvelles technologies du marché.',
+    image: Miarotiana,
+  },
+];
+
 export const TestimonySection = () => {
-  const [current, setCurrent] = useState<number>(0);
-  const [count, setCount] = useState<number>(0);
-  const temoin: Temoin[] = [
-    {
-      name: "Raharijesy Safidy",
-      status: "UI/UX Designer",
-      description:
-        "Mon parcours, de la formation en informatique à la spécialisation en UI/UX Design, m'a doté de l'expertise technique et de la vision créative nécessaires pour aujourd'hui, en tant qu'entrepreneur, aider les marques à s'exprimer pleinement.",
-      image: safidyImage,
-    },
-    {
-      name: "Randiambolasoa Andriatsilavo Falihery",
-      status: "Genie Industrielle",
-      description:
-        "La formation à ASJA m’a permis de découvrir ma passion pour la cybersécurité. Aujourd’hui, je travaille comme analyste sécurité dans une entreprise locale. Les cours pratiques m’ont énormément aidée à progresser rapidement.",
-       image: Falihery,
-    },
-    {
-      name: "Randriamanapaka Manantena Toditsara Jencia",
-      status: "Etudiante en Droit",
-      description:
-        "Stages aux Ministères (Affaires Étrangères, Fonction Publique): l'ASJA a nourri mon expertise publique et mon leadership.",
-      image: genciaImage,
-    },
-      {
-      name: "Bouchet Michou Diana",
-       status: "UI/UX Designer",
-      description:
-        "La formation à ASJA m’a permis de découvrir ma passion pour la cybersécurité. Aujourd’hui, je travaille comme analyste sécurité dans une entreprise locale. Les cours pratiques m’ont énormément aidée à progresser rapidement.",
-       image: Michou,
-    },
-      {
-      name: "Dadare Raoul",
-       status: "UI/UX Designer",
-      description:
-        "Formation excellente qui m’a permis de lancer ma propre startup tech. Les compétences acquises à ASJA sont directement applicables dans le monde professionnel.",
-         image: Raoul,
-    },
-    {
-      name: "Razanato Nambinintsoa Sitraka",
-       status: "UI/UX Designer",
-      description:
-        "Mes étude à l'ASJA ont confirmé que l'Agronomie ne ce limite pas jsute à cultiver, élever ou juste transformer mais que l'agronomie par bien au delà comme le commerce, la gestion, le marketing, la qualité et l'environnement",
-       image: Sitraka,
-    },
-    {
-      name: "Aina Arthur",
-      status: "Sortant en droit",
-      description:
-        "L' ASJA m'a aidé à trouver mon parcours professionnel. Les cours de l'ASJA ont permis de me perfectionner et de me faire confiance.",
-      image: ainaImage,
-    },
-    {
-      name: "Mandimbiharison Miarotiana",
-       status: "UI/UX Designer",
-      description:
-        "Formation excellente qui m’a permis de lancer ma propre startup tech. Les compétences acquises à ASJA sont directement applicables dans le monde professionnel.",
-         image: Miarotiana,
-    },
-  ];
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    const handleSelect = () => {
+      setCurrent(api.selectedScrollSnap());
+    };
+
+    api.on('select', handleSelect);
+
+    return () => {
+      api.off('select', handleSelect);
+    };
+  }, [api]);
+
   return (
     <section
       id="temoignages"
-      className="bg-zinc-100 dark:bg-zinc-900 h-full transition-all duration-500 py-5 "
+      className="bg-gray-50 dark:bg-zinc-900 py-20 sm:py-28"
     >
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ amount: 0.2, once: true }}
-        className="flex flex-col items-center justify-center"
-      >
-        <h1 className="md:text-5xl text-4xl font-bold text-green-700 md:py-10 py-6">
-          Témoignage
-        </h1>
-        <Carousel
-          opts={{
-            align: "start",
-          }}
-          setApi={(api) => {
-            if (!api) return;
-            setCount(api.scrollSnapList().length);
-            setCurrent(api.selectedScrollSnap());
-            api.on("select", () => setCurrent(api.selectedScrollSnap()));
-          }}
-          className="w-full px-2 md:px-0 lg:max-w-2/3 md:max-w-2/3 "
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="text-center mb-12"
         >
-          <CarouselContent>
-            {temoin.map((temoin, key) => (
-              <CarouselItem key={key} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <Card className="dark:bg-zinc-800 transition-all m-10duration-500 h-120">
-                    <CardContent className="flex h-full flex-col aspect-square items-center justify-center ">
-                      <div className="flex h-40 w-40 justify-center items-center overflow-hidden">
-                        <img
-                          className="rounded-[50%] w-full h-full border-2 object-cover"
-                          src={temoin.image ? temoin.image : Image}
-                          alt={temoin.name}
-                        />
-                      </div>
-                      <div className="text-center mt-2">
-                        <h3 className="text-lg font-semibold pb-2">
-                          {temoin.name}
-                        </h3>
-                        <p className="text-sm text-gray-500 pb-2">
-                          {temoin.status}
-                        </p>
-                        <p className="px-2 lg:text-sm/relaxed pt-1/2">{temoin.description}</p>
-                      </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-green-700 dark:text-green-500">
+            Témoignages
+          </h2>
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Découvrez les parcours inspirants et les réussites de nos diplômés.
+          </p>
+        </motion.div>
+
+        <Carousel
+          setApi={setApi}
+          opts={{ align: 'start', loop: true }}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <CarouselContent className="-ml-4">
+            {temoignages.map((temoin, index) => (
+              <CarouselItem
+                key={index}
+                className="pl-4 md:basis-1/2 lg:basis-1/3"
+              >
+                <div className="h-full p-1">
+                  <Card className="flex flex-col h-full bg-white dark:bg-zinc-800 shadow-lg rounded-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    <CardContent className="p-8 flex flex-col items-center text-center flex-grow">
+                      <img
+                        className="rounded-full w-32 h-32 object-cover border-4 border-white dark:border-zinc-700 shadow-md mb-5"
+                        src={temoin.image}
+                        alt={`Photo de ${temoin.name}`}
+                        width={128}
+                        height={128}
+                      />
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                        {temoin.name}
+                      </h3>
+                      <p className="text-sm font-medium text-green-600 dark:text-green-400 mb-4">
+                        {temoin.status}
+                      </p>
+                      <blockquote className="text-gray-600 dark:text-gray-300 text-base leading-relaxed flex-grow italic">
+                        <span className="text-4xl text-gray-300 dark:text-gray-600 leading-none mr-1">
+                          “
+                        </span>
+                        {temoin.description}
+                        <span className="text-4xl text-gray-300 dark:text-gray-600 leading-none ml-1">
+                          ”
+                        </span>
+                      </blockquote>
                     </CardContent>
                   </Card>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="hidden sm:flex" />
+          <CarouselNext className="hidden sm:flex" />
         </Carousel>
-        <div className="flex justify-center mt-4 space-x-2">
+
+        <div className="flex justify-center mt-8 space-x-2">
           {Array.from({ length: count }).map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrent(index)}
-              className={`size-3 rounded-full transition-colors ${index === current ? "bg-green-700 dark:bg-white" : "bg-zinc-400"}`}
-            ></button>
+              onClick={() => api?.scrollTo(index)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === current
+                  ? 'w-6 bg-green-600'
+                  : 'w-2 bg-gray-300 dark:bg-zinc-600'
+              }`}
+              aria-label={`Aller au témoignage ${index + 1}`}
+            />
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
