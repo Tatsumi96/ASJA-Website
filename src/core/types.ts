@@ -24,6 +24,9 @@ export type Branche =
   | 'AGROALIMENTAIRE'
   | 'PRODUCTION VEGETALE'
   | 'PRODUCTION ANIMAL'
+  | 'TRANSFORMATION ET CONTROLE QUALITE DES PRODUIT ALIMENTAIRE '
+  | 'DEVELOPMENT AGRICOLE ET RURALE'
+  | 'PRODUCTION ET SANTE ANIMALE'
   | 'COMMUN';
 
 export const mentions: Record<string, Record<string, string[]>> = {

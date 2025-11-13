@@ -2,7 +2,17 @@ import Image1 from '@/assets/droitEvent1-quality.jpeg';
 import Image2 from '@/assets/droitEvent2-quality.jpeg';
 import Image3 from '@/assets/droitEvent3-quality.jpeg';
 
+import droitImages1 from '@/assets/Mentions/Droit/student-droit-1.jpg';
+import droitImages2 from '@/assets/Mentions/Droit/student-droit-2.jpg';
+import droitImages3 from '@/assets/Mentions/Droit/student-droit-3.jpg';
+import droitImages4 from '@/assets/Mentions/Droit/student-droit-4.jpg';
+import droitImages5 from '@/assets/Mentions/Droit/student-droit-5.jpg';
+import droitImages6 from '@/assets/Mentions/Droit/student-droit-6.jpg';
+import droitImages9 from '@/assets/Mentions/Droit/student-droit-9.jpg';
+
 import { DispositionAboutFiliere } from '@/page/landing/components/disposition-about-filiere';
+import type { MentionDiapoProps } from '../landing/components/mention-image-diapo';
+
 export const DroitPage = () => {
   const mention = {
     name: 'DROIT',
@@ -37,19 +47,32 @@ export const DroitPage = () => {
   const shortDescriptionList = [
     {
       titleEvent: 'Proces Fictif',
-      descriptionEvent: 'Nos étudiants mettent en pratique leurs connaissances juridiques en participant à des procès simulés, développant ainsi leurs compétences en plaidoirie, argumentation, analyse et stratégie juridique dans un cadre réaliste mais pédagogique.',
+      descriptionEvent:
+        'Nos étudiants mettent en pratique leurs connaissances juridiques en participant à des procès simulés, développant ainsi leurs compétences en plaidoirie, argumentation, analyse et stratégie juridique dans un cadre réaliste mais pédagogique.',
       RandomImage: Image3,
     },
     {
       titleEvent: 'Proces Fictif',
-      descriptionEvent: 'Préparez-vous à maîtriser les rouages de la justice, à défendre les causes importantes et à bâtir une carrière impactante au service de la nation. Rejoignez l\'élite juridique de demain !',
+      descriptionEvent:
+        "Préparez-vous à maîtriser les rouages de la justice, à défendre les causes importantes et à bâtir une carrière impactante au service de la nation. Rejoignez l'élite juridique de demain !",
       RandomImage: Image2,
     },
     {
       titleEvent: 'Proces Fictif',
-      descriptionEvent: 'Nos étudiants en Droit plongent au cœur de la justice avec les procès fictifs ! Une immersion grandeur nature pour maîtriser l\'art de la plaidoirie, de la défense et de la procédure. Bien plus qu\'un exercice, c\'est la future carrière qui prend forme, ici et maintenant.',
+      descriptionEvent:
+        "Nos étudiants en Droit plongent au cœur de la justice avec les procès fictifs ! Une immersion grandeur nature pour maîtriser l'art de la plaidoirie, de la défense et de la procédure. Bien plus qu'un exercice, c'est la future carrière qui prend forme, ici et maintenant.",
       RandomImage: Image1,
     },
+  ];
+
+  const imageDiapo: MentionDiapoProps[] = [
+    { image: droitImages1, altText: '' },
+    { image: droitImages2, altText: '' },
+    { image: droitImages3, altText: '' },
+    { image: droitImages4, altText: '' },
+    { image: droitImages5, altText: '' },
+    { image: droitImages6, altText: '' },
+    { image: droitImages9, altText: '' },
   ];
 
   return (
@@ -59,6 +82,7 @@ export const DroitPage = () => {
         descriptionMention={descriptionMention}
         descriptionParcours={descriptionParcours}
         shortDescriptionList={shortDescriptionList}
+        mentionDiapoProps={imageDiapo}
       />
     </div>
   );
