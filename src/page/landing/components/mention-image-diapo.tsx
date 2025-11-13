@@ -2,10 +2,9 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel';
-import { useEffect, useState } from 'react';
+import Autoplay from 'embla-carousel-autoplay';
+import { useCallback, useEffect, useState } from 'react';
 
 export interface MentionDiapoProps {
   altText: string;
@@ -13,114 +12,76 @@ export interface MentionDiapoProps {
 }
 
 export const MentionDiapo = ({ props }: { props: MentionDiapoProps[] }) => {
-  const [current, setCurrent] = useState<number>(0);
-  const [count, setCount] = useState<number>(0);
   const [api, setApi] = useState<any>(null);
-  const [isPaused, setIsPaused] = useState<boolean>(false);
-  const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  const updateCarouselState = useCallback(() => {
+    if (api) {
+      setCount(api.scrollSnapList().length);
+      setCurrent(api.selectedScrollSnap());
+    }
+  }, [api]);
 
   useEffect(() => {
-    if (!api || props.length <= 1 || isPaused) return;
+    if (!api) return;
 
-    const interval = setInterval(() => {
-      const currentIndex = api.selectedScrollSnap();
+    updateCarouselState();
+    api.on('select', updateCarouselState);
+    api.on('reInit', updateCarouselState);
 
-      if (direction === 'forward') {
-        if (currentIndex === props.length - 1) {
-          setDirection('backward');
-          api.scrollTo(props.length - 2);
-        } else {
-          api.scrollNext();
-        }
-      } else {
-        if (currentIndex === 0) {
-          setDirection('forward');
-          api.scrollTo(1);
-        } else {
-          api.scrollPrev();
-        }
-      }
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [api, props.length, isPaused, direction]);
-
-  const handleInteractionStart = () => {
-    setIsPaused(true);
-  };
-
-  const handleInteractionEnd = () => {
-    setTimeout(() => {
-      setIsPaused(false);
-    }, 3000);
-  };
+    return () => {
+      api.off('select', updateCarouselState);
+    };
+  }, [api, updateCarouselState]);
 
   return (
-    <div className="flex flex-col justify-center items-center text-gray-800 transition-all duration-500 w-full bg-white dark:bg-zinc-900 pb-6 z-10">
+    <div className="w-full py-8 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <Carousel
+        setApi={setApi}
+        plugins={[
+          Autoplay({
+            delay: 3000,
+            stopOnInteraction: true,
+            stopOnMouseEnter: true,
+          }),
+        ]}
         opts={{
+          loop: true,
           align: 'start',
         }}
-        setApi={(api) => {
-          if (!api) return;
-          setApi(api);
-          setCount(api.scrollSnapList().length);
-          setCurrent(api.selectedScrollSnap());
-          api.on('select', () => setCurrent(api.selectedScrollSnap()));
-        }}
-        className="w-full px-5 md:px-0 lg:max-w-2/3 md:max-w-2/3"
+        className="w-full max-w-4xl mx-auto px-4"
       >
         <CarouselContent>
           {props.map((item, index) => (
-            <CarouselItem key={index} className="md:px-10">
-              <div
-                className="aspect-video md:aspect-[16/9] flex items-center justify-center"
-                onMouseEnter={handleInteractionStart}
-                onMouseLeave={handleInteractionEnd}
-                onTouchStart={handleInteractionStart}
-                onTouchEnd={handleInteractionEnd}
-              >
-                <img
-                  className="w-full h-full object-cover rounded-2xl select-none"
-                  src={item.image}
-                  alt={item.altText}
-                  draggable="false"
-                />
+            <CarouselItem key={index} className="md:basis-1/1 lg:basis-1/1">
+              <div className="p-1">
+                <div className="relative aspect-video md:aspect-[16/9] rounded-2xl overflow-hidden shadow-lg">
+                  <img
+                    src={item.image}
+                    alt={item.altText}
+                    className="w-full h-full object-cover select-none"
+                    draggable="false"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </div>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious
-          onMouseEnter={handleInteractionStart}
-          onMouseLeave={handleInteractionEnd}
-          onTouchStart={handleInteractionStart}
-          onTouchEnd={handleInteractionEnd}
-        />
-        <CarouselNext
-          onMouseEnter={handleInteractionStart}
-          onMouseLeave={handleInteractionEnd}
-          onTouchStart={handleInteractionStart}
-          onTouchEnd={handleInteractionEnd}
-        />
       </Carousel>
-      <div className="flex justify-center mt-4 space-x-2">
+      <div className="flex justify-center items-center mt-6 space-x-3">
         {Array.from({ length: count }).map((_, index) => (
           <button
             key={index}
-            onClick={() => {
-              setCurrent(index);
-              api?.scrollTo(index);
-              handleInteractionStart();
-              handleInteractionEnd();
-            }}
-            onMouseEnter={handleInteractionStart}
-            onMouseLeave={handleInteractionEnd}
-            onTouchStart={handleInteractionStart}
-            onTouchEnd={handleInteractionEnd}
-            className={`size-3 rounded-full transition-colors ${
-              index === current ? 'bg-green-700 dark:bg-white' : 'bg-zinc-400'
+            onClick={() => api?.scrollTo(index)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              index === current
+                ? 'w-6 bg-green-600 dark:bg-green-500'
+                : 'w-2 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
             }`}
-          ></button>
+            aria-label={`Go to slide ${index + 1}`}
+          />
         ))}
       </div>
     </div>
