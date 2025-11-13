@@ -14,8 +14,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel';
 import { useThemeContext } from '@/page/theme/useThemeContext';
 import Autoplay from 'embla-carousel-autoplay';
@@ -186,8 +184,6 @@ const FiliereSectionCarousel = ({ isDark }: { isDark: boolean }) => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-zinc-900/80 hover:bg-white dark:hover:bg-zinc-900 text-gray-800 dark:text-white rounded-full shadow-md transition-all duration-300" />
-        <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-zinc-900/80 hover:bg-white dark:hover:bg-zinc-900 text-gray-800 dark:text-white rounded-full shadow-md transition-all duration-300" />
       </Carousel>
       <div className="flex justify-center items-center mt-6 space-x-3">
         {Array.from({ length: count }).map((_, index) => (
