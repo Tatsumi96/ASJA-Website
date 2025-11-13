@@ -73,7 +73,7 @@ export const DispositionAboutFiliere = ({
 
       <main className="flex-grow">
         {descriptionParcours && (
-          <section className="py-16 sm:py-20 lg:py-24">
+          <section className="py-16 pt-22 sm:py-20 lg:py-24">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -122,7 +122,7 @@ export const DispositionAboutFiliere = ({
         )}
 
         <section
-          className={`py-12 sm:py-16 lg:py-20 ${
+          className={`py-12 pt-22 sm:py-16 lg:py-20 ${
             mention.name === 'LANGUES ÉTRANGÈRES APPLIQUÉES'
               ? 'md:mt-20'
               : 'mt-10'
