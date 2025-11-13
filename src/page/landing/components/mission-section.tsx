@@ -1,6 +1,6 @@
 import Image from '@/assets/Image-evenement/event-diplome_master-quality.jpg';
 import Image2 from '@/assets/Lieu_espace/Bibliotheque-quality.jpg';
-import { motion } from 'framer-motion';
+import { easeOut, motion } from 'framer-motion';
 
 interface MissionCardProps {
   title: string;
@@ -22,7 +22,7 @@ const MissionCard = ({
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.7, delay, ease: 'easeOut' },
+      transition: { duration: 0.7, delay, ease: easeOut },
     },
   };
 
@@ -35,11 +35,7 @@ const MissionCard = ({
       className="bg-white dark:bg-zinc-800 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
     >
       <div className="relative h-64 w-full">
-        <img
-          src={image}
-          alt={alt}
-          className="w-full h-full object-cover"
-        />
+        <img src={image} alt={alt} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
       </div>
       <div className="p-8">
@@ -66,7 +62,7 @@ export const MissionSection = () => {
     {
       title: 'Notre Objectif',
       description:
-        'Notre vision pour une université moderne et ancrée nationalement repose sur six piliers : assurer une formation de haut niveau adaptée au marché du travail et à la mondialisation ; encourager la recherche scientifique et l\'innovation au service du développement ; développer les compétences des étudiants via des stages et des projets concrets.',
+        "Notre vision pour une université moderne et ancrée nationalement repose sur six piliers : assurer une formation de haut niveau adaptée au marché du travail et à la mondialisation ; encourager la recherche scientifique et l'innovation au service du développement ; développer les compétences des étudiants via des stages et des projets concrets.",
       image: Image2,
       alt: "Bibliothèque de l'université ASJA avec des étudiants",
     },
