@@ -135,20 +135,19 @@ const MobileNav = ({
         className="fixed inset-0 bg-black/50"
         onClick={() => setOpen(false)}
       />
-      <div
-        className="fixed top-0 left-0 h-full w-80 bg-white dark:bg-zinc-900 shadow-xl transition-transform duration-300 ease-in-out"
-        style={{ transform: open ? 'translateX(0)' : 'translateX(-100%)' }}
-      >
-        <div className="flex items-center justify-between p-4 border-b dark:border-zinc-700">
-          <h1 className="text-lg font-bold text-gray-900 dark:text-white">
-            Menu
-          </h1>
-          <button onClick={() => setOpen(false)} className="p-2">
-            <X size={24} className="text-gray-700 dark:text-gray-300" />
-          </button>
-        </div>
-        <div className="p-4 space-y-4">
-          <NavSection title={translate('navBar.filieres')}>
+              <div
+              className="fixed top-0 left-0 h-full w-80 bg-white dark:bg-zinc-900 shadow-xl transition-transform duration-300 ease-in-out flex flex-col"
+              style={{ transform: open ? 'translateX(0)' : 'translateX(-100%)' }}
+            >
+              <div className="flex items-center justify-between p-4 border-b dark:border-zinc-700">
+                <h1 className="text-lg font-bold text-gray-900 dark:text-white">
+                  Menu
+                </h1>
+                <button onClick={() => setOpen(false)} className="p-2">
+                  <X size={24} className="text-gray-700 dark:text-gray-300" />
+                </button>
+              </div>
+              <div className="p-4 space-y-4 overflow-y-auto flex-1">          <NavSection title={translate('navBar.filieres')}>
             {filiereLinks.map((item) => (
               <button
                 key={item.href}

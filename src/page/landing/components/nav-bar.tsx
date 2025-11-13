@@ -29,7 +29,10 @@ const filiereLinks = [
   { href: '/mention/informatique', key: 'filiereSection.INFO.name' },
   { href: '/mention/droit', key: 'filiereSection.DROIT.name' },
   { href: '/mention/economie', key: 'filiereSection.ECO.name' },
-  { href: '/mention/langue-etrangere-applique', key: 'filiereSection.LEA.name' },
+  {
+    href: '/mention/langue-etrangere-applique',
+    key: 'filiereSection.LEA.name',
+  },
   { href: '/mention/science-de-la-terre', key: 'filiereSection.ST.name' },
 ];
 
@@ -159,7 +162,6 @@ const DesktopNav = ({
     </NavigationMenu>
   );
 };
-
 const MobileNav = ({
   open,
   setOpen,
@@ -174,7 +176,9 @@ const MobileNav = ({
   const handleLinkClick = () => setOpen(false);
 
   return (
-    <div className={`fixed inset-0 z-50 md:hidden ${open ? 'block' : 'hidden'}`}>
+    <div
+      className={`fixed inset-0 z-50 md:hidden ${open ? 'block' : 'hidden'}`}
+    >
       <div
         className="fixed inset-0 bg-black/50"
         onClick={() => setOpen(false)}
@@ -191,56 +195,60 @@ const MobileNav = ({
             <X size={24} className="text-gray-700 dark:text-gray-300" />
           </button>
         </div>
-        <div className="p-4 space-y-4">
-          <NavSection title={translate('navBar.accueil')}>
-            {homeSections.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                spy
-                smooth
-                offset={-50}
-                duration={500}
-                onClick={handleLinkClick}
-                activeClass="text-green-600 dark:text-green-400 font-semibold"
-                className="block py-2 text-gray-700 dark:text-gray-300"
-              >
-                {translate(item.key)}
-              </Link>
-            ))}
-          </NavSection>
-          <NavSection title={translate('navBar.filieres')}>
-            {filiereLinks.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => onFiliereClick(item.href)}
-                className="block w-full text-left py-2 text-gray-700 dark:text-gray-300"
-              >
-                {translate(item.key)}
-              </button>
-            ))}
-          </NavSection>
-          <Link
-            to="contact"
-            spy
-            smooth
-            offset={-50}
-            duration={500}
-            onClick={handleLinkClick}
-            activeClass="text-green-600 dark:text-green-400 font-semibold"
-            className="block py-2 font-semibold text-gray-800 dark:text-white"
-          >
-            {translate('navBar.contact')}
-          </Link>
-          <div
-            onClick={toggleTheme}
-            className="flex items-center justify-between p-3 bg-gray-100 dark:bg-zinc-800 rounded-lg mt-4"
-          >
-            <span className="text-gray-700 dark:text-gray-300">
-              {isDark ? 'Mode clair' : 'Mode sombre'}
-            </span>
-            <div className="p-2 text-green-700">
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+
+        {/* Scrollable content area */}
+        <div className="h-full flex flex-col">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <NavSection title={translate('navBar.accueil')}>
+              {homeSections.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  spy
+                  smooth
+                  offset={-50}
+                  duration={500}
+                  onClick={handleLinkClick}
+                  activeClass="text-green-600 dark:text-green-400 font-semibold"
+                  className="block py-2 text-gray-700 dark:text-gray-300"
+                >
+                  {translate(item.key)}
+                </Link>
+              ))}
+            </NavSection>
+            <NavSection title={translate('navBar.filieres')}>
+              {filiereLinks.map((item) => (
+                <button
+                  key={item.href}
+                  onClick={() => onFiliereClick(item.href)}
+                  className="block w-full text-left py-2 text-gray-700 dark:text-gray-300"
+                >
+                  {translate(item.key)}
+                </button>
+              ))}
+            </NavSection>
+            <Link
+              to="contact"
+              spy
+              smooth
+              offset={-50}
+              duration={500}
+              onClick={handleLinkClick}
+              activeClass="text-green-600 dark:text-green-400 font-semibold"
+              className="block py-2 font-semibold text-gray-800 dark:text-white"
+            >
+              {translate('navBar.contact')}
+            </Link>
+            <div
+              onClick={toggleTheme}
+              className="flex items-center justify-between p-3 bg-gray-100 dark:bg-zinc-800 rounded-lg mt-4"
+            >
+              <span className="text-gray-700 dark:text-gray-300">
+                {isDark ? 'Mode clair' : 'Mode sombre'}
+              </span>
+              <div className="p-2 text-green-700">
+                {isDark ? <Sun size={20} /> : <Moon size={20} />}
+              </div>
             </div>
           </div>
         </div>
