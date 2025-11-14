@@ -52,16 +52,16 @@ const temoignages: Temoin[] = [
   },
   {
     name: 'Bouchet Michou Diana',
-    status: 'Experte en Marketing Digital',
+    status: 'Étudiante en Science de la Terre',
     description:
-      'Grâce à l’ASJA, j’ai acquis une solide compréhension du marketing digital. Les projets concrets et les intervenants professionnels m’ont préparée à relever les défis du secteur et à innover.',
+      "Mes études à l'ASJA m'ont permis d'explorer ma passion pour les sciences de la terre. Les cours pratiques et les sorties sur le terrain ont enrichi ma compréhension des enjeux environnementaux et géologiques.",
     image: Michou,
   },
   {
     name: 'Dadare Raoul',
-    status: 'Entrepreneur Tech',
+    status: 'Étudiant en Langue Étrangère Appliquée',
     description:
-      'Formation excellente qui m’a permis de lancer ma propre startup tech. Les compétences acquises à ASJA sont directement applicables dans le monde professionnel et m’ont donné la confiance nécessaire pour entreprendre.',
+      "Ma formation en Langue Étrangère Appliquée à l'ASJA m'a ouvert les portes du monde professionnel international. J'ai développé des compétences linguistiques et interculturelles essentielles pour ma carrière.",
     image: Raoul,
   },
   {
@@ -73,30 +73,30 @@ const temoignages: Temoin[] = [
   },
   {
     name: 'Aina Arthur',
-    status: 'Juriste d’Affaires',
+    status: 'Sortant en Droit Processuel',
     description:
       "L'ASJA m'a aidé à trouver mon parcours professionnel. Les cours de droit des affaires ont été particulièrement pertinents et m'ont permis de me perfectionner et de prendre confiance en mes capacités.",
     image: ainaImage,
   },
   {
     name: 'Mandimbiharison Miarotiana',
-    status: 'Développeuse Full-Stack',
+    status: 'Étudiant en Langue Étrangère Appliquée',
     description:
-      'Le cursus en informatique de l’ASJA est très complet. Il m’a offert les bases techniques solides pour devenir développeuse et m’adapter aux nouvelles technologies du marché.',
+      "Grâce à ma formation en Langue Étrangère Appliquée à l'ASJA, j'ai pu développer une expertise linguistique et une ouverture culturelle qui sont des atouts majeurs dans le monde globalisé d'aujourd'hui.",
     image: Miarotiana,
   },
   {
     name: 'RAJEMISON Steffy Jachia',
-    status: 'Développeuse Full-Stack',
+    status: 'Étudiante en Économie',
     description:
-      'Le cursus en informatique de l’ASJA est très complet. Il m’a offert les bases techniques solides pour devenir développeuse et m’adapter aux nouvelles technologies du marché.',
+      "Mon parcours en économie à l'ASJA m'a fourni une base solide pour comprendre les marchés financiers et les stratégies économiques. Je suis prête à relever les défis du monde des affaires.",
     image: steffy,
   },
   {
     name: 'RAJEMISON Suziah Jaida',
-    status: 'Développeuse Full-Stack',
+    status: 'Étudiante en Économie',
     description:
-      'Le cursus en informatique de l’ASJA est très complet. Il m’a offert les bases techniques solides pour devenir développeuse et m’adapter aux nouvelles technologies du marché.',
+      "Mes études en économie à l'ASJA m'ont permis d'acquérir une compréhension approfondie des principes économiques et des marchés, me préparant ainsi à une carrière réussie dans la finance ou la gestion.",
     image: RAJEMISON,
   },
 ];
@@ -126,7 +126,7 @@ export const TestimonySection = () => {
   return (
     <section
       id="temoignages"
-      className="bg-gray-50 dark:bg-zinc-900 py-20 sm:py-28"
+      className="bg-gray-50 dark:bg-zinc-900 py-20 sm:py-28 transition-all duration-500"
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -139,7 +139,7 @@ export const TestimonySection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-green-700 dark:text-green-500">
             Témoignages
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-all duration-500">
             Découvrez les parcours inspirants et les réussites de nos diplômés.
           </p>
         </motion.div>
@@ -156,27 +156,27 @@ export const TestimonySection = () => {
                 className="pl-4 md:basis-1/2 lg:basis-1/3"
               >
                 <div className="h-full p-1">
-                  <Card className="flex flex-col h-full bg-white dark:bg-zinc-800 shadow-lg rounded-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                  <Card className="flex flex-col h-full bg-white dark:bg-zinc-800 shadow-lg rounded-xl overflow-hidden transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
                     <CardContent className="p-8 flex flex-col items-center text-center flex-grow">
                       <img
-                        className="rounded-full w-32 h-32 object-cover border-4 border-white dark:border-zinc-700 shadow-md mb-5"
+                        className="rounded-full w-32 h-32 object-cover border-4 border-white dark:border-zinc-700 shadow-md mb-5 transition-all duration-500"
                         src={temoin.image}
                         alt={`Photo de ${temoin.name}`}
                         width={128}
                         height={128}
                       />
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white transition-all duration-500">
                         {temoin.name}
                       </h3>
-                      <p className="text-sm font-medium text-green-600 dark:text-green-400 mb-4">
+                      <p className="text-sm font-medium text-green-600 dark:text-green-400 mb-4 transition-all duration-500">
                         {temoin.status}
                       </p>
-                      <blockquote className="text-gray-600 dark:text-gray-300 text-base leading-relaxed flex-grow italic">
-                        <span className="text-4xl text-gray-300 dark:text-gray-600 leading-none mr-1">
+                      <blockquote className="text-gray-600 dark:text-gray-300 text-base leading-relaxed flex-grow italic transition-all duration-500">
+                        <span className="text-4xl text-gray-300 dark:text-gray-600 leading-none mr-1 transition-all duration-500">
                           “
                         </span>
                         {temoin.description}
-                        <span className="text-4xl text-gray-300 dark:text-gray-600 leading-none ml-1">
+                        <span className="text-4xl text-gray-300 dark:text-gray-600 leading-none ml-1 transition-all duration-500">
                           ”
                         </span>
                       </blockquote>
@@ -198,7 +198,7 @@ export const TestimonySection = () => {
               className={`h-2 rounded-full transition-all duration-300 ${
                 index === current
                   ? 'w-6 bg-green-600'
-                  : 'w-2 bg-gray-300 dark:bg-zinc-600'
+                  : 'w-2 bg-gray-300 dark:bg-zinc-600 transition-all duration-500'
               }`}
               aria-label={`Aller au témoignage ${index + 1}`}
             />

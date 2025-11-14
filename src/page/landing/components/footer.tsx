@@ -1,6 +1,6 @@
 import Logo from '@/assets/Logo/asja-logo.png';
-import { Facebook, Mail, MapPin, Phone } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
+import { Facebook, Mail, MapPin, Phone } from 'lucide-react';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import { Link } from 'react-scroll';
 
@@ -31,8 +31,10 @@ const InfoItem = ({
   href?: string;
 }) => {
   const content = (
-    <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-500 transition-colors">
-      <span className="text-green-700 dark:text-green-500">{icon}</span>
+    <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-500 transition-all duration-500">
+      <span className="text-green-700 dark:text-green-500 transition-all duration-500">
+        {icon}
+      </span>
       <span>{text}</span>
     </div>
   );
@@ -46,14 +48,20 @@ const InfoItem = ({
   );
 };
 
-const QuickLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
+const QuickLink = ({
+  to,
+  children,
+}: {
+  to: string;
+  children: React.ReactNode;
+}) => (
   <Link
     to={to}
     spy={true}
     smooth={true}
     offset={-80}
     duration={500}
-    className="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-500 transition-colors"
+    className="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-500 transition-all duration-500"
   >
     {children}
   </Link>
@@ -63,26 +71,24 @@ export const Footer = () => {
   return (
     <footer
       id="contact"
-      className="bg-gray-100 dark:bg-zinc-900 text-gray-800 dark:text-white border-t-2 border-gray-200 dark:border-zinc-800"
+      className="bg-gray-100 dark:bg-zinc-900 text-gray-800 dark:text-white border-t-2 border-gray-200 dark:border-zinc-800 transition-all duration-500"
     >
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Branding Section */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <img
               className="h-24 w-24 mb-4"
               src={Logo}
               alt="Logo de l'université ASJA"
             />
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white transition-all duration-500">
               Université ASJA
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 mt-2">
+            <p className="text-gray-500 dark:text-gray-400 mt-2 transition-all duration-500">
               Formation d'excellence pour un avenir brillant.
             </p>
           </div>
 
-          {/* Quick Links Section */}
           <FooterSection title="Liens Rapides">
             <QuickLink to="mission">Notre Mission</QuickLink>
             <QuickLink to="filiere">Nos Filières</QuickLink>
@@ -90,7 +96,6 @@ export const Footer = () => {
             <QuickLink to="temoignages">Témoignages</QuickLink>
           </FooterSection>
 
-          {/* Contact Info Section */}
           <FooterSection title="Contactez-nous">
             <InfoItem icon={<Phone size={20} />} text="034 49 483 19" />
             <InfoItem
@@ -109,7 +114,6 @@ export const Footer = () => {
             />
           </FooterSection>
 
-          {/* Map Section */}
           <div className="w-full h-64 md:h-full rounded-2xl overflow-hidden shadow-lg">
             <MapContainer
               className="w-full h-full z-10"
@@ -129,10 +133,11 @@ export const Footer = () => {
         </div>
       </div>
 
-      {/* Sub-Footer */}
-      <div className="bg-gray-200 dark:bg-zinc-800 py-4">
-        <div className="container mx-auto px-4 text-center text-sm text-gray-500 dark:text-gray-400">
-          <p>© {new Date().getFullYear()} Université ASJA. Tous droits réservés.</p>
+      <div className="bg-gray-200 dark:bg-zinc-800 py-4  transition-all duration-500">
+        <div className="container mx-auto px-4 text-center text-sm text-gray-500 dark:text-gray-400  transition-all duration-500">
+          <p>
+            © {new Date().getFullYear()} Université ASJA. Tous droits réservés.
+          </p>
         </div>
       </div>
     </footer>
