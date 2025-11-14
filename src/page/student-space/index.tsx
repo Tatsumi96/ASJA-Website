@@ -4,27 +4,61 @@ import { DocDataTable } from './components/doc-list';
 import { NavBar } from './components/nav-bar';
 import { PostList } from './components/post-list';
 import { StudentInformation } from './components/student-information';
+import { ThemeProvider } from '../theme/useThemeProvider';
+import { AnimatePresence, motion } from 'framer-motion';
 
-export const StudentSpacePage = () => {
+const pageVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 },
+};
+
+const StudentSpaceContent = () => {
   const [index, setIndex] = useState<number>(0);
-  const page: JSX.Element[] = [
+  const pages: JSX.Element[] = [
     <PostList />,
     <DocDataTable />,
     <StudentInformation />,
   ];
+
   return (
-    <StudentPortalProvider>
-      <div className=" bg-white h-screen pt-[130px]  px-1 lg:px-5 gap-3 overflow-x-hidden dark:bg-zinc-900 transition-all duration-500 flex">
-        <NavBar callBack={setIndex} index={index} />
-        <section className="md:flex hidden w-full ">
+    <div className="h-screen w-full overflow-hidden bg-white dark:bg-zinc-900 text-gray-800 dark:text-white">
+      <NavBar callBack={setIndex} index={index} />
+      <main className="h-full w-full pt-24 pb-24 md:pb-8 px-4">
+        {/* Desktop Layout */}
+        <section className="hidden md:grid md:grid-cols-[1fr_1.5fr_1fr] h-full w-full gap-6">
           <StudentInformation />
           <PostList />
           <DocDataTable />
         </section>
-        <section className="md:hidden flex justify-center  w-full">
-          {page[index]}
+
+        {/* Mobile Layout */}
+        <section className="md:hidden h-full w-full">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="h-full w-full"
+            >
+              {pages[index]}
+            </motion.div>
+          </AnimatePresence>
         </section>
-      </div>
+      </main>
+    </div>
+  );
+};
+
+export const StudentSpacePage = () => {
+  return (
+    <StudentPortalProvider>
+      <ThemeProvider>
+        <StudentSpaceContent />
+      </ThemeProvider>
     </StudentPortalProvider>
   );
 };

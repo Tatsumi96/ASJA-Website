@@ -1,74 +1,76 @@
 import { Card } from '@/components/ui/card';
-
-import Badge from '@mui/material/Badge';
-import { MdPerson } from 'react-icons/md';
+import { motion } from 'framer-motion';
+import { CheckCircle, XCircle } from 'lucide-react';
 import { useStudentPortalContext } from '../bloc/useStudentSpaceContext';
+import { StudentInfoSkeleton } from './student-info-skeleton';
+
+const PaymentBadge = ({ paid }: { paid: boolean }) => (
+  <div
+    className={`flex items-center justify-center size-10 rounded-full text-white shadow-lg ${
+      paid ? 'bg-green-500' : 'bg-red-500'
+    }`}
+  >
+    {paid ? <CheckCircle size={24} /> : <XCircle size={24} />}
+  </div>
+);
 
 export const StudentInformation = () => {
-  const { userData } = useStudentPortalContext();
+  const { userData, isLoading } = useStudentPortalContext();
+
+  if (isLoading) {
+    return <StudentInfoSkeleton />;
+  }
 
   return (
-    <div className="flex flex-col md:w-1/2 w-full">
-      <Card className="transition-all duration-500 border-0 shadow-none h-full  bg-transparent md:justify-between">
-        <div className=" p-[10px] pt-[25px]  dark:shadow-gray-950 rounded-3xl flex flex-col gap-5">
-          <section className=" flex flex-col items-center justify-center">
-            {userData?.imageUrl ? (
-              <div className="rounded-full border-5 border-green-700 p-1 ">
-                <img
-                  src={userData?.imageUrl}
-                  alt="Photo de profil"
-                  className="rounded-full size-50  object-cover "
-                />
-              </div>
-            ) : (
-              <div className="rounded-full bg-gradient-to-br from-zinc-400 to-zinc-500 flex items-center justify-center text-white font-semibold">
-                <MdPerson className=" size-50 p-2 " />
-              </div>
-            )}
-          </section>
-          <section className="flex flex-col justify-center w-full  items-center gap-1 font-semibold  ">
-            <p className="text-xl">
-              {userData?.name + ' ' + userData?.lastName}
-            </p>
-            <div className="flex w-full justify-center gap-3 pb-4 md:py-4 md:px-8 mt-5">
-              <Badge
-                className={`${
-                  userData?.Premier ? 'bg-green-600' : 'bg-red-600'
-                } text-white rounded-full  px-4 py-2 flex justify-center`}
-              >
-                1
-              </Badge>
-              <Badge
-                className={`${
-                  userData?.Deuxieme ? 'bg-green-600' : 'bg-red-600'
-                } text-white  rounded-full px-4 py-2 flex justify-center`}
-              >
-                2
-              </Badge>
-              <Badge
-                className={`${
-                  userData?.Troisieme ? 'bg-green-600' : 'bg-red-600'
-                } text-white  rounded-full px-4 py-2 flex justify-center`}
-              >
-                3
-              </Badge>
+    <div className="w-full h-full">
+      <Card className="transition-all duration-500 border-0 shadow-none h-full bg-white/10 dark:bg-black/20 backdrop-blur-lg rounded-2xl">
+        <div className="p-6 flex flex-col gap-6 text-white">
+          <motion.section
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="flex flex-col items-center justify-center"
+          >
+            <div className="relative">
+              <img
+                src={userData?.imageUrl}
+                alt="Photo de profil"
+                className="rounded-full size-48 object-cover border-4 border-green-500 shadow-lg"
+              />
             </div>
-            <p>
-              Mention :{' '}
-              <span className="font-normal"> {userData?.mention}</span>{' '}
-            </p>
-            <p>
-              Branche:{' '}
-              <span className="font-normal"> {userData?.branche}</span>{' '}
-            </p>
-            <p>
-              Niveau: <span className="font-normal"> {userData?.level}</span>
-            </p>
-            <p>
-              Matricule:
-              <span className="font-normal"> {userData?.identifier}</span>{' '}
-            </p>
-          </section>
+          </motion.section>
+          <motion.section
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
+            className="flex flex-col justify-center w-full items-center gap-2"
+          >
+            <h2 className="text-2xl font-bold drop-shadow-lg">
+              {userData?.name} {userData?.lastName}
+            </h2>
+            <div className="flex w-full justify-center gap-4 py-4 mt-4">
+              <PaymentBadge paid={userData?.Premier ?? false} />
+              <PaymentBadge paid={userData?.Deuxieme ?? false} />
+              <PaymentBadge paid={userData?.Troisieme ?? false} />
+            </div>
+            <div className="text-center text-gray-200 space-y-1">
+              <p>
+                <span className="font-semibold">Mention :</span>{' '}
+                {userData?.mention}
+              </p>
+              <p>
+                <span className="font-semibold">Branche :</span>{' '}
+                {userData?.branche}
+              </p>
+              <p>
+                <span className="font-semibold">Niveau :</span> {userData?.level}
+              </p>
+              <p>
+                <span className="font-semibold">Matricule :</span>{' '}
+                {userData?.identifier}
+              </p>
+            </div>
+          </motion.section>
         </div>
       </Card>
     </div>

@@ -11,6 +11,7 @@ export const useStudentSpace = () => {
   const [limit, setLimit] = useState<number>(4);
   const [hasReachedMax, setHasReachedMax] = useState<boolean>(false);
   const [userData, setUserData] = useState<UserDto>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const [postPage, setPostPage] = useState<number>(1);
   const [post, setPostList] = useState<PostDto[]>([]);
@@ -71,8 +72,10 @@ export const useStudentSpace = () => {
 
   useEffect(() => {
     const callFetchUserData = async () => {
+      setIsLoading(true);
       await fetchUserData();
       await fetchPostList();
+      setIsLoading(false);
     };
 
     callFetchUserData();
@@ -88,5 +91,6 @@ export const useStudentSpace = () => {
     post,
     fetchPostList,
     logOut,
+    isLoading,
   };
 };
