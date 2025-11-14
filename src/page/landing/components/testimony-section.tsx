@@ -126,7 +126,7 @@ export const TestimonySection = () => {
   return (
     <section
       id="temoignages"
-      className="bg-gray-50 dark:bg-zinc-900 py-20 sm:py-28"
+      className="bg-gray-50 dark:bg-zinc-900 py-20 sm:py-28 transition-all duration-500"
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -139,7 +139,7 @@ export const TestimonySection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-green-700 dark:text-green-500">
             Témoignages
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-all duration-500">
             Découvrez les parcours inspirants et les réussites de nos diplômés.
           </p>
         </motion.div>
@@ -156,27 +156,27 @@ export const TestimonySection = () => {
                 className="pl-4 md:basis-1/2 lg:basis-1/3"
               >
                 <div className="h-full p-1">
-                  <Card className="flex flex-col h-full bg-white dark:bg-zinc-800 shadow-lg rounded-xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                  <Card className="flex flex-col h-full bg-white dark:bg-zinc-800 shadow-lg rounded-xl overflow-hidden transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
                     <CardContent className="p-8 flex flex-col items-center text-center flex-grow">
                       <img
-                        className="rounded-full w-32 h-32 object-cover border-4 border-white dark:border-zinc-700 shadow-md mb-5"
+                        className="rounded-full w-32 h-32 object-cover border-4 border-white dark:border-zinc-700 shadow-md mb-5 transition-all duration-500"
                         src={temoin.image}
                         alt={`Photo de ${temoin.name}`}
                         width={128}
                         height={128}
                       />
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white transition-all duration-500">
                         {temoin.name}
                       </h3>
-                      <p className="text-sm font-medium text-green-600 dark:text-green-400 mb-4">
+                      <p className="text-sm font-medium text-green-600 dark:text-green-400 mb-4 transition-all duration-500">
                         {temoin.status}
                       </p>
-                      <blockquote className="text-gray-600 dark:text-gray-300 text-base leading-relaxed flex-grow italic">
-                        <span className="text-4xl text-gray-300 dark:text-gray-600 leading-none mr-1">
+                      <blockquote className="text-gray-600 dark:text-gray-300 text-base leading-relaxed flex-grow italic transition-all duration-500">
+                        <span className="text-4xl text-gray-300 dark:text-gray-600 leading-none mr-1 transition-all duration-500">
                           “
                         </span>
                         {temoin.description}
-                        <span className="text-4xl text-gray-300 dark:text-gray-600 leading-none ml-1">
+                        <span className="text-4xl text-gray-300 dark:text-gray-600 leading-none ml-1 transition-all duration-500">
                           ”
                         </span>
                       </blockquote>
@@ -198,7 +198,7 @@ export const TestimonySection = () => {
               className={`h-2 rounded-full transition-all duration-300 ${
                 index === current
                   ? 'w-6 bg-green-600'
-                  : 'w-2 bg-gray-300 dark:bg-zinc-600'
+                  : 'w-2 bg-gray-300 dark:bg-zinc-600 transition-all duration-500'
               }`}
               aria-label={`Aller au témoignage ${index + 1}`}
             />
