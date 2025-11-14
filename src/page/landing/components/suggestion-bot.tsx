@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface PromptSuggestionsProps {
   onSelect: (text: string) => void;
@@ -6,9 +6,9 @@ interface PromptSuggestionsProps {
 
 const PromptSuggestions: React.FC<PromptSuggestionsProps> = ({ onSelect }) => {
   const suggestions: string[] = [
-    'Quels sont les frais de scolarité ?',
+    "Quels sont les frais de scolarité ?",
     "Quels documents faut-il pour l'inscription ?",
-    'Comment contacter le service de la scolarité ?',
+    "Comment contacter le service de la scolarité ?",
   ];
 
   return (

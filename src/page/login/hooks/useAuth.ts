@@ -7,23 +7,29 @@ export const useAuth = () => {
   const [matricule, setMatricule] = useState<number>();
   const [password, setPassword] = useState<string>('');
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const { translate } = useLangue();
 
   const logIn = async (navigate: (path: string) => void) => {
+    setIsLoading(true);
     const result = await authRepository.logIn({
       identifier: matricule as number,
       password,
       role: isAdmin ? 'Admin' : 'Student',
     });
-    if (result.status == 'failure')
-      return toast.error(translate('loginPage.erreur'), {
+    if (result.status == 'failure') {
+      toast.error(translate('loginPage.erreur'), {
         description: translate('loginPage.erreurMessage'),
       });
+      setIsLoading(false);
+      return;
+    }
     navigate(isAdmin ? '/admin ' : '/student-space');
+    setIsLoading(false);
   };
 
   const toggleIsAdmin = () => setIsAdmin((value) => !value);
 
-  return { setMatricule, setPassword, logIn, toggleIsAdmin, isAdmin };
+  return { setMatricule, setPassword, logIn, toggleIsAdmin, isAdmin, isLoading };
 };

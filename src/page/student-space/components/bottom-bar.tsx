@@ -1,5 +1,12 @@
 import { type Dispatch, type SetStateAction } from 'react';
-import { MdFileDownload, MdHome, MdPerson } from 'react-icons/md';
+import { LayoutGrid, FileText, CircleUserRound } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const navItems = [
+  { icon: LayoutGrid, label: 'Accueil' },
+  { icon: FileText, label: 'Documents' },
+  { icon: CircleUserRound, label: 'Profil' },
+];
 
 export const BottomBar = ({
   callBack,
@@ -9,55 +16,30 @@ export const BottomBar = ({
   index: number;
 }) => {
   return (
-    <div
-      className={`md:hidden flex h-full dark:bg-zinc-900 bg-white transition-all duration-500  justify-between items-center relative z-150`}
-    >
-      <div
-        className="absolute bg-green-700 rounded-2xl  transition-all duration-300 ease-in-out"
-        style={{
-          width: '56px',
-          height: '3px',
-          left: `calc(33.333% * ${index} + 16.666% - 28px)`,
-          top: '100%',
-          transform: 'translateY(-50%)',
-        }}
-      />
-
-      <button
-        onClick={() => callBack(0)}
-        className="relative rounded-full z-10 flex-1 flex justify-center"
-      >
-        <div className="p-3">
-          <MdHome
-            className={`
-              'text-green-700 dark:text-white text-green-700 text-2xl transition-colors duration-300 relative z-20`}
-          />
-        </div>
-      </button>
-
-      <button
-        onClick={() => callBack(1)}
-        className="relative rounded-full z-10 flex-1 flex justify-center"
-      >
-        <div className="p-3">
-          <MdFileDownload
-            className={`
-              'text-green-700 dark:text-white text-green-700 text-2xl transition-colors duration-300 relative z-20`}
-          />
-        </div>
-      </button>
-
-      <button
-        onClick={() => callBack(2)}
-        className="relative rounded-full z-10 flex-1 flex justify-center"
-      >
-        <div className="p-3">
-          <MdPerson
-            className={`
-              'text-green-700 dark:text-white text-green-700 text-2xl transition-colors duration-300 relative z-20`}
-          />
-        </div>
-      </button>
+    <div className="md:hidden flex w-full justify-center mt-2">
+      <div className="flex h-16 w-full max-w-xs items-center justify-around relative bg-white/10 dark:bg-black/20 backdrop-blur-lg rounded-full shadow-lg border border-white/10">
+        {navItems.map((item, i) => (
+          <button
+            key={i}
+            onClick={() => callBack(i)}
+            className="relative rounded-full z-10 flex-1 flex justify-center items-center h-full focus:outline-none"
+            aria-label={item.label}
+          >
+            <item.icon
+              className={`size-6 transition-colors duration-300 ${
+                index === i ? 'text-white' : 'text-gray-300'
+              }`}
+            />
+            {index === i && (
+              <motion.div
+                className="absolute inset-2 bg-green-700/60 rounded-full z-[-1]"
+                layoutId="active-pill"
+                transition={{ duration: 0.6, type: 'spring', bounce: 0.25 }}
+              />
+            )}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

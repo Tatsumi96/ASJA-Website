@@ -8,48 +8,74 @@ type Pedag = {
   description: string;
 };
 
+const pedagData: Pedag[] = [
+  {
+    pourcentage: 45,
+    title: 'Cours théoriques',
+    description:
+      'Acquisition des bases scientifiques et conceptuelles solide de chaque filière.',
+  },
+  {
+    pourcentage: 10,
+    title: 'Travaux pratiques',
+    description: 'Mise en application concrète des notions vues en cours.',
+  },
+  {
+    pourcentage: 15,
+    title: 'Stages et projets',
+    description:
+      'Immersion dans le monde du travail, projets de terrain et étude de cas réels.',
+  },
+  {
+    pourcentage: 10,
+    title: 'Evaluation continue',
+    description:
+      'Devoirs, présentations, mini-projets et contrôles réguliers.',
+  },
+  {
+    pourcentage: 15,
+    title: 'Ouverture et recherche',
+    description:
+      'Activités de recherche, innovations, conférences, et collaborations externes.',
+  },
+  {
+    pourcentage: 5,
+    title: 'Développement personnel',
+    description:
+      'Formation humaine, éthique et sociale selon les valeurs Déhoniennes.',
+  },
+];
+
+const PedagCard = ({
+  item,
+  index,
+  percentage,
+}: { item: Pedag; index: number; percentage: number }) => (
+  <motion.div
+    initial={{ y: 50, opacity: 0 }}
+    whileInView={{ y: 0, opacity: 1 }}
+    transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+    viewport={{ once: true }}
+    className="bg-white dark:bg-zinc-800 p-8 rounded-2xl shadow-lg text-center h-full transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+  >
+    <h3 className="text-5xl font-bold text-green-700 dark:text-green-500 pb-4">
+      {percentage}%
+    </h3>
+    <h3 className="text-2xl font-bold text-gray-800 dark:text-white pb-2">
+      {item.title}
+    </h3>
+    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+      {item.description}
+    </p>
+  </motion.div>
+);
+
 export const SystemePedagogiqueSection = () => {
-  const [percentages, setPercentages] = useState<number[]>([0, 0, 0, 0, 0, 0]);
+  const [percentages, setPercentages] = useState<number[]>(
+    new Array(pedagData.length).fill(0)
+  );
   const [hasAnimated, setHasAnimated] = useState<boolean>(false);
   const animationRef = useRef<boolean>(false);
-
-  const pedag: Pedag[] = [
-    {
-      pourcentage: 40,
-      title: 'Cours théoriques',
-      description:
-        'Acquisition des bases scientifiques et conceptuelles solide de chaque filière.',
-    },
-    {
-      pourcentage: 25,
-      title: 'Travaux pratiques et laboratoires',
-      description: 'Mise en application concrète des notions vues en cours.',
-    },
-    {
-      pourcentage: 15,
-      title: 'Stages et projets professionnels',
-      description:
-        'Immersion dans le monde du travail, projets de terrain et étude de cas réels.',
-    },
-    {
-      pourcentage: 10,
-      title: 'Evaluation continue',
-      description:
-        'Devoirs, présentations, mini-projets et contrôles réguliers.',
-    },
-    {
-      pourcentage: 5,
-      title: 'Ouverture et recherche',
-      description:
-        'Activités de recherche, innovations, conférences, et collaborations externes.',
-    },
-    {
-      pourcentage: 5,
-      title: 'Développement personnel & valeurs',
-      description:
-        'Formation humaine, éthique et sociale selon les valeurs Déhoniennes.',
-    },
-  ];
 
   const startCounterAnimation = () => {
     if (animationRef.current) return;
@@ -61,7 +87,7 @@ export const SystemePedagogiqueSection = () => {
 
     const timers: number[] = [];
 
-    pedag.forEach((item, index) => {
+    pedagData.forEach((item, index) => {
       let currentStep = 0;
       const targetValue = item.pourcentage;
       const stepSize = targetValue / steps;
@@ -81,7 +107,7 @@ export const SystemePedagogiqueSection = () => {
 
         if (currentStep >= steps) {
           window.clearInterval(timer);
-          if (index === pedag.length - 1) {
+          if (index === pedagData.length - 1) {
             setHasAnimated(true);
           }
         }
@@ -111,48 +137,36 @@ export const SystemePedagogiqueSection = () => {
     <div
       ref={observerRef}
       id="systeme"
-      className="bg-gradient-to-br w-full pb-15 from-white lg:from-gray-300/50 from-50% to-33% to-white dark:from-zinc-800 dark:lg:from-zinc-900 dark:to-zinc-800 dark:text-white transition-all duration-500"
+      className="py-16 md:py-24 bg-gray-50 dark:bg-zinc-900 transition-all duration-500"
     >
-      <motion.div
-        initial={{ y: 100, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ amount: 0.2, once: true }}
-        className="w-full"
-      >
-        <h1 className="flex justify-center items-center pt-15 pb-5 text-3xl font-bold text-green-700 dark:text-white lg:text-5xl transition-all duration-500">
-          SYSTEME PEDAGOGIQUE
-        </h1>
-      </motion.div>
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ y: -50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          viewport={{ amount: 0.2, once: true }}
+          className="text-center mb-12 md:mb-16"
+        >
+          <h1 className="text-green-700 dark:text-green-500 font-bold text-4xl md:text-5xl transition-all duration-500">
+            SYSTÈME PÉDAGOGIQUE
+          </h1>
+          <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 max-w-3xl mx-auto transition-all duration-500">
+            Une approche équilibrée pour une formation complète, alliant théorie
+            solide et pratique immersive.
+          </p>
+        </motion.div>
 
-      <motion.div
-        initial={{ y: 100, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-        viewport={{ amount: 0.1, once: true }}
-        className="flex lg:flex-row flex-col gap-20 items-center justify-center flex-wrap md:p-5 lg:gap-20 text-center"
-      >
-        {pedag.map((item, index) => (
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="flex flex-col justify-center items-center w-full px-5 lg:w-1/3"
-            key={index}
-          >
-            <h3 className="text-5xl font-bold text-green-700 pb-5">
-              {percentages[index]}%
-            </h3>
-            <h3 className="text-3xl font-bold text-gray-700 dark:text-white pb-2 transition-all duration-500">
-              {item.title}
-            </h3>
-            <p className="text-center text-gray-600 dark:text-gray-300 leading-relaxed transition-all duration-500">
-              {item.description}
-            </p>
-          </motion.div>
-        ))}
-      </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {pedagData.map((item, index) => (
+            <PedagCard
+              key={index}
+              item={item}
+              index={index}
+              percentage={percentages[index]}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

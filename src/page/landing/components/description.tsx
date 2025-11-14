@@ -1,65 +1,68 @@
-import { motion } from "framer-motion";
-import backgroundImage from "@/assets/Lieu_espace/Asja_devant2.jpg";
-import { useLangue } from "@/page/lang/useLang";
+import backgroundImage from '@/assets/Lieu_espace/Asja-devant-quality-2.jpg';
+import { Button } from '@/components/ui/button';
+import { useThemeContext } from '@/page/theme/useThemeContext';
+import { motion } from 'framer-motion';
+import { ArrowDown } from 'lucide-react';
+
+import asjaDark from '@/assets/Asja-dark-quality.jpg';
 
 export const Description = () => {
-  const { translate } = useLangue();
+  const scrollToFiliere = () => {
+    const filiereSection = document.getElementById('filiere');
+    if (filiereSection) {
+      filiereSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  const { isDark } = useThemeContext();
 
   return (
     <section
       id="description"
-      className="flex flex-col lg:flex-row bg-white dark:bg-zinc-900 transition-all duration-500 lg:h-screen w-full"
+      className="relative h-screen w-full flex items-center justify-center text-white"
     >
-      <div className=" md:flex-col lg:hidden md:pt-0 pt-18 fixed -z-10">
+      <div className="absolute inset-0 w-full h-full -z-20">
         <img
-          className="h-100 md:h-full w-max object-cover "
-          src={backgroundImage}
-          alt=""
+          src={isDark ? asjaDark : backgroundImage}
+          alt="Façade de l'entrée principale de l'université ASJA"
+          className="w-full h-full object-cover"
         />
       </div>
-      <div className=" hidden lg:flex flex-col justify-center py-10 px-5 lg:w-1/2   relative top-80 lg:top-0">
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ amount: 0.2, once: true }}
+      <div className="absolute inset-0 bg-black/60 dark:bg-black/70 -z-10"></div>
+
+      <div className="container mx-auto px-4 text-center">
+        <motion.h1
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-lg"
         >
-          <h1 className="text-4xl lg:px-5 dark:text-amber-100 lg:text-6xl transition-all duration-500 text-green-700 font-semibold">
-            Athénée Saint Joseph Antsirabe
-          </h1>
-          <p className="lg:text-lg transition-all duration-500 text-xl lg:p-5">
-            L’Athénée Saint Joseph Antsirabe est une université Catholique
-            ouverte à tous les étudiants du pays entier et même les étrangers
-            qui souhaitent bénéficier d’une formation d’excellence pour leurs
-            études supérieures.
-          </p>
-          <div className="flex lg:justify-start justify-center items-center pt-10 lg:px-5">
-            <button className="bg-green-800 hover:bg-green-900 cursor-pointer hover:scale-105 duration-300 rounded-full">
-              <a
-                href="/"
-                className="text-white font-bold lg:text-lg text-sm flex gap-3 justify-center items-center md:px-6 md:py-3 py-2 px-4"
-              >
-                {translate("descriptionSection.ensavoirplus")} ➞{" "}
-              </a>
-            </button>
-          </div>
+          Athénée Saint Joseph Antsirabe
+        </motion.h1>
+        <motion.p
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-200 drop-shadow-md"
+        >
+          Une université catholique ouverte à tous, offrant une formation
+          d'excellence pour un avenir brillant.
+        </motion.p>
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+          className="mt-10"
+        >
+          <Button
+            onClick={scrollToFiliere}
+            size="lg"
+            className="bg-green-700 hover:bg-green-800 dark:bg-green-600 dark:hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Découvrir nos formations
+            <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
+          </Button>
         </motion.div>
       </div>
-      <motion.div
-        initial={{ x: 100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ amount: 0.2, once: true }}
-        className="flex w-1/2 justify-end"
-      >
-        <div className="lg:flex md:flex-col justify-center hidden items-center pl-10 w-full bg-gray-200 transition-all duration-500 dark:bg-zinc-800 rounded-l-full">
-          <img
-            className="h-full w-max rounded-l-full object-cover "
-            src={backgroundImage}
-            alt=""
-          />
-        </div>
-      </motion.div>
     </section>
   );
 };
