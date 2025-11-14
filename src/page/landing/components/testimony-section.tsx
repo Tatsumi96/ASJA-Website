@@ -52,16 +52,16 @@ const temoignages: Temoin[] = [
   },
   {
     name: 'Bouchet Michou Diana',
-    status: 'Experte en Marketing Digital',
+    status: 'Étudiante en Science de la Terre',
     description:
-      'Grâce à l’ASJA, j’ai acquis une solide compréhension du marketing digital. Les projets concrets et les intervenants professionnels m’ont préparée à relever les défis du secteur et à innover.',
+      "Mes études à l'ASJA m'ont permis d'explorer ma passion pour les sciences de la terre. Les cours pratiques et les sorties sur le terrain ont enrichi ma compréhension des enjeux environnementaux et géologiques.",
     image: Michou,
   },
   {
     name: 'Dadare Raoul',
-    status: 'Entrepreneur Tech',
+    status: 'Étudiant en Langue Étrangère Appliquée',
     description:
-      'Formation excellente qui m’a permis de lancer ma propre startup tech. Les compétences acquises à ASJA sont directement applicables dans le monde professionnel et m’ont donné la confiance nécessaire pour entreprendre.',
+      "Ma formation en Langue Étrangère Appliquée à l'ASJA m'a ouvert les portes du monde professionnel international. J'ai développé des compétences linguistiques et interculturelles essentielles pour ma carrière.",
     image: Raoul,
   },
   {
@@ -73,30 +73,30 @@ const temoignages: Temoin[] = [
   },
   {
     name: 'Aina Arthur',
-    status: 'Juriste d’Affaires',
+    status: 'Sortant en Droit Processuel',
     description:
       "L'ASJA m'a aidé à trouver mon parcours professionnel. Les cours de droit des affaires ont été particulièrement pertinents et m'ont permis de me perfectionner et de prendre confiance en mes capacités.",
     image: ainaImage,
   },
   {
     name: 'Mandimbiharison Miarotiana',
-    status: 'Développeuse Full-Stack',
+    status: 'Étudiant en Langue Étrangère Appliquée',
     description:
-      'Le cursus en informatique de l’ASJA est très complet. Il m’a offert les bases techniques solides pour devenir développeuse et m’adapter aux nouvelles technologies du marché.',
+      "Grâce à ma formation en Langue Étrangère Appliquée à l'ASJA, j'ai pu développer une expertise linguistique et une ouverture culturelle qui sont des atouts majeurs dans le monde globalisé d'aujourd'hui.",
     image: Miarotiana,
   },
   {
     name: 'RAJEMISON Steffy Jachia',
-    status: 'Développeuse Full-Stack',
+    status: 'Étudiante en Économie',
     description:
-      'Le cursus en informatique de l’ASJA est très complet. Il m’a offert les bases techniques solides pour devenir développeuse et m’adapter aux nouvelles technologies du marché.',
+      "Mon parcours en économie à l'ASJA m'a fourni une base solide pour comprendre les marchés financiers et les stratégies économiques. Je suis prête à relever les défis du monde des affaires.",
     image: steffy,
   },
   {
     name: 'RAJEMISON Suziah Jaida',
-    status: 'Développeuse Full-Stack',
+    status: 'Étudiante en Économie',
     description:
-      'Le cursus en informatique de l’ASJA est très complet. Il m’a offert les bases techniques solides pour devenir développeuse et m’adapter aux nouvelles technologies du marché.',
+      "Mes études en économie à l'ASJA m'ont permis d'acquérir une compréhension approfondie des principes économiques et des marchés, me préparant ainsi à une carrière réussie dans la finance ou la gestion.",
     image: RAJEMISON,
   },
 ];
