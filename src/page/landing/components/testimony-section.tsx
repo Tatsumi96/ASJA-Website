@@ -38,9 +38,9 @@ const temoignages: Temoin[] = [
   },
   {
     name: 'Randiambolasoa Andriatsilavo Falihery',
-    status: 'Génie Industriel',
+    status: 'Étudiant en Génie Industriel',
     description:
-      'La formation à ASJA m’a permis de découvrir ma passion pour la cybersécurité. Aujourd’hui, je travaille comme analyste sécurité dans une entreprise locale. Les cours pratiques m’ont énormément aidée à progresser rapidement.',
+      'La formation en Génie Industriel à l’ASJA a profondément transformé ma manière d’aborder les systèmes techniques et organisationnels. Grâce aux cours orientés vers la pratique, j’ai appris à analyser, optimiser et améliorer des processus industriels réels.',
     image: Falihery,
   },
   {
@@ -80,24 +80,24 @@ const temoignages: Temoin[] = [
   },
   {
     name: 'Mandimbiharison Miarotiana',
-    status: 'Étudiant en Langue Étrangère Appliquée',
+    status: 'Étudiant en Économie',
     description:
-      "Grâce à ma formation en Langue Étrangère Appliquée à l'ASJA, j'ai pu développer une expertise linguistique et une ouverture culturelle qui sont des atouts majeurs dans le monde globalisé d'aujourd'hui.",
+      "Mon parcours en Économie au sein de l’ASJA a été une expérience déterminante. En Master 2, j’ai pu approfondir des compétences essentielles comme l’analyse des politiques économiques, la gestion des ressources et l’étude des dynamiques de marché.",
     image: Miarotiana,
   },
   {
     name: 'RAJEMISON Steffy Jachia',
     status: 'Étudiante en Économie',
     description:
-      "Mon parcours en économie à l'ASJA m'a fourni une base solide pour comprendre les marchés financiers et les stratégies économiques. Je suis prête à relever les défis du monde des affaires.",
-    image: steffy,
+      "L’ASJA m’a offert un cadre stimulant qui a renforcé mon ambition. Je suis prête à relever les défis du monde des affaires.",
+    image: RAJEMISON,
   },
   {
     name: 'RAJEMISON Suziah Jaida',
     status: 'Étudiante en Économie',
     description:
       "Mes études en économie à l'ASJA m'ont permis d'acquérir une compréhension approfondie des principes économiques et des marchés, me préparant ainsi à une carrière réussie dans la finance ou la gestion.",
-    image: RAJEMISON,
+    image: steffy,
   },
 ];
 

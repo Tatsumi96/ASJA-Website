@@ -1,6 +1,5 @@
 import annivImage from '@/assets/Image-evenement/25ans.jpg';
 import dehonsImage from '@/assets/Image-evenement/Dehons_day/event-dehons_day.jpg';
-import gennrosso from '@/assets/Image-evenement/event-genrosso.jpg';
 import type { EventDto } from '@/features/strapi/event.dto';
 import { easeOut, motion } from 'framer-motion';
 import { useLandingContext } from '../bloc/useLandingContext';
@@ -73,13 +72,6 @@ export const CardEventSection = () => {
         "L'ASJA célèbre fièrement ses 25 ans ! Née en 2000, notre institution est restée un pilier de l'enseignement supérieur, évoluant sans cesse pour intégrer de nouvelles innovations. Cette longévité est le gage de notre fiabilité et la raison pour laquelle les étudiants continuent de nous accorder leur confiance.",
       imageUrl: annivImage,
       altText: '25ème anniversaire',
-    },
-    {
-      title: 'Département Suisse',
-      description:
-        "Le groupe italien Gen Rosso a livré un spectacle mémorable ! Une performance vibrante qui a transformé cet événement en un moment d'énergie et de partage inoubliable.",
-      imageUrl: gennrosso,
-      altText: 'Département suisse',
     },
   ];
 
