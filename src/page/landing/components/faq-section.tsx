@@ -137,10 +137,10 @@ export const FaqSection = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-green-700 dark:text-green-500">
+          <h2 className="text-4xl md:text-5xl font-bold text-green-700 dark:text-green-500 transition-all duration-500">
             Foire Aux Questions
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 transition-all duration-500">
             Trouvez les réponses aux questions les plus fréquemment posées.
           </p>
         </motion.div>
@@ -148,7 +148,7 @@ export const FaqSection = () => {
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
           <div className="md:w-1/3 lg:w-1/4">
             <div className="sticky top-24">
-              <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+              <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-all duration-500">
                 Catégories
               </h3>
               <div className="flex flex-col gap-2">
@@ -167,7 +167,7 @@ export const FaqSection = () => {
                       ${
                         activeCategory === cat
                           ? 'bg-green-600 text-white shadow-md'
-                          : 'bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-zinc-700'
+                          : 'bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-zinc-700 transition-all duration-500'
                       }
                     `}
                   >
@@ -194,7 +194,7 @@ export const FaqSection = () => {
                 />
               ))
             ) : (
-              <div className="flex flex-col items-center justify-center h-full text-center text-gray-500 dark:text-gray-400">
+              <div className="flex flex-col items-center justify-center h-full text-center text-gray-500 dark:text-gray-400 transition-all duration-500">
                 <HelpCircle size={48} className="mb-4" />
                 <p className="text-xl">
                   Aucune question disponible pour cette catégorie.
