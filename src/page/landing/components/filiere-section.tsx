@@ -1,42 +1,77 @@
-import Image2 from "@/assets/AGROLOGO.png";
-import Dark from "@/assets/AGROLOGODARK.png";
-import Image3 from "@/assets/DROITLOGO.png";
-import Dark3 from "@/assets/DROITLOGODARK.png";
-import Image6 from "@/assets/ECOLOGO.png";
-import Dark6 from "@/assets/ECOLOGODARK.png";
-import Image from "@/assets/INFOLOGO.png";
-import Dark2 from "@/assets/INFOLOGODARK.png";
-import Dark5 from "@/assets/LCLOGODARK.png";
-import Image5 from "@/assets/LEALOGO.png";
-import Image4 from "@/assets/STLOGO.png";
-import Dark4 from "@/assets/STLOGODARK.png";
+import Image2 from '@/assets/AGROLOGO-quality.png';
+import Dark from '@/assets/AGROLOGODARK-quality.png';
+import Image3 from '@/assets/DROITLOGO-quality.png';
+import Dark3 from '@/assets/DROITLOGODARK.png';
+import Image6 from '@/assets/ECOLOGO-quality.png';
+import Dark6 from '@/assets/ECOLOGODARK-quality.png';
+import Image from '@/assets/INFOLOGO-quality.png';
+import Dark2 from '@/assets/INFOLOGODARK.png';
+import Dark5 from '@/assets/LCLOGODARK-quality.png';
+import Image5 from '@/assets/LEALOGO.png';
+import Image4 from '@/assets/STLOGO-quality.png';
+import Dark4 from '@/assets/STLOGODARK-quality.png';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { useLangue } from "@/page/lang/useLang";
-import { useThemeContext } from "@/page/theme/useThemeContext";
-import { motion } from "framer-motion";
-import { useState } from "react";
+} from '@/components/ui/carousel';
+import { useThemeContext } from '@/page/theme/useThemeContext';
+import Autoplay from 'embla-carousel-autoplay';
+import { motion } from 'framer-motion';
+import { useCallback, useEffect, useState } from 'react';
 
 interface ItemProps {
   mention: string;
   image: string;
-  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  darkImage: string;
+  link: string;
 }
 
-const Item: React.FC<ItemProps> = ({ mention, image, onClick }) => {
+const filieres: ItemProps[] = [
+  {
+    mention: 'SCIENCES AGRONOMIQUES',
+    image: Image2,
+    darkImage: Dark,
+    link: '/mention/agronomie',
+  },
+  {
+    mention: 'INFORMATIQUE',
+    image: Image,
+    darkImage: Dark2,
+    link: '/mention/informatique',
+  },
+  { mention: 'DROIT', image: Image3, darkImage: Dark3, link: '/mention/droit' },
+  {
+    mention: 'SCIENCES DE LA TERRE',
+    image: Image4,
+    darkImage: Dark4,
+    link: '/mention/science-de-la-terre',
+  },
+  {
+    mention: 'LANGUES ETRANGERES APPLIQUEES',
+    image: Image5,
+    darkImage: Dark5,
+    link: '/mention/langue-etrangere-applique',
+  },
+  {
+    mention: 'ECONOMIE ET COMMERCE',
+    image: Image6,
+    darkImage: Dark6,
+    link: '/mention/economie',
+  },
+];
+
+const ItemCard: React.FC<Omit<ItemProps, 'link'> & { isDark: boolean }> = ({
+  mention,
+  image,
+  darkImage,
+  isDark,
+}) => {
   return (
-    <div
-      onClick={onClick}
-      className="md:hover:scale-105 m-10 lg:m-0 md:m-0 rounded-2xl overflow-hidden duration-500 cursor-pointer z-20"
-    >
+    <div className="group relative rounded-2xl overflow-hidden shadow-lg transition-all duration-500 transform hover:scale-105 hover:shadow-2xl">
       <img
-        className="w-full lg:size-100  rounded-2xl"
-        src={image}
+        className=" object-cover"
+        src={isDark ? darkImage : image}
         alt={mention}
       />
     </div>
@@ -44,181 +79,126 @@ const Item: React.FC<ItemProps> = ({ mention, image, onClick }) => {
 };
 
 export const FiliereSection = () => {
-  const { translate } = useLangue();
   const { isDark } = useThemeContext();
 
   return (
-    <>
-      <div
-        id="filiere"
-        className="hidden md:flex flex-col justify-center text-gray-800 items-center transition-all duration-500 w-full h-max dark:bg-zinc-800 bg-gray-200 pb-10 z-10"
-      >
+    <div
+      id="filiere"
+      className="py-16 bg-gray-100 dark:bg-zinc-900 transition-colors duration-300"
+    >
+      <div className="container mx-auto px-4">
         <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.7 }}
+          initial={{ y: -50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
           viewport={{ amount: 0.2, once: true }}
-          className="flex items-center justify-center pt-10 flex-col"
+          className="text-center mb-12"
         >
-          <h1 className="flex text-center lg:text-start text-green-700 font-bold text-4xl">
+          <h1 className="text-green-700 dark:text-green-500 font-bold text-4xl md:text-5xl">
             NOS MENTIONS
           </h1>
-          <p className="flex lg:text-start text-lg transition-all duration-500 dark:text-white pt-5 ">
-            L'ASJA propose 6 domaines de formations:
+          <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto">
+            L'ASJA propose 6 domaines de formations pour préparer les leaders de
+            demain.
           </p>
         </motion.div>
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ amount: 0.2, once: true }}
-          className="flex justify-center items-center w-9/10 md:p-3 md:gap-20 gap-5 my-10 flex-col lg:flex-row md:flex-col "
-        >
-          <Item
-            mention="SCIENCES AGRONOMIQUES"
-            image={isDark ? Dark : Image2}
-            onClick={() => (window.location.href = "/mention/agronomie")}
-          />
-          <Item
-            mention="INFORMATIQUE"
-            image={isDark ? Dark2 : Image}
-            onClick={() => (window.location.href = "/mention/informatique")}
-          />
-          <Item
-            mention="DROIT"
-            image={isDark ? Dark3 : Image3}
-            onClick={() => (window.location.href = "/mention/droit")}
-          />
-        </motion.div>
-        <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ amount: 0.2, once: true }}
-          className="flex justify-center items-center w-9/10 md:p-3 md:gap-20 gap-5 flex-col lg:flex-row md:flex-col "
-        >
-          <Item
-            mention={translate("filiereSection.ST.name")}
-            image={isDark ? Dark4 : Image4}
-            onClick={() =>
-              (window.location.href = "/mention/science-de-la-terre")
-            }
-          />
-          <Item
-            mention="LANGUES ETRANGERES APPLIQUEES"
-            image={isDark ? Dark5 : Image5}
-            onClick={() =>
-              (window.location.href = "/mention/langue-etrangere-applique")
-            }
-          />
-          <Item
-            mention="ECONOMIE ET COMMERCE"
-            image={isDark ? Dark6 : Image6}
-            onClick={() => (window.location.href = "/mention/economie")}
-          />
-        </motion.div>
+
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filieres.map((filiere, index) => (
+            <motion.div
+              key={index}
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: 'easeOut',
+              }}
+              viewport={{ amount: 0.2, once: true }}
+              onClick={() => (window.location.href = filiere.link)}
+              className="cursor-pointer"
+            >
+              <ItemCard {...filiere} isDark={isDark} />
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="md:hidden">
+          <FiliereSectionCarousel isDark={isDark} />
+        </div>
       </div>
-      <FiliereSectionCarousel />
-    </>
+    </div>
   );
 };
 
-const FiliereSectionCarousel = () => {
-  const { translate } = useLangue();
-  const [current, setCurrent] = useState<number>(0);
-  const [count, setCount] = useState<number>(0);
+const FiliereSectionCarousel = ({ isDark }: { isDark: boolean }) => {
+  const [api, setApi] = useState<any>(null);
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
 
-  const { isDark } = useThemeContext();
+  const updateCarouselState = useCallback(() => {
+    if (api) {
+      setCount(api.scrollSnapList().length);
+      setCurrent(api.selectedScrollSnap());
+    }
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) return;
+
+    updateCarouselState();
+    api.on('select', updateCarouselState);
+    api.on('reInit', updateCarouselState);
+
+    return () => {
+      api.off('select', updateCarouselState);
+    };
+  }, [api, updateCarouselState]);
 
   return (
-    <div className="flex flex-col md:hidden justify-center text-gray-800 items-center transition-all duration-500 w-full h-max dark:bg-zinc-900 bg-gray-100 pb-10 z-10">
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ amount: 0.2, once: true }}
-        className="flex items-center justify-center py-5 flex-col"
-      >
-        <h1 className="flex text-center lg:text-start text-green-700 font-bold text-4xl">
-          NOS MENTIONS
-        </h1>
-        <p className="flex text-center lg:text-start text-lg transition-all duration-500 dark:text-white ">
-          L'ASJA propose 6 domaines de formations
-        </p>
-      </motion.div>
+    <>
       <Carousel
+        setApi={setApi}
+        plugins={[
+          Autoplay({
+            delay: 3000,
+            stopOnInteraction: true,
+            stopOnMouseEnter: true,
+          }),
+        ]}
         opts={{
-          align: "start",
           loop: true,
+          align: 'start',
         }}
-        setApi={(api) => {
-          if (!api) return;
-          setCount(api.scrollSnapList().length);
-          setCurrent(api.selectedScrollSnap());
-          api.on("select", () => setCurrent(api.selectedScrollSnap()));
-        }}
-        className="w-full px-2 md:px-0 lg:max-w-2/3 md:max-w-2/3 flex md:hidden "
+        className="w-full"
       >
         <CarouselContent>
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-            <Item
-              mention="SCIENCES AGRONOMIQUES"
-              image={isDark ? Dark : Image2}
-              onClick={() => (window.location.href = "/mention/agronomie")}
-            />
-          </CarouselItem>
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-            <Item
-              mention="INFORMATIQUE"
-              image={isDark ? Dark2 : Image}
-              onClick={() => (window.location.href = "/mention/informatique")}
-            />
-          </CarouselItem>
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-            <Item
-              mention="DROIT"
-              image={isDark ? Dark3 : Image3}
-              onClick={() => (window.location.href = "/mention/droit")}
-            />
-          </CarouselItem>
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-            <Item
-              mention={translate("filiereSection.ST.name")}
-              image={isDark ? Dark4 : Image4}
-              onClick={() =>
-                (window.location.href = "/mention/science-de-la-terre")
-              }
-            />
-          </CarouselItem>
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-            <Item
-              mention="LANGUES ETRANGERES APPLIQUEES"
-              image={isDark ? Dark5 : Image5}
-              onClick={() =>
-                (window.location.href = "/mention/langue-etrangere-applique")
-              }
-            />
-          </CarouselItem>
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-            <Item
-              mention="ECONOMIE ET COMMERCE"
-              image={isDark ? Dark6 : Image6}
-              onClick={() => (window.location.href = "/mention/economie")}
-            />
-          </CarouselItem>
+          {filieres.map((filiere, index) => (
+            <CarouselItem
+              key={index}
+              onClick={() => (window.location.href = filiere.link)}
+            >
+              <div className="p-1">
+                <ItemCard {...filiere} isDark={isDark} />
+              </div>
+            </CarouselItem>
+          ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
       </Carousel>
-      <div className="flex justify-center mt-4 space-x-2">
+      <div className="flex justify-center items-center mt-6 space-x-3">
         {Array.from({ length: count }).map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrent(index)}
-            className={`size-3 rounded-full transition-colors ${index === current ? "bg-green-700 dark:bg-white" : "bg-zinc-400"}`}
-          ></button>
+            onClick={() => api?.scrollTo(index)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              index === current
+                ? 'w-6 bg-green-600 dark:bg-green-500'
+                : 'w-2 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
         ))}
       </div>
-    </div>
+    </>
   );
 };
