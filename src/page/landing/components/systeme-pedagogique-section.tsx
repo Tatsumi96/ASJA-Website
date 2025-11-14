@@ -137,7 +137,7 @@ export const SystemePedagogiqueSection = () => {
     <div
       ref={observerRef}
       id="systeme"
-      className="py-16 md:py-24 bg-gray-50 dark:bg-zinc-900 transition-colors duration-300"
+      className="py-16 md:py-24 bg-gray-50 dark:bg-zinc-900 transition-all duration-500"
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -147,10 +147,10 @@ export const SystemePedagogiqueSection = () => {
           viewport={{ amount: 0.2, once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <h1 className="text-green-700 dark:text-green-500 font-bold text-4xl md:text-5xl">
+          <h1 className="text-green-700 dark:text-green-500 font-bold text-4xl md:text-5xl transition-all duration-500">
             SYSTÈME PÉDAGOGIQUE
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 max-w-3xl mx-auto transition-all duration-500">
             Une approche équilibrée pour une formation complète, alliant théorie
             solide et pratique immersive.
           </p>

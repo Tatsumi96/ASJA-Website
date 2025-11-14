@@ -94,7 +94,7 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center gap-2">
             <DesktopNav onFiliereClick={handleFiliereClick} />
             <button
-              className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-zinc-700 transition-colors"
+              className="p-2 cursor-pointer rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-zinc-700 transition-colors"
               onClick={toggleTheme}
               aria-label="Toggle theme"
             >
