@@ -1,11 +1,11 @@
 import Logo from '@/assets/Logo/asja-logo.png';
 import { useTheme } from '@/page/theme/useTheme';
+import { motion } from 'framer-motion';
 import { LogOut, Moon, Sun } from 'lucide-react';
 import type { Dispatch, SetStateAction } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStudentPortalContext } from '../bloc/useStudentSpaceContext';
 import { BottomBar } from './bottom-bar';
-import { motion } from 'framer-motion';
 
 export const NavBar = ({
   callBack,
@@ -24,7 +24,6 @@ export const NavBar = ({
 
   return (
     <>
-      {/* Top Navigation Bar */}
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -57,7 +56,6 @@ export const NavBar = ({
         </div>
       </motion.div>
 
-      {/* Bottom Navigation Bar for Mobile */}
       <div className="md:hidden fixed bottom-4 left-0 right-0 z-50">
         <BottomBar callBack={callBack} index={index} />
       </div>

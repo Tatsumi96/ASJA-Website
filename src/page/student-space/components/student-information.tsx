@@ -45,7 +45,7 @@ export const StudentInformation = () => {
             transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
             className="flex flex-col justify-center w-full items-center gap-2"
           >
-            <h2 className="text-2xl font-bold drop-shadow-lg">
+            <h2 className="text-2xl font-bold drop-shadow-lg text-black dark:text-gray-200">
               {userData?.name} {userData?.lastName}
             </h2>
             <div className="flex w-full justify-center gap-4 py-4 mt-4">
@@ -53,7 +53,7 @@ export const StudentInformation = () => {
               <PaymentBadge paid={userData?.Deuxieme ?? false} />
               <PaymentBadge paid={userData?.Troisieme ?? false} />
             </div>
-            <div className="text-center text-gray-200 space-y-1">
+            <div className="text-center text-black dark:text-gray-200 space-y-1">
               <p>
                 <span className="font-semibold">Mention :</span>{' '}
                 {userData?.mention}
@@ -63,7 +63,8 @@ export const StudentInformation = () => {
                 {userData?.branche}
               </p>
               <p>
-                <span className="font-semibold">Niveau :</span> {userData?.level}
+                <span className="font-semibold">Niveau :</span>{' '}
+                {userData?.level}
               </p>
               <p>
                 <span className="font-semibold">Matricule :</span>{' '}

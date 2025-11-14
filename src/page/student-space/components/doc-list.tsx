@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion , easeInOut } from 'framer-motion';
 import { Download, FileText } from 'lucide-react';
 import { useStudentPortalContext } from '../bloc/useStudentSpaceContext';
 import { useDocTable } from '../hooks/useDocFileTable';
@@ -14,7 +14,7 @@ const docVariants = {
     transition: {
       delay: i * 0.1,
       duration: 0.5,
-      ease: 'easeOut',
+      ease: easeInOut,
     },
   }),
 };
@@ -30,7 +30,7 @@ export const DocDataTable = () => {
   return (
     <Card className="w-full h-full bg-white/10 dark:bg-black/20 backdrop-blur-lg rounded-2xl p-1 md:p-4 border-0">
       <div className="p-4">
-        <h2 className="text-2xl font-bold text-white drop-shadow-lg mb-4">
+        <h2 className="text-2xl font-bold text-black dark:text-gray-200 drop-shadow-lg mb-4">
           Liste des documents
         </h2>
         <ScrollArea className="h-[calc(100vh-250px)] pr-4">
@@ -52,7 +52,7 @@ export const DocDataTable = () => {
                         <p className="font-semibold">
                           {row.original.lessonTitle}
                         </p>
-                        <p className="text-sm text-gray-300">
+                        <p className="text-sm text-black dark:text-gray-200">
                           {row.original.author}
                         </p>
                       </div>
@@ -68,7 +68,7 @@ export const DocDataTable = () => {
                   </motion.div>
                 ))
               ) : (
-                <div className="text-center py-10 text-gray-300">
+                <div className="text-center py-10 text-black dark:text-gray-200">
                   <p>Aucun document pour l'instant.</p>
                 </div>
               )}
