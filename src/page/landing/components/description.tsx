@@ -4,7 +4,7 @@ import { useThemeContext } from '@/page/theme/useThemeContext';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 
-import asjaDark from '@/assets/Asja-dark.jpg';
+import asjaDark from '@/assets/Asja-dark-quality.jpg';
 
 export const Description = () => {
   const scrollToFiliere = () => {
