@@ -59,7 +59,7 @@ export const LoginForm = () => {
         <input
           className="w-full pl-12 pr-4 py-3 bg-white/20 dark:bg-black/20 text-white placeholder-gray-300 border border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
           type="number"
-          placeholder={translate('loginPage.matricule')}
+          placeholder={'matricule'}
           onChange={(e) => setMatricule(parseInt(e.target.value))}
         />
       </motion.div>
