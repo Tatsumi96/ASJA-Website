@@ -1,11 +1,11 @@
-import { useStudentPortalContext } from '../bloc/useStudentSpaceContext';
-import { Avatar } from '@/components/ui/avatar';
 import logo from '@/assets/Logo/asja-logo.png';
+import { Avatar } from '@/components/ui/avatar';
 import { Card } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { PostListSkeleton } from './post-list-skeleton';
-import { AnimatePresence, motion } from 'framer-motion';
 import { Separator } from '@/components/ui/separator';
+import { AnimatePresence, motion , easeInOut } from 'framer-motion';
+import { useStudentPortalContext } from '../bloc/useStudentSpaceContext';
+import { PostListSkeleton } from './post-list-skeleton';
 
 const postVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -15,7 +15,7 @@ const postVariants = {
     transition: {
       delay: i * 0.15,
       duration: 0.5,
-      ease: 'easeOut',
+      ease: easeInOut,
     },
   }),
 };
@@ -29,7 +29,7 @@ export const PostList = () => {
 
   return (
     <Card className="w-full h-full bg-white/10 dark:bg-black/20 backdrop-blur-lg rounded-2xl p-1 md:p-4 border-0">
-      <ScrollArea className="h-full">
+      <ScrollArea className="h-250">
         <div className="p-4 space-y-6">
           <AnimatePresence>
             {post.map((item, i) => (
@@ -46,15 +46,15 @@ export const PostList = () => {
                     <img src={logo} alt="ASJA Logo" />
                   </Avatar>
                   <div>
-                    <p className="font-bold text-lg drop-shadow-md">
+                    <p className="font-bold text-lg drop-shadow-md text-black dark:text-gray-200">
                       {item.title}
                     </p>
-                    <p className="text-xs text-gray-300">
+                    <p className="text-xs  text-black dark:text-gray-200">
                       Publié le {item.date}
                     </p>
                   </div>
                 </div>
-                <p className="text-gray-200 text-sm md:text-base">
+                <p className="text-sm md:text-base text-black dark:text-gray-200">
                   {item.description}
                 </p>
                 {item.imageUrl && (
